@@ -13,6 +13,7 @@ import Privacy_policy from "./components/Privacy_policy/Privacy_policy";
 import Term_condition from "./components/Term_condition/Term_condition";
 import Admin_dashboard from "./components/Admin_dashboard/Admin_dashboard";
 import About_us from "./components/About_page/About_us";
+import Default_page from "./components/Default_page/Default_page";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/about" element={<About_us />} />
         <Route path="/privacy_policy" element={<Privacy_policy />} />
         <Route path="/terms_condition" element={<Term_condition />} />
+        <Route path="/*" element={<Default_page />} />
       </Routes>
       </FirebaseProvider>
      <Footer />

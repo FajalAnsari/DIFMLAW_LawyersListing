@@ -68,7 +68,7 @@ const Lawyers_profile_card = () => {
 
           {/* expertise and services start */}
 
-          <Expertise_and_services experience={data.experience}/>
+          <Expertise_and_services experience={data.experience} Bio={data.summary}/>
           {/* expertise and services end */}
         </div>
         {/* lawyer profile card end */}

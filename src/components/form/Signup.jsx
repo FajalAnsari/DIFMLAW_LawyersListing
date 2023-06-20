@@ -363,6 +363,7 @@ const Signup = () => {
                 placeholder="Write about yourself..."
                 id="form6Example7"
                 rows="4"
+                maxlength="250"
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
               ></textarea>

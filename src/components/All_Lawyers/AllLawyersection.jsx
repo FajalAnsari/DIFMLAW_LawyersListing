@@ -43,7 +43,7 @@ useEffect(()=>{
 }, [])
 
 const [currentPage, setCurrentPage] = useState(0);
-const usersPerPage = 5;
+const usersPerPage = 6;
 const offset = currentPage * usersPerPage;
 const currentUsers = lawyers.slice(offset, offset + usersPerPage);
 const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
