@@ -1,0 +1,96 @@
+.btn-primary{
+    background-color: #24478F !important;
+  }
+  .btn-primary:hover{
+      opacity: 0.90 !important;
+  }
+  .logo{
+    width: 40px;
+  }
+  .footer-1{
+    width: 80%;
+  }
+  .content{
+    width: 480px;
+    font-size: 18px;
+  }
+  .Devwares{
+    font-weight: 600;
+  }
+  .lis{
+    list-style: none; 
+    cursor: pointer;
+  }
+  .f-1{
+   margin-top: auto;
+  }
+  
+  .pk-1:hover{
+  background-color: #24478F !important;
+  color:  #fff;
+  }
+  .ficon{
+  width: 40px;
+  border: 2px solid var(--text-blue-900);
+  color:  #24478F;
+  }
+  .s-1{
+    border: 2px solid var(--text-blue-900);
+    border-radius: 0px 10px 10px 0px; 
+  }
+  .ss-2{
+    border: 2px solid var(--text-blue-700);
+    border-radius:  10px 0px 0px 10px !important;
+  }
+  .per1{
+    height: 52px;
+    border-radius: 50%;
+    width: 55px !important;
+    margin-top: -6px;
+    margin-left: -7px;
+     border-radius: 20px solid rebeccapurple !important;
+  }
+.dropdown-menu{
+    margin-top: 5px !important;
+    
+}
+.profile{
+    width: 30% !important;
+    margin-right: 10px !important;
+    
+}
+#profiles{
+    width: 25%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.btn-group{
+    margin-left: 65px;
+    border: 2px solid var(--text-black-900);
+    border-radius: 10px 10px 10px 10px; 
+}
+.npjh{
+  border-radius: 48px 20px 20px 48px; 
+  height: 55px;
+}
+.text-dark:hover{
+  font-weight: 500 !important;
+  color: #24478F !important;
+}
+.text-dark{
+  font-weight: 400;
+}
+@media only screen and (max-width: 540px) {
+  .content{
+    width: 300px;
+  }
+  .s-1{
+    width: 90px;
+    border-radius: 0px 5px 5px 0px !important; 
+    margin-top: 0px;
+  }
+  .ss-2{
+    width: 190px;
+    border-radius:  5px 0px 0px 5px !important;
+  }
+}

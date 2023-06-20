@@ -1,0 +1,155 @@
+#cat{
+    color: var(--text-blue-900) !important;
+}
+.section-2{
+    background-color: var(--text-blue-700);
+}
+
+.categories{
+padding-bottom: 90px;
+}
+.category{
+    background-color: var(--bg-dimwhite-900);
+    border-radius: 17px !important;
+}
+h6{
+
+ /* font-style: normal; */
+font-weight: 490;
+font-size: 16px;
+line-height: 19px; 
+} 
+p{
+    font-weight: 490;
+font-size: 22px;
+line-height: 28px;
+}
+.ecard:hover{
+ transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+#suggest{
+    color: var(--text-blue-900);
+    font-weight: 700;
+font-size: 100%;
+line-height: 75px;
+}
+#ques{
+    width: 40px !important;
+    height: 80px !important;
+}
+.cont{
+    background-color: var(--text-blue-700); 
+    border-radius: 9px; 
+}
+.suggestion{
+    position: absolute;
+    margin-left: 6% !important;
+    width: 55% !important;
+    padding: 1.6%;
+    margin-top: -70px;
+    border-radius: 20px !important;
+    height: 16% !important;
+}
+
+.cat_law{
+    height: 200px;
+    background-color: var(--text-blue-700);
+}
+
+
+
+
+
+.featured{
+    margin-top: 100px !important;
+}
+
+.lawyers{
+    background-color: var(--bg-dimwhite-900);
+}
+.viewbtn{
+    border-radius: 50px !important;
+    font-size: smaller;
+}
+
+.sfcs:hover{
+   background-color: white !important;
+   color: var(--text-blue-900);
+}
+
+.exp{
+    font-size: 69.59% !important;
+
+font-weight: 600 !important;
+
+
+}
+.card{
+    border-radius: 17px !important;
+}
+.lawyers-desc{
+    font-size: 13px !important;
+    color: #585858;
+
+font-style: normal;
+font-weight: 490 !important;
+/* font-size: 12px; */
+line-height: 21px !important;
+}
+
+.city{
+    margin-top: -7px !important;
+    font-size: 14px !important;
+    /* font-weight: 0 !important; */
+}
+
+.lawyers-card{
+    margin-top: 59px !important;
+    width: 300px;
+    justify-content: space-between !important;
+    margin: auto;
+    
+}
+.lawyers_profile{
+    margin: 60px;
+}
+.lawyer{
+    margin-top: -20px !important;
+}
+.lawpics{
+    height: 65px;
+    border-radius: 50%;
+    width: 65px;
+    margin-top: -8px;
+}
+.summ{
+    margin: 0;
+    text-indent: 0rem;
+    text-align: justify;
+  }
+
+/* media query for lawyer profile card */
+@media screen and (max-width: 587px) {
+
+    .sugg  {
+      font-size: smaller;
+      margin-bottom: 10px !important;
+      
+    }
+    .suggestion{
+        height: 160px !important;
+        width: 305px !important;
+    }
+    .fs-1{      
+        font-size: x-large !important;
+    }
+    .cont{
+        margin-top: -40px !important;
+    }
+    .sal{
+        margin-top: -80px !important;
+    }
+    
+  }

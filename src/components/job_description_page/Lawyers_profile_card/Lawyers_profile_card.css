@@ -1,0 +1,32 @@
+.law{
+    background-color: var(--bg-dimwhite-900);
+}
+
+.laywer_city{
+    font-size: 95% !important;
+    margin-top: -10px !important;
+  
+   
+}
+.laywer_exp{
+    margin-top: -10px !important;
+    font-size: 90% !important;
+    font-weight: 600 !important;
+}
+.star{
+    margin-top: -15px !important; 
+    
+}
+.ab{
+    justify-content: center !important;
+   
+}
+.save{
+    margin-top: -16px !important;
+    font-size: 80% !important;
+}
+.lprocls{
+    height: 130px;
+    border-radius: 50%;
+    width: 130px;
+}

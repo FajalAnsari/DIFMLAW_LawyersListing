@@ -1,0 +1,28 @@
+.lawyer_name{
+    font-size: 83% !important;
+}
+.lawyer_work_experience{
+    font-size: 63% !important;
+
+
+}
+.lawyer_work_type{
+    font-size: 63% !important;
+
+}
+.view_more {
+    font-size: 60% !important;
+}
+.load_more{
+    background-color: var(--text-blue-700);
+}
+.abd{
+  text-decoration: none !important;  
+  margin: auto !important;
+}
+.pics-pro{
+    height: 65px;
+    border-radius: 50%;
+    width: 65px;
+    margin-left: 10px;
+}

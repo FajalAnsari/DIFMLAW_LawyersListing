@@ -1,0 +1,33 @@
+.legal_network{
+    position: absolute;
+    margin-left: 6.30% !important;
+    width: 55%;
+    padding: 2.1%;
+    margin-top: -70px;
+    border-radius: 20px !important;
+}
+.lagal_part{
+font-weight: 400 !important;
+font-size: 14px !important;
+line-height: 20px !important;
+text-align: justify !;
+
+color: #585858;
+
+}
+.reg_btn{
+width: 40% !important;
+margin-left: 19px !important;
+font-size: 83.2% !important;
+/* margin: auto !important; */
+}
+
+@media screen and (max-width: 587px) {
+    .legal_network{
+        width: 82%;
+    }
+    .reg_btn{
+        width: 80% !important;
+        margin-top: 10px !important;
+    }
+}
