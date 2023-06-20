@@ -3,8 +3,11 @@ import "./AllLawyer.css";
 import { lawyer_pic } from '../images';
 import Lawyerscards from '../Hero/Lawyerscards';
 import AllLawyersection from './AllLawyersection';
+import { collection, getCountFromServer } from "firebase/firestore";
+import { db } from '../../firebase';
 
 const All_Lawyers = () => {
+  const [totalLawyers, setTotalLawyers] = useState(0);
   const [selectedValue, setSelectedValue] = useState('');
 
 
@@ -15,6 +18,14 @@ const All_Lawyers = () => {
     console.log(searchLawyer);
     alert("search lawyer");
   }
+// total lawyers count
+const total_count = async () => {
+  const coll = collection(db, "lawyers");
+  const snapshot = await getCountFromServer(coll);
+  setTotalLawyers(snapshot.data().count);
+
+}
+total_count();
 
   return (
     <>
@@ -193,7 +204,7 @@ const All_Lawyers = () => {
      <div className="row">
         <div className="col-md-6">
          <h4>All Lawyers</h4>
-         <p className='fs-6'>Showing 22 results</p> 
+         <p className='fs-6'>Showing {totalLawyers} results</p> 
         </div>
 
 

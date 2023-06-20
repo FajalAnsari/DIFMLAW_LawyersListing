@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Lawyerscards = () => {
   const navigate = useNavigate();
-    const [lawyers, setLawyers] = useState([]);
+  const [limit , setLimit] = useState(8);
+  const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
@@ -21,12 +22,13 @@ useEffect(()=>{
     fetchPost();
 }, [])
 
+const slice = lawyers.slice(0, limit);
   return (
     <>
     {/* lawyers featured end */}
     <div className="row mx-auto lawyers_profile">
     {
-      lawyers?.map((data,i)=>(
+      slice?.map((data,i)=>(
       <div className="col-lg-3 rounded-3 lawyer mt-4 bg-white card shadow p-3 mb-5 bg-body rounded lawyers-card"  key={i}>
         <div className="row  mt-2" id="lawyer">
           <div className="col-lg-4 col-sm-4 col-6">

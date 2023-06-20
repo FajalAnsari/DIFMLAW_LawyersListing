@@ -55,7 +55,7 @@ const All_lawyers_card = () => {
       <div className="col-lg-3">
           <div className="row">
            
-            <button className="view_more btn btn-primary cont mt-5 w-75 fs-6" onClick={(e)=> navigate(`/job/${data.id}`)}>
+            <button className="view_more btn btn-primary cont mt-4 w-75 fs-6" onClick={(e)=> navigate(`/job/${data.id}`)}>
               View Profile
             </button>
             

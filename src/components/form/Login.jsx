@@ -56,7 +56,7 @@ const Login = () => {
           <div class="form-outline mb-3">
           <label class="form-label" for="form3Example4">Password</label>
             <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter Password fill" 
+              placeholder="Enter Password" 
               name="password" 
               value={password}
               onChange={handlePasswordChange} required/>          

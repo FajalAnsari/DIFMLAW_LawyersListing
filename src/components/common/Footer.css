@@ -1,5 +1,5 @@
 .btn-primary{
-    background-color: #24478F !important;
+    background-color: var(--text-blue-900) !important;
   }
   .btn-primary:hover{
       opacity: 0.90 !important;
@@ -26,13 +26,13 @@
   }
   
   .pk-1:hover{
-  background-color: #24478F !important;
+  background-color: var(--text-blue-900) !important;
   color:  #fff;
   }
   .ficon{
   width: 40px;
   border: 2px solid var(--text-blue-900);
-  color:  #24478F;
+  color:  var(--text-blue-900);
   }
   .s-1{
     border: 2px solid var(--text-blue-900);

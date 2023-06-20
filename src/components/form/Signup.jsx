@@ -116,7 +116,6 @@ const Signup = () => {
                         uid: user.uid,
                         username,
                         authProvider: "local",
-                        email,
                         email: email,
                         number: phone,
                         experience: experience,
