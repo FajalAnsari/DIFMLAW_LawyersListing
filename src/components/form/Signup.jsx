@@ -316,15 +316,13 @@ const Signup = () => {
               </select>
             </div>
             <div class="col-md-6">
-              <p class="form-label  fs-6">Profile Picture</p>
-              <label for="inputpictur" class="form-control pic5">
-                Choose your profile picture
+              <label for="inputpictur" class="form-label">
+              Profile Picture
               </label>
               <input
                 type="file"
                 placeholder="Choose your profile picture"
                 class="form-control"
-                id="inputpictur"
                 name="picture"
                 onChange={(e) => setPicture(e.target.files[0])}
               />
