@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./AllLawyer.css";
 import { lawyer_pic } from '../images';
+import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import AllLawyersection from './AllLawyersection';
 import { collection, getCountFromServer } from "firebase/firestore";
@@ -55,151 +56,24 @@ total_count();
     
     <div className="col-12 mx-auto mt-5">
     <div className="row mx-auto">
+
     <div className="col-md-4">
-         <h4>Work Time</h4>
+    {alllawyercategory.map((service) => (
+      <>
+         <h4 className='mt-3'>{service.title}</h4>
+         {service.children &&
+            service.children.map((child) => (
          <div class="form-check mt-2">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-            Full time
+           {child.title}
            </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
-           <label class="form-check-label" for="flexCheckChecked">
-            Part time
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-            Remote
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-            Internship
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-            Contract
-           </label>
-        </div>
-
-        <h4 className='mt-3'>Categories</h4>
-        <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-            Injury Lawyers
-           </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
-           <label class="form-check-label" for="flexCheckChecked">
-            Family Law Lawyers
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Defense Lawyers
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Corporate Lawyers
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Immigration Lawyers
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Property Lawyers
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Real Estate Lawyers
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Employment Lawyers
-           </label>
-        </div>
-
-        <h4 className='mt-3'>Rating</h4>
-         <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Entry Level
-           </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
-           <label class="form-check-label" for="flexCheckChecked">
-           Mid Level
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Senior Level
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Director
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           VP or above
-           </label>
-        </div>
-
-
-        <h4 className='mt-3'>Location</h4>
-         <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Uttar Pradesh
-           </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
-           <label class="form-check-label" for="flexCheckChecked">
-           Madhya Pradesh
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Andhra Pradesh
-           </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
-           Himachal Pradesh
-           </label>
-        </div>
-
+         ))}
+        </>
+      ))}
     </div>
-
-
+  
   <div className="col-md-8">
      <div className="row">
         <div className="col-md-6">

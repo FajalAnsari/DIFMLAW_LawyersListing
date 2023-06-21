@@ -22,8 +22,7 @@ const EditProfile = () => {
     const [bio, setBio] = useState('');
     const [location, setLocation] = useState('');
     const [setUserId ,getUserId] = useState("");
-  // const [pic , setpic] = useState("");
-  const [url , setUrl] = useState("");
+    const [url , setUrl] = useState("");
     const fetchUserName = async () => {
     
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
@@ -83,6 +82,18 @@ const EditProfile = () => {
     }, [user, loading]);
    
 
+
+
+    const biohaldle=(e)=>{
+      // Here we are checking if the length is equal to 10
+      if(e.target.value.length===250){ 
+        window.alert("Summary can't be more then 30 words!");
+        return false;
+      }
+      setBio(e.target.value);
+    }
+  
+
 const handleUpdate = async (e) => {
     e.preventDefault()
 
@@ -141,7 +152,7 @@ const handleUpdate = async (e) => {
                             </div>
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEmail">Email</label>
-                                <input className="form-control ed" id="inputEmail" type="email" placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                                <input className="form-control ed" id="inputEmail" type="email" placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
@@ -189,7 +200,7 @@ const handleUpdate = async (e) => {
                            
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEducation">Education</label>
-                                <input className="form-control ed" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} />
+                                <input className="form-control ed" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} required/>
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
@@ -212,9 +223,9 @@ const handleUpdate = async (e) => {
                             </div>
                         </div>
                         <div class="col-md-12">
-              <label for="inputZip" class="form-label">Bio/Profile Summary</label>
-              <textarea class="form-control ed"  id="form6Example7" rows="4" placeholder={bio} value={bio} onChange={(e) => {setBio(e.target.value)}}></textarea>
-            </div>
+                        <label for="inputZip" class="form-label">Bio/Profile Summary</label>
+                        <textarea class="form-control ed text-primary" maxLength="250"  id="form6Example7" rows="4" placeholder={bio} value={bio} onChange={biohaldle}></textarea>
+                        </div>
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">

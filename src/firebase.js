@@ -1,10 +1,10 @@
 // Your web app's Firebase configuration
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc } from "@firebase/firestore";
 import { getStorage } from "firebase/storage";
 import "firebase/storage";
-import {getAuth } from "firebase/auth";
+import {getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 
@@ -23,6 +23,14 @@ const firebaseConfig = {
 export const useFirebase = () => useContext(FirebaseContext);
 export const FirebaseProvider = (props) => {
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) setUser(user);
+      else setUser(null);
+    });
+  }, []);
   
   const getUsersId = async (id) => {
     const docRef = doc(db, "lawyers", id);
@@ -30,8 +38,10 @@ export const FirebaseProvider = (props) => {
     return result;
   };
 
+  const isLoggedIn = user ? true : false;
+
    return < FirebaseContext.Provider 
-   value={{ getUsersId }}
+   value={{ getUsersId, isLoggedIn }}
    >
     {props.children}
     </FirebaseContext.Provider>

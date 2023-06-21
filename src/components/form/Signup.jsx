@@ -55,7 +55,15 @@ const Signup = () => {
   const [confirmPass, setConfirmPass] = useState("");
   // const [user, loading] = useAuthState(auth);
 
-  
+  const biohaldle=(e)=>{
+    // Here we are checking if the length is equal to 10
+    if(e.target.value.length===250){ 
+      window.alert("Summary can't be more then 30 words!");
+      return false;
+    }
+    setBio(e.target.value);
+  }
+
   const handleLawyerFormSubmit = (event) => {
     event.preventDefault();
     // Write logic to submit the form data to the server
@@ -138,6 +146,7 @@ const Signup = () => {
         setError("Your password and confirm password is doesn't match!");
       }
     }
+
   };
 
   //this is for users
@@ -181,7 +190,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className="container  form-container mt-4 form-control">
+      <div className="container  form-container mt-4 form-control mb-4">
 
         {isLawyer && (
           <>
@@ -316,15 +325,13 @@ const Signup = () => {
               </select>
             </div>
             <div class="col-md-6">
-              <p class="form-label  fs-6">Profile Picture</p>
-              <label for="inputpictur" class="form-control pic5">
-                Choose your profile picture
+              <label for="inputpictur" class="form-label">
+              Profile Picture
               </label>
               <input
                 type="file"
                 placeholder="Choose your profile picture"
                 class="form-control"
-                id="inputpictur"
                 name="picture"
                 onChange={(e) => setPicture(e.target.files[0])}
               />
@@ -365,8 +372,9 @@ const Signup = () => {
                 placeholder="Write about yourself..."
                 id="form6Example7"
                 rows="4"
+                // maxlength="250"
                 value={bio}
-                onChange={(e) => setBio(e.target.value)}
+                onChange={biohaldle}
               ></textarea>
             </div>
             <p className="text-danger fs-5">{error}</p>

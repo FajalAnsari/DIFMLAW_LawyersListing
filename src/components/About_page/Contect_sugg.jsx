@@ -43,10 +43,10 @@ const Contect_sugg = () => {
        <div className="col-md-6">
        <p className="fs-1 fw-bold text-center">
                 Want{" "}
-                <span id="suggest" className="sugg">
+                <span id="suggest">
                   Our Suggestions
                 </span>{" "}
-                <span id="ques" className="sugg">
+                <span>
                   <b>?</b>
                 </span>
               </p>
