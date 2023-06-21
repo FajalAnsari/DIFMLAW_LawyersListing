@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./AllLawyer.css";
-import { lawyer_pic } from '../images';
+
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import AllLawyersection from './AllLawyersection';
@@ -10,14 +10,15 @@ import { db } from '../../firebase';
 const All_Lawyers = () => {
   const [totalLawyers, setTotalLawyers] = useState(0);
   const [selectedValue, setSelectedValue] = useState('');
-
+  const [getcheckbox, setCheckbox] = useState("");
 
   const [searchLawyer, setLawyerSearch] = useState("");
   const [lawyeradd, setLawyeradd] = useState("");
 
   const SubmitLawyer = () =>{
     console.log(searchLawyer);
-    alert("search lawyer");
+    
+    
   }
 // total lawyers count
 const total_count = async () => {
@@ -27,6 +28,10 @@ const total_count = async () => {
 
 }
 total_count();
+const handleCheckbox = (e) => {
+setCheckbox(e.target.value);
+console.log(getcheckbox);
+}
 
   return (
     <>
@@ -64,7 +69,7 @@ total_count();
          {service.children &&
             service.children.map((child) => (
          <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+          <input class="form-check-input" type="checkbox" value={child.title} id="flexCheckDefault" onChange={handleCheckbox}/>
            <label class="form-check-label" for="flexCheckDefault">
            {child.title}
            </label>
@@ -94,7 +99,7 @@ total_count();
        </div>
 
       {/* all lawyer section cards start */}
-       <AllLawyersection name={searchLawyer} location={lawyeradd} type={selectedValue}/>
+       <AllLawyersection name={searchLawyer} location={lawyeradd} type={selectedValue} checkbox={getcheckbox} />
       {/* all lawyer section cards end */}
 
      </div>

@@ -13,7 +13,7 @@ const Hero = () => {
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h2 className='fq-1'>Find the<br />
+          <h2 className='fq-1'>Find the<br></br>
           <span className='t-1 '>Right Lawyer</span></h2>
           <h2 className='fq-2 mb-4'>For Your Legal Needs</h2>
         
@@ -24,7 +24,7 @@ const Hero = () => {
       </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="200">
-          <img src={law} class="w-75 mt-4 mx-5" alt=""/>
+          <img src={law} class="w-75 mt-4 mx-5" alt="law"/>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { query, collection, getDocs, where, getCountFromServer } from "firebase/firestore";
+import { query, collection, where, getCountFromServer } from "firebase/firestore";
 import { db } from '../../firebase';
 const CategoryCards = ({logo, type,  avalilabe}) => {
   const [Count, setCount] = useState(0);
@@ -19,7 +19,7 @@ const CategoryCards = ({logo, type,  avalilabe}) => {
       <div className='col-lg-3 p-4'>
           
           <div className='category rounded-3 mt-4 p-4 ecard'>
-              <img src={logo} style={{marginLeft:"30%"}} />
+              <img src={logo} style={{marginLeft:"30%"}} alt='cat_logo' />
           <p className='mt-2 mx-2' >{type}</p>
           <div className='d-flex'>
           <h6 className='mt-2'>{Count}{ avalilabe}</h6>

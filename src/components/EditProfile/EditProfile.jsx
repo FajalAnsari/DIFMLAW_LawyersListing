@@ -129,7 +129,7 @@ const handleUpdate = async (e) => {
                 <div className="card-header">Profile Picture</div>
                 <div className="card-body text-center">
                    
-                    <img className="img-account-profile uspro mb-2" src={url} alt=""/>
+                    <img className="img-account-profile uspro mb-2" src={url} alt="user_profile"/>
                    
                     <div className="small font-italic text-muted mb-4"><b className='fs-4'>{username}</b></div>
                     <label for="file" className="btn btn-primary w-10">Upload New Image</label>

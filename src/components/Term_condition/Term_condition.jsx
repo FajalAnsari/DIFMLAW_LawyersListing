@@ -18,8 +18,8 @@ const Term_condition = () => {
        <p className='fs-6'>We make no representations or warranties regarding the availability, accuracy, or completeness of the website or its content. In no event shall Do iT For Me LLC or its affiliates be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in connection with the use or inability to use the website or its content.</p>
        <h4>Governing Law</h4>
        <p className='fs-6 mb-5'>These terms and conditions shall be governed by and construed in accordance with the laws of the United States, without giving effect to any principles of conflicts of law. Any legal action or proceeding arising under these terms and conditions shall be brought exclusively in the state or federal courts located in the United States.    
-       <br />
-       <br />
+       <br></br>
+       <br></br>
        By using our website, you agree to these terms and conditions. If you do not agree to these terms and conditions, please do not use our website. We reserve the right to modify or update these terms and conditions at any time without prior notice.
        </p>
       </div>

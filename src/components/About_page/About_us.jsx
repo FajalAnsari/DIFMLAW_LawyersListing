@@ -18,13 +18,13 @@ const About_us = () => {
             <p className='fs-6 lh-sm mt-4 w-75 mx-auto' style={{textAlign: "justify"}}>At DIFM Law, our mission is to connect lawyers and seekers from around the world in a seamless and efficient way. Our parent company, Do iT For Me LLC, has a long-standing reputation for providing innovative solutions for individuals and businesses alike.</p>
             </div>
             <div className='col-lg-6 col-12'>
-             <img src={our_mission} className='w-75 ms-5 h-100' ></img>
+             <img src={our_mission} className='w-75 ms-5 h-100' alt='our_mission' ></img>
             </div>
         </div>
 
         <div className='row'>
             <div className='col-lg-6 col-12'>
-            <img src={user_friendly} className='w-100 frend'></img>
+            <img src={user_friendly} className='w-100 frend' alt='user_friendly'></img>
             </div>
             <div className='col-lg-6 col-12'> 
              <h2 className='s fw-bold mt-4'>User-Friendly Platform</h2>
@@ -38,13 +38,13 @@ const About_us = () => {
             <p className='fs-6 lh-sm mt-4 w-75 mx-auto' style={{textAlign: "justify"}}>We believe that connecting seekers with the right lawyer can make all the difference, and we're passionate about making that happen. At DIFM Law, we're committed to providing you with the best possible experience, and we're always here to help you with any questions or concerns you may have. Our team of dedicated professionals is available to assist you with any inquiries you may have.</p>
             </div>
             <div className='col-lg-6 col-12'>
-             <img src={user_needs} className='w-100' style={{marginTop:"-50px"}}></img>
+             <img src={user_needs} className='w-100' style={{marginTop:"-50px"}} alt='user_needs'></img>
             </div>
         </div>
 
         <div className='row'>
             <div className='col-lg-6 col-12 mt-4'>
-            <img src={our_promises} className='w-100 h-75 frend'></img>
+            <img src={our_promises} className='w-100 h-75 frend' alt='our_promises'></img>
             </div>
             <div className='col-lg-6 col-12'> 
              <h2 className='s fw-bold mt-4'>Our Promise</h2>

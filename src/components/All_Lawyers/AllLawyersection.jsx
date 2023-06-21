@@ -24,7 +24,7 @@ const AllLawyersection = (props) => {
   
       const q = query(collection(db, "lawyers"), where("work", "==", props.type))
 
-      const querySnapshot = await getDocs(q).then((qq) => {
+           await getDocs(q).then((qq) => {
         const newData = qq.docs
         .map((doc) => ({...doc.data(), id:doc.id }));
         setSelectValue(newData);                
@@ -32,13 +32,29 @@ const AllLawyersection = (props) => {
       });
       unset(true); 
     }
+
+    // get checkbox
+    
+    const checked = async () => {
+  
+      const a = query(collection(db, "lawyers"), where("specialization", "==", props.checkbox))
+
+           await getDocs(a).then((qq) => {
+        const newData = qq.docs
+        .map((doc) => ({...doc.data(), id:doc.id }));
+        console.log(newData);                
+    // console.log(getSelectValue);
+      });
+    
+    }
    
    
 
 
 useEffect(()=>{
     fetchPost();
-   
+    console.log(props.checkbox);
+    checked();
    
 }, [])
 
@@ -58,7 +74,7 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
     <div className="col-md-6">
         <div className="row">
            <div className="col-md-3 mt-3">
-               <img src={data.image} className='rounded-full lawpicd' alt="" />
+               <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
           </div>
 
           <div className="col-md-9">
@@ -101,7 +117,7 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
     <div className="col-md-6">
         <div className="row">
            <div className="col-md-3 mt-3">
-               <img src={data.image} className='rounded-full lawpicd' alt="" />
+               <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
           </div>
 
           <div className="col-md-9">

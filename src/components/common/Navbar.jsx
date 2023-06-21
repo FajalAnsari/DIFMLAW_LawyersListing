@@ -27,6 +27,7 @@ const Navbar = () => {
       setName(data.username);
       // console.log(data)
       setImage(data.image);
+      // console.log(data.username);
       // console.log(user);
       
         // const uid = user.uid;
@@ -62,7 +63,7 @@ const Navbar = () => {
     <>
       <nav class="navbar navbar-expand-lg navbar-light  bg-white shadow">
   <div class="container p-2">
-    <img src={logo} className='me-4 logo mb-2' alt="" />
+    <img src={logo} className='me-4 logo mb-2' alt="difm_law_logo" />
     <Link class="navbar-brand" to={"/"}>DIFM LAW</Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -95,7 +96,7 @@ return (
   <>
       <nav class="navbar navbar-expand-lg navbar-light  bg-white shadow">
   <div class="container p-2">
-    <img src={logo} className='me-4 logo mb-2' alt="" />
+    <img src={logo} className='me-4 logo mb-2' alt="difm_law_logo" />
     <Link class="navbar-brand" to={"/"}>DIFM LAW</Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
