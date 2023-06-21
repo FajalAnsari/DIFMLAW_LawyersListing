@@ -25,13 +25,13 @@ const Navbar = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.username);
-      console.log(data)
+      // console.log(data)
       setImage(data.image);
-      console.log(user);
+      // console.log(user);
       
-        const uid = user.uid;
+        // const uid = user.uid;
         // ...
-        console.log("uid", uid)
+        // console.log("uid", uid)
       } else {
         // User is signed out
         // ...
