@@ -106,10 +106,10 @@ return (
           <Link class="nav-link active" aria-current="page"  to={"/"}>Home</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to={"#"}>About Us</Link>
+          <Link class="nav-link" to={"/about"}>About Us</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to={"#"}>Contact us</Link>
+          <Link class="nav-link" to={"/contect_us"}>Contact us</Link>
         </li>
       </ul>
       <div className="btn-group">

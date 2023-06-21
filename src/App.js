@@ -14,6 +14,7 @@ import Term_condition from "./components/Term_condition/Term_condition";
 import Admin_dashboard from "./components/Admin_dashboard/Admin_dashboard";
 import About_us from "./components/About_page/About_us";
 import Default_page from "./components/Default_page/Default_page";
+import Protected from "./components/Protected";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<EditProfile />} />
-        <Route path="/job/:lawId" element={<Lawyers_profile_card />} />
+        <Route path="/job/:lawId" element={<Protected Component={Lawyers_profile_card}/>} />
         <Route path="/alllawyer" element={<All_Lawyers />} />
         <Route path="/contect_us" element={<Contect_us />} />
         <Route path="/admin" element={<Admin_dashboard />} />
