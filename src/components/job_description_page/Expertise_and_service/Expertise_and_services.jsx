@@ -5,7 +5,7 @@ const Expertise_and_services = (props) => {
   return (
     <div className='row border law border border-primary rounded mt-5 p-4'>
         <h2>Expertise and Services</h2>
-        <p className='fs-5 overflow-hidden'> I am a practitioner of family law I have been working since 2010 ............................. .............................................................................................................................................</p>
+        <p className='fs-6'>{props.Bio}</p>
         <h2>Requirements:</h2>
         <div className='row'>
             <div className='col-lg-6'>
