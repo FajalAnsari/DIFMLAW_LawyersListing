@@ -10,8 +10,8 @@ const Protected = (props) => {
     useEffect(() => {
        let login =firebase.isLoggedIn;
        if(!login){
+        // alert("First you have to login!");
         navigate('/login');
-        alert("First you have to login!");
        }
     },[firebase, navigate]);
   return (
