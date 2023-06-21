@@ -152,7 +152,7 @@ const handleUpdate = async (e) => {
                             </div>
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEmail">Email</label>
-                                <input className="form-control ed" id="inputEmail" type="email" placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                                <input className="form-control ed" id="inputEmail" type="email" placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
@@ -200,7 +200,7 @@ const handleUpdate = async (e) => {
                            
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEducation">Education</label>
-                                <input className="form-control ed" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} />
+                                <input className="form-control ed" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} required/>
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
