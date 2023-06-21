@@ -190,13 +190,13 @@ const Signup = () => {
 
   return (
     <>
-      <div className="container  form-container mt-4 form-control mb-4">
+      <div className="container  form-container mt-4 forms-bg form-control mb-4 border-prime">
 
         {isLawyer && (
           <>
           <button
           type="button"
-          class="btn btn-primary me-4 mt-2"
+          class="btn btns-primary me-4 mt-2"
           id="regist1"
           onClick={handleRegisterAsLawyer}
         >
@@ -215,7 +215,7 @@ const Signup = () => {
             onSubmit={handleLawyerFormSubmit}
           >
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
+              <label for="inputEmail4" class="form-label font-color">
                 Enter Full Name
               </label>
               <input
@@ -228,7 +228,7 @@ const Signup = () => {
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+              <label for="inputPassword4" class="form-label font-color">
                 Enter Email
               </label>
               <input
@@ -241,7 +241,7 @@ const Signup = () => {
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+              <label for="inputPassword4" class="form-label font-color">
                 Phone No.
               </label>
               <input
@@ -255,7 +255,7 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputState" class="form-label">
+              <label for="inputState" class="form-label font-color">
                 Experience
               </label>
               <select
@@ -278,7 +278,7 @@ const Signup = () => {
               </select>
             </div>
             <div class="col-md-6">
-              <label for="inputState" class="form-label">
+              <label for="inputState" class="form-label font-color">
                 Specialization(s)
               </label>
               <select
@@ -300,7 +300,7 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label font-color">
                Enter or choose location
               </label>
                <div class="input-group mb-3">
@@ -310,7 +310,7 @@ const Signup = () => {
              </div>
             </div>
             <div class="col-md-6">
-              <label for="inputState" class="form-label">
+              <label for="inputState" class="form-label font-color">
                 Work Type
               </label>
               <select
@@ -325,7 +325,7 @@ const Signup = () => {
               </select>
             </div>
             <div class="col-md-6">
-              <label for="inputpictur" class="form-label">
+              <label for="inputpictur" class="form-label font-color">
               Profile Picture
               </label>
               <input
@@ -338,7 +338,7 @@ const Signup = () => {
               <span className="text-danger">{fileError}</span>
             </div>
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label font-color">
                 Password
               </label>
               <input
@@ -351,7 +351,7 @@ const Signup = () => {
               />
             </div>
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label font-color">
                 Confirm password
               </label>
               <input
@@ -364,7 +364,7 @@ const Signup = () => {
               />
             </div>
             <div class="col-md-12">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label font-color">
                 Bio/Profile Summary
               </label>
               <textarea
@@ -381,7 +381,7 @@ const Signup = () => {
             <div class="col-md-12 mb-4 ">
               <button
                 type="submit"
-                class="btn btn-primary form-control mt-2 mb-5 signup"
+                class="btn btns-primary form-control mt-2 mb-5 signup"
               >
                 Register Now
               </button>
@@ -402,7 +402,7 @@ const Signup = () => {
         </button>
         <button
           type="button"
-          class="btn btn-primary mt-2"
+          class="btn btns-primary mt-2"
           id="regist2"
           onClick={handleRegisterAsUser}
         >
@@ -410,7 +410,7 @@ const Signup = () => {
         </button>
           <form class="row g-3 me-4 mx-4 mt-4" onSubmit={handleUserFormSubmit}>
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
+              <label for="inputEmail4" class="form-label font-color">
                 Enter Full Name
               </label>
               <input
@@ -423,7 +423,7 @@ const Signup = () => {
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+              <label for="inputPassword4" class="form-label font-color">
                 Enter Email
               </label>
               <input
@@ -436,7 +436,7 @@ const Signup = () => {
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+              <label for="inputPassword4" class="form-label font-color">
                 Phone No.
               </label>
               <input
@@ -450,7 +450,7 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label font-color">
                 State
               </label>
               <input
@@ -464,7 +464,7 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label font-color">
                 Password
               </label>
               <input
@@ -477,7 +477,7 @@ const Signup = () => {
               />
             </div>
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label font-color">
                 Confirm password
               </label>
               <input
@@ -494,7 +494,7 @@ const Signup = () => {
             <div class="col-md-12 mb-4 ">
               <button
                 type="submit"
-                class="btn btn-primary form-control mt-2 mb-5 signup"
+                class="btn btns-primary form-control mt-2 mb-5 signup"
               >
                 Register Now
               </button>

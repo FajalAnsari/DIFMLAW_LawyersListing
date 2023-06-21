@@ -21,7 +21,7 @@ const Contect_now = () => {
 </div>
 </div>
       <div class="mx-auto mb-4">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ const Contect_now = () => {
       Thank you for contacting us we’ll get back to you shortly with some awesome lawyers.
       </h5>
       <a href='/' class="mx-auto mb-4 text-decoration-none mt-4">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
       </a>
     </div>
   </div>
@@ -53,7 +53,7 @@ const Contect_now = () => {
               </p>
             </div>
             <div className="col-lg-6 text-center col-xs-6 ">
-              <a className="btn btn-primary cont mt-4 w-75" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+              <a className="btn btns-primary cont mt-4 w-75" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                 Contact Now
               </a>
             </div>

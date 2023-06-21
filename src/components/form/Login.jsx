@@ -33,7 +33,7 @@ const Login = () => {
   return (
     <>
     <div className="container">
-    <section class="vh-50 form-control p-5 mt-5 mb-5">
+    <section class="vh-50 form-control p-5 mt-5 mb-5 forms-bg border-prime">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
@@ -44,7 +44,7 @@ const Login = () => {
         <form onSubmit={handleFormSubmit}>
         
           <div class="form-outline mb-4">
-          <label class="form-label" for="form3Example3">Email address</label>
+          <label class="form-label font-color" for="form3Example3">Email address</label>
             <input type="email" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter a valid email address"   
               name="email" 
@@ -54,7 +54,7 @@ const Login = () => {
 
        
           <div class="form-outline mb-3">
-          <label class="form-label" for="form3Example4">Password</label>
+          <label class="form-label font-color" for="form3Example4">Password</label>
             <input type="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter Password" 
               name="password" 
@@ -66,17 +66,17 @@ const Login = () => {
 
             <div class="form-check mb-0">
               <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
-              <label class="form-check-label" for="form2Example3">
+              <label class="form-check-label text-white" for="form2Example3">
                 Remember me
               </label>
             </div>
-            <a href="#!" class="text-body">Forgot password?</a>
+            <a href="#!" class="text-body font-color">Forgot password?</a>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button  class="btn btn-primary btn-lg"
+            <button  class="btn btns-primary btn-lg"
               style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}} >Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/signup"
+            <p class="small fw-bold mt-2 pt-1 mb-0 text-white">Don't have an account? <a href="/signup"
                 class="link-danger">Register</a></p>
           </div>
 

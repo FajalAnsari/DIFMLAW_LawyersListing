@@ -6,6 +6,7 @@
 }
 .consugg{
    margin-top: -150px !important;
+   background-color: var(--second-primary);
 }
 
 @media only screen and (max-width: 1200px) {
