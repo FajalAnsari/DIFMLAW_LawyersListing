@@ -32,8 +32,7 @@ const Login = () => {
 
   return (
     <>
-    <div className="container">
-    <section class="vh-50 form-control p-5 mt-5 mb-5 forms-bg border-prime">
+    <section class="vh-50 form-control p-5 mt-5 mb-5 w-50 mx-auto forms-bg border-prime">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
@@ -86,7 +85,6 @@ const Login = () => {
   </div>
  
 </section>
-  </div>
         </>
   )
 }

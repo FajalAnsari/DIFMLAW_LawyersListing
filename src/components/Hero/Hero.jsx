@@ -23,7 +23,7 @@ const Hero = () => {
       </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="200">
-          <img src={law} class="w-75 mt-4 mx-5" alt=""/>
+          <img src={law} class="w-75 mt-4 mx-5 lawfind1" alt="lawfind"/>
         </div>
       </div>
     </div>

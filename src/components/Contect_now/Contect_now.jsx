@@ -40,11 +40,11 @@ const Contect_now = () => {
 </div>
 
 
-<div className="row bg-white want  rounded-3 suggestion shadow w-50 mx-auto">
+<div className="row want suggestion shadow w-50 mx-auto" style={{borderRadius: "40px"}}>
             <div className="col-lg-6 text-center col-xs-6">
-              <p className="fs-1 fw-bold">
+              <p className="fs-1 fw-bold text-white">
                 Want{" "}
-                <span id="suggest" className="sugg">
+                <span id="suggest" className="sugg font-color">
                   Our Suggestions
                 </span>{" "}
                 <span id="ques" className="sugg">
