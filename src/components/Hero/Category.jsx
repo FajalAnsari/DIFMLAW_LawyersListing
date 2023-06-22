@@ -5,6 +5,7 @@ import CategoryCards from "./CategoryCards";
 import { category } from "../constant/data";
 import Join_Network from '../join_network/Join_Network';
 import Lawyerscards from './Lawyerscards';
+import Testimonial from '../Testimonial/Testimonial';
 
 
 
@@ -85,6 +86,9 @@ const Category = () => {
       </div>
       </div>
       {/* join network end */}
+
+
+      <Testimonial />
     </>
   );
 };

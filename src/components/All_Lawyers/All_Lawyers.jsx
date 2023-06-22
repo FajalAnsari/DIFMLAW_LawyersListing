@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./AllLawyer.css";
-import { lawyer_pic } from '../images';
+import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import AllLawyersection from './AllLawyersection';
@@ -128,7 +128,11 @@ total_count();
           <Lawyerscards />
         </div> 
         {/* lawyers featued end */}
+
       </div>   
+      <div className='mt-5'>
+      <Testimonial />
+      </div>
     </>
   )
 }
