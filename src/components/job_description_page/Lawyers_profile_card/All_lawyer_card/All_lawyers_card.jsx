@@ -34,7 +34,7 @@ const All_lawyers_card = () => {
     <>
     {
        currentUsers?.map((data,i)=>(
-        <div className='view_buttons load_more mt-2 border border-dark'>
+        <div className='view_buttons load_more mt-2 border border-dark' style={{backgroundColor: "var(--second-primary)"}}>
       <div className="row"> 
       <div className="col-lg-9">
           <div className="row">
@@ -44,9 +44,9 @@ const All_lawyers_card = () => {
 
             <div className="col-lg-8 col-6">
           
-            <h5 className='mt-2 fs-6 lawyer_name fw-bold'>{data.username}</h5>
-            <span className='fs-6 lawyer_work_type fw-bold'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6">*****</span><br></br>
-            <span className='lawyer_work_experience fw-bold'>{data.experience}  in practice</span>
+            <h5 className='mt-2 fs-6 lawyer_name fw-bold font-color'>{data.username}</h5>
+            <span className='fs-6 lawyer_work_type fw-bold text-white'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6 text-white">*****</span><br></br>
+            <span className='lawyer_work_experience fw-bold text-white'>{data.experience}  in practice</span>
 
             </div>
           </div>
@@ -55,7 +55,7 @@ const All_lawyers_card = () => {
       <div className="col-lg-3">
           <div className="row">
            
-            <button className="view_more btn btn-primary cont mt-4 w-75 fs-6" onClick={(e)=> navigate(`/job/${data.id}`)}>
+            <button className="view_more btn btns-primary cont mt-4 w-75 fs-6" onClick={(e)=> navigate(`/job/${data.id}`)}>
               View Profile
             </button>
             
@@ -68,7 +68,7 @@ const All_lawyers_card = () => {
  ))
     }
     <div className='mt-2'>
-      <Link className='abd' to='/alllawyer'><p className='fs-5 text-center'>View More</p>
+      <Link className='abd' to='/alllawyer'><p className='fs-5 text-center text-dark'>View More</p>
       </Link>
      </div>
     

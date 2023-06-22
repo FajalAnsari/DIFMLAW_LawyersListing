@@ -32,7 +32,7 @@ total_count();
     <>
    
 <div class="container">
-<h1 className='text-center' id='dis'>Discover more than <span className='discov'>5000+ Lawyers</span></h1>
+<h1 className='text-center text-white' id='dis'>Discover more than <span className='font-color'>5000+ Lawyers</span></h1>
 <div className="col-10 mx-auto">
     <div class="row mt-5 ">
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
@@ -48,10 +48,10 @@ total_count();
         </div>
       </div>
       <div class="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
-        <button class="btn btn-primary btn-block" onClick={SubmitLawyer}>Search</button>
+        <button class="btn btns-primary btn-block" onClick={SubmitLawyer}>Search</button>
       </div>
       </div>
-      <p className='fs-6'>Popular searches :  Defense Lawyers, Real Estate </p>
+      <p className='fs-6 text-white'>Popular searches :  Defense Lawyers, Real Estate </p>
     </div>   
     
     <div className="col-12 mx-auto mt-5">
@@ -60,12 +60,12 @@ total_count();
     <div className="col-md-4">
     {alllawyercategory.map((service) => (
       <>
-         <h4 className='mt-3'>{service.title}</h4>
+         <h4 className='mt-3 font-color'>{service.title}</h4>
          {service.children &&
             service.children.map((child) => (
          <div class="form-check mt-2">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-           <label class="form-check-label" for="flexCheckDefault">
+           <label class="form-check-label text-white" for="flexCheckDefault">
            {child.title}
            </label>
         </div>
@@ -77,14 +77,14 @@ total_count();
   <div className="col-md-8">
      <div className="row">
         <div className="col-md-6">
-         <h4>All Lawyers</h4>
-         <p className='fs-6'>Showing {totalLawyers} results</p> 
+         <h4 className='font-color'>All Lawyers</h4>
+         <p className='fs-6 text-white'>Showing {totalLawyers} results</p> 
         </div>
 
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
         <div class="input-group mb-3">
-        <span class="input-group-text btn-primary" >Sort by : </span>
+        <span class="input-group-text btns-primary" >Sort by : </span>
           <select id="inputState"  class="form-select" onChange={(e)=>setSelectedValue(e.target.value)}>
             <option selected> Most relevant</option>
             <option value="Full Day">Full Day</option>
@@ -103,11 +103,13 @@ total_count();
     </div>
     </div>
 
-    <div className="bg-white">
+
+  </div>
+  <div className="lawyrscard6">
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">
-              <h1 className="mt-4">
+              <h1 className="mt-4 text-white">
               Recommended
                 <span id="cat" className="ms-2">
                   Lawyers
@@ -116,8 +118,8 @@ total_count();
             </div>
             <div className="col-lg-6 featured" >
               <div className="d-flex mt-4 float-xl-end">
-                <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-dark'>Show all lawyers</a></p>
-                <i class="bi bi-arrow-right ms-2 fs-2"></i>
+                <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-white'>Show all lawyers</a></p>
+                <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
               </div>
             </div>
           </div>
@@ -127,8 +129,6 @@ total_count();
         </div> 
         {/* lawyers featued end */}
       </div>   
-
-  </div>
     </>
   )
 }

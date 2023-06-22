@@ -12,6 +12,7 @@ import our_mission from "./difmlaw-our-mission.png";
 import user_friendly from "./difmlaw-user-friendly.png";
 import user_needs from "./difmlaw-needs.png";
 import our_promises from "./our_promises.png";
+import DIFM_LAW_bgcolor from "./DIFM_LAW_bgcolor.jpg";
 
 
 export {
@@ -29,4 +30,5 @@ export {
          user_friendly,
          user_needs,
          our_promises,
+         DIFM_LAW_bgcolor,
 }

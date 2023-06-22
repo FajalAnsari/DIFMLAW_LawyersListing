@@ -7,8 +7,8 @@ const Contect_us = () => {
     <div className="container">
     <div className="row mt-5">
         <div className="col-md-6 mt-5">
-        <h3>Get In Tauch</h3>
-        <p className='fs-5 w-75' style={{textAlign: "justify"}}>If you have any questions or comments about our difmlaw, please do not hesitate to contact us. Our team of dedicated professionals is available to assist you with any inquiries you may have.</p>
+        <h3 className='font-color'>Get In Tauch</h3>
+        <p className='fs-5 w-75 text-white' style={{textAlign: "justify"}}>If you have any questions or comments about our difmlaw, please do not hesitate to contact us. Our team of dedicated professionals is available to assist you with any inquiries you may have.</p>
         <span class="mt-4 ">
             <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
             <i class="bi bi-facebook"></i>
@@ -25,7 +25,7 @@ const Contect_us = () => {
           </span>
         </div>
 
-        <div className="col-md-6 border border-primary rounded forms" style={{backgroundColor: "var(--bg-lightgray-700)"}}>
+        <div className="col-md-6 border border-primary rounded forms" style={{backgroundColor: "var(--second-secondary)"}}>
         <form
             class="row g-3 me-4 mx-4 mt-4"
             // onSubmit={handleLawyerFormSubmit}
@@ -120,18 +120,18 @@ const Contect_us = () => {
       {/* second row section */}
       <div className="row mt-5 mb-5">
         <div className="col-md-6">
-        <h3>Contact Us</h3>
-        <p className='fs-5 w-75' style={{textAlign: "justify"}}>We're here to help! Please feel free to reach out to us with any questions or concerns you may have.</p>
-        <h4 className='mt-4'>Email</h4>
-        <p className='text-primary fs-6'>info@difmlaw.com</p>
+        <h3 className='font-color'>Contact Us</h3>
+        <p className='fs-5 w-75 text-white' style={{textAlign: "justify"}}>We're here to help! Please feel free to reach out to us with any questions or concerns you may have.</p>
+        <h4 className='mt-4 font-color'>Email</h4>
+        <p className='text-white fs-6'>info@difmlaw.com</p>
 
-        <h4 className='mt-4'>Phone</h4>
-        <p className='text-primary fs-6'>Contact@difmlaw.com</p>
+        <h4 className='mt-4 font-color'>Phone</h4>
+        <p className='text-white fs-6'>Contact@difmlaw.com</p>
 
-        <h4 className='mt-4'>Headquarters</h4>
-        <p className='text-primary fs-6'>30 N Gould St, Sheridan, WY 82801, United States</p>
+        <h4 className='mt-4 font-color'>Headquarters</h4>
+        <p className='text-white fs-6'>30 N Gould St, Sheridan, WY 82801, United States</p>
 
-        <a href="" className='mt-4 text-decoration-none'>Get Direction <i class="bi bi-arrow-right"></i></a>
+        <a href="" className='mt-4 text-decoration-none text-white'>Get Direction <i class="bi bi-arrow-right font-color"></i></a>
         </div>
 
         <div className="col-md-6 ">

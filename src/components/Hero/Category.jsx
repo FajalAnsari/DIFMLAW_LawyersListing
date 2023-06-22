@@ -12,11 +12,11 @@ const Category = () => {
 
   return (
     <>
-      <div className="section-2 mt-5">
+      <div className="section-2">
         <div className="container ">
           <div className="row">
             <div className="col-lg-6">
-              <h1 className="mt-4">
+              <h1 className="mt-4 text-white">
                 Explore by
                 <span id="cat" className="ms-2">
                   categories
@@ -24,10 +24,10 @@ const Category = () => {
               </h1>
             </div>
             <div className="col-lg-6 ">
-              <a href="/alllawyer" className='text-dark'>
+              <a href="/alllawyer" className='text-white'>
               <div className="d-flex mt-4 float-xl-end">
                 <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
-                <i class="bi bi-arrow-right ms-2 fs-2"></i>
+                <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
               </div>
               </a>
             </div>
@@ -64,8 +64,8 @@ const Category = () => {
             <div className="col-lg-6 featured">
             <a href="/alllawyer" className='text-dark'>
               <div className="d-flex mt-4 float-xl-end sal">
-                <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
-                <i class="bi bi-arrow-right ms-2 fs-2"></i>
+                <p className="fs-6 fw-bold mt-2 text-white">Show all lawyers</p>
+                <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
               </div>
             </a>
             </div>

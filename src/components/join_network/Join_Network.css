@@ -5,6 +5,7 @@
     padding: 2.1%;
     margin-top: -70px;
     border-radius: 20px !important;
+    background-color: var( --fourth-primary);
 }
 .lagal_part{
 font-weight: 400 !important;

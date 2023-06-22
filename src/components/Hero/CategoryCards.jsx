@@ -23,7 +23,7 @@ const CategoryCards = ({logo, type,  avalilabe}) => {
           <p className='mt-2 mx-2' >{type}</p>
           <div className='d-flex'>
           <h6 className='mt-2'>{Count}{ avalilabe}</h6>
-          <div><i class="bi bi-arrow-right ms-2 fs-4"></i></div>
+          <div><i class="bi bi-arrow-right ms-2 fs-4 font-color"></i></div>
           </div>
           
           </div>
