@@ -52,8 +52,8 @@ const Contect_now = () => {
                 </span>
               </p>
             </div>
-            <div className="col-lg-6 text-center col-xs-6 ">
-              <a className="btn btns-primary cont mt-4 w-75" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+            <div className="col-lg-6 text-center col-xs-6">
+              <a className="btn btns-primary cont mt-3 w-75 p-2" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                 Contact Now
               </a>
             </div>

@@ -8,14 +8,17 @@
     width: 110%;
     text-align: justify !important;
     font-weight: 400 !important;
-    font-size: large;
+    font-size: medium;
+    word-spacing: -1.2px;
+    margin-top: 8px;
 }
-.icon-diver{
-    margin-top: -18px;
-}
+
 .devider_page{
-    margin-top: 10% !important;
+    margin-top: 6% !important;
     margin-bottom: 4% !important;
+}
+.img-fluids{
+    width: 100%;
 }
 
 
@@ -44,8 +47,7 @@
     .mtss{
         margin-top: 0px !important;
     }
-    /* .Devider_left{
-        width: 10% !important;
-       
-    } */
+    .img-fluids{
+        height: 30px;
+    }
 }

@@ -9,7 +9,7 @@ const Hero = () => {
     <>
    {/* <!-- ======= Hero Section ======= --> */}
   <section id="hero" class="d-flex align-items-center main">
-    <div class="container">
+    <div class="container heroes">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 text-white order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h2 className='fq-1'>Find the<br />

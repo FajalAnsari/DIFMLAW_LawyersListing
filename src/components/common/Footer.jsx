@@ -98,6 +98,12 @@ const Footer = () => {
             <li class="my-2">
               <a class="text-dark text-decoration-none text-white" href="https://bragsocial.com/">BragSocial.com</a>
             </li>
+            <li class="my-2">
+              <a class="text-dark text-decoration-none text-white" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark text-decoration-none text-white" href="https://bragsocial.com/">BragSocial.com</a>
+            </li>
           </ul>
         </div>
         <div>

@@ -157,5 +157,11 @@ line-height: 21px !important;
     .sal{
         margin-top: -80px !important;
     }
-    
+    .lawfind1{
+        display: none;
+    }
+    .main{
+        height: 390px !important;
+        box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.144) !important;
+      }
   }
