@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { collection, getDocs, query, where} from "firebase/firestore";
+import { and, collection, getDocs, or, query, where} from "firebase/firestore";
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
@@ -9,6 +9,7 @@ const AllLawyersection = (props) => {
     const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
     const [getSelectValue, setSelectValue] =useState([]);
+    const [getCheckboxData, setCheckboxData] = useState("");
     const [set, unset] = useState(false);
     const fetchPost = async () => {
       
@@ -17,33 +18,39 @@ const AllLawyersection = (props) => {
             const newData = querySnapshot.docs
                 .map((doc) => ({...doc.data(), id:doc.id }));
             setLawyers(newData);                
-            console.log(lawyers);
+            
         }) 
     }
+     // get select option value data
     const selected = async () => {
   
       const q = query(collection(db, "lawyers"), where("work", "==", props.type))
+    
 
            await getDocs(q).then((qq) => {
         const newData = qq.docs
         .map((doc) => ({...doc.data(), id:doc.id }));
         setSelectValue(newData);                
-    console.log(getSelectValue);
+        console.log(getSelectValue);
       });
       unset(true); 
     }
 
-    // get checkbox
+    // get checkbox data
     
     const checked = async () => {
-  
-      const a = query(collection(db, "lawyers"), where("specialization", "==", props.checkbox))
-
-           await getDocs(a).then((qq) => {
-        const newData = qq.docs
+      const citiesRef = collection(db, "lawyers");
+     const a = query(citiesRef,
+        and( or( where("specialization", "==", props.checkbox), where("work", "==", props.checkbox),  where("address", "==", props.checkbox) ),
+          
+        )
+      )
+           await getDocs(a).then((res) => {
+        const catData = res.docs
         .map((doc) => ({...doc.data(), id:doc.id }));
-        console.log(newData);                
-    // console.log(getSelectValue);
+        setCheckboxData(catData);  
+
+    
       });
     
     }
@@ -53,9 +60,6 @@ const AllLawyersection = (props) => {
 
 useEffect(()=>{
     fetchPost();
-    console.log(props.checkbox);
-    checked();
-   
 }, [])
 
 const [currentPage, setCurrentPage] = useState(0);
@@ -63,12 +67,13 @@ const usersPerPage = 6;
 const offset = currentPage * usersPerPage;
 const currentUsers = lawyers.slice(offset, offset + usersPerPage);
 const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
+const currentCheckboxUser = getCheckboxData.slice(offset, offset + usersPerPage);
 
   return (
     <>
     { 
      !set && (
-      currentUsers.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).map((data,i)=>(
+      currentUsers.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).filter((item)=>{return props.checkbox === '' ? item : checked() }).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -111,7 +116,7 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
 
     { 
      set && (
-      currentUser.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).map((data,i)=>(
+      currentUser.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.checkbox === '' ? item : checked() }).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -149,6 +154,7 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
  </div>
  ))
  )
+ 
  
     }
  

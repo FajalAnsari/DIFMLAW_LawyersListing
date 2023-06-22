@@ -28,10 +28,33 @@ const total_count = async () => {
 
 }
 total_count();
-const handleCheckbox = (e) => {
-setCheckbox(e.target.value);
+function handleCheckbox(e){
+  setCheckbox(e.target.value);
 console.log(getcheckbox);
+
+//   // Select all checkboxes by class
+//   var checkboxesList = document.getElementsByName("check");
+//   for (var i = 0; i < checkboxesList.length; i++) {
+//      checkboxesList.item(i).checked = false; // Uncheck all checkboxes
+//   }
+
+//   // el.checked = true; // Checked clicked checkbox
 }
+
+
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      checkboxes.forEach(otherCheckbox => {
+        if (otherCheckbox !== this) {
+          otherCheckbox.checked = false;
+        }
+      });
+    }
+  });
+});
 
   return (
     <>
@@ -69,7 +92,7 @@ console.log(getcheckbox);
          {service.children &&
             service.children.map((child) => (
          <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" value={child.title} id="flexCheckDefault" onChange={handleCheckbox}/>
+          <input class="form-check-input" type="checkbox" name='check' value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
            <label class="form-check-label" for="flexCheckDefault">
            {child.title}
            </label>
