@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Contect_us.css";
+import Testimonial from '../Testimonial/Testimonial';
 
 const Contect_us = () => {
   return (
@@ -148,6 +149,7 @@ const Contect_us = () => {
         </div>
       </div>
     </div>  
+    <Testimonial />
     </>
   )
 }

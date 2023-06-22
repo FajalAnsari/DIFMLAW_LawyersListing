@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import logo from "../images/Vector.svg";
+import Devider from '../Testimonial/Devider';
 import './Footer.css';
 
 const Footer = () => {
@@ -35,7 +36,8 @@ const Footer = () => {
   };
 
   return (
-    <div>
+    <>
+    <Devider />
       <div class="blockcode f-1">
 
   <footer class="page-footer shadow text-white">
@@ -123,7 +125,8 @@ const Footer = () => {
     </div>
   </footer>
 </div>
-    </div>
+    </>
+ 
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { our_mission, user_friendly,user_needs, our_promises } from '../images';
 import Contect_sugg from './Contect_sugg';
+import Testimonial from '../Testimonial/Testimonial';
 import "./About_us.css";
 const About_us = () => {
   return (
@@ -53,6 +54,7 @@ const About_us = () => {
         </div>
        
        <Contect_sugg />
+       <Testimonial />
   </div>
   
    </>
