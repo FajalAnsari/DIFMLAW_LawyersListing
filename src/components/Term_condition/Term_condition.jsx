@@ -4,8 +4,8 @@ import "../Contect_us/Contect_us.css";
 const Term_condition = () => {
   return (
     <>
-      <div className="container border border-primary mt-5 forms rounded mb-5" style={{backgroundColor: "var(--bg-lightgray-700)"}}>
-       <h2 className='text-center mt-5'>Terms and Conditions</h2>
+      <div className="container p-2 shadow mt-5 forms mb-5" style={{backgroundColor: "var(--second-primary)", borderRadius: "40px"}}>
+       <h2 className='text-center mt-5 font-color'>Terms and Conditions</h2>
       <div className='w-75 mx-auto'>
        <p className='fs-6 mt-5'>Welcome to DIFM Law, a platform provided by Do iT For Me LLC. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions:</p>
        <h4>Use of the Website</h4>

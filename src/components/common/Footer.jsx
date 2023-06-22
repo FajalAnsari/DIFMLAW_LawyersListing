@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import logo from "../images/Vector.svg";
+import Devider from '../Testimonial/Devider';
 import './Footer.css';
 
 const Footer = () => {
@@ -35,18 +36,24 @@ const Footer = () => {
   };
 
   return (
-    <div>
+    <>
+    <Devider />
       <div class="blockcode f-1">
 
-  <footer class="page-footer shadow">
-    <div class="d-flex flex-column mx-auto py-5 footer-1">
+  <footer class="page-footer shadow text-white">
+    <div class="d-flex flex-column mx-auto py-5 footer-1 ">
       <div class="d-flex flex-wrap justify-content-between">
         <div>
+<<<<<<< HEAD
           <a href="/" class="d-flex align-items-center p-0 text-dark  text-decoration-none">
           <img src={logo} className=' logo mb-2' alt="difm_law_logo" />
+=======
+          <a href="/" class="d-flex align-items-center p-0 text-white  text-decoration-none">
+          <img src={logo} className=' logo mb-2' alt="" />
+>>>>>>> 1faf887fc7796d5492cf0874351a07ebd4a0c9ae
             <span class="ms-3 h5 font-weight-bold ">DIFM LAW</span>
           </a>
-          <p class="my-3 content">
+          <p class="my-3 content text-white">
           We are a leading lawyer listing portal, dedicated to simplifying the process of connecting lawyers and clients.
           </p>
           <span class="mt-4 ">
@@ -66,21 +73,21 @@ const Footer = () => {
         </div>
         <div>
           <p class="h5 mb-4 Devwares mt-4">Quick Links</p>
-          <ul class="p-0 lis">
-            <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/">Contact</a>
+          <ul class="p-0 lis ">
+            <li class="my-2 ">
+              <a class="text-dark text-decoration-none text-white" href="/">Contact</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/">About</a>
+              <a class="text-dark text-decoration-none text-white" href="/">About</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/alllawyer">Lawyers</a>
+              <a class="text-dark text-decoration-none text-white" href="/alllawyer">Lawyers</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/privacy_policy">Privacy Policy</a>
+              <a class="text-dark text-decoration-none text-white" href="/privacy_policy">Privacy Policy</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/terms_condition">Terms and Conditions</a>
+              <a class="text-dark text-decoration-none text-white" href="/terms_condition">Terms and Conditions</a>
             </li>
           </ul>
         </div>
@@ -88,13 +95,13 @@ const Footer = () => {
           <p class="h5 mb-4 mt-4" style={{fontWeight: '600'}}>DIFM Group</p>
           <ul class="p-0 lis">
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="https://difm.llc/">Difm.llc</a>
+              <a class="text-dark text-decoration-none text-white" href="https://difm.llc/">Difm.llc</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>
+              <a class="text-dark text-decoration-none text-white" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="https://bragsocial.com/">BragSocial.com</a>
+              <a class="text-dark text-decoration-none text-white" href="https://bragsocial.com/">BragSocial.com</a>
             </li>
           </ul>
         </div>
@@ -111,7 +118,7 @@ const Footer = () => {
              <input type="search" placeholder='Enter your email' class="form-control ss-2" value={email}
               onChange={handleEmailChange}/> 
            </div>
-           <button type="button" class="btn btn-primary s-1" onClick={handleSubscribe}>
+           <button type="button" class="btn btns-primary s-1" onClick={handleSubscribe}>
              Subscribe 
            </button>
            </>
@@ -123,7 +130,8 @@ const Footer = () => {
     </div>
   </footer>
 </div>
-    </div>
+    </>
+ 
   )
 }
 

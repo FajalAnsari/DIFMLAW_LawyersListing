@@ -1,6 +1,4 @@
-.discov{
-    color: var(--text-blue-900);
-}
+
 .view_buttons{
     background-color: var(--text-blue-700);
     padding: 0.25%;
@@ -16,16 +14,17 @@
     margin-top: 40px;
 }
 .alllawyersection:nth-child(odd) {
-    background-color: var(--text-blue-700);
+    background-color: var(--second-primary);
 }
 .alllawyersection:nth-child(even) {
-    background-color: white;
+    background-color: var(--third-primary);
+    color: var(--secondary) !important;
 }
 .alllawyersection:hover:nth-child(even){
-    background-color: whitesmoke;
+   opacity: .89;
 }
 .alllawyersection:hover:nth-child(odd){
-    opacity: .89;
+    opacity: .79;
 }
 
 #react-paginate ul {
@@ -36,8 +35,8 @@
  
  #react-paginate li {
     display: inline-block;
-    border: 1px solid rgb(224, 224, 224);
-    color: var(--text-blue-900);
+    border: 1px solid var(--primary);
+    color: var(--primary);
     cursor: pointer;
     margin-right: 3px;
     border-radius: 5px;
@@ -47,16 +46,19 @@
   #react-paginate li a {
       padding: 5px 10px;
       display: inline-block;
-      color: var(--text-blue-900);
+      color: var(--primary);
       outline: none;
   }
  
  #react-paginate li.active {
-    background: rgb(224, 224, 224);
+    background: var(--third-primary);
     outline: none;
  }
  .lawpicd{
     height: 70px;
     border-radius: 50%;
     width: 70px;
+ }
+ .lawyrscard6{
+    background-color: var(--third-primary);
  }

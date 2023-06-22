@@ -1,15 +1,20 @@
+body{
+    background-color: var(--secondary);
+}
 #cat{
-    color: var(--text-blue-900) !important;
+    color: var(--primary) !important;
 }
 .section-2{
-    background-color: var(--text-blue-700);
+    background-color: var(--second-primary);
 }
-
+.font-color{
+    color: var(--primary) !important;
+}
 .categories{
 padding-bottom: 90px;
 }
 .category{
-    background-color: var(--bg-dimwhite-900);
+    background-color: var(--second-secondary);
     border-radius: 17px !important;
 }
 h6{
@@ -30,7 +35,7 @@ line-height: 28px;
 }
 
 #suggest{
-    color: var(--text-blue-900);
+    color: var(--primary);
     font-weight: 700;
 font-size: 100%;
 line-height: 75px;
@@ -51,11 +56,11 @@ line-height: 75px;
     margin-top: -70px;
     border-radius: 20px !important;
     height: 16% !important;
+    background-color: var( --fourth-primary) !important;
 }
 
 .cat_law{
     height: 200px;
-    background-color: var(--text-blue-700);
 }
 
 
@@ -67,7 +72,7 @@ line-height: 75px;
 }
 
 .lawyers{
-    background-color: var(--bg-dimwhite-900);
+    background-color: var( --third-primary);
 }
 .viewbtn{
     border-radius: 50px !important;
@@ -110,6 +115,7 @@ line-height: 21px !important;
     width: 300px;
     justify-content: space-between !important;
     margin: auto;
+    background-color: var(--second-secondary) !important;
     
 }
 .lawyers_profile{

@@ -190,64 +190,60 @@ const Signup = () => {
 
   return (
     <>
-      <div className="container  form-container mt-4 form-control mb-4">
-
+    <div className="form-sectionss">
+      <div className="container">
         {isLawyer && (
           <>
+          <div class="btns-formssec" style={{marginLeft: "12.5%"}}>
           <button
           type="button"
-          class="btn btn-primary me-4 mt-2"
+          class="btns-primary border-prime btn-law"
           id="regist1"
+          style={{marginTop:"10%"}}
           onClick={handleRegisterAsLawyer}
         >
-          Register as Lawyer
+           Lawyer
         </button>
         <button
           type="button"
-          class="btn btn-light mt-2"
+          class="btn-light mt-2 inputs btn-law border-prime font-color"
           id="regist2"
           onClick={handleRegisterAsUser}
         >
-          Register as User
+          User
         </button>
+        </div>
+        <div className="shadow form-container forms-bg w-75 mx-auto p-5">
+
           <form
-            class="row g-3 me-4 mx-4 mt-4"
+            class="row g-3 me-4 mx-4 mt-1"
             onSubmit={handleLawyerFormSubmit}
           >
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
-                Enter Full Name
-              </label>
               <input
                 type="text"
                 placeholder="Enter your full name"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputEmail4"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
-                Enter Email
-              </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputPassword4"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
-                Phone No.
-              </label>
               <input
                 type="number"
                 placeholder="Enter your number"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputPassword4"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -255,14 +251,11 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputState" class="form-label">
-                Experience
-              </label>
               <select
                 id="inputState"
                 value={experience}
                 onChange={(e) => setExperience(e.target.value)}
-                class="form-select"
+                class="form-select inputs selct"
               >
                 <option selected>Choose...</option>
                 <option value="1 Year">1 Year</option>
@@ -278,14 +271,11 @@ const Signup = () => {
               </select>
             </div>
             <div class="col-md-6">
-              <label for="inputState" class="form-label">
-                Specialization(s)
-              </label>
               <select
                 id="inputState"
                 value={specialization}
                 onChange={(e) => setSpecialization(e.target.value)}
-                class="form-select"
+                class="form-select inputs selct"
               >
                 <option selected>Select your expertise</option>
                 <option value="Injury Lawyers">Injury Lawyers</option>
@@ -300,24 +290,18 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
-               Enter or choose location
-              </label>
                <div class="input-group mb-3">
-               <input type="text" class="form-control" id="inputZip" placeholder="Location, country, city, state..." value={location}
+               <input type="text" class="form-control inputs selct" id="inputZip" placeholder="Location, country, city, state..." value={location}
                 onChange={(e) => setLocation(e.target.value)}/>
-               <span class="input-group-text" ><i class="bi bi-geo-alt"></i></span>
+               <span class="input-group-text inputs border-prime selct" ><i class="bi bi-geo-alt "></i></span>
              </div>
             </div>
             <div class="col-md-6">
-              <label for="inputState" class="form-label">
-                Work Type
-              </label>
               <select
                 id="inputState"
                 value={work}
                 onChange={(e) => setWork(e.target.value)}
-                class="form-select"
+                class="form-select inputs selct"
               >
                 <option selected>Choose..</option>
                 <option value="Full Day">Full Day</option>
@@ -325,54 +309,41 @@ const Signup = () => {
               </select>
             </div>
             <div class="col-md-6">
-              <label for="inputpictur" class="form-label">
-              Profile Picture
-              </label>
               <input
                 type="file"
                 placeholder="Choose your profile picture"
-                class="form-control"
+                class="form-control inputs selct"
                 name="picture"
                 onChange={(e) => setPicture(e.target.files[0])}
               />
               <span className="text-danger">{fileError}</span>
             </div>
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
-                Password
-              </label>
               <input
                 type="text"
                 placeholder="Password "
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputZip"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
-                Confirm password
-              </label>
               <input
                 type="text"
                 placeholder="Confirm password"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputZip"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            <div class="col-md-12">
-              <label for="inputZip" class="form-label">
-                Bio/Profile Summary
-              </label>
+            <div class="col-md-12 mt-4">
               <textarea
-                class="form-control"
+                class="form-control inputs border-grays"
                 placeholder="Write about yourself..."
                 id="form6Example7"
                 rows="4"
-                // maxlength="250"
                 value={bio}
                 onChange={biohaldle}
               ></textarea>
@@ -381,68 +352,65 @@ const Signup = () => {
             <div class="col-md-12 mb-4 ">
               <button
                 type="submit"
-                class="btn btn-primary form-control mt-2 mb-5 signup"
+                class=" mt-2 mb-5 signup border-white btn-regi"
               >
                 Register Now
               </button>
             </div>
           </form>
+        </div>
           </>
         )}
 
         {isUser && (
           <>
+          <div class="btns-formssec" style={{marginLeft: "12.5%"}}>
           <button
           type="button"
-          class="btn btn-light me-4 mt-2"
+          class="btn-light inputs btn-law border-prime font-color"         
           id="regist1"
+          style={{marginTop:"10%"}}
           onClick={handleRegisterAsLawyer}
         >
-          Register as Lawyer
+           Lawyer
         </button>
         <button
           type="button"
-          class="btn btn-primary mt-2"
+          class="btns-primary mt-2  border-prime btn-law"
           id="regist2"
           onClick={handleRegisterAsUser}
         >
-          Register as User
+          User
         </button>
-          <form class="row g-3 me-4 mx-4 mt-4" onSubmit={handleUserFormSubmit}>
+        </div>
+        <div className="shadow form-container forms-bg  mb-4 w-75 mx-auto p-5">
+
+          <form class="row g-3 me-4 mx-4 mt-1" onSubmit={handleUserFormSubmit}>
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
-                Enter Full Name
-              </label>
               <input
                 type="text"
                 placeholder="Enter your full name"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputEmail4"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
-                Enter Email
-              </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputPassword4"
                 value={emails}
                 onChange={(e) => setEmails(e.target.value)}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
-                Phone No.
-              </label>
               <input
                 type="number"
                 placeholder="Enter your number"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputPassword4"
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
@@ -450,13 +418,10 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
-                State
-              </label>
               <input
                 type="text"
                 placeholder="Select your state"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputZip"
                 value={state}
                 onChange={(e) => setState(e.target.value)}
@@ -464,26 +429,20 @@ const Signup = () => {
             </div>
 
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
-                Password
-              </label>
               <input
                 type="text"
                 placeholder="Password "
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputZip"
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
-                Confirm password
-              </label>
               <input
                 type="text"
                 placeholder="Confirm password"
-                class="form-control"
+                class="form-control inputs selct"
                 id="inputZip"
                 value={confirmPass}
                 onChange={(e) => setConfirmPass(e.target.value)}
@@ -491,17 +450,19 @@ const Signup = () => {
                 
             </div>
             {/* <span className="text-danger">{userErr}</span> */}
-            <div class="col-md-12 mb-4 ">
+            <div class="col-md-12 mt-5 ">
               <button
                 type="submit"
-                class="btn btn-primary form-control mt-2 mb-5 signup"
+                class=" mt-2 mb-5 signup border-white btn-regi"
               >
                 Register Now
               </button>
             </div>
           </form>
+          </div>
           </>
         )}
+  </div>
       </div>
     </>
   );

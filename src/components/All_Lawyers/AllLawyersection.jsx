@@ -83,11 +83,11 @@ const currentCheckboxUser = getCheckboxData.slice(offset, offset + usersPerPage)
           </div>
 
           <div className="col-md-9">
-          <h4 className='mt-2'>{data.specialization}</h4>
-          <h5 className='nam fs-6'>{data.username}</h5>
+          <h4 className='mt-2 font-color'>{data.specialization}</h4>
+          <h5 className='nam fs-6 text-white'>{data.username}</h5>
           <div className='d-flex'>
-          <p className='fs-6'>{data.work}</p>
-          <p className='fs-6 mx-4'>{data.experience}  in practice</p>
+          <p className='fs-6 text-white'>{data.work}</p>
+          <p className='fs-6 mx-4 text-white'>{data.experience}  in practice</p>
           </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ const currentCheckboxUser = getCheckboxData.slice(offset, offset + usersPerPage)
     <div className="col-md-6">
         <div className="row">
            <div className="col-md-10 d-flex justify-content-end">
-           <button className="btn btn-primary cont profi w-75" onClick={(e)=> navigate(`/job/${data.id}`)}>
+           <button className="btn btns-primary cont profi w-75" onClick={(e)=> navigate(`/job/${data.id}`)}>
              View Profile
            </button>
           </div>

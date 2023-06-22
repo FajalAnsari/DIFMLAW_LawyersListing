@@ -132,7 +132,7 @@ const handleUpdate = async (e) => {
                     <img className="img-account-profile uspro mb-2" src={url} alt="user_profile"/>
                    
                     <div className="small font-italic text-muted mb-4"><b className='fs-4'>{username}</b></div>
-                    <label for="file" className="btn btn-primary w-10">Upload New Image</label>
+                    <label for="file" className="btn btns-primary w-10">Upload New Image</label>
                     <input type='file' id='file' onChange={handleImageChange} />
                     
                 </div>
@@ -230,7 +230,7 @@ const handleUpdate = async (e) => {
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
 					                      <a href="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></a>
-					                      <button type="submit" id="submit" name="submit" className="btn btn-primary ms-2">Update</button>
+					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Update</button>
 				                     </div>
 			                     </div>
 		                     </div>

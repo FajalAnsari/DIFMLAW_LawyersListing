@@ -29,7 +29,7 @@ const Lawyers_profile_card = () => {
       <div className="row">
         {/* lawyer profile card start */}
         <div className="col-lg-8 p-5 ">
-          <div className="row law ab d-flex border border-primary rounded justify-content-around p-4">
+          <div className="row law ab d-flex border border-prime rounded justify-content-around p-4" style={{backgroundColor: "var(--second-secondary)"}}>
             <div className="col-lg-6">
               <div className="row ab">
  
@@ -48,7 +48,7 @@ const Lawyers_profile_card = () => {
             </div>
             <div className="col-lg-6 text-end d-flex justify-content-end gap-2">
               <div className="me-4 w-50">
-               <Link to="/contect_us"><button className="btn btn-primary me-4 w-100 rounded-pill mt-5">
+               <Link to="/contect_us"><button className="btn btns-primary me-4 w-100 rounded-pill mt-5">
                   Contact Now
                 </button>
                 </Link> 
@@ -75,7 +75,7 @@ const Lawyers_profile_card = () => {
 
         <div className="col-lg-4 mt-3">
           {/* photos */}
-          <h4>Photos</h4>
+          <h4 className="font-color">Photos</h4>
           <div className="row">
             <div className="col-lg-6 col-6">
               <img src={lawyer_pics} alt="lawyer_pic"></img>
@@ -87,7 +87,7 @@ const Lawyers_profile_card = () => {
           {/* photos */}
 
           {/* our location */}
-          <h4 className="mt-3">Our Location</h4>
+          <h4 className="mt-3 font-color">Our Location</h4>
 
           <div className="md:w-1/2">
             {/* Map */}
@@ -108,25 +108,25 @@ const Lawyers_profile_card = () => {
           {/* our location */}
 
           {/* refer to a friend social media icons*/}
-          <h4 className="mt-3">Refer to a friend</h4>
+          <h4 className="mt-3 font-color">Refer to a friend</h4>
           <span class="mt-5">
-            <button class="btn btn-dark btn-flat p-1 me-5 px-2 btn-primary">
+            <button class="btn btn-dark btn-flat p-1 me-5 px-2 btn-primary pk-1 ficon">
               <i class="bi bi-facebook"></i>
             </button>
-            <button class="btn btn-dark btn-flat p-1 me-5 px-2 btn-primary">
+            <button class="btn btn-dark btn-flat p-1 me-5 px-2 btn-primary pk-1 ficon">
               <i class="bi bi-linkedin"></i>
             </button>
-            <button class="btn btn-dark btn-flat p-1 me-5 px-2 btn-primary">
+            <button class="btn btn-dark btn-flat p-1 me-5 px-2 btn-primary pk-1 ficon">
               <i class="bi bi-twitter"></i>
             </button>
-            <button class="btn btn-dark btn-flat p-1 px-2 btn-primary">
+            <button class="btn btn-dark btn-flat p-1 px-2 btn-primary pk-1 ficon">
               <i class="bi bi-envelope-fill"></i>
             </button>
           </span>
           {/* refer to a friend social media icons*/}
 
           {/* job url link */}
-          <h5 className="mt-4">Copy job URL link</h5>
+          <h5 className="mt-4 font-color">Copy job URL link</h5>
           <div class="input-group mt-2">
             <div class="form-outline">
               <input
@@ -135,14 +135,14 @@ const Lawyers_profile_card = () => {
                 class="form-control ss-2 w-100"
               />
             </div>
-            <button type="button" class="btn btn-primary s-1">
+            <button type="button" class="btn btns-primary s-1">
               Copy link
             </button>
           </div>
           {/* job url link */}
          {/* all lawyers card */}
-         <div className="row mt-4 law p-2 border border-primary rounded">
-          <h4>Top Lawyers</h4>
+         <div className="row mt-4 law p-2 border border-prime rounded">
+          <h4 className="font-color">Top Lawyers</h4>
            <All_lawyers_card />
            </div>
          {/* all lawyers card */}

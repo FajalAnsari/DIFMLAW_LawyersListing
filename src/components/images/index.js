@@ -12,6 +12,14 @@ import our_mission from "./difmlaw-our-mission.png";
 import user_friendly from "./difmlaw-user-friendly.png";
 import user_needs from "./difmlaw-needs.png";
 import our_promises from "./our_promises.png";
+import DIFM_LAW_bgcolor from "./DIFM_LAW_bgcolor.jpg";
+import Testimonial_icon from "./testimonial_icon.svg";
+import testimonial_reviewicon from "./testimonial_reviewicon.svg";
+import Image_testimonial from "./Image_testimonial.svg";
+import Devider_left from "./Divider_left.svg";
+import Devider_right from "./Divder_right.svg";
+import icon_diver from "./Icon_diver.svg";
+
 
 
 export {
@@ -29,4 +37,11 @@ export {
          user_friendly,
          user_needs,
          our_promises,
+         DIFM_LAW_bgcolor,
+         Testimonial_icon,
+         testimonial_reviewicon,
+         Image_testimonial,
+         Devider_left,
+         Devider_right,
+         icon_diver,
 }

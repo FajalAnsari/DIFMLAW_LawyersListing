@@ -61,28 +61,33 @@ const Navbar = () => {
   if (user === null){
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light  bg-white shadow">
+      <nav class="navbar navbar-expand-lg shadow">
   <div class="container p-2">
+<<<<<<< HEAD
     <img src={logo} className='me-4 logo mb-2' alt="difm_law_logo" />
     <Link class="navbar-brand" to={"/"}>DIFM LAW</Link>
+=======
+    <img src={logo} className='me-4 logo mb-2' alt="" />
+    <Link class="navbar-brand text-white" to={"/"}>DIFM LAW</Link>
+>>>>>>> 1faf887fc7796d5492cf0874351a07ebd4a0c9ae
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <Link class="nav-link active" aria-current="page"  to={"/"}>Home</Link>
+          <Link class="nav-link active text-white" aria-current="page"  to={"/"}>Home</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to={"/about"}>About Us</Link>
+          <Link class="nav-link text-white" to={"/about"}>About Us</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to={"/contect_us"}>Contact us</Link>
+          <Link class="nav-link text-white" to={"/contect_us"}>Contact us</Link>
         </li>
       </ul>
       <div class="d-flex">
-       <Link to={"/login"}><button class="btn btn-outline-secondary me-2" >Login</button></Link> 
-       <Link to={"/signup"}><button class="btn btn-primary" type="submit">Sign Up</button></Link>
+       <Link to={"/login"}><button class="btn btns-primary me-2" >Login</button></Link> 
+       <Link to={"/signup"}><button class="btn btns-primary" type="submit">Sign Up</button></Link>
       </div>
     </div>
   </div>
@@ -94,28 +99,35 @@ const Navbar = () => {
 
 return (
   <>
+<<<<<<< HEAD
       <nav class="navbar navbar-expand-lg navbar-light  bg-white shadow">
   <div class="container p-2">
     <img src={logo} className='me-4 logo mb-2' alt="difm_law_logo" />
     <Link class="navbar-brand" to={"/"}>DIFM LAW</Link>
+=======
+      <nav class="navbar navbar-expand-lg shadow">
+  <div class="container">
+    <img src={logo} className='me-4 logo mb-2' alt="" />
+    <Link class="navbar-brand text-white" to={"/"}>DIFM LAW</Link>
+>>>>>>> 1faf887fc7796d5492cf0874351a07ebd4a0c9ae
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <Link class="nav-link active" aria-current="page"  to={"/"}>Home</Link>
+          <Link class="nav-link active text-white" aria-current="page"  to={"/"}>Home</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to={"/about"}>About Us</Link>
+          <Link class="nav-link text-white" to={"/about"}>About Us</Link>
         </li>
         <li class="nav-item">
-          <Link class="nav-link" to={"/contect_us"}>Contact us</Link>
+          <Link class="nav-link text-white" to={"/contect_us"}>Contact us</Link>
         </li>
       </ul>
       <div className="btn-group">
-        <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-primary text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
-           <img src={image} id='profiles' className="per1  border border-3 border-primary" alt="avatar" />
+        <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
+           <img src={image} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />
              <b>{name}</b>
        </Link>
        <ul className="dropdown-menu">

@@ -21,7 +21,7 @@ const Contect_now = () => {
 </div>
 </div>
       <div class="mx-auto mb-4">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
@@ -33,18 +33,18 @@ const Contect_now = () => {
       Thank you for contacting us we’ll get back to you shortly with some awesome lawyers.
       </h5>
       <a href='/' class="mx-auto mb-4 text-decoration-none mt-4">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
       </a>
     </div>
   </div>
 </div>
 
 
-<div className="row bg-white want  rounded-3 suggestion shadow w-50 mx-auto">
+<div className="row want suggestion shadow w-50 mx-auto" style={{borderRadius: "40px"}}>
             <div className="col-lg-6 text-center col-xs-6">
-              <p className="fs-1 fw-bold">
+              <p className="fs-1 fw-bold text-white">
                 Want{" "}
-                <span id="suggest" className="sugg">
+                <span id="suggest" className="sugg font-color">
                   Our Suggestions
                 </span>{" "}
                 <span id="ques" className="sugg">
@@ -53,7 +53,7 @@ const Contect_now = () => {
               </p>
             </div>
             <div className="col-lg-6 text-center col-xs-6 ">
-              <a className="btn btn-primary cont mt-4 w-75" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+              <a className="btn btns-primary cont mt-4 w-75" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                 Contact Now
               </a>
             </div>
