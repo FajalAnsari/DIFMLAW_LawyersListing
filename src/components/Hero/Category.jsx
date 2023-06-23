@@ -28,7 +28,7 @@ const Category = () => {
               <a href="/alllawyer" className='text-white'>
               <div className="d-flex mt-4 float-xl-end">
                 <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
-                <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
+                <i class="bi bi-arrow-right ms-2 fs-2 font-color arr"></i>
               </div>
               </a>
             </div>
@@ -66,7 +66,7 @@ const Category = () => {
             <a href="/alllawyer" className='text-dark'>
               <div className="d-flex mt-4 float-xl-end sal">
                 <p className="fs-6 fw-bold mt-2 text-white">Show all lawyers</p>
-                <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
+                <i class="bi bi-arrow-right ms-2 fs-2 font-color arr"></i>
               </div>
             </a>
             </div>

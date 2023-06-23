@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { query, collection, where, getCountFromServer } from "firebase/firestore";
 import { db } from '../../firebase';
+
 const CategoryCards = ({logo, type,  avalilabe}) => {
   const [Count, setCount] = useState(0);
   const count_cat = async () =>{

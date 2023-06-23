@@ -159,3 +159,25 @@ line-height: 21px !important;
     }
     
   }
+
+  /* arrow icon style */
+  .arr{
+
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+   
+    
+  }
+  .arr:hover {
+    
+ 
+    animation-name: bounce;
+    animation-timing-function: ease;
+ 
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateX(20px); }
+  100% { transform: translateY(0); }
+}

@@ -63,13 +63,8 @@ const Navbar = () => {
     <>
       <nav class="navbar navbar-expand-lg shadow">
   <div class="container p-2">
-<<<<<<< HEAD
-    <img src={logo} className='me-4 logo mb-2' alt="difm_law_logo" />
-    <Link class="navbar-brand" to={"/"}>DIFM LAW</Link>
-=======
     <img src={logo} className='me-4 logo mb-2' alt="" />
     <Link class="navbar-brand text-white" to={"/"}>DIFM LAW</Link>
->>>>>>> 1faf887fc7796d5492cf0874351a07ebd4a0c9ae
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -99,17 +94,10 @@ const Navbar = () => {
 
 return (
   <>
-<<<<<<< HEAD
-      <nav class="navbar navbar-expand-lg navbar-light  bg-white shadow">
-  <div class="container p-2">
-    <img src={logo} className='me-4 logo mb-2' alt="difm_law_logo" />
-    <Link class="navbar-brand" to={"/"}>DIFM LAW</Link>
-=======
       <nav class="navbar navbar-expand-lg shadow">
   <div class="container">
     <img src={logo} className='me-4 logo mb-2' alt="" />
     <Link class="navbar-brand text-white" to={"/"}>DIFM LAW</Link>
->>>>>>> 1faf887fc7796d5492cf0874351a07ebd4a0c9ae
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

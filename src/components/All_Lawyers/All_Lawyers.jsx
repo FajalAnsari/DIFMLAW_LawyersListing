@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import "./AllLawyer.css";
-<<<<<<< HEAD
-
-=======
 import Testimonial from '../Testimonial/Testimonial';
->>>>>>> 1faf887fc7796d5492cf0874351a07ebd4a0c9ae
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import AllLawyersection from './AllLawyersection';
