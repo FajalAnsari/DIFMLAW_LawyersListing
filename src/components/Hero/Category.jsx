@@ -55,7 +55,7 @@ const Category = () => {
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">
-              <h1 className="mt-4">
+              <h1 className="mt-4 text-white">
                 Featured
                 <span id="cat" className="ms-2">
                   Lawyers

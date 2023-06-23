@@ -1,8 +1,12 @@
 .btns-primary{
     background: linear-gradient(180deg, #A37707 0%, #D1B06B 100%) !important;
+    font-weight: 600;
+color: var(--third-primary) !important;
+font-size: 93.2% !important;
   }
-  .btn-primary:hover{
+  .btns-primary:hover{
       opacity: 0.90 !important;
+      color: var(--third-primary) !important;
   }
   .logo{
     width: 40px;
@@ -61,6 +65,9 @@
 }
 .border-prime{
   border-color: var(--primary) !important;
+  font-weight: 600;
+  color: var(--third-primary) !important;
+  font-size: 93.2% !important;
 }
 #profiles{
     width: 25%;

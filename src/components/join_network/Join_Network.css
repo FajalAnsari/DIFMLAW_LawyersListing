@@ -19,13 +19,19 @@ color: #585858;
 .reg_btn{
 width: 40% !important;
 margin-left: 19px !important;
-font-size: 83.2% !important;
+font-weight: 600;
+color: var(--third-primary) !important;
+font-size: 93.2% !important;
+border-radius: 9px; 
 /* margin: auto !important; */
 }
 
 @media screen and (max-width: 587px) {
     .legal_network{
-        width: 82%;
+        width: 92%;
+        padding: 7%;
+        margin-left: 4px !important;
+        margin-top: -160px;
     }
     .reg_btn{
         width: 80% !important;
