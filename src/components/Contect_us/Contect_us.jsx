@@ -1,6 +1,8 @@
 import React from 'react'
 import "./Contect_us.css";
 import Testimonial from '../Testimonial/Testimonial';
+import { Link } from 'react-router-dom';
+import Contect_sugg from "../About_page/Contect_sugg";
 
 const Contect_us = () => {
   return (
@@ -8,7 +10,7 @@ const Contect_us = () => {
     <div className="container">
     <div className="row mt-5">
         <div className="col-md-6 mt-5">
-        <h3 className='font-color'>Get In Tauch</h3>
+        <h2 className='font-color'>Get In Tauch</h2>
         <p className='fs-5 w-75 text-white' style={{textAlign: "justify"}}>If you have any questions or comments about our difmlaw, please do not hesitate to contact us. Our team of dedicated professionals is available to assist you with any inquiries you may have.</p>
         <span class="mt-4 ">
             <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
@@ -26,59 +28,59 @@ const Contect_us = () => {
           </span>
         </div>
 
-        <div className="col-md-6 border border-primary rounded forms" style={{backgroundColor: "var(--second-secondary)"}}>
+        <div className="col-md-6 border border-prime rounded forms" style={{backgroundColor: "var(--third-primary)"}}>
         <form
             class="row g-3 me-4 mx-4 mt-4"
             // onSubmit={handleLawyerFormSubmit}
           >
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">
+              <label for="inputEmail4" class="form-label font-color">
                 Enter Full Name
               </label>
               <input
                 type="text"
                 placeholder="Enter your full name"
-                class="form-control"
+                class="form-control contect-bgColors"
                 id="inputEmail4"
                 // value={username}
                 // onChange={handleUsernameChange}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+              <label for="inputPassword4" class="form-label  font-color">
                 Enter Email
               </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                class="form-control"
+                class="form-control contect-bgColors"
                 id="inputPassword4"
                 // value={email}
                 // onChange={handleEmailChange}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputPassword4" class="form-label">
+              <label for="inputPassword4" class="form-label  font-color">
                 Phone No.
               </label>
               <input
                 type="number"
                 placeholder="Enter your number"
-                class="form-control"
+                class="form-control contect-bgColors"
                 id="inputPassword4"
                 // value={phone}
                 // onChange={handlePhoneChange}
               />
             </div>
             <div class="col-md-6">
-              <label for="inputState" class="form-label">
+              <label for="inputState" class="form-label  font-color">
                 Subject
               </label>
               <select
                 id="inputState"
                 // value={work}
                 // onChange={handleWorkChange}
-                class="form-select"
+                class="form-select contect-bgColors"
               >
                 <option selected>Choose Subject..</option>
                 <option value="Full Day">Full Day</option>
@@ -86,11 +88,11 @@ const Contect_us = () => {
               </select>
             </div>
             <div class="col-md-12">
-              <label for="inputZip" class="form-label">
+              <label for="inputZip" class="form-label  font-color">
                 Bio/Profile Summary
               </label>
               <textarea
-                class="form-control"
+                class="form-control contect-bgColors"
                 placeholder="Write about yourself..."
                 id="form6Example7"
                 rows="4"
@@ -100,16 +102,16 @@ const Contect_us = () => {
             </div>
 
             <div class="form-check mb-0 mx-2">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
-              <label class="form-check-label" for="form2Example3">
-              I agree to the Terms & conditions
+              <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3"/>
+              <label class="form-check-label  text-white" for="form2Example3">
+              I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
               </label>
             </div>
             {/* <p className="text-danger fs-5">{error}</p> */}
             <div class="col-md-12 mb-4 ">
               <button
                 type="submit"
-                class="btn btn-primary form-control mt-2 mb-5 signup"
+                class="btn btns-primary form-control mt-2 mb-5 signup"
               >
                 Submit
               </button>
@@ -121,7 +123,7 @@ const Contect_us = () => {
       {/* second row section */}
       <div className="row mt-5 mb-5">
         <div className="col-md-6">
-        <h3 className='font-color'>Contact Us</h3>
+        <h2 className='font-color'>Contact Us</h2>
         <p className='fs-5 w-75 text-white' style={{textAlign: "justify"}}>We're here to help! Please feel free to reach out to us with any questions or concerns you may have.</p>
         <h4 className='mt-4 font-color'>Email</h4>
         <p className='text-white fs-6'>info@difmlaw.com</p>
@@ -148,6 +150,9 @@ const Contect_us = () => {
               ></iframe>
         </div>
       </div>
+      <div className="sugg_contects4">
+    <Contect_sugg />
+    </div>
     </div>  
     <Testimonial />
     </>

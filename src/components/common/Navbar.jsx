@@ -70,9 +70,6 @@ const Navbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <Link class="nav-link active text-white" aria-current="page"  to={"/"}>Home</Link>
-        </li>
-        <li class="nav-item">
           <Link class="nav-link text-white" to={"/about"}>About Us</Link>
         </li>
         <li class="nav-item">
@@ -80,8 +77,8 @@ const Navbar = () => {
         </li>
       </ul>
       <div class="d-flex">
-       <Link to={"/login"}><button class="btn btns-primary me-2" >Login</button></Link> 
-       <Link to={"/signup"}><button class="btn btns-primary" type="submit">Sign Up</button></Link>
+       <Link to={"/login"}><button class="btn btns-primary me-2 w-100" type="submit">Login</button></Link> 
+       <Link to={"/signup"}><button class="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
       </div>
     </div>
   </div>
@@ -102,9 +99,6 @@ return (
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link class="nav-link active text-white" aria-current="page"  to={"/"}>Home</Link>
-        </li>
         <li class="nav-item">
           <Link class="nav-link text-white" to={"/about"}>About Us</Link>
         </li>

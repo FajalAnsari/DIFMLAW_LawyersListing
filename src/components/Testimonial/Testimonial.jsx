@@ -11,7 +11,7 @@ const Testimonial = () => {
        <div className="row mt-5">
          <div className="col-md-3 SSLSD">
              <div className='testimonial1 w-75'>
-                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" /></span>
+                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" style={{width: "12%"}}/></span>
                 <p className='text-white textimonial-p'>There are  of Lorem Ipsum available, but the majority have su alteration in some form, by injected oir  which don't look even slightly believable.</p>
              </div>
              <div className="row  mt-4 devider2">
@@ -36,7 +36,7 @@ const Testimonial = () => {
                </div>
             </div>
             <div className='testimonial1 w-75 mt-2 mtss'>
-                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" /></span>
+                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" style={{width: "12%"}}/></span>
                 <p className='text-white textimonial-p'>There are  of Lorem Ipsum available, but the majority have su alteration in some form, by injected oir  which don't look even slightly believable.</p>
              </div>
 
@@ -44,7 +44,7 @@ const Testimonial = () => {
 
          <div className="col-md-3 SSLSD">
          <div className='testimonial1 w-75'>
-                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" /></span>
+                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" style={{width: "12%"}}/></span>
                 <p className='text-white textimonial-p'>There are  of Lorem Ipsum available, but the majority have su alteration in some form, by injected oir  which don't look even slightly believable.</p>
              </div>
              <div className="row  mt-4 devider2">
@@ -70,7 +70,7 @@ const Testimonial = () => {
                </div>
             </div>
             <div className='testimonial1 w-75 mt-2 mtss'>
-                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" /></span>
+                <span><img src={testimonial_reviewicon} alt="testimonial_reviewicon" style={{width: "12%"}}/></span>
                 <p className='text-white textimonial-p'>There are  of Lorem Ipsum available, but the majority have su alteration in some form, by injected oir  which don't look even slightly believable.</p>
              </div>
 
