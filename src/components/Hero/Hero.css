@@ -24,7 +24,7 @@ h1{
     padding-left:0;
   }
   .s-1{
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary) !important;
     border-radius: 0px 10px 10px 0px; 
   }
   .s-2{
@@ -32,7 +32,7 @@ h1{
     border-radius:  0px 0px 0px 0px !important;
   }
   .s-3{
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary) !important;
     border-radius:  10px 0px 0px 10px;
   }
   .fq-1{

@@ -118,7 +118,7 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
     <div className="col-md-6">
         <div className="row">
            <div className="col-md-10 d-flex justify-content-end">
-           <button className="btn btn-primary cont profi w-75" onClick={(e)=> navigate(`/job/${data.id}`)}>
+           <button className="btn btns-primary cont profi w-75" onClick={(e)=> navigate(`/job/${data.id}`)}>
              View Profile
            </button>
           </div>

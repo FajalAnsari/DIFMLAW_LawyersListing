@@ -7,6 +7,7 @@
 .savelist{
     margin-top: -12px;
 }
+
 .nam{
     margin-top: -7px;
 }
@@ -15,6 +16,7 @@
 }
 .alllawyersection:nth-child(odd) {
     background-color: var(--second-primary);
+    color: var(--third-primary) !important;
 }
 .alllawyersection:nth-child(even) {
     background-color: var(--third-primary);
