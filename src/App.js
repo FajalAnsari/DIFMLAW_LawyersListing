@@ -15,6 +15,7 @@ import Admin_dashboard from "./components/Admin_dashboard/Admin_dashboard";
 import About_us from "./components/About_page/About_us";
 import Default_page from "./components/Default_page/Default_page";
 import Protected from "./components/Protected";
+import Comment_Rating from "./components/Comment_Rating/Comment_Rating";
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
         <Route path="/about" element={<About_us />} />
         <Route path="/privacy_policy" element={<Privacy_policy />} />
         <Route path="/terms_condition" element={<Term_condition />} />
+        <Route path="/rating" element={<Comment_Rating />} />
+
         <Route path="/*" element={<Default_page />} />
       </Routes>
       </FirebaseProvider>
