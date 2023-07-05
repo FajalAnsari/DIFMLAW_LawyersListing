@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import "../Hero/Category.css";
 
 const Contect_now = () => {
@@ -6,7 +7,7 @@ const Contect_now = () => {
     <>
      <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content border border-prime border-3">
       <div class="modal-header">
         <h4 class="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion </h4>
       </div>
@@ -28,7 +29,7 @@ const Contect_now = () => {
 </div>
 <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content border border-prime border-3">
       <h5 class=" text-center mt-4">
       Thank you for contacting us we’ll get back to you shortly with some awesome lawyers.
       </h5>
