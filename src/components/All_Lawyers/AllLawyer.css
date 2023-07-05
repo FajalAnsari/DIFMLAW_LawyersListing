@@ -16,11 +16,11 @@
 }
 .alllawyersection:nth-child(odd) {
     background-color: var(--second-primary);
-    color: var(--third-primary) !important;
+    color: var(--second-secondary) !important;
 }
 .alllawyersection:nth-child(even) {
     background-color: var(--third-primary);
-    color: var(--secondary) !important;
+    color: var(--second-secondary) !important;
 }
 .alllawyersection:hover:nth-child(even){
    opacity: .89;

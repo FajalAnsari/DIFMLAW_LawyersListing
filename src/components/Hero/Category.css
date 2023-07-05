@@ -79,6 +79,7 @@ line-height: 75px;
 .viewbtn{
     border-radius: 50px !important;
     font-size: 83.2% !important;
+    border: 2px solid var(--primary);
 }
 
 .sfcs:hover{
@@ -86,7 +87,8 @@ line-height: 75px;
    color: var(--third-primary) !important;
    font-weight: 600;
    font-size: 83.2% !important;
-   border-color: var(--primary) !important;
+   border: 2px solid var(--primary);
+   /* border-color: var(--primary) !important; */
 }
 
 .exp{

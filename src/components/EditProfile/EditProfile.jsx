@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { doc, updateDoc } from "firebase/firestore";
+import { Link } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -229,7 +230,7 @@ const handleUpdate = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-					                      <a href="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></a>
+					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
 					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Update</button>
 				                     </div>
 			                     </div>

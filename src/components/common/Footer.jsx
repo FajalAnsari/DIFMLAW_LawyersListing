@@ -127,7 +127,7 @@ const Footer = () => {
          </div>
         </div>
       </div>
-      <small class="text-center mt-5">&copy; DIFM.LLC, 2023. All rights reserved.</small>
+      <small class="text-center mt-5">&copy; DIFM.LLC, <span className='font-color'>2023</span>. All rights reserved.</small>
     </div>
   </footer>
 </div>
