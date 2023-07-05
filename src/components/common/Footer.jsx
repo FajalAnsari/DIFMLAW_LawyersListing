@@ -41,7 +41,7 @@ const Footer = () => {
       <div class="blockcode f-1">
 
   <footer class="page-footer shadow text-white">
-    <div class="d-flex flex-column mx-auto py-5 footer-1 ">
+    <div class="d-flex flex-column mx-auto footer-1 ">
       <div class="d-flex flex-wrap justify-content-between">
         <div>
         
@@ -92,6 +92,12 @@ const Footer = () => {
           <ul class="p-0 lis">
             <li class="my-2">
               <a class="text-dark text-decoration-none text-white" href="https://difm.llc/">Difm.llc</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark text-decoration-none text-white" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark text-decoration-none text-white" href="https://bragsocial.com/">BragSocial.com</a>
             </li>
             <li class="my-2">
               <a class="text-dark text-decoration-none text-white" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>

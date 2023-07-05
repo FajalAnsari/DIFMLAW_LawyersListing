@@ -45,8 +45,10 @@ line-height: 75px;
     height: 80px !important;
 }
 .cont{
-    background-color: var(--text-blue-700); 
+    color: var(--third-primary);
     border-radius: 9px; 
+    font-weight: 600 !important;
+    font-size: larger !important;
 }
 .suggestion{
     position: absolute;
@@ -76,20 +78,20 @@ line-height: 75px;
 }
 .viewbtn{
     border-radius: 50px !important;
-    font-size: smaller;
+    font-size: 83.2% !important;
 }
 
 .sfcs:hover{
-   background-color: white !important;
-   color: var(--text-blue-900);
+   background: var(--second-secondary) !important;
+   color: var(--third-primary) !important;
+   font-weight: 600;
+   font-size: 83.2% !important;
+   border-color: var(--primary) !important;
 }
 
 .exp{
-    font-size: 69.59% !important;
-
+font-size: 69.59% !important;
 font-weight: 600 !important;
-
-
 }
 .card{
     border-radius: 17px !important;
@@ -157,27 +159,14 @@ line-height: 21px !important;
     .sal{
         margin-top: -80px !important;
     }
-    
+    .lawfind1{
+        display: none;
+    }
+    .main{
+        height: 390px !important;
+        box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.144) !important;
+      }
+      .cont{
+        height: 50px !important;
+      }
   }
-
-  /* arrow icon style */
-  .arr{
-
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-   
-    
-  }
-  .arr:hover {
-    
- 
-    animation-name: bounce;
-    animation-timing-function: ease;
- 
-}
-
-@keyframes bounce {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateX(20px); }
-  100% { transform: translateY(0); }
-}

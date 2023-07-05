@@ -16,31 +16,19 @@ const Navbar = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const fetchUserName = async () => {
-    // auth check
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-  
-      console.log("user is login");
-        const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
-      const doc = await getDocs(q);
-     console.log(doc.docs[0].data().uid);
-      setName(doc.docs[0].data().username);
-      // console.log(data)
-      setImage(doc.docs[0].data().image);
-      console.log(name);
-
-      console.log(image)
-        // const uid = user.uid;
-        // ...
-        // console.log("uid", uid)
+    if (user) {
+      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const docs = await getDocs(q);
+      if (docs.empty) {
+        console.log("No matching documents.");
       } else {
-        // User is signed out
-        // ...
-        console.log("user is logged out")
+        docs.forEach((doc) => {
+          const data = doc.data();
+          setName(data.username);
+          setImage(data.image);
+        });
       }
-    });
-  
-    
+    }
   };
   // logout
   const handleLogout = () => {               
@@ -71,9 +59,6 @@ const Navbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <Link class="nav-link active text-white" aria-current="page"  to={"/"}>Home</Link>
-        </li>
-        <li class="nav-item">
           <Link class="nav-link text-white" to={"/about"}>About Us</Link>
         </li>
         <li class="nav-item">
@@ -81,8 +66,8 @@ const Navbar = () => {
         </li>
       </ul>
       <div class="d-flex">
-       <Link to={"/login"}><button class="btn btns-primary me-2" >Login</button></Link> 
-       <Link to={"/signup"}><button class="btn btns-primary" type="submit">Sign Up</button></Link>
+       <Link to={"/login"}><button class="btn btns-primary me-2 w-100" type="submit">Login</button></Link> 
+       <Link to={"/signup"}><button class="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
       </div>
     </div>
   </div>
@@ -90,8 +75,6 @@ const Navbar = () => {
     </>
   );
 }
-
-
 return (
   <>
       <nav class="navbar navbar-expand-lg shadow">
@@ -103,9 +86,6 @@ return (
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link class="nav-link active text-white" aria-current="page"  to={"/"}>Home</Link>
-        </li>
         <li class="nav-item">
           <Link class="nav-link text-white" to={"/about"}>About Us</Link>
         </li>

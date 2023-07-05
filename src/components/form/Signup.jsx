@@ -213,7 +213,7 @@ const Signup = () => {
           User
         </button>
         </div>
-        <div className="shadow form-container forms-bg w-75 mx-auto p-5">
+        <div className="shadow form-container forms-bg w-75 mx-auto p-4">
 
           <form
             class="row g-3 me-4 mx-4 mt-1"
@@ -239,7 +239,7 @@ const Signup = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="number"
                 placeholder="Enter your number"
@@ -250,7 +250,7 @@ const Signup = () => {
               />
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <select
                 id="inputState"
                 value={experience}
@@ -270,7 +270,7 @@ const Signup = () => {
                 <option value="10+ Year">10+ Years</option>
               </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <select
                 id="inputState"
                 value={specialization}
@@ -289,14 +289,14 @@ const Signup = () => {
               </select>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
                <div class="input-group mb-3">
                <input type="text" class="form-control inputs selct" id="inputZip" placeholder="Location, country, city, state..." value={location}
                 onChange={(e) => setLocation(e.target.value)}/>
                <span class="input-group-text inputs border-prime selct" ><i class="bi bi-geo-alt "></i></span>
              </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <select
                 id="inputState"
                 value={work}
@@ -308,7 +308,7 @@ const Signup = () => {
                 <option value="Half Day">Half Day</option>
               </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="file"
                 placeholder="Choose your profile picture"
@@ -318,7 +318,7 @@ const Signup = () => {
               />
               <span className="text-danger">{fileError}</span>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="text"
                 placeholder="Password "
@@ -328,7 +328,7 @@ const Signup = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="text"
                 placeholder="Confirm password"
@@ -352,7 +352,7 @@ const Signup = () => {
             <div class="col-md-12 mb-4 ">
               <button
                 type="submit"
-                class=" mt-2 mb-5 signup border-white btn-regi"
+                class=" mt-2 mb-5 w-25 signup border-prime  btn-regi"
               >
                 Register Now
               </button>
@@ -406,7 +406,7 @@ const Signup = () => {
                 onChange={(e) => setEmails(e.target.value)}
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="number"
                 placeholder="Enter your number"
@@ -417,7 +417,7 @@ const Signup = () => {
               />
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="text"
                 placeholder="Select your state"
@@ -428,7 +428,7 @@ const Signup = () => {
               />
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="text"
                 placeholder="Password "
@@ -438,7 +438,7 @@ const Signup = () => {
                 onChange={(e) => setPass(e.target.value)}
               />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-4">
               <input
                 type="text"
                 placeholder="Confirm password"
@@ -453,7 +453,7 @@ const Signup = () => {
             <div class="col-md-12 mt-5 ">
               <button
                 type="submit"
-                class=" mt-2 mb-5 signup border-white btn-regi"
+                class=" mt-2 mb-5 signup border-prime w-25 btn-regi"
               >
                 Register Now
               </button>

@@ -16,9 +16,7 @@ import DIFM_LAW_bgcolor from "./DIFM_LAW_bgcolor.jpg";
 import Testimonial_icon from "./testimonial_icon.svg";
 import testimonial_reviewicon from "./testimonial_reviewicon.svg";
 import Image_testimonial from "./Image_testimonial.svg";
-import Devider_left from "./Divider_left.svg";
-import Devider_right from "./Divder_right.svg";
-import icon_diver from "./Icon_diver.svg";
+import icon_devider from "./icon_devider.png";
 
 
 
@@ -41,7 +39,5 @@ export {
          Testimonial_icon,
          testimonial_reviewicon,
          Image_testimonial,
-         Devider_left,
-         Devider_right,
-         icon_diver,
+         icon_devider,
 }
