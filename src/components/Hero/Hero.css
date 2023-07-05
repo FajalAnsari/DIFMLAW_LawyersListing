@@ -24,6 +24,7 @@ h1{
     padding-left:0;
   }
   .s-1{
+    height: 40px;
     border: 2px solid var(--primary) !important;
     border-radius: 0px 10px 10px 0px; 
   }
