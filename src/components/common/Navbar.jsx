@@ -23,13 +23,13 @@ const Navbar = () => {
       console.log("user is login");
         const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
       const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.username);
+     console.log(doc.docs[0].data().uid);
+      setName(doc.docs[0].data().username);
       // console.log(data)
-      setImage(data.image);
-      // console.log(data.username);
-      // console.log(user);
-      
+      setImage(doc.docs[0].data().image);
+      console.log(name);
+
+      console.log(image)
         // const uid = user.uid;
         // ...
         // console.log("uid", uid)

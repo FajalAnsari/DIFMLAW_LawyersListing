@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import law from "../images/DIFMLAW-Findlaw.svg";
 import Category from './Category';
 import "../../index.css";
 import "./Hero.css";
 
 const Hero = () => {
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  })
   return (
     <>
    {/* <!-- ======= Hero Section ======= --> */}

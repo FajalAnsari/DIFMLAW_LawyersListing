@@ -10,6 +10,7 @@ const AllLawyersection = (props) => {
     const [lawyers, setLawyers] = useState([]);
     const [getSelectValue, setSelectValue] =useState([]);
     const [getCheckboxData, setCheckboxData] = useState("");
+    const [getFilterData, setFilterData] = useState([]);
     const [set, unset] = useState(false);
     const fetchPost = async () => {
       
@@ -23,7 +24,7 @@ const AllLawyersection = (props) => {
     }
      // get select option value data
     const selected = async () => {
-  
+    console.log(props.type);
       const q = query(collection(db, "lawyers"), where("work", "==", props.type))
     
 
@@ -48,18 +49,20 @@ const AllLawyersection = (props) => {
            await getDocs(a).then((res) => {
         const catData = res.docs
         .map((doc) => ({...doc.data(), id:doc.id }));
-        setCheckboxData(catData);  
+        setCheckboxData(catData);
+        console.log(getCheckboxData);  
 
     
       });
     
     }
-   
+    
    
 
 
 useEffect(()=>{
     fetchPost();
+    ab();
 }, [])
 
 const [currentPage, setCurrentPage] = useState(0);
@@ -69,11 +72,37 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
 const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
 const currentCheckboxUser = getCheckboxData.slice(offset, offset + usersPerPage);
 
+
+const ab = async ()=>{
+  var dd = [];
+  switch(props.type){
+    
+    case props.checkbox
+    :
+     var dd= currentCheckboxUser;
+     
+      console.log("boby");
+      break;
+      case props.type:
+       console.log("hii");
+        break;
+      default:
+        return currentUsers;
+  
+  }
+  console.log(dd);
+  setFilterData(dd);
+
+ }
+console.log(getFilterData);
+
+
   return (
+    // .filter((item)=>{return props.type === '' ? item : selected() })
     <>
-    { 
-     !set && (
-      currentUsers.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).filter((item)=>{return props.checkbox === '' ? item : checked() }).map((data,i)=>(
+    {
+    
+      currentUsers.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((items)=>{return props.type.toLowerCase() === '' ? items : selected()}).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -110,13 +139,13 @@ const currentCheckboxUser = getCheckboxData.slice(offset, offset + usersPerPage)
     </div>
  </div>
  ))
- )
-    }
+ 
+    } 
 
-
+ 
     { 
      set && (
-      currentUser.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.checkbox === '' ? item : checked() }).map((data,i)=>(
+      currentUser.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -155,8 +184,12 @@ const currentCheckboxUser = getCheckboxData.slice(offset, offset + usersPerPage)
  ))
  )
  
+
  
-    }
+    } 
+     
+
+
  
     
 

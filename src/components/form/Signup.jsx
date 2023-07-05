@@ -133,7 +133,7 @@ const Signup = () => {
                         summary: bio,
                         image: url
                       })
-                     .then(()=>{alert("uploaded");                    
+                     .then(()=>{                    
                      navigate("/");
                     }).catch((err) => {alert(err);})
                   });
