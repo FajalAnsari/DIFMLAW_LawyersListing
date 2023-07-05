@@ -46,12 +46,20 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
 
   const SubmitLawyer = async (e) =>{
     e.preventDefault();
+    console.log(searchLawyer);
+    console.log(lawyeradd);
     if(!searchLawyer =="" || !lawyeradd == ""){
       const citiesRef = collection(db, "lawyers");
-   const q1 = query(citiesRef,
-      where("specialization", "==", searchLawyer || "address", "==", lawyeradd )
-          //  where("address", "==", 'lucknow')    
+  //  const q1 = query(citiesRef,
+  //     where("specialization", "==", searchLawyer || "address", "==", lawyeradd )
+  //         //  where("address", "==", 'lucknow')    
+  //   )
+    const q1 = query(citiesRef,
+      or( and( where("specialization", "==", searchLawyer), where("address", "==", lawyeradd) )
+         
+      )
     )
+    
      // const q = query(citiesRef, where("specialization", "==", searchLawyer), where("address", "==", lawyeradd));
      await getDocs(q1).then((qq) => {
       const newData = qq.docs
@@ -68,11 +76,20 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
   }
 // reset search
 const handleReset = ()=>{
+
   fetchPost();
 }
   // lawyer name search
 
   const BynameSearch = async () =>{
+    var input = document.getElementById("lawyername");
+    var value = input.value.toLowerCase();
+    var capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+    input.value = capitalizedValue;
+  
+    console.log(input.value);
+  
+   
         const q = query(collection(db, "lawyers"), where("specialization", "==", searchLawyer))
     console.log(searchLawyer);
             await getDocs(q).then((qq) => {
@@ -163,7 +180,7 @@ checkboxes.forEach(checkbox => {
     <div class="row mt-5 ">
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" onChange={(e)=> setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..."/>
+          <input type="text" class="form-control" id="lawyername" onChange={(e)=> setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..."/>
           <span class="input-group-text"><i class="bi bi-search" onClick={BynameSearch}></i></span>
         </div>
       </div>
@@ -222,7 +239,7 @@ checkboxes.forEach(checkbox => {
 
       {/* all lawyer section cards start */}
 { 
-      lawyers.length === 0 ? <h3 className='text-white'>no data found</h3>: (
+      lawyers.length === 0 ? <h3 className='text-white'>no data foun</h3>: (
         currentUsers.map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
@@ -234,7 +251,8 @@ checkboxes.forEach(checkbox => {
 
           <div className="col-md-9">
           <h4 className='mt-2 font-color'>{data.specialization}</h4>
-          <h5 className='nam fs-6 text-white'>{data.username}</h5>
+          <div className='d-flex'><h5 className='nam fs-6 text-white'>{data.username}</h5>
+          <h5 className='fs-6 ms-2'>{data.address}</h5></div>
           <div className='d-flex'>
           <p className='fs-6 text-white'>{data.work}</p>
           <p className='fs-6 mx-4 text-white'>{data.experience}  in practice</p>
