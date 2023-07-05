@@ -16,30 +16,19 @@ const Navbar = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const fetchUserName = async () => {
-    // auth check
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-  
-      console.log("user is login");
-        const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.username);
-      console.log(data)
-      setImage(data.image);
-      console.log(user);
-      
-        const uid = user.uid;
-        // ...
-        console.log("uid", uid)
+    if (user) {
+      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const docs = await getDocs(q);
+      if (docs.empty) {
+        console.log("No matching documents.");
       } else {
-        // User is signed out
-        // ...
-        console.log("user is logged out")
+        docs.forEach((doc) => {
+          const data = doc.data();
+          setName(data.username);
+          setImage(data.image);
+        });
       }
-    });
-  
-    
+    }
   };
   // logout
   const handleLogout = () => {               
@@ -86,8 +75,6 @@ const Navbar = () => {
     </>
   );
 }
-
-
 return (
   <>
       <nav class="navbar navbar-expand-lg shadow">
