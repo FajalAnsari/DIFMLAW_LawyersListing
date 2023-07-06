@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { storage } from "../../firebase";
@@ -11,7 +11,7 @@ import "../form/form.css";
 
 
 const Signup = () => {
-  const [userErr,setUserErr] = useState("");
+  const [setUserErr] = useState("");
   const navigate = useNavigate();
   const [isLawyer, setIsLawyer] = useState(true);
   const [isUser, setIsUser] = useState(false);
@@ -42,7 +42,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-  const [getImage, setImage] = useState("");
+ 
   const [fileError ,setFileError] =useState("");
 
 
@@ -98,7 +98,7 @@ const Signup = () => {
         else {
 
        
-        const res = createUserWithEmailAndPassword(auth, email, password).then(
+        createUserWithEmailAndPassword(auth, email, password).then(
           async (res) => {
             const user = res.user;
             console.log(user);
@@ -118,7 +118,7 @@ const Signup = () => {
               () => {
                   // download url
                   getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                      setImage(url);
+                      
                       console.log(url);
                       addDoc(collection(db, "lawyers"), {
                         uid: user.uid,
@@ -133,7 +133,7 @@ const Signup = () => {
                         summary: bio,
                         image: url
                       })
-                     .then(()=>{alert("uploaded");                    
+                     .then(()=>{                    
                      navigate("/");
                     }).catch((err) => {alert(err);})
                   });
@@ -164,7 +164,7 @@ const Signup = () => {
       setError("Please fill all the value!");
     } else {
       if (pass === confirmPass) {
-        const res = createUserWithEmailAndPassword(auth, emails, pass).then(
+         createUserWithEmailAndPassword(auth, emails, pass).then(
           async (res) => {
             const user = res.user;
             console.log(user);

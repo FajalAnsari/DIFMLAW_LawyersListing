@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Lawyerscards = () => {
   const navigate = useNavigate();
-  const [limit , setLimit] = useState(8);
+  const [limit] = useState(8);
   const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
@@ -32,7 +32,7 @@ const slice = lawyers.slice(0, limit);
       <div className="col-lg-3 rounded-3 lawyer ecard mt-4  card shadow p-3 mb-5 bg-body rounded lawyers-card"  key={i}>
         <div className="row  mt-2" id="lawyer">
           <div className="col-lg-4 col-sm-4 col-6">
-            <img src={data.image} className="ms-2 lawpics"></img>
+            <img src={data.image} className="ms-2 lawpics" alt='lawyer_card'></img>
           </div>
           <div className="col-lg-8 col-sm-8 col-6">
             <p className="fs-6 mb-0 pb-1 h6">{data.username}</p>

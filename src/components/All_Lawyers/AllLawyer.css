@@ -64,3 +64,6 @@
  .lawyrscard6{
     background-color: var(--third-primary);
  }
+input[type="text"]{
+    text-transform: capitalize;
+}
