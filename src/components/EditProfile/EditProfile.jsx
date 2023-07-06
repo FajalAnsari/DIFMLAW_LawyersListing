@@ -219,7 +219,7 @@ const handleUpdate = async (e) => {
                             <label className="small mb-1" for="inputWork">Enter or choose location</label>
                             <div class="input-group mb-3">
                              <input type="text" class="form-control" id="inputZip" placeholder="Location, country, city, state..." value={location} onChange={(e) => {setLocation(e.target.value)}}/>
-                             <span class="input-group-text" ><i class="bi bi-geo-alt"></i></span>
+                             <span class="input-group-text btns-primary" ><i class="bi bi-geo-alt"></i></span>
                            </div>
                             </div>
                         </div>

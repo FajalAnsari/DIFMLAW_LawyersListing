@@ -1,7 +1,7 @@
 .btns-primary{
     background: linear-gradient(180deg, #A37707 0%, #D1B06B 100%) !important;
     font-weight: 600;
-color: var(--third-primary) !important;
+color: rgba(0, 0, 0, 0.747) !important;
 font-size: 93.2% !important;
   }
   .btns-primary:hover{
