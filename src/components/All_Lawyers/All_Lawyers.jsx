@@ -209,7 +209,7 @@ checkboxes.forEach(checkbox => {
             service.children.map((child) => (
          <div class="form-check mt-2">
           <input class="form-check-input" type="checkbox" name='check' value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
-           <label class="form-check-label" for="flexCheckDefault">
+           <label class="form-check-label text-white" for="flexCheckDefault">
            {child.title}
            </label>
         </div>
@@ -239,7 +239,7 @@ checkboxes.forEach(checkbox => {
 
       {/* all lawyer section cards start */}
 { 
-      lawyers.length === 0 ? <h3 className='text-white'>no data foun</h3>: (
+      lawyers.length === 0 ? <h3 className='text-white'>No data found</h3>: (
         currentUsers.map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
