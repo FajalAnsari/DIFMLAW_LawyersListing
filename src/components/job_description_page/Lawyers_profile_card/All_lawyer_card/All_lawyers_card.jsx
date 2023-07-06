@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../../../firebase';
-import { lawyer_pic } from '../../../images';
+
 import { useNavigate } from 'react-router-dom';
 import "./All_lawyers_card.css";
 import { Link } from 'react-router-dom';
@@ -25,7 +25,7 @@ const All_lawyers_card = () => {
       fetchPost();
   }, [])
   
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage] = useState(0);
   const usersPerPage = 5;
   const offset = currentPage * usersPerPage;
   const currentUsers = lawyers.slice(offset, offset + usersPerPage);
@@ -39,7 +39,7 @@ const All_lawyers_card = () => {
       <div className="col-lg-9">
           <div className="row">
             <div className="col-lg-4 col-6 mt-2">
-                <img src={data.image} className='rounded-circle w-75 pics-pro' alt="" />
+                <img src={data.image} className='rounded-circle w-75 pics-pro' alt="image" />
             </div>
 
             <div className="col-lg-8 col-6">

@@ -69,11 +69,11 @@ export const alllawyercategory =[
       children: [
         {
           id: 11,
-          title: 'Full time',
+          title: 'Full Day',
         },
         {
           id: 12,
-          title: 'Part time',
+          title: 'Half Day',
         },
         {
           id: 13,

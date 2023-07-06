@@ -34,7 +34,7 @@ const Lawyers_profile_card = () => {
               <div className="row ab">
  
                 <div className="col-lg-6 col-xs-12 d-flex justify-content-around">
-                  <img src={data.image} className="lprocls"></img>
+                  <img src={data.image} className="lprocls" alt="lawyer_profile"></img>
                 </div>
                 <div className="col-lg-6 col-xs-12">
                   <p className="fs-5 fw-bold mb-2">{data.username}</p>
@@ -78,10 +78,10 @@ const Lawyers_profile_card = () => {
           <h4 className="font-color">Photos</h4>
           <div className="row">
             <div className="col-lg-6 col-6">
-              <img src={lawyer_pics}></img>
+              <img src={lawyer_pics} alt="lawyer_pic"></img>
             </div>
             <div className="col-lg-6 col-6">
-              <img src={lawyer_pics}></img>
+              <img src={lawyer_pics} alt="lawyer_pic"></img>
             </div>
           </div>
           {/* photos */}

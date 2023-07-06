@@ -7,7 +7,7 @@ const Footer = () => {
 
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  const [error, setError] = useState(false);
+  const [setError] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -44,8 +44,9 @@ const Footer = () => {
     <div class="d-flex flex-column mx-auto footer-1 ">
       <div class="d-flex flex-wrap justify-content-between">
         <div>
+        
           <a href="/" class="d-flex align-items-center p-0 text-white  text-decoration-none">
-          <img src={logo} className=' logo mb-2' alt="" />
+          <img src={logo} className=' logo mb-2' alt="difm_law_logo" />
             <span class="ms-3 h5 font-weight-bold ">DIFM LAW</span>
           </a>
           <p class="my-3 content text-white">
