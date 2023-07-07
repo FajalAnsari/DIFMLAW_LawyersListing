@@ -20,7 +20,7 @@ color: #585858;
 width: 40% !important;
 margin-left: 19px !important;
 font-weight: 600;
-color: var(--third-primary) !important;
+color: rgba(0, 0, 0, 0.747) !important;
 font-size: 93.2% !important;
 border-radius: 9px; 
 /* margin: auto !important; */
