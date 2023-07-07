@@ -102,3 +102,15 @@ font-size: 93.2% !important;
     border-radius:  5px 0px 0px 5px !important;
   }
 }
+
+/* styling for navbar */
+
+.navbar .container ul li {
+  font-weight: 400 !important;
+
+
+}
+.navbar .container .head{
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+}

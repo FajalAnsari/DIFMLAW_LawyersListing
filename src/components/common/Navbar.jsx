@@ -52,17 +52,20 @@ const Navbar = () => {
       <nav class="navbar navbar-expand-lg shadow">
   <div class="container p-2">
     <img src={logo} className='me-4 logo mb-2' alt="" />
-    <Link class="navbar-brand text-white" to={"/"}>DIFM LAW</Link>
+    <Link class="navbar-brand text-white fs-4 head" to={"/"}>DIFM LAW</Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link class="nav-link text-white" to={"/about"}>About Us</Link>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
+        <li class="nav-item ms-2">
+          <Link class="nav-link text-white fs-5" to={"/about"}>About Us</Link>
         </li>
-        <li class="nav-item">
-          <Link class="nav-link text-white" to={"/contect_us"}>Contact us</Link>
+        <li class="nav-item ms-3">
+          <Link class="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
+        </li>
+        <li class="nav-item ms-3">
+          <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact us</Link>
         </li>
       </ul>
       <div class="d-flex">
@@ -80,18 +83,22 @@ return (
       <nav class="navbar navbar-expand-lg shadow">
   <div class="container">
     <img src={logo} className='me-4 logo mb-2' alt="" />
-    <Link class="navbar-brand text-white" to={"/"}>DIFM LAW</Link>
+    <Link class="navbar-brand text-white fs-4 head" to={"/"}>DIFM LAW</Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link class="nav-link text-white" to={"/about"}>About Us</Link>
+    <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
+        <li class="nav-item ms-2">
+          <Link class="nav-link text-white fs-5" to={"/about"}>About Us</Link>
         </li>
-        <li class="nav-item">
-          <Link class="nav-link text-white" to={"/contect_us"}>Contact us</Link>
+        <li class="nav-item ms-3">
+          <Link class="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
         </li>
+        <li class="nav-item ms-3">
+          <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
+        </li>
+     
       </ul>
       <div className="btn-group">
         <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">

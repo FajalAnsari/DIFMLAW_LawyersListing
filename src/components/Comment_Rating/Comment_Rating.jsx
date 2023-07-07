@@ -1,101 +1,66 @@
-// import { useState } from "react";
-// // import { FaStar } from "react-icons/fa";
-
-// const colors = {
-//     orange: "#FFBA5A",
-//     grey: "#a9a9a9"
-    
-// };
+// import React from 'react'
+// import { useRef } from 'react';
+// import { useEffect } from 'react';
 
 
+// const Comment_Rating = () => {
+//     const checkboxRef = useRef(null);
 
-// function Comment_Rating() {
-//   const [currentValue, setCurrentValue] = useState(0);
-//   const [hoverValue, setHoverValue] = useState(undefined);
-//   const stars = Array(5).fill(0)
+//   useEffect(() => {
+//     if (checkboxRef.current) {
+//         checkboxRef.current.click();
+//       }
+//   }, []);
 
-//   const handleClick = value => {
-//     setCurrentValue(value)
-//   }
 
-//   const handleMouseOver = newHoverValue => {
-//     setHoverValue(newHoverValue)
+//   const onCheckbox = () => {
+//     // Perform your desired logic here
+//     console.log('Checkbox clicked!');
+//     alert("hello")
 //   };
-
-//   const handleMouseLeave = () => {
-//     setHoverValue(undefined)
-//   }
-
-
 //   return (
-//     <div style={styles.container}>
-//       <h2 className="text-white mt-5"> React Ratings </h2>
-//       <div style={styles.stars}>
-//         {stars.map((_, index) => {
-//           return (
-//             <FaStar
+//     <div>
+//     <input
+//       type="checkbox"
+//       ref={checkboxRef}
+//       onClick={onCheckbox}
+//     />
+//   </div>
+//   )
+// }
+
+// export default Comment_Rating
 
 
-//               key={index}
-//               size={24}
-//               onClick={() => handleClick(index + 1)}
-//               onMouseOver={() => handleMouseOver(index + 1)}
-//               onMouseLeave={handleMouseLeave}
-//               color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-//               style={{
-//                 marginRight: 10,
-//                 cursor: "pointer"
-//               }}
-//             />
-//           )
-//         })}
-//       </div>
-//       <textarea
-//         placeholder="What's your experience?"
-//         style={styles.textarea}
-//       />
+import React, { useEffect, useState } from 'react';
 
-//       <button
-//         style={styles.button}
-//       >
-//         Submit
-//       </button>
-      
-//     </div>
-//   );
-// };
+const Comment_Rating = () => {
+  const [isChecked, setIsChecked] = useState(false);
 
+  useEffect(() => {
+    if (isChecked) {
+      handleClick();
+    }
+  }, [isChecked]);
 
-// const styles = {
-//   container: {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center"
-//   },
-//   stars: {
-//     display: "flex",
-//     flexDirection: "row",
-//   },
-//   textarea: {
-//     border: "1px solid #a9a9a9",
-//     borderRadius: 5,
-//     padding: 10,
-//     margin: "20px 0",
-//     minHeight: 100,
-//     width: 300
-//   },
-//   button: {
-//     border: "1px solid #a9a9a9",
-//     borderRadius: 5,
-//     width: 300,
-//     padding: 10,
-//   }
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
 
-// };
+  const handleClick = () => {
+    // Perform your desired logic here
+    console.log('Checkbox clicked!');
+  };
 
+  return (
+    <div>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={handleCheckboxChange}
+      />
+    </div>
+  );
+};
 
-
-
-// export default Comment_Rating;
-
-
+export default Comment_Rating;

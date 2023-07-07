@@ -29,6 +29,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<EditProfile />} />
         <Route path="/job/:lawId" element={<Protected Component={Lawyers_profile_card}/>} />
+        <Route path="/alllawyer/:cat" element={<All_Lawyers />} />
         <Route path="/alllawyer" element={<All_Lawyers />} />
         <Route path="/contect_us" element={<Contect_us />} />
         <Route path="/admin" element={<Admin_dashboard />} />
@@ -36,7 +37,6 @@ function App() {
         <Route path="/privacy_policy" element={<Privacy_policy />} />
         <Route path="/terms_condition" element={<Term_condition />} />
         <Route path="/rating" element={<Comment_Rating />} />
-
         <Route path="/*" element={<Default_page />} />
       </Routes>
       </FirebaseProvider>

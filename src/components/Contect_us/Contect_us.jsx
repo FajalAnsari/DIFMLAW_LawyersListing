@@ -28,7 +28,7 @@ const Contect_us = () => {
           </span>
         </div>
 
-        <div className="col-md-6 border border-prime rounded forms" style={{backgroundColor: "var(--third-primary)"}}>
+        <div className="col-md-6 border border-prime rounded forms" style={{backgroundColor: "var(--fourth-primary)"}}>
         <form
             class="row g-3 me-4 mx-4 mt-4"
             // onSubmit={handleLawyerFormSubmit}
