@@ -181,13 +181,13 @@ checkboxes.forEach(checkbox => {
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="lawyername" onChange={(e)=> setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..."/>
-          <span class="input-group-text"><i class="bi bi-search" onClick={BynameSearch}></i></span>
+          <span class="input-group-text btns-primary"><i class="bi bi-search" onClick={BynameSearch}></i></span>
         </div>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
         <div class="input-group mb-3">
           <input type="text" class="form-control" onChange={(e)=> setLawyeradd(e.target.value)} placeholder="Location, country, city, state..."/>
-          <span class="input-group-text" ><i class="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
+          <span class="input-group-text btns-primary"><i class="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
         </div>
       </div>
       <div class="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
@@ -251,8 +251,8 @@ checkboxes.forEach(checkbox => {
 
           <div className="col-md-9">
           <h4 className='mt-2 font-color'>{data.specialization}</h4>
-          <div className='d-flex'><h5 className='nam fs-6 text-white'>{data.username}</h5>
-          <h5 className='fs-6 ms-2'>{data.address}</h5></div>
+          <div className='d-flex mt-3'><h5 className='nam fs-6 text-white'>{data.username}</h5>
+          <h5 className='fs-6 ms-2' style={{marginTop:"-7px"}}> <i class="bi bi-geo-alt "></i> {data.address}</h5></div>
           <div className='d-flex'>
           <p className='fs-6 text-white'>{data.work}</p>
           <p className='fs-6 mx-4 text-white'>{data.experience}  in practice</p>

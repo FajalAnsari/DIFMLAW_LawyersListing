@@ -2,3 +2,6 @@
    
     font-size: 100%;
 }
+.bt-primary{
+    background: linear-gradient(180deg, #A37707 0%, #D1B06B 100%) !important;
+}
