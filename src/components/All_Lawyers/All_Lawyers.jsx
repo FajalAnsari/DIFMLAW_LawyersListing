@@ -208,7 +208,7 @@ const filterData = () => {
     </div> 
 
     <div className="text-center filter_btn" onClick={filterData}>
-    <button className='btns-primary rounded-pill p-1 border-prime' style={{width:"85%"}}>Filters</button>
+    <button className='btns-primary rounded-pill p-1 border-prime' style={{width:"45%"}}>Filters</button>
     </div>
 
     <div className="col-12 mx-auto mt-5">
