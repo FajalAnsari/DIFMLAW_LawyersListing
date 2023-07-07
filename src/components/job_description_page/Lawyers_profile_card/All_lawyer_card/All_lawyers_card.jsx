@@ -68,7 +68,7 @@ const All_lawyers_card = () => {
  ))
     }
     <div className='mt-2'>
-      <Link className='abd' to='/alllawyer'><p className='fs-5 text-center text-dark'>View More</p>
+      <Link className='abd' to='/alllawyer'><p className='fs-5 text-center font-color'>View More</p>
       </Link>
      </div>
     

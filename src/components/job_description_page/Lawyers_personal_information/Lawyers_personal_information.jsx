@@ -4,7 +4,7 @@ const Lawyers_personal_information = (props) => {
   return (
     <div className='row mt-5 law p-4 border border-prime rounded' style={{backgroundColor: "var(--second-secondary)"}}>
         
-      <h2 className='btns-primary'>Lawyer's Profile Information</h2>
+      <h3 className='bt-primary p-2 fs-5'>Lawyer's Profile Information</h3>
       <p className='fs-6'>Basic contact Information</p>
       <div className='row'>
         <div className='col-lg-6'>

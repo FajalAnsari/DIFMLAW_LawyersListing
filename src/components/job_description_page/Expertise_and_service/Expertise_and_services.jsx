@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Expertise_and_services = (props) => {
   return (
     <div className='row border law border border-prime rounded mt-5 p-4' style={{backgroundColor: "var(--second-secondary)"}}>
-        <h2 className='btns-primary'>Expertise and Services</h2>
+        <h3 className='bt-primary p-2 fs-5'>Expertise and Services</h3>
         <p className='fs-6'>{props.Bio}</p>
         <h2>Requirements:</h2>
         <div className='row'>
