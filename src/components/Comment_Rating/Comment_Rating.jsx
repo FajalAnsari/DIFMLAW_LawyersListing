@@ -34,6 +34,8 @@
 //         {stars.map((_, index) => {
 //           return (
 //             <FaStar
+
+
 //               key={index}
 //               size={24}
 //               onClick={() => handleClick(index + 1)}
