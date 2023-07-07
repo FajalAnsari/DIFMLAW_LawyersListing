@@ -24,16 +24,19 @@ h1{
     padding-left:0;
   }
   .s-1{
+    height: 40px;
     border: 2px solid var(--primary) !important;
     border-radius: 0px 10px 10px 0px; 
   }
   .s-2{
     border: 2px solid var(--primary);
     border-radius:  0px 0px 0px 0px !important;
+    outline: none;
   }
   .s-3{
     border: 2px solid var(--primary) !important;
     border-radius:  10px 0px 0px 10px;
+    outline: none;
   }
   .fq-1{
     font-weight: 600;
@@ -48,4 +51,15 @@ h1{
   h2{
     font-size: 36px !important;
   }
+  .s-1{
+    width: 14% !important;
+  }
+  .navbar .navbar-toggler[aria-expanded="true"] {
+    color: var(--primary)!important;
+    }
+    .navbar .navbar-toggler:focus{
+    color: var(--primary);
+    }
+  
+    
   }

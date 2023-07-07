@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from "../images/Vector.svg";
 import Devider from '../Testimonial/Devider';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -71,19 +72,19 @@ const Footer = () => {
           <p class="h5 mb-4 Devwares mt-4">Quick Links</p>
           <ul class="p-0 lis ">
             <li class="my-2 ">
-              <a class="text-dark text-decoration-none text-white" href="/">Contact</a>
+              <Link class="text-dark text-decoration-none text-white" to="/contect_us">Contact</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="/">About</a>
+              <Link class="text-dark text-decoration-none text-white" to="/about">About</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="/alllawyer">Lawyers</a>
+              <Link class="text-dark text-decoration-none text-white" to="/alllawyer">Lawyers</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="/privacy_policy">Privacy Policy</a>
+              <Link class="text-dark text-decoration-none text-white" to="/privacy_policy">Privacy Policy</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="/terms_condition">Terms and Conditions</a>
+              <Link class="text-dark text-decoration-none text-white" to="/terms_condition">Terms and Conditions</Link>
             </li>
           </ul>
         </div>
@@ -91,19 +92,19 @@ const Footer = () => {
           <p class="h5 mb-4 mt-4" style={{fontWeight: '600'}}>DIFM Group</p>
           <ul class="p-0 lis">
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="https://difm.llc/">Difm.llc</a>
+              <Link class="text-dark text-decoration-none text-white" to="https://difm.llc/">Difm.llc</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>
+              <Link class="text-dark text-decoration-none text-white" to="https://www.worldmodelhunt.com/">Worldmodelhunt.com</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="https://bragsocial.com/">BragSocial.com</a>
+              <Link class="text-dark text-decoration-none text-white" to="https://bragsocial.com/">BragSocial.com</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>
+              <Link class="text-dark text-decoration-none text-white" to="https://www.worldmodelhunt.com/">Worldmodelhunt.com</Link>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none text-white" href="https://bragsocial.com/">BragSocial.com</a>
+              <Link class="text-dark text-decoration-none text-white" to="https://bragsocial.com/">BragSocial.com</Link>
             </li>
           </ul>
         </div>
@@ -128,7 +129,7 @@ const Footer = () => {
          </div>
         </div>
       </div>
-      <small class="text-center mt-5">&copy; DIFM.LLC, 2023. All rights reserved.</small>
+      <small class="text-center mt-5">&copy; DIFM.LLC, <span className='font-color'>2023</span>. All rights reserved.</small>
     </div>
   </footer>
 </div>

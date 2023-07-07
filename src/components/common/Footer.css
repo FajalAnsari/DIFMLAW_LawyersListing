@@ -5,8 +5,7 @@ color: var(--third-primary) !important;
 font-size: 93.2% !important;
   }
   .btns-primary:hover{
-      opacity: 0.90 !important;
-      color: var(--third-primary) !important;
+      background: linear-gradient(180deg, #D1B06B 0%,  #A37707 100%) !important;
   }
   .logo{
     width: 40px;
