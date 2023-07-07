@@ -171,6 +171,15 @@ checkboxes.forEach(checkbox => {
   });
 });
 
+const filterData = () => {
+  var para = document.getElementById("filters");
+  if (para.style.display === 'none') {
+    para.style.display = 'block';
+  } else {
+    para.style.display = 'none';
+  }
+}
+
   return (
     <>
    
@@ -195,13 +204,17 @@ checkboxes.forEach(checkbox => {
         <button class="btn btns-primary btn-block ms-2" onClick={handleReset}>Reset</button>
       </div>
       </div>
-      <p className='fs-6 text-white'>Popular searches :  Defense Lawyers, Real Estate </p>
-    </div>   
-    
+      <p className='fs-6 text-white pop'>Popular searches :  Defense Lawyers, Real Estate </p>
+    </div> 
+
+    <div className="text-center filter_btn" onClick={filterData}>
+    <button className='btns-primary rounded-pill p-1 border-prime' style={{width:"85%"}}>Filters</button>
+    </div>
+
     <div className="col-12 mx-auto mt-5">
     <div className="row mx-auto">
 
-    <div className="col-md-4">
+    <div className="col-md-4" id='filters'>
     {alllawyercategory.map((service) => (
       <>
          <h4 className='mt-3 font-color'>{service.title}</h4>
@@ -250,10 +263,10 @@ checkboxes.forEach(checkbox => {
           </div>
 
           <div className="col-md-9">
-          <h4 className='mt-2 font-color'>{data.specialization}</h4>
-          <div className='d-flex mt-3'><h5 className='nam fs-6 text-white'>{data.username}</h5>
+          <h4 className='mt-2 font-color res1'>{data.specialization}</h4>
+          <div className='d-flex res2 mt-3'><h5 className='nam fs-6 text-white'>{data.username}</h5>
           <h5 className='fs-6 ms-2' style={{marginTop:"-7px"}}> <i class="bi bi-geo-alt "></i> {data.address}</h5></div>
-          <div className='d-flex'>
+          <div className='d-flex res3'>
           <p className='fs-6 text-white'>{data.work}</p>
           <p className='fs-6 mx-4 text-white'>{data.experience}  in practice</p>
           </div>
@@ -269,7 +282,7 @@ checkboxes.forEach(checkbox => {
            </button>
           </div>
 
-          <div className="col-md-1 mx-3">
+          <div className="col-md-1 mx-3 res4">
           <i class="bi bi-bookmark fw-bold fs-3"></i>
           <p className='fs-6 savelist'>save</p>
           </div>
