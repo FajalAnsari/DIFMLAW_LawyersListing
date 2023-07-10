@@ -7,8 +7,9 @@ import { db } from '../../firebase';
 import { collection, getCountFromServer, and,  getDocs, or, query, where} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-
+import { useParams } from 'react-router-dom';
 const All_Lawyers = () => {
+  const params = useParams();
   // alllawyer section code start
 
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const All_Lawyers = () => {
 
 useEffect(()=>{
   fetchPost();
+  console.log(params.cat);
 }, [])
 
 const [currentPage, setCurrentPage] = useState(0);
@@ -50,17 +52,14 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
     console.log(lawyeradd);
     if(!searchLawyer =="" || !lawyeradd == ""){
       const citiesRef = collection(db, "lawyers");
-  //  const q1 = query(citiesRef,
-  //     where("specialization", "==", searchLawyer || "address", "==", lawyeradd )
-  //         //  where("address", "==", 'lucknow')    
-  //   )
+
     const q1 = query(citiesRef,
       or( and( where("specialization", "==", searchLawyer), where("address", "==", lawyeradd) )
          
       )
     )
     
-     // const q = query(citiesRef, where("specialization", "==", searchLawyer), where("address", "==", lawyeradd));
+
      await getDocs(q1).then((qq) => {
       const newData = qq.docs
       .map((doc) => ({...doc.data(), id:doc.id }));
@@ -221,7 +220,7 @@ const filterData = () => {
          {service.children &&
             service.children.map((child) => (
          <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" name='check' value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
+          <input class="form-check-input" type="checkbox" name='check' checked={child.title===params.cat} value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
            <label class="form-check-label text-white" for="flexCheckDefault">
            {child.title}
            </label>
@@ -261,14 +260,13 @@ const filterData = () => {
            <div className="col-md-3 mt-3">
                <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
           </div>
-
           <div className="col-md-9">
-          <h4 className='mt-2 font-color res1'>{data.specialization}</h4>
-          <div className='d-flex res2 mt-3'><h5 className='nam fs-6 text-white'>{data.username}</h5>
-          <h5 className='fs-6 ms-2' style={{marginTop:"-7px"}}> <i class="bi bi-geo-alt "></i> {data.address}</h5></div>
-          <div className='d-flex res3'>
+          <h4 className='mt-2 font-color'>{data.specialization}</h4>
+          <div className='d-flex mt-3'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
+          <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-capitalize' style={{marginTop:"-7px"}}> <i class="bi bi-geo-alt"></i> {data.address}</h5></div></div>
+          <div className='d-flex'>
           <p className='fs-6 text-white'>{data.work}</p>
-          <p className='fs-6 mx-4 text-white'>{data.experience}  in practice</p>
+          <p className='fs-6 mx-4 text-white lawexp'>{data.experience}  in practice</p>
           </div>
           </div>
         </div>
