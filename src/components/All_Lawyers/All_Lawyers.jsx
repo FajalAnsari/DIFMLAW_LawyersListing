@@ -7,7 +7,10 @@ import { db } from '../../firebase';
 import { collection, getCountFromServer, and,  getDocs, or, query, where} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
+
+
 const All_Lawyers = () => {
   const params = useParams();
   // alllawyer section code start
@@ -348,6 +351,9 @@ const filterData = () => {
         {/* lawyers featued end */}
 
       </div>   
+      <div className='container'>
+      <Contect_sugg />
+      </div>
       <div className='mt-5'>
       <Testimonial />
       </div>
