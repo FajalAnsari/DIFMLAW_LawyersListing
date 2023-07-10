@@ -3,7 +3,7 @@ import React from 'react';
 const Add_Comment = () => {
   return (
     <>
-    <div className="add-comment bg-secondary py-4 px-4 rounded-2 border-prime border-5">
+    <div className="add-comment bg-secondary py-4 px-4 rounded-3  border border-prime border-1">
       <div className="row">
         <div className="col-md-2">
           <img src="https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png" alt="" className='w-75 rounded-circle'/>
