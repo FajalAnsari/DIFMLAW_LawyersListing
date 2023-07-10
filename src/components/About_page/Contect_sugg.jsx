@@ -5,7 +5,7 @@ const Contect_sugg = () => {
     <>
        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content border border-prime border-3">
       <div class="modal-header">
         <h4 class="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion </h4>
       </div>
@@ -20,19 +20,19 @@ const Contect_sugg = () => {
 </div>
 </div>
       <div class="mx-auto mb-4">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
 </div>
 <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content border border-prime border-3">
       <h5 class=" text-center mt-4">
       Thank you for contacting us we’ll get back to you shortly with some awesome lawyers.
       </h5>
       <a href='/' class="mx-auto mb-4 text-decoration-none mt-4">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
       </a>
     </div>
   </div>
