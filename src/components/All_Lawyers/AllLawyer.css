@@ -7,6 +7,9 @@
 .savelist{
     margin-top: -12px;
 }
+.filter_btn{
+    display: none;
+}
 
 .nam{
     margin-top: -7px;
@@ -51,7 +54,9 @@
       color: var(--primary);
       outline: none;
   }
- 
+  #filters{
+    display: block;
+}
  #react-paginate li.active {
     background: var(--third-primary);
     outline: none;
@@ -74,4 +79,41 @@ input[type="text"]{
 .view_buttons .lawexp{
   margin-left: 150px !important;
   position: absolute;
+}
+@media only screen and (max-width: 767px) {
+    .filter_btn{
+        display: block;
+    }
+    #filters{
+        display: none;
+    }
+    .res1{
+        margin-top: -74px !important;
+        margin-left: 80px;
+    }
+    .res2{
+        margin-left: 80px;
+    }
+    .res3{
+        margin-top: 2px;
+        margin-left: 50px;
+    }
+    .profi {
+        margin-top: 10% !important;
+        margin-bottom: 10px;
+        
+    }
+    .res4{
+        margin-top: -65px !important;
+       
+    }
+    .pop{
+        margin-top: 8px;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1968px) { 
+    #filters{
+        display: block !important;
+    }
 }

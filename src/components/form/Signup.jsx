@@ -310,13 +310,13 @@ const Signup = () => {
                   </div>
                   <div class="col-md-6 mt-4">
                     <input type="file" name="file-input" id="file-input" className="file-input__input" multiple onChange={(e) => setPicture(e.target.files[0])} />
-                    <label className="file-input__label" for="file-input" id="slects">
+                    <label className="file-input__label  btns-primary" for="file-input" id="slects">
                       <svg
                         aria-hidden="true"
                         focusable="false"
                         data-prefix="fas"
                         data-icon="upload"
-                        className="svg-inline--fa fa-upload fa-w-16"
+                        className="svg-inline--fa fa-upload fa-w-16 "
                         role="img"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
