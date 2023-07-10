@@ -13,21 +13,43 @@ import { auth } from '../../firebase';
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
+  const [activeUser, setactiveUser] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const fetchUserName = async () => {
     if (user) {
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
+
+
       const docs = await getDocs(q);
+      const info = await getDocs(q1)
+     
+      // lawyer auth
       if (docs.empty) {
         console.log("No matching documents.");
       } else {
         docs.forEach((doc) => {
           const data = doc.data();
+          console.log(data);
           setName(data.username);
+          // setName(data.name);
           setImage(data.image);
         });
       }
+      // user auth
+      if (info.empty) {
+        console.log("No matching documents.");
+      } else {
+        info.forEach((doc) => {
+          const data = doc.data();
+          console.log(data);
+          setName(data.name);
+          setactiveUser(true);
+          // setImage(data.image);
+        });
+      }
+
     }
   };
   // logout
@@ -44,6 +66,7 @@ const Navbar = () => {
     if (loading) 
     return;
     fetchUserName();
+    console.log(name);
   }, [user, loading]);
 
   if (user === null){
@@ -100,11 +123,13 @@ return (
         </li>
      
       </ul>
+     
       <div className="btn-group">
-        <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
-           <img src={image} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />
+      <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
+      {!activeUser ? ( <img src={image} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />  ) :<img src='https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png' id='profiles' className="per1  border border-3 border-prime" alt="avatar" />} 
              <b>{name}</b>
        </Link>
+          
        <ul className="dropdown-menu">
           <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span >Profile</span></Link></li>
           <li><Link className="dropdown-item" to="/dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
@@ -113,6 +138,7 @@ return (
          <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
        </ul>
      </div>
+
     </div>
   </div>
 </nav>
