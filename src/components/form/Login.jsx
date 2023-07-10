@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword} from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 
 const Login = () => {
@@ -69,7 +69,7 @@ const Login = () => {
                 Remember me
               </label>
             </div>
-            <a href="#!" class="text-body font-color">Forgot password?</a>
+            <Link to="/login/forget_password" class="text-body font-color">Forgot password?</Link>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">

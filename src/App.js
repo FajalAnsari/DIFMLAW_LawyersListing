@@ -16,6 +16,7 @@ import About_us from "./components/About_page/About_us";
 import Default_page from "./components/Default_page/Default_page";
 import Protected from "./components/Protected";
 import Comment_Rating from "./components/Comment_Rating/Comment_Rating";
+import ForgetPassword from "./components/form/ForgetPassword";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/privacy_policy" element={<Privacy_policy />} />
         <Route path="/terms_condition" element={<Term_condition />} />
         <Route path="/rating" element={<Comment_Rating />} />
+        <Route path="/login/forget_password" element={<ForgetPassword />} />
         <Route path="/*" element={<Default_page />} />
       </Routes>
       </FirebaseProvider>
