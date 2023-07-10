@@ -69,7 +69,7 @@ const Navbar = () => {
     console.log(name);
   }, [user, loading]);
 
-  // if (user === null){
+
   return (
     <>
       <nav class="navbar navbar-expand-lg shadow">
