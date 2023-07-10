@@ -8,7 +8,9 @@
    margin-top: -95px !important;
    background-color: var(--second-primary);
 }
-
+.dmis{
+    margin-left: 15% !important;
+}
 @media only screen and (max-width: 1200px) {
     .frend{
         margin-top: 0px;
