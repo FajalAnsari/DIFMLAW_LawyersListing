@@ -11,12 +11,13 @@ import lawyer_pic from "./lawyer_pic.png";
 import our_mission from "./difmlaw-our-mission.svg";
 import user_friendly from "./difmlaw-user-friendly.svg";
 import user_needs from "./difmlaw-needs.svg";
-import our_promises from "./our_promises.png";
+import our_promises from "./Our promiss.svg";
 import DIFM_LAW_bgcolor from "./DIFM_LAW_bgcolor.jpg";
 import Testimonial_icon from "./testimonial_icon.svg";
 import testimonial_reviewicon from "./testimonial_reviewicon.svg";
 import Image_testimonial from "./Image_testimonial.svg";
 import icon_devider from "./icon_devider.png";
+import profile from "./profile.jpg";
 
 
 
@@ -40,4 +41,5 @@ export {
          testimonial_reviewicon,
          Image_testimonial,
          icon_devider,
+         profile,
 }
