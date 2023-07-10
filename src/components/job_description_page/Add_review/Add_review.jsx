@@ -5,7 +5,10 @@ const Add_review = () => {
     <>
     <div className='container'>
       <div className=''>
-        <div className=''></div>
+        <div className='d-flex'>
+         <p className='text-white'>Write A Review</p>
+         
+        </div>
       </div>
     </div>
     </>

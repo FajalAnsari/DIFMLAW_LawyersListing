@@ -7,6 +7,7 @@ import Lawyers_personal_information from "../Lawyers_personal_information/Lawyer
 import Expertise_and_services from "../Expertise_and_service/Expertise_and_services";
 import { useFirebase } from "../../../firebase";
 import { useParams } from "react-router-dom";
+import Add_review from "../Add_review/Add_review";
 
 const Lawyers_profile_card = () => {
   
@@ -72,7 +73,7 @@ const Lawyers_profile_card = () => {
           {/* expertise and services end */}
 
         {/* review start */}
-        
+        < Add_review />
         {/* review end */}
 
         </div>
