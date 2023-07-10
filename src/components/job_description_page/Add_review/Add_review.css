@@ -1,0 +1,6 @@
+.review{
+    background-color: var(--fourth-primary);
+}
+.review .arrow{
+    background-color: var(--primary);
+}
