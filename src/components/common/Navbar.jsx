@@ -7,7 +7,6 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from '../../firebase';
 import { onAuthStateChanged } from "firebase/auth";
-import { profile } from '../images';
 import { auth } from '../../firebase';
 
 
