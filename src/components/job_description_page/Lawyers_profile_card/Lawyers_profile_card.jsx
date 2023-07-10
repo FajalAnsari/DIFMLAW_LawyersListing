@@ -70,6 +70,11 @@ const Lawyers_profile_card = () => {
 
           <Expertise_and_services experience={data.experience} Bio={data.summary}/>
           {/* expertise and services end */}
+
+        {/* review start */}
+        
+        {/* review end */}
+
         </div>
         {/* lawyer profile card end */}
 

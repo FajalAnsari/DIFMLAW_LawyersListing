@@ -220,7 +220,8 @@ const filterData = () => {
          {service.children &&
             service.children.map((child) => (
          <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" name='check' checked={child.title===params.cat} value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
+          {/* checked={child.title===params.cat} */}
+          <input class="form-check-input" type="checkbox" name='check'  value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
            <label class="form-check-label text-white" for="flexCheckDefault">
            {child.title}
            </label>

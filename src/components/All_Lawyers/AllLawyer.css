@@ -117,3 +117,15 @@ input[type="text"]{
         display: block !important;
     }
 }
+
+/* checkbox style */
+input[type="checkbox"]{
+   
+    background-color: #555F6D;
+    
+}
+input[type="checkbox"]:checked{
+    background-color: #A37707;
+    border: 0px solid #A37707
+   
+}
