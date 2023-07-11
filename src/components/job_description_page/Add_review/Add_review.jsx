@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Add_review.css";
+import "./review_section.css";
 const Add_review = () => {
    // State to show/hide accordion
    const [show, setShow] = useState(false);
