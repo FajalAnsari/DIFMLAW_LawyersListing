@@ -55,13 +55,18 @@ const Navbar = () => {
   // logout
   const handleLogout = () => {               
     signOut(auth).then(() => {
-    // Sign-out successful.
-        navigate("/");
-        alert("Signed out successfully")
+      // Clear the user-related state values
+      setName("");
+      setImage("");
+      // Sign-out successful.
+      navigate("/");
+      alert("Signed out successfully");
+      // Reload the page to update the UI
+      window.location.reload();
     }).catch((error) => {
        alert(error);
     });
-} 
+  }
   useEffect(() => {
     if (loading) 
     return;
