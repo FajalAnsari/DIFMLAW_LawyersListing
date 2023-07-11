@@ -18,6 +18,7 @@ import testimonial_reviewicon from "./testimonial_reviewicon.svg";
 import Image_testimonial from "./Image_testimonial.svg";
 import icon_devider from "./icon_devider.png";
 import profile from "./profile.jpg";
+import dummy from "./dummy.png";
 
 
 
@@ -42,4 +43,5 @@ export {
          Image_testimonial,
          icon_devider,
          profile,
+         dummy,
 }
