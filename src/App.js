@@ -39,7 +39,7 @@ function App() {
         <Route path="/privacy_policy" element={<Privacy_policy />} />
         <Route path="/terms_condition" element={<Term_condition />} />
         <Route path="/rating" element={<Comment_Rating />} />
-        <Route path="/bookmark/:lawsId" element={<Bookmark />} />
+        {/* <Route path="/bookmark" element={<Bookmark />} /> */}
         <Route path="/login/forget_password" element={<ForgetPassword />} />
         <Route path="/*" element={<Default_page />} />
       </Routes>

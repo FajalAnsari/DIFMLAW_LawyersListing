@@ -343,8 +343,7 @@ const addToLawyer = async (uid) => {
              View Profile
            </button>
           </div>
-
-          <div className="col-md-1 mx-3 res4"  onClick={()=>addToLawyer(data.uid)}>
+          <div className="col-md-1 mx-3 res4" onClick={()=>addToLawyer(data.uid)}>
           <i class="bi bi-bookmark fw-bold fs-3"></i>
           <p className='fs-6 savelist'>save</p>
           </div>
