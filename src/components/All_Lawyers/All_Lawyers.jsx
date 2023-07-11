@@ -7,7 +7,10 @@ import { db } from '../../firebase';
 import { collection, getCountFromServer, and,  getDocs, or, query, where} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
+
+
 const All_Lawyers = () => {
   const params = useParams();
   // alllawyer section code start
@@ -220,7 +223,8 @@ const filterData = () => {
          {service.children &&
             service.children.map((child) => (
          <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" name='check' checked={child.title===params.cat} value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
+          {/* checked={child.title===params.cat} */}
+          <input class="form-check-input" type="checkbox" name='check'  value={child.title} id="flexCheckDefault" onClick={handleCheckbox}/>
            <label class="form-check-label text-white" for="flexCheckDefault">
            {child.title}
            </label>
@@ -347,6 +351,9 @@ const filterData = () => {
         {/* lawyers featued end */}
 
       </div>   
+      <div className='container'>
+      <Contect_sugg />
+      </div>
       <div className='mt-5'>
       <Testimonial />
       </div>

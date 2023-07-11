@@ -1,0 +1,11 @@
+ .add_com{
+    width: 96% !important; 
+    background-color: var(--primary);
+     height: 2px !important;
+}
+.review{
+   background-color: var(--fourth-primary);
+}
+.review .arrow{
+   background-color: var(--primary);
+}

@@ -5,11 +5,15 @@ import CategoryCards from "./CategoryCards";
 import { category } from "../constant/data";
 import Join_Network from '../join_network/Join_Network';
 import Lawyerscards from './Lawyerscards';
+import { useAuthState } from "react-firebase-hooks/auth";
 import Testimonial from '../Testimonial/Testimonial';
+import { auth } from '../../firebase';
+import Contect_sugg from '../About_page/Contect_sugg';
 
 
 
 const Category = () => {
+  const [user, loading] = useAuthState(auth);
 
   return (
     <>
@@ -77,14 +81,22 @@ const Category = () => {
         </div> 
         {/* lawyers featued end */}
       </div>
-
-
-       {/* join network start */}
+      {user ? (
+         <div className='container'>
+         <Contect_sugg />
+         </div>
+       ) : ( 
+        <>
+         {/* join network start */}
        <div className='cat_law'>
        <div className='container'>
       <Join_Network /> 
       </div>
       </div>
+      </>
+       )}
+
+      
       {/* join network end */}
 
 
