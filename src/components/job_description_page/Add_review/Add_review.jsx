@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import "./review_section.css";
 const Add_review = (props) => {
+  const [userRating, setUserRating] = useState(null);
   const [user, loading] = useAuthState(auth);
   const [rating, setRating] = useState(null);
   const [count, setCount] =useState(0);
@@ -21,7 +22,7 @@ const Add_review = (props) => {
 
 
 const fetchUserId = async () => {
-  const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+  const q = query(collection(db, "lawyers"), where("uid", "==", "tZtNoQFa1DYvuzvYmjIL57ZrcYu1"));
    const res = [];
      const doc = await getDocs(q);
      doc.forEach(value=>{
@@ -30,7 +31,10 @@ const fetchUserId = async () => {
              ...value.data()
          });
      });
-     getUserId(res[0].id)
+     console.log(res);
+    //  getUserId(res[0].uid)
+     const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
+    setUserRating(userRatingValue);
     
 }
 
@@ -52,17 +56,37 @@ const fetchUserId = async () => {
 
     try{
       await updateDoc(taskDocRef,{
-         rating:{ 
-          5:count,
-          4:count,
-          3:count,
-          2:count,
-          1:count,
-         }
         
-      }).then(() => {
+        //  rating:{ 
+        //   5:count,
+        //   4:count,
+        //   3:count,
+        //   2:count,
+        //   1:count,
+        //  }
+        rating: {
+          ...rating,
+          [rating]: (rating[rating] || 0) + 1,
+        //   5: (rating[5] || 0) + 1, // Increment count for rating value 4
+        //   4: (rating[4] || 0) + 1,
+        //   3: (rating[3] || 0) + 1,
+        //   2: (rating[2] || 0) + 1,
+        //   1: (rating[1] || 0) + 1,
+          
+        },
+        
+        
+      }
+      
+      
+      ).then(() => {
         alert("Your Rating is"+ rating);
       })
+      setUserRating((prevRating) => ({
+        ...prevRating,
+        [rating]: (prevRating[rating] || 0) + 1, // Increment count in the userRating state
+      }));
+
     } catch (err) {
       alert(err)
     }  
@@ -71,7 +95,7 @@ const fetchUserId = async () => {
   }
   useEffect(()=>{
     fetchUserId();
-    console.log('yes'+props.id);
+    console.log('yes'+props.uid);
   },[])
   
    
@@ -135,6 +159,13 @@ const fetchUserId = async () => {
       </div>
  
     </div>
+    {/* <div className="rating-section">
+        <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
+        <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
+        <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
+        <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
+        <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
+      </div> */}
     </>
   )
 }
