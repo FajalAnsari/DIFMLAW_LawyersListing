@@ -32,7 +32,7 @@ const Lawyerscards = () => {
         <div className="row mx-auto lawyers_profile">
           {[...Array(8)].map((_, i) => (
            <div className="col-lg-3 rounded-3 lawyer ecard mt-4 card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
-           <div style={{ height: 400 }}>
+           <div style={{ height: 430 , width: 300}}>
             <div className="row mt-2" id="lawyer">
                 <div className="col-lg-4 col-sm-4 col-6">
                 <div className='preloader-img1 loading-animation'></div>
@@ -49,7 +49,7 @@ const Lawyerscards = () => {
                 <p className="fs-6 lawyers-desc font-weight-normal lh-base text-justify summ preloader-img6 rounded loading-animation"></p>
                 <div className="row mt-4 practice">
                   <div className="col-lg-6 col-sm-6 col-6">
-                    <div className="fs-6 exp preloader-img7 rounded-pill loading-animation"></div>
+                    <div className="fs-6 exp preloader-img7 rounded-pill p-1 loading-animation"></div>
                   </div>
                   <div className="col-lg-6 col-sm-6 col-6">
                     <div className="preloader-img8 rounded-pill p-3 loading-animation">
@@ -58,7 +58,7 @@ const Lawyerscards = () => {
                   </div>
                 </div>
               </div>
-             <Skeleton height={400} />
+             <Skeleton height={430} width={300}/>
            </div>
            
          </div>
