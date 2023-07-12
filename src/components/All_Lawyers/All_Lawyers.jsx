@@ -4,16 +4,26 @@ import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import { db } from '../../firebase';
-import { collection, getCountFromServer, and,  getDocs, or, query, where} from "firebase/firestore";
+import { collection, getCountFromServer, and,  getDocs, or, query, where, addDoc , setDoc, doc} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
+<<<<<<< HEAD
 import { useAuthState } from "react-firebase-hooks/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../firebase';
+=======
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../../firebase';
+
+
+>>>>>>> bdda7fe5d1df3fa562cdc0938a82878857736ab1
 
 const All_Lawyers = () => {
+
+const [addLayerwishlist, setAddLawyerwishlist] = useState("");
+
   const params = useParams();
   const [userRole, setUserRole] = useState(null);
   // alllawyer section code start
@@ -37,6 +47,7 @@ const loginUserORLawyer = async () => {
     const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
 
 
+<<<<<<< HEAD
     const docs = await getDocs(q);
     const info = await getDocs(q1)
    
@@ -68,6 +79,23 @@ const loginUserORLawyer = async () => {
   }
 }
 
+=======
+   // getting current user uid
+   function GetLawyerUid(){
+    const [uid, setUid]=useState(null);
+    useEffect(()=>{
+        auth.onAuthStateChanged(user=>{
+            if(user){
+                setUid(user.uid);
+            }
+        })
+    },[])
+    return uid;
+}
+
+const uids = GetLawyerUid();
+
+>>>>>>> bdda7fe5d1df3fa562cdc0938a82878857736ab1
 
 
 useEffect(()=>{
@@ -225,6 +253,45 @@ const filterData = () => {
   }
 }
 
+
+
+
+
+const addToLawyer = async (uid) => {
+  if (uids !== null) {
+
+    const q = query(collection(db, 'lawyers'), where('uid', '==', uid));
+    const res = [];
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      res.push({
+        id: doc.id,
+        ...doc.data()
+      });
+    });
+
+    try {
+      const cartCollectionRef = collection(db, `Cart ${uids}`);
+      
+      for (const item of res) {
+        const cartDocRef = doc(cartCollectionRef);
+        await setDoc(cartDocRef, item);
+      }
+      
+      console.log('Successfully added to cart');
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+
+    console.log(res);
+  } else {
+    navigate('/login');
+  }
+};
+
+
+
+
   return (
     <>
    
@@ -327,12 +394,13 @@ const filterData = () => {
            </button>
           </div>
           {userRole === "user" && (
-      <div className="col-md-1 mx-3 res4">
+      <div className="col-md-1 mx-3 res4" onClick={()=>addToLawyer(data.uid)}>
         <i class="bi bi-bookmark fw-bold fs-3"></i>
         <p className="fs-6 savelist">save</p>
       </div>
     )}
 
+          
           
         </div>
     </div>
