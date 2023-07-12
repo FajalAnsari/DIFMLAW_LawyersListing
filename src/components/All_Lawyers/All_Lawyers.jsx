@@ -250,18 +250,18 @@ const All_Lawyers = () => {
             <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div class="input-group mb-3">
                 <input type="text" class="form-control" id="lawyername" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
-                <span class="input-group-text btns-primary"><i class="bi bi-search" onClick={BynameSearch}></i></span>
+                <span class="input-group-text btns-primary border-prime"><i class="bi bi-search" onClick={BynameSearch}></i></span>
               </div>
             </div>
             <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div class="input-group mb-3">
                 <input type="text" class="form-control" onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
-                <span class="input-group-text btns-primary"><i class="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
+                <span class="input-group-text btns-primary border-prime"><i class="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
               </div>
             </div>
             <div class="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
-              <button class="btn btns-primary btn-block" onClick={SubmitLawyer}>Search</button>
-              <button class="btn btns-primary btn-block ms-2" onClick={handleReset}>Reset</button>
+              <button class="btn btns-primary border-prime btn-block" onClick={SubmitLawyer}>Search</button>
+              <button class="btn btns-primary border-prime btn-block ms-2" onClick={handleReset}>Reset</button>
             </div>
           </div>
           <p className='fs-6 text-white pop'>Popular searches :  Defense Lawyers, Real Estate </p>
@@ -302,7 +302,7 @@ const All_Lawyers = () => {
 
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
                   <div class="input-group mb-3">
-                    <span class="input-group-text btns-primary" >Sort by : </span>
+                    <span class="input-group-text border-prime btns-primary" >Sort by : </span>
                     <select id="inputState" class="form-select" onChange={handleSelectValue}>
                       <option selected> Most relevant</option>
                       <option value="Full Day">Full Day</option>
