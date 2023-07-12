@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import "./review_section.css";
 const Add_review = (props) => {
+  const [userRating, setUserRating] = useState(null);
   const [user, loading] = useAuthState(auth);
   const [rating, setRating] = useState(null);
   const [count, setCount] =useState(0);
@@ -21,7 +22,7 @@ const Add_review = (props) => {
 
 
 const fetchUserId = async () => {
-  const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+  const q = query(collection(db, "lawyers"), where("uid", "==", "tZtNoQFa1DYvuzvYmjIL57ZrcYu1"));
    const res = [];
      const doc = await getDocs(q);
      doc.forEach(value=>{
@@ -30,7 +31,10 @@ const fetchUserId = async () => {
              ...value.data()
          });
      });
-     getUserId(res[0].id)
+     console.log(res);
+    //  getUserId(res[0].uid)
+     const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
+    setUserRating(userRatingValue);
     
 }
 
@@ -52,17 +56,37 @@ const fetchUserId = async () => {
 
     try{
       await updateDoc(taskDocRef,{
-         rating:{ 
-          5:count,
-          4:count,
-          3:count,
-          2:count,
-          1:count,
-         }
         
-      }).then(() => {
+        //  rating:{ 
+        //   5:count,
+        //   4:count,
+        //   3:count,
+        //   2:count,
+        //   1:count,
+        //  }
+        rating: {
+          ...rating,
+          [rating]: (rating[rating] || 0) + 1,
+        //   5: (rating[5] || 0) + 1, // Increment count for rating value 4
+        //   4: (rating[4] || 0) + 1,
+        //   3: (rating[3] || 0) + 1,
+        //   2: (rating[2] || 0) + 1,
+        //   1: (rating[1] || 0) + 1,
+          
+        },
+        
+        
+      }
+      
+      
+      ).then(() => {
         alert("Your Rating is"+ rating);
       })
+      setUserRating((prevRating) => ({
+        ...prevRating,
+        [rating]: (prevRating[rating] || 0) + 1, // Increment count in the userRating state
+      }));
+
     } catch (err) {
       alert(err)
     }  
@@ -71,20 +95,20 @@ const fetchUserId = async () => {
   }
   useEffect(()=>{
     fetchUserId();
-    console.log('yes'+props.id);
+    console.log('yes'+props.uid);
   },[])
   
    
   return (
     <>
-    <div className='mt-5 mb-5'>
-      <div className='review p-4'>
+    <div className='mt-5 mb-5 rounded-3  border border-prime border-1'>
+      <div className='review p-4 rounded-3'>
         <div className='row'>
         <div className='col-lg-6 col-6'><p className='text-white'>Write A Review</p></div>
         <div className='col-lg-6 col-6'><p className='fs-1 font-color d-flex justify-content-end' onClick={handleOpen}>{show ? <i class="bi bi-caret-up-fill"></i> : <i class="bi bi-caret-down-fill"></i>}</p></div>
 
         </div>
-        <div style={{backgroundColor:'var(--second-secondary)'}} className='p-3'>
+        <div style={{backgroundColor:'var(--second-secondary)'}} className='p-3 rounded'>
         <div className='row'>
           <div className='col-lg-6'>
             <div className='row'>
@@ -107,8 +131,8 @@ const fetchUserId = async () => {
               </div>
             </div>
           </div>
-          <div className='col-lg-6'>
-            <div className='d-flex justify-content-end'>
+          <div className='col-lg-6 '>
+            <div className='d-flex justify-content-end '>
             <label for='file'><div className='bg-secondary p-2 text-white'>Browse Image</div></label>
             <input type='file' name='file' id='file' className='d-none'></input>
             </div>
@@ -121,13 +145,13 @@ const fetchUserId = async () => {
           <div className="accordian-body">
            <p className='text-white fs-5 mt-1'>Title</p>
           <div className=''>
-           <div style={{backgroundColor:'var(--second-secondary)'}} className='p-1'><p className='fs-6  ms-3'>Example : It was awesome experience with Mr. Fajal Ansari</p></div>
+           <div style={{backgroundColor:'var(--second-secondary)'}} className='p-1 rounded'><p className='fs-6  ms-3 my-1'>Example : It was awesome experience with Mr. Fajal Ansari</p></div>
             </div>
             <p className='text-white fs-5 mt-1'>Review</p>
             <div className=''>
-          <textarea rows={10} cols={92} style={{backgroundColor:'var(--second-secondary)'}} className='' placeholder='Write your review'></textarea>
+          <textarea rows={10} cols={92} style={{backgroundColor:'var(--second-secondary)'}} className='w-100 rounded' placeholder='Write your review'></textarea>
               </div>
-              <button className='btns-primary w-25' onClick={giveRating}><p className='fs-6 p-1 fw-bold'>Signup & Submit</p></button>
+              <button className='btns-primary border-prime w-25 mt-2' onClick={giveRating}><p className='fs-6  fw-bold my-2' style={{fontSize:"20px"}}>Signup & Submit</p></button>
           </div>
         )}
         </div>
@@ -135,6 +159,13 @@ const fetchUserId = async () => {
       </div>
  
     </div>
+    {/* <div className="rating-section">
+        <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
+        <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
+        <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
+        <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
+        <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
+      </div> */}
     </>
   )
 }
