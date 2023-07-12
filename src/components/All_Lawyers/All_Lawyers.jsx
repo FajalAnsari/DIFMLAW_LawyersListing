@@ -4,14 +4,20 @@ import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import { db } from '../../firebase';
-import { collection, getCountFromServer, and,  getDocs, or, query, where} from "firebase/firestore";
+import { collection, getCountFromServer, and,  getDocs, or, query, where, addDoc , setDoc, doc} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../../firebase';
+
 
 
 const All_Lawyers = () => {
+
+const [addLayerwishlist, setAddLawyerwishlist] = useState("");
+
   const params = useParams();
   // alllawyer section code start
 
@@ -27,6 +33,21 @@ const All_Lawyers = () => {
       }) 
   }
 
+
+   // getting current user uid
+   function GetLawyerUid(){
+    const [uid, setUid]=useState(null);
+    useEffect(()=>{
+        auth.onAuthStateChanged(user=>{
+            if(user){
+                setUid(user.uid);
+            }
+        })
+    },[])
+    return uid;
+}
+
+const uids = GetLawyerUid();
 
 
 
@@ -182,6 +203,45 @@ const filterData = () => {
   }
 }
 
+
+
+
+
+const addToLawyer = async (uid) => {
+  if (uids !== null) {
+
+    const q = query(collection(db, 'lawyers'), where('uid', '==', uid));
+    const res = [];
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      res.push({
+        id: doc.id,
+        ...doc.data()
+      });
+    });
+
+    try {
+      const cartCollectionRef = collection(db, `Cart ${uids}`);
+      
+      for (const item of res) {
+        const cartDocRef = doc(cartCollectionRef);
+        await setDoc(cartDocRef, item);
+      }
+      
+      console.log('Successfully added to cart');
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+
+    console.log(res);
+  } else {
+    navigate('/login');
+  }
+};
+
+
+
+
   return (
     <>
    
@@ -283,7 +343,7 @@ const filterData = () => {
              View Profile
            </button>
           </div>
-          <div className="col-md-1 mx-3 res4">
+          <div className="col-md-1 mx-3 res4" onClick={()=>addToLawyer(data.uid)}>
           <i class="bi bi-bookmark fw-bold fs-3"></i>
           <p className='fs-6 savelist'>save</p>
           </div>
