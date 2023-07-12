@@ -11,6 +11,7 @@ import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../firebase';
+import "./all_lawyersketeton.css";
 import Skeleton from 'react-loading-skeleton';
 
 
@@ -320,11 +321,35 @@ const All_Lawyers = () => {
                       <div className='view_buttons mt-4 alllawyersection border border-dark' key={i}>
                         <div className="row mx-auto">
                           <div className="col-md-6">
-                            <Skeleton circle={true} height={100} width={100} />
-                            <Skeleton count={3} />
+                            <Skeleton circle={true}  width={100} />
+                            <Skeleton count={-2} />
+                            <div className="row">
+                            <div className="col-md-3">
+                                <div className='skeleton1 loading-animation'></div>
+                            </div>
+                            <div className="col-md-9">
+                              <h4 className=' font-color skeleton2 rounded-pill loading-animation'></h4>
+                              <div className='d-flex'>
+                                <div className='nam fs-6 text-white text-capitalize skeleton3 rounded-pill loading-animation' ></div>
+                                <div className='mx-auto nameloc skeleton4 rounded-pill loading-animation'></div></div>
+                              <div className='d-flex'>
+                                <div className=' skeleton5 rounded-pill loading-animation'></div>
+                                <div className=' ms-4 skeleton6 rounded-pill loading-animation'></div>
+                              </div>
+                            </div>
+                          </div>
                           </div>
                           <div className="col-md-6">
-                            <Skeleton count={2} />
+                            <div className="row mb-3">
+                            <div className="col-md-10 d-flex justify-content-end">
+                              <div className="w-75 p-4  skeleton7 rounded-pill loading-animation">
+                                
+                              </div>
+                            </div>
+                            <div className="col-md-1 mx-3 res4" style={{opacity:"85%"}}>
+                            <i class="bi bi-bookmark-fill fw-bold fs-3"></i>
+                            </div>
+                          </div>
                           </div>
                         </div>
                       </div>
