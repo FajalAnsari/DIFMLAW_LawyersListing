@@ -310,21 +310,14 @@ const filterData = () => {
             nextClassName={'paginate-next'}
           />
           </div>
-
-
-
-
        {/* <AllLawyersection name={searchLawyer} location={lawyeradd} type={selectedValue} checkbox={getcheckbox} /> */}
 
       {/* all lawyer section cards end */}
 
      </div>
    </div>
-
     </div>
     </div>
-
-
   </div>
   <div className="lawyrscard6">
         <div className="container  pb-5">
