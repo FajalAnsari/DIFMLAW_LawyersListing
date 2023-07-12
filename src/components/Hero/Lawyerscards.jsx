@@ -33,7 +33,31 @@ const Lawyerscards = () => {
           {[...Array(8)].map((_, i) => (
            <div className="col-lg-3 rounded-3 lawyer ecard mt-4 card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
            <div style={{ height: 400 }}>
-            <div className='preloader-img'></div>
+            <div className="row mt-2" id="lawyer">
+                <div className="col-lg-4 col-sm-4 col-6">
+                <div className='preloader-img1 loading-animation'></div>
+                </div>
+                <div className="col-lg-8 col-sm-8 col-6">
+                  <div className='preloader-img2 loading-animation'></div>
+                  <div className='preloader-img3 loading-animation'></div>
+                </div>
+              </div>
+              <div className="fs-5 fw-normal text-center preloader-img4 loading-animation"></div>
+
+              <div className="mt-3 ms-3 me-3">
+                <p className="font-weight-bold fs-6 mb-1 preloader-img5 loading-animation"></p>
+                <p className="fs-6 lawyers-desc font-weight-normal lh-base text-justify summ preloader-img6 rounded loading-animation"></p>
+                <div className="row mt-4 practice">
+                  <div className="col-lg-6 col-sm-6 col-6">
+                    <div className="fs-6 exp preloader-img7 rounded loading-animation"></div>
+                  </div>
+                  <div className="col-lg-6 col-sm-6 col-6">
+                    <div className="preloader-img8 rounded loading-animation">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
              <Skeleton height={400} />
            </div>
            
