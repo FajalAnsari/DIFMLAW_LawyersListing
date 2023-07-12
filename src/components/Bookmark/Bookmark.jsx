@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import { auth } from '../../firebase';
 import { db } from '../../firebase';
-import { collection, getDocs, query } from 'firebase/firestore';
+import { collection, getDocs, query,doc } from 'firebase/firestore';
+import { deleteDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 
 
@@ -35,7 +36,22 @@ const Bookmark = () => {
 
      console.log(add_Lawyercarts);
   
-     
+     const handleToDelete = (id) => {
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          const docRef = doc(db, `Cart ${user.uid}`, id);
+          deleteDoc(docRef)
+            .then(() => {
+              console.log('Successfully deleted');
+            })
+            .catch(error => {
+              console.log('Error deleting document:', error);
+            });
+        }
+      });
+  
+    };
+   
   return (
     <>
       {add_Lawyercarts.length > 0 && (
@@ -44,12 +60,17 @@ const Bookmark = () => {
            {add_Lawyercarts.map((add_Lawyercart, i) => (
       <div className="col-lg-3 rounded-3 lawyer ecard mt-4  card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
         <div className="row  mt-2" id="lawyer">
-          <div className="col-lg-4 col-sm-4 col-6">
+          <div className="col-lg-4 col-sm-4 col-4">
             <img src={add_Lawyercart.image} className="ms-2 lawpics" alt='lawyer_card'></img>
           </div>
-          <div className="col-lg-8 col-sm-8 col-6">
+          <div className="col-lg-6 col-sm-6 col-6">
             <p className="fs-6 mb-0 pb-1 h6">{add_Lawyercart.username}</p>
             <p className="city">{add_Lawyercart.address}</p>
+          </div>
+           <div className="col-lg-2 col-sm-2 col-2">
+              <div style={{marginTop:"-12px"}} onClick={() => handleToDelete(add_Lawyercart.id)}>
+                <i class="bi bi-bookmark-star-fill fw-bold fs-2"></i>
+              </div>
           </div>
         </div>
 
