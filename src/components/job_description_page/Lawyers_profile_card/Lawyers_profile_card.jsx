@@ -161,11 +161,11 @@ const Lawyers_profile_card = () => {
                     <div class="p-4 rounded shadow-md">
                            <div class="input-group mb-3">
                               <input type="text" name="name" class="form-control" placeholder="Enter your name" required style={{backgroundColor:"var( --second-secondary)"}}/>
-                              <span class="input-group-text btns-primary" ><i class="bi bi-person fs-5"></i></span>
+                              <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person fs-5"></i></span>
                            </div>
                            <div class="input-group mb-3">
                               <input type="text" name="email" class="form-control" placeholder="Enter your email" required style={{backgroundColor:"var( --second-secondary)"}}/>
-                              <span class="input-group-text btns-primary" ><i class="bi bi-envelope-open fs-5"></i></span>
+                              <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open fs-5"></i></span>
                            </div>
                           <div class="mt-3 mb-3">
                             <textarea name="message" cols="20" rows="6" class="form-control"
