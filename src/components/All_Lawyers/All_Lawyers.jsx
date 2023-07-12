@@ -25,6 +25,7 @@ const [addLayerwishlist, setAddLawyerwishlist] = useState("");
   const [user, loading] = useAuthState(auth);   //if lawyer login bookmark not show
   const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
+    loginUserORLawyer();
   await getDocs(collection(db, "lawyers"))
       .then((querySnapshot)=>{              
           const newData = querySnapshot.docs
@@ -88,13 +89,14 @@ const uids = GetLawyerUid();
 
 
 
-useEffect(()=>{
-  loginUserORLawyer();
+// useEffect(()=>{
+ 
   fetchPost();
   
   
+  
   console.log(params.cat);
-}, [])
+// }, [])
 
 const [currentPage, setCurrentPage] = useState(0);
 const usersPerPage = 6;
