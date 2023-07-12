@@ -243,7 +243,7 @@ const All_Lawyers = () => {
   return (
     <>
 
-      <div class="container">
+      <div class="container" style={{marginTop:"100px"}}>
         <h1 className='text-center text-white' id='dis'>Discover more than <span className='font-color'>5000+ Lawyers</span></h1>
         <div className="col-10 mx-auto">
           <div class="row mt-5 ">
@@ -346,7 +346,7 @@ const All_Lawyers = () => {
                                 
                               </div>
                             </div>
-                            <div className="col-md-1 mx-3 res4" style={{opacity:"85%"}}>
+                            <div className="col-md-1 mx-3 res4" style={{opacity:"65%"}}>
                             <i class="bi bi-bookmark-fill fw-bold fs-3"></i>
                             </div>
                           </div>
