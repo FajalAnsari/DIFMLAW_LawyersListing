@@ -45,7 +45,7 @@ const Lawyerscards = () => {
               <div className="fs-5 fw-normal text-center preloader-img4 loading-animation rounded-pill"></div>
 
               <div className="mt-3 ms-3 me-3">
-                <p className="font-weight-bold fs-6 mb-1 preloader-img5 loading-animation rounded-pill"></p>
+                <p className="font-weight-bold fs-6 mb-1 preloader-img5 loading-animation rounded-pill p-1"></p>
                 <p className="fs-6 lawyers-desc font-weight-normal lh-base text-justify summ preloader-img6 rounded loading-animation"></p>
                 <div className="row mt-4 practice">
                   <div className="col-lg-6 col-sm-6 col-6">
