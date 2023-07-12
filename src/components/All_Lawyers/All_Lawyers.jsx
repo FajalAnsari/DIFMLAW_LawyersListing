@@ -9,16 +9,9 @@ import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD
 import { useAuthState } from "react-firebase-hooks/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../firebase';
-=======
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from '../../firebase';
-
-
->>>>>>> bdda7fe5d1df3fa562cdc0938a82878857736ab1
 
 const All_Lawyers = () => {
 
@@ -47,7 +40,6 @@ const loginUserORLawyer = async () => {
     const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
 
 
-<<<<<<< HEAD
     const docs = await getDocs(q);
     const info = await getDocs(q1)
    
@@ -79,7 +71,6 @@ const loginUserORLawyer = async () => {
   }
 }
 
-=======
    // getting current user uid
    function GetLawyerUid(){
     const [uid, setUid]=useState(null);
@@ -95,7 +86,6 @@ const loginUserORLawyer = async () => {
 
 const uids = GetLawyerUid();
 
->>>>>>> bdda7fe5d1df3fa562cdc0938a82878857736ab1
 
 
 useEffect(()=>{
