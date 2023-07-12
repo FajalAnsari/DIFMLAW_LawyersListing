@@ -101,14 +101,14 @@ const fetchUserId = async () => {
    
   return (
     <>
-    <div className='mt-5 mb-5'>
-      <div className='review p-4'>
+    <div className='mt-5 mb-5 rounded-3  border border-prime border-1'>
+      <div className='review p-4 rounded-3'>
         <div className='row'>
         <div className='col-lg-6 col-6'><p className='text-white'>Write A Review</p></div>
         <div className='col-lg-6 col-6'><p className='fs-1 font-color d-flex justify-content-end' onClick={handleOpen}>{show ? <i class="bi bi-caret-up-fill"></i> : <i class="bi bi-caret-down-fill"></i>}</p></div>
 
         </div>
-        <div style={{backgroundColor:'var(--second-secondary)'}} className='p-3'>
+        <div style={{backgroundColor:'var(--second-secondary)'}} className='p-3 rounded'>
         <div className='row'>
           <div className='col-lg-6'>
             <div className='row'>
@@ -131,8 +131,8 @@ const fetchUserId = async () => {
               </div>
             </div>
           </div>
-          <div className='col-lg-6'>
-            <div className='d-flex justify-content-end'>
+          <div className='col-lg-6 '>
+            <div className='d-flex justify-content-end '>
             <label for='file'><div className='bg-secondary p-2 text-white'>Browse Image</div></label>
             <input type='file' name='file' id='file' className='d-none'></input>
             </div>
@@ -145,13 +145,13 @@ const fetchUserId = async () => {
           <div className="accordian-body">
            <p className='text-white fs-5 mt-1'>Title</p>
           <div className=''>
-           <div style={{backgroundColor:'var(--second-secondary)'}} className='p-1'><p className='fs-6  ms-3'>Example : It was awesome experience with Mr. Fajal Ansari</p></div>
+           <div style={{backgroundColor:'var(--second-secondary)'}} className='p-1 rounded'><p className='fs-6  ms-3 my-1'>Example : It was awesome experience with Mr. Fajal Ansari</p></div>
             </div>
             <p className='text-white fs-5 mt-1'>Review</p>
             <div className=''>
-          <textarea rows={10} cols={92} style={{backgroundColor:'var(--second-secondary)'}} className='' placeholder='Write your review'></textarea>
+          <textarea rows={10} cols={92} style={{backgroundColor:'var(--second-secondary)'}} className='w-100 rounded' placeholder='Write your review'></textarea>
               </div>
-              <button className='btns-primary w-25' onClick={giveRating}><p className='fs-6 p-1 fw-bold'>Signup & Submit</p></button>
+              <button className='btns-primary border-prime w-25 mt-2' onClick={giveRating}><p className='fs-6  fw-bold my-2' style={{fontSize:"20px"}}>Signup & Submit</p></button>
           </div>
         )}
         </div>
