@@ -27,7 +27,7 @@ const Lawyers_profile_card = () => {
   
   return (
    
-    <div className="container">
+    <div className="container" style={{marginTop:"80px"}}>
       <div className="row">
         {/* lawyer profile card start */}
         <div className="col-lg-8 p-5 ">
