@@ -9,13 +9,17 @@ import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../../firebase';
 
 const All_Lawyers = () => {
   const params = useParams();
+  const [userRole, setUserRole] = useState(null);
   // alllawyer section code start
 
   const navigate = useNavigate();
+  const [user, loading] = useAuthState(auth);   //if lawyer login bookmark not show
   const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
   await getDocs(collection(db, "lawyers"))
@@ -25,13 +29,52 @@ const All_Lawyers = () => {
           setLawyers(newData);                
           
       }) 
+      
   }
+const loginUserORLawyer = async () => {
+  if(user){
+    const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+    const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
 
+
+    const docs = await getDocs(q);
+    const info = await getDocs(q1)
+   
+    // lawyer auth
+    if (docs.empty) {
+      console.log("No matching documents.");
+    } else {
+      docs.forEach((doc) => {
+        const data = doc.data();
+        console.log(data);
+        console.log("lawyer login");
+        setUserRole("lawyer");
+       
+      });
+    }
+    // user auth
+    if (info.empty) {
+      console.log("No matching documents.");
+    } else {
+      info.forEach((doc) => {
+        const data = doc.data();
+        console.log(data);
+        console.log("user login");
+        setUserRole("user");
+        // setImage(data.image);
+      });
+    }
+
+  }
+}
 
 
 
 useEffect(()=>{
+  loginUserORLawyer();
   fetchPost();
+  
+  
   console.log(params.cat);
 }, [])
 
@@ -283,10 +326,14 @@ const filterData = () => {
              View Profile
            </button>
           </div>
-          <div className="col-md-1 mx-3 res4">
-          <i class="bi bi-bookmark fw-bold fs-3"></i>
-          <p className='fs-6 savelist'>save</p>
-          </div>
+          {userRole === "user" && (
+      <div className="col-md-1 mx-3 res4">
+        <i class="bi bi-bookmark fw-bold fs-3"></i>
+        <p className="fs-6 savelist">save</p>
+      </div>
+    )}
+
+          
         </div>
     </div>
     </div>
