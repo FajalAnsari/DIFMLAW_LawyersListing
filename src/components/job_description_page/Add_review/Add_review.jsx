@@ -21,22 +21,22 @@ const Add_review = (props) => {
 
 
 
-const fetchUserId = async () => {
-  const q = query(collection(db, "lawyers"), where("username", "==", "jack"));
-   const res = [];
-     const doc = await getDocs(q);
-     doc.forEach(value=>{
-         res.push({
-             id: value.id,
-             ...value.data()
-         });
-     });
-    //  console.log(res[0].username);
-     getUserId(res[0].uid)
-     const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
-    setUserRating(userRatingValue);
+// const fetchUserId = async () => {
+//   const q = query(collection(db, "lawyers"), where("username", "==", "jack"));
+//    const res = [];
+//      const doc = await getDocs(q);
+//      doc.forEach(value=>{
+//          res.push({
+//              id: value.id,
+//              ...value.data()
+//          });
+//      });
+//     //  console.log(res[0].username);
+//      getUserId(res[0].uid)
+//      const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
+//     setUserRating(userRatingValue);
     
-}
+// }
 
   //  give rating 
   const giveRating = async (e) =>{
@@ -100,7 +100,7 @@ const fetchUserId = async () => {
 
   }
   useEffect(()=>{
-    fetchUserId();
+    // fetchUserId();
     console.log('yes' + props.id);
   },[])
   
@@ -165,13 +165,13 @@ const fetchUserId = async () => {
       </div>
  
     </div>
-    <div className="rating-section">
+    {/* <div className="rating-section">
         <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
         <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
         <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
         <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
         <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
-      </div>
+      </div> */}
     </>
   )
 }
