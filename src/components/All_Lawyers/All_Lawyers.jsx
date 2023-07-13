@@ -4,12 +4,11 @@ import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import { db } from '../../firebase';
-import { collection, getCountFromServer, and, getDocs, or, query, where, addDoc, setDoc, doc } from "firebase/firestore";
+import { collection, getCountFromServer, and, getDocs, or, query, where, setDoc, doc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import Contect_sugg from '../About_page/Contect_sugg';
+import Contect_Sugg from '../About_page/Contect_Sugg';
 import { useParams } from 'react-router-dom';
-import { onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../../firebase';
 import "./all_lawyersketeton.css";
@@ -23,7 +22,7 @@ const All_Lawyers = () => {
   // alllawyer section code start
 
   const navigate = useNavigate();
-  const [user, loading] = useAuthState(auth); 
+  const [user] = useAuthState(auth); 
   const [lawyers, setLawyers] = useState([]);
   const [userRole, setUserRole] = useState(null);
   const fetchPost = async () => {
@@ -203,7 +202,6 @@ const All_Lawyers = () => {
 
   async function handleCheckbox(e) {
     setCheckbox(e.target.value);
-    var get = setCheckbox(e.target.value);
     console.log(getcheckbox);
     const citiesRef = collection(db, "lawyers");
     const a = query(citiesRef,
@@ -362,7 +360,7 @@ const All_Lawyers = () => {
                                 <div className='skeleton1 loading-animation'></div>
                             </div>
                             <div className="col-md-9">
-                              <h4 className=' font-color skeleton2 rounded-pill loading-animation'></h4>
+                              <h4 className='font-color skeleton2 rounded-pill loading-animation'> </h4>
                               <div className='d-flex'>
                                 <div className='nam fs-6 text-white text-capitalize skeleton3 rounded-pill loading-animation' ></div>
                                 <div className='mx-auto nameloc skeleton4 rounded-pill loading-animation'></div></div>
@@ -484,7 +482,7 @@ const All_Lawyers = () => {
 
       </div>
       <div className='container'>
-        <Contect_sugg />
+          <Contect_Sugg />
       </div>
       <div className='mt-5'>
         <Testimonial />

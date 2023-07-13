@@ -1,13 +1,13 @@
 import React from 'react'
 import { our_mission, user_friendly,user_needs, our_promises } from '../images';
-import Contect_sugg from './Contect_sugg';
+import Contect_Sugg from './Contect_Sugg';
 import Testimonial from '../Testimonial/Testimonial';
 import { useAuthState } from "react-firebase-hooks/auth";
 import Join_Network from "../join_network/Join_Network";
 import { auth } from '../../firebase';
 import "./About_us.css";
 const About_us = () => {
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
   return (
   
    <>
@@ -64,7 +64,7 @@ const About_us = () => {
         {user ? (
             <>
         <div className='container'>
-         <Contect_sugg />
+         <Contect_Sugg />
          </div>
          <Testimonial />
         
