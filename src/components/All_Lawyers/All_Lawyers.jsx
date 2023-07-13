@@ -4,7 +4,7 @@ import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import { db } from '../../firebase';
-import { collection, getCountFromServer, and,  getDocs, or, query, where, addDoc , setDoc, doc} from "firebase/firestore";
+import { collection, getCountFromServer, and,  getDocs, or, query, where, setDoc, doc} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Contect_sugg from '../About_page/Contect_sugg';
@@ -15,7 +15,6 @@ import { auth } from '../../firebase';
 
 const All_Lawyers = () => {
 
-const [addLayerwishlist, setAddLawyerwishlist] = useState("");
 
   const params = useParams();
   const [userRole, setUserRole] = useState(null);

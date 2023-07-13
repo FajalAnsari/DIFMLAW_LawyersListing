@@ -64,23 +64,23 @@ const Add_review = (props) => {
         //   2:count,
         //   1:count,
         //  }
-        // rating: {
-        //   ...rating,
-        //   [rating]: (rating[rating] || 0) + 1,
-        //   5: (rating[5] || 0) + 1, // Increment count for rating value 4
-        //   4: (rating[4] || 0) + 1,
-        //   3: (rating[3] || 0) + 1,
-        //   2: (rating[2] || 0) + 1,
-        //   1: (rating[1] || 0) + 1,
-          
-        // },
         rating: {
-          5:rating,
-          4:rating,
-          3:rating,
-          2:rating,
-          1:rating,
-        }
+           ...rating,
+           [rating]: (rating[rating] || 0) + 1,
+          // 5: (rating[5] || 0) + 1, // Increment count for rating value 4
+          // 4: (rating[4] || 0) + 1,
+          // 3: (rating[3] || 0) + 1,
+          // 2: (rating[2] || 0) + 1,
+          // 1: (rating[1] || 0) + 1,
+          
+        },
+        // rating: {
+        //   5:rating,
+        //   4:rating,
+        //   3:rating,
+        //   2:rating,
+        //   1:rating,
+        // }
         
       }
       
@@ -165,13 +165,13 @@ const Add_review = (props) => {
       </div>
  
     </div>
-    {/* <div className="rating-section">
+    <div className="rating-section">
         <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
         <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
         <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
         <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
         <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
-      </div> */}
+      </div>
     </>
   )
 }
