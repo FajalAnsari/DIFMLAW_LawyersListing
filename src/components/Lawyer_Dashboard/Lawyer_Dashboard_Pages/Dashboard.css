@@ -1,0 +1,88 @@
+/* this css for lawyer message */
+.lawyer_message{
+    /* background-color: pink !important; */
+    width: 85%;
+    margin-top: -31.45%;
+    margin-left: 15%;
+    height: 60vh;
+   
+}
+
+.lawyer_message .msg_1{
+    background-color: var(--fourth-primary) !important;
+    border-radius: 0px, 37px, 37px, 37px;
+    position: absolute;
+    width: 70.42%;
+    margin-left: -14.38%;
+    height: 60vh;
+}
+.lawyer_message .msg_1 .text_msg1{
+    background-color: var(--third-primary) !important;
+    width: 90%;
+    margin-left: 4.38%;
+    position: relative;
+    border-radius: 0px 25px 25px 25px;
+    margin-top: 40px;
+}
+
+.lawyer_message .msg_1 .text_msg2{
+    background-color: var(--third-primary) !important;
+    position: relative;
+    width: 90%;
+    margin-left: 4.38%;
+    border-radius: 0px 25px 25px 25px;
+    margin-top: 40px;
+}
+.lawyer_message .user_pro{
+    background-color: var(--fourth-primary) !important;
+    width: 13.38%;
+    position: absolute;
+    height: 60vh;
+    border-radius: 20px 0px 0px 20px;
+}
+.lawyer_message .usersl{
+    position: relative;
+    background-color: #4C525A;
+}
+.lawyer_message .um{
+    margin-top: 30px;
+}
+
+
+/*this css lawyer_profile*/
+.lawyer_profile{
+    /* background-color: pink !important; */
+    width: 85%;
+    margin-top: -31.45%;
+    margin-left: 15%;
+    height: 60vh;
+   
+}
+
+.lawyer_profile .msg_1{
+    background-color: var(--fourth-primary) !important;
+    border-radius: 0px, 37px, 37px, 37px;
+    position: absolute;
+    width: 73.42%;
+    margin-left: -17.38%;
+    height: 60vh;
+}
+.lawyer_profile .user_pro{
+    background-color: var(--fourth-primary) !important;
+    width: 10.38%;
+    position: absolute;
+    height: 60vh;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.lawyer_profile .usersl{
+    position: relative;
+    background-color: #4C525A;
+}
+.lawyer_profile .um{
+    margin-top: 30px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 25%;
+}
