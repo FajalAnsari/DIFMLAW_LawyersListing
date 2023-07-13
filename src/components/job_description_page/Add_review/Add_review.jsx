@@ -22,7 +22,7 @@ const Add_review = (props) => {
 
 
 const fetchUserId = async () => {
-  const q = query(collection(db, "lawyers"), where("uid", "==", "tZtNoQFa1DYvuzvYmjIL57ZrcYu1"));
+  const q = query(collection(db, "lawyers"), where("username", "==", "jack"));
    const res = [];
      const doc = await getDocs(q);
      doc.forEach(value=>{
@@ -31,8 +31,8 @@ const fetchUserId = async () => {
              ...value.data()
          });
      });
-     console.log(res);
-    //  getUserId(res[0].uid)
+    //  console.log(res[0].username);
+     getUserId(res[0].uid)
      const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
     setUserRating(userRatingValue);
     
@@ -52,8 +52,8 @@ const fetchUserId = async () => {
       console.log(count+1)
       alert("yes is "+ rating);
     }
-    const taskDocRef = doc(db,"lawyers", setUserId);
-
+    const taskDocRef = doc(db,"lawyers", props.id);
+    // const taskDocRef = query(collection(db, "lawyers"), where("uid", "==", props.id));
     try{
       await updateDoc(taskDocRef,{
         
@@ -64,17 +64,23 @@ const fetchUserId = async () => {
         //   2:count,
         //   1:count,
         //  }
-        rating: {
-          ...rating,
-          [rating]: (rating[rating] || 0) + 1,
+        // rating: {
+        //   ...rating,
+        //   [rating]: (rating[rating] || 0) + 1,
         //   5: (rating[5] || 0) + 1, // Increment count for rating value 4
         //   4: (rating[4] || 0) + 1,
         //   3: (rating[3] || 0) + 1,
         //   2: (rating[2] || 0) + 1,
         //   1: (rating[1] || 0) + 1,
           
-        },
-        
+        // },
+        rating: {
+          5:rating,
+          4:rating,
+          3:rating,
+          2:rating,
+          1:rating,
+        }
         
       }
       
@@ -95,7 +101,7 @@ const fetchUserId = async () => {
   }
   useEffect(()=>{
     fetchUserId();
-    console.log('yes'+props.uid);
+    console.log('yes' + props.id);
   },[])
   
    
@@ -159,13 +165,13 @@ const fetchUserId = async () => {
       </div>
  
     </div>
-    {/* <div className="rating-section">
+    <div className="rating-section">
         <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
         <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
         <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
         <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
         <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
-      </div> */}
+      </div>
     </>
   )
 }
