@@ -21,22 +21,22 @@ const Add_review = (props) => {
 
 
 
-const fetchUserId = async () => {
-  const q = query(collection(db, "lawyers"), where("uid", "==", "tZtNoQFa1DYvuzvYmjIL57ZrcYu1"));
-   const res = [];
-     const doc = await getDocs(q);
-     doc.forEach(value=>{
-         res.push({
-             id: value.id,
-             ...value.data()
-         });
-     });
-     console.log(res);
-    //  getUserId(res[0].uid)
-     const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
-    setUserRating(userRatingValue);
+// const fetchUserId = async () => {
+//   const q = query(collection(db, "lawyers"), where("uid", "==", "tZtNoQFa1DYvuzvYmjIL57ZrcYu1"));
+//    const res = [];
+//      const doc = await getDocs(q);
+//      doc.forEach(value=>{
+//          res.push({
+//              id: value.id,
+//              ...value.data()
+//          });
+//      });
+//      console.log(res);
+//     //  getUserId(res[0].uid)
+//      const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
+//     setUserRating(userRatingValue);
     
-}
+// }
 
   //  give rating 
   const giveRating = async (e) =>{
@@ -52,7 +52,7 @@ const fetchUserId = async () => {
       console.log(count+1)
       alert("yes is "+ rating);
     }
-    const taskDocRef = doc(db,"lawyers", setUserId);
+    const taskDocRef = doc(db,"lawyers", props.id);
 
     try{
       await updateDoc(taskDocRef,{
@@ -100,7 +100,7 @@ const fetchUserId = async () => {
 
   }
   useEffect(()=>{
-    fetchUserId();
+    // fetchUserId();
     console.log('yes'+props.uid);
   },[])
   
