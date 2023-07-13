@@ -11,7 +11,9 @@ const Add_review = (props) => {
   const [rating, setRating] = useState(null);
   const [count, setCount] =useState(0);
   const [fiveRating , setFiverating] = useState(rating)
-  const [setUserId, getUserId] = useState("");
+  // const [setUserId, getUserId] = useState("");
+
+
    // State to show/hide accordion
    const [show, setShow] = useState(false);
    const handleOpen = () => {
@@ -52,6 +54,7 @@ const Add_review = (props) => {
       console.log(count+1)
       alert("yes is "+ rating);
     }
+    
     const taskDocRef = doc(db,"lawyers", props.id);
 
     try{
@@ -96,7 +99,7 @@ const Add_review = (props) => {
     } catch (err) {
       alert(err)
     }  
-  alert(rating);
+  
 
   }
   useEffect(()=>{
@@ -165,13 +168,13 @@ const Add_review = (props) => {
       </div>
  
     </div>
-    <div className="rating-section">
+    {/* <div className="rating-section">
         <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
         <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
         <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
         <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
         <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
-      </div>
+      </div> */}
     </>
   )
 }
