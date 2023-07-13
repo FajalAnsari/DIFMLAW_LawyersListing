@@ -24,7 +24,6 @@ const All_Lawyers = () => {
   const navigate = useNavigate();
   const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
-    loginUserORLawyer();
     await getDocs(collection(db, "lawyers"))
       .then((querySnapshot) => {
         const newData = querySnapshot.docs
@@ -33,43 +32,6 @@ const All_Lawyers = () => {
 
       })
   }
-
-  const loginUserORLawyer = async () => {
-
-     if(user){
-      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
-      const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
-    
-    
-       const docs = await getDocs(q);
-      const info = await getDocs(q1)
-    
-       // lawyer auth
-        if (docs.empty) {
-        console.log("No matching documents.");
-         } else {
-             docs.forEach((doc) => {
-             const data = doc.data();
-             console.log(data);
-             console.log("lawyer login");
-            setUserRole("lawyer");
-        });
-       }
-       // user auth
-        if (info.empty) {
-         console.log("No matching documents.");
-          } else {
-            info.forEach((doc) => {
-           const data = doc.data();
-           console.log(data);
-           console.log("user login");
-           setUserRole("user");
-         // setImage(data.image);
-          });
-       }
-    
-      }
-    }
 
 
   // getting current user uid
@@ -413,12 +375,10 @@ const All_Lawyers = () => {
                                 View Profile
                               </button>
                             </div>
-                           {userRole === "user" && (
-                          <div className="col-md-1 mx-3 res4" onClick={()=>addToLawyer(data.uid)}>                       
+                            <div className="col-md-1 mx-3 res4" onClick={() => addToLawyer(data.uid)}>
                               <i class="bi bi-bookmark fw-bold fs-3"></i>
-                             <p className="fs-6 savelist">save</p>   
-                          </div>                       
-                           )}
+                              <p className='fs-6 savelist'>save</p>
+                            </div>
                           </div>
                         </div>
                       </div>
