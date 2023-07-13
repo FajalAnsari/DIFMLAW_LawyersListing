@@ -21,22 +21,22 @@ const Add_review = (props) => {
 
 
 
-// const fetchUserId = async () => {
-//   const q = query(collection(db, "lawyers"), where("username", "==", "jack"));
-//    const res = [];
-//      const doc = await getDocs(q);
-//      doc.forEach(value=>{
-//          res.push({
-//              id: value.id,
-//              ...value.data()
-//          });
-//      });
-//     //  console.log(res[0].username);
-//      getUserId(res[0].uid)
-//      const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
-//     setUserRating(userRatingValue);
+const fetchUserId = async () => {
+  const q = query(collection(db, "lawyers"), where("uid", "==", "tZtNoQFa1DYvuzvYmjIL57ZrcYu1"));
+   const res = [];
+     const doc = await getDocs(q);
+     doc.forEach(value=>{
+         res.push({
+             id: value.id,
+             ...value.data()
+         });
+     });
+     console.log(res);
+    //  getUserId(res[0].uid)
+     const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
+    setUserRating(userRatingValue);
     
-// }
+}
 
   //  give rating 
   const giveRating = async (e) =>{
@@ -52,8 +52,8 @@ const Add_review = (props) => {
       console.log(count+1)
       alert("yes is "+ rating);
     }
-    const taskDocRef = doc(db,"lawyers", props.id);
-    // const taskDocRef = query(collection(db, "lawyers"), where("uid", "==", props.id));
+    const taskDocRef = doc(db,"lawyers", setUserId);
+
     try{
       await updateDoc(taskDocRef,{
         
@@ -64,23 +64,17 @@ const Add_review = (props) => {
         //   2:count,
         //   1:count,
         //  }
-        // rating: {
-        //   ...rating,
-        //   [rating]: (rating[rating] || 0) + 1,
+        rating: {
+          ...rating,
+          [rating]: (rating[rating] || 0) + 1,
         //   5: (rating[5] || 0) + 1, // Increment count for rating value 4
         //   4: (rating[4] || 0) + 1,
         //   3: (rating[3] || 0) + 1,
         //   2: (rating[2] || 0) + 1,
         //   1: (rating[1] || 0) + 1,
           
-        // },
-        rating: {
-          5:rating,
-          4:rating,
-          3:rating,
-          2:rating,
-          1:rating,
-        }
+        },
+        
         
       }
       
@@ -100,8 +94,8 @@ const Add_review = (props) => {
 
   }
   useEffect(()=>{
-    // fetchUserId();
-    console.log('yes' + props.id);
+    fetchUserId();
+    console.log('yes'+props.uid);
   },[])
   
    
