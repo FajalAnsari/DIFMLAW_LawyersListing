@@ -4,7 +4,7 @@ import "../Contect_us/Contect_us.css";
 const Privacy_policy = () => {
   return (
     <>
-     <div className="container forms mt-5 mb-5 p-3 shadow" style={{backgroundColor: "var(--second-primary)", borderRadius: "40px"}}>
+     <div className="container forms mb-5 p-3 shadow" style={{backgroundColor: "var(--second-primary)", borderRadius: "40px",marginTop:"120px"}}>
        <h2 className='text-center font-color'>Privacy Policy</h2>
       <div className='w-75 mx-auto'>
        <p className='fs-6 mt-5 text-white'>Do iT For Me LLC, the parent company of DIFM Law, is committed to protecting the privacy of our users. This privacy policy explains how we collect, use, and disclose your personal information when you use our website.</p>

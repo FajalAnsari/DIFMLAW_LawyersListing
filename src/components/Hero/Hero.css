@@ -1,6 +1,9 @@
 .t-1{
     color: var(--primary);
 }
+.t2{
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.466) !important;
+}
 .main{
   background-image: url("../images/DIFM_LAW_bgcolor.jpg") !important;
   background-size: cover;

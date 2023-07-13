@@ -3,7 +3,7 @@ import React from 'react'
 const Default_page = () => {
   return (
     <div className='container'>
-       <div className="row shadow mx-auto " style={{borderRadius: "20px", marginTop:"105px", padding: "5%", marginBottom: "105px", backgroundColor:"var( --fourth-primary)"}}>
+       <div className="row shadow mx-auto " style={{borderRadius: "20px", marginTop:"105px", padding: "5%", marginBottom: "105px", backgroundColor:"var( --fourth-primary)",marginTop:"200px"}}>
        <div className="col-md-6">
        <p className="fs-1 fw-bold text-center text-white">
                 404 - {" "}

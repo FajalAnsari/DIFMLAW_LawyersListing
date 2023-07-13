@@ -77,7 +77,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg shadow">
+      <nav class="navbar navbar-expand-lg fixed-top" id="headrs">
   <div class="container p-2">
     <img src={logo} className='me-4 logo mb-2' alt="" />
     <Link class="navbar-brand text-white fs-4 head" to={"/"}>DIFM LAW</Link>
