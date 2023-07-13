@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Contect_sugg = () => {
+const Contect_Sugg = () => {
   return (
     <>
        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -62,4 +62,4 @@ const Contect_sugg = () => {
   )
 }
 
-export default Contect_sugg
+export default Contect_Sugg

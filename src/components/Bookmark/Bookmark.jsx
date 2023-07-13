@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import { auth } from '../../firebase';
 import { db } from '../../firebase';
-import { collection, getDocs, query,doc } from 'firebase/firestore';
+import { collection, getDocs, doc } from 'firebase/firestore';
 import { deleteDoc } from 'firebase/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+
 
 
 const Bookmark = () => {
