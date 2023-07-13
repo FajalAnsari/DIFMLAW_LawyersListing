@@ -269,7 +269,7 @@ const All_Lawyers = () => {
         <div className="col-12 mx-auto mt-5">
           <div className="row mx-auto">
 
-            <div className="col-md-4" id='filters'>
+            <div className="col-md-4" id='filters' style={{marginBottom:"45px"}}>
               {alllawyercategory.map((service) => (
                 <>
                   <h4 className='mt-3 font-color'>{service.title}</h4>
@@ -418,7 +418,7 @@ const All_Lawyers = () => {
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">
-              <h1 className="mt-4 text-white">
+              <h1 className="text-white" style={{marginTop:"-20px"}}>
                 Recommended
                 <span id="cat" className="ms-2">
                   Lawyers
@@ -426,7 +426,7 @@ const All_Lawyers = () => {
               </h1>
             </div>
             <div className="col-lg-6 featured" >
-              <div className="d-flex mt-4 float-xl-end">
+              <div className="d-flex float-xl-end" style={{marginTop:"-15px"}}>
                 <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-white'>Show all lawyers</a></p>
                 <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
               </div>
