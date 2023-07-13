@@ -180,7 +180,6 @@ const All_Lawyers = () => {
 
   }
 
-
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
   checkboxes.forEach(checkbox => {
@@ -237,8 +236,6 @@ const All_Lawyers = () => {
   };
 
 
-
-
   return (
     <>
 
@@ -263,7 +260,7 @@ const All_Lawyers = () => {
               <button class="btn btns-primary btn-block ms-2" onClick={handleReset}>Reset</button>
             </div>
           </div>
-          <p className='fs-6 text-white pop'>Popular searches :  Defense Lawyers, Real Estate </p>
+          <p className='fs-6 text-white pop'>Popular Searches :  Defense Lawyers, Real Estate </p>
         </div>
 
         <div className="text-center filter_btn" onClick={filterData}>
@@ -298,7 +295,6 @@ const All_Lawyers = () => {
                   <p className='fs-6 text-white'>Showing {totalLawyers} results</p>
                 </div>
 
-
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
                   <div class="input-group mb-3">
                     <span class="input-group-text btns-primary" >Sort by : </span>
@@ -309,8 +305,6 @@ const All_Lawyers = () => {
                     </select>
                   </div>
                 </div>
-
-
 
                 {/* all lawyer section cards start */}
 
@@ -370,7 +364,7 @@ const All_Lawyers = () => {
                   ))
                 )}
 
-                    {/* all lawyer section cards end */}
+                    {/* All lawyer Section Cards End */}
 
                 <div id="react-paginate" className='mt-5'>
                   <ReactPaginate
@@ -432,4 +426,4 @@ const All_Lawyers = () => {
   )
 }
 
-export default All_Lawyers
+export default All_Lawyers;
