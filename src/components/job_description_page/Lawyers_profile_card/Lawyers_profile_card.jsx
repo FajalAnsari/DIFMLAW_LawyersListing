@@ -78,7 +78,7 @@ const Lawyers_profile_card = () => {
           {/* expertise and services end */}
 
         {/* review start */}
-        < Add_review id={data.uid}/>
+        < Add_review id={params.lawId}/>
         <Add_Comment />
         {/* review end */}
 
