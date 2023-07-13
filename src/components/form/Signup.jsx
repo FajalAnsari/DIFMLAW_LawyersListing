@@ -190,7 +190,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className="form-sectionss">
+      <div className="form-sectionss" style={{marginTop:"1px"}}>
         <div className="container">
           {isLawyer && (
             <>
