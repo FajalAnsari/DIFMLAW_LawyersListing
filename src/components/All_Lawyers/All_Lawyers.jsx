@@ -27,15 +27,6 @@ const All_Lawyers = () => {
   const [user, loading] = useAuthState(auth);   //if lawyer login bookmark not show
   const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
-<<<<<<< HEAD
-    await getDocs(collection(db, "lawyers"))
-      .then((querySnapshot) => {
-        const newData = querySnapshot.docs
-          .map((doc) => ({ ...doc.data(), id: doc.id }));
-        setLawyers(newData);
-
-      })
-=======
     loginUserORLawyer();
   await getDocs(collection(db, "lawyers"))
       .then((querySnapshot)=>{              
@@ -45,7 +36,6 @@ const All_Lawyers = () => {
           
       }) 
       
->>>>>>> d45adb89b059359ab08315d0dfb41bbd760b55be
   }
 const loginUserORLawyer = async () => {
   if(user){
@@ -53,9 +43,8 @@ const loginUserORLawyer = async () => {
     const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
 
 
-<<<<<<< HEAD
   // getting current user uid
-  function GetLawyerUid() {
+  async function GetLawyerUid() {
     const [uid, setUid] = useState(null);
     useEffect(() => {
       auth.onAuthStateChanged(user => {
@@ -64,7 +53,6 @@ const loginUserORLawyer = async () => {
         }
       })
     }, [])
-=======
     const docs = await getDocs(q);
     const info = await getDocs(q1)
    
@@ -106,7 +94,6 @@ const loginUserORLawyer = async () => {
             }
         })
     },[])
->>>>>>> d45adb89b059359ab08315d0dfb41bbd760b55be
     return uid;
   }
 
@@ -114,12 +101,6 @@ const loginUserORLawyer = async () => {
 
 
 
-<<<<<<< HEAD
-  useEffect(() => {
-    fetchPost();
-    console.log(params.cat);
-  }, [])
-=======
 // useEffect(()=>{
  
   fetchPost();
@@ -128,7 +109,6 @@ const loginUserORLawyer = async () => {
   
   console.log(params.cat);
 // }, [])
->>>>>>> d45adb89b059359ab08315d0dfb41bbd760b55be
 
   const [currentPage, setCurrentPage] = useState(0);
   const usersPerPage = 6;
@@ -494,9 +474,6 @@ const loginUserORLawyer = async () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="lawyrscard6">
-=======
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
         <div class="input-group mb-3">
           <input type="text" class="form-control" onChange={(e)=> setLawyeradd(e.target.value)} placeholder="Location, country, city, state..."/>
@@ -507,9 +484,9 @@ const loginUserORLawyer = async () => {
         <button class="btn btns-primary btn-block" onClick={SubmitLawyer}>Search</button>
         <button class="btn btns-primary btn-block ms-2" onClick={handleReset}>Reset</button>
       </div>
-      </div>
+      
       <p className='fs-6 text-white pop'>Popular searches :  Defense Lawyers, Real Estate </p>
-    </div> 
+  
 
     <div className="text-center filter_btn" onClick={filterData}>
     <button className='btns-primary rounded-pill p-1 border-prime' style={{width:"45%"}}>Filters</button>
@@ -632,9 +609,8 @@ const loginUserORLawyer = async () => {
     </div>
 
 
-  </div>
+  
   <div className="lawyrscard6">
->>>>>>> d45adb89b059359ab08315d0dfb41bbd760b55be
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">
@@ -668,5 +644,5 @@ const loginUserORLawyer = async () => {
     </>
   )
 }
-
+}
 export default All_Lawyers
