@@ -93,14 +93,14 @@ const Navbar = () => {
           <Link class="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
         </li>
         <li class="nav-item ms-3">
-          <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact us</Link>
+          <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
         </li>
       </ul>
       {user ? (
  <div className="btn-group">
  <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
  {!activeUser ? ( <img src={image} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />  ) :<img src='https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png' id='profiles' className="per1  border border-3 border-prime" alt="avatar" />} 
-        <b>{name}</b>
+        <b><span>{name} </span></b>
   </Link>
      
   <ul className="dropdown-menu">

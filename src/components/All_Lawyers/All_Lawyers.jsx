@@ -10,6 +10,7 @@ import ReactPaginate from 'react-paginate';
 import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../../firebase';
 import "./all_lawyersketeton.css";
 import Skeleton from 'react-loading-skeleton';
@@ -22,8 +23,11 @@ const All_Lawyers = () => {
   // alllawyer section code start
 
   const navigate = useNavigate();
+  const [user, loading] = useAuthState(auth); 
   const [lawyers, setLawyers] = useState([]);
+  const [userRole, setUserRole] = useState(null);
   const fetchPost = async () => {
+    loginUserORLawyer();
     await getDocs(collection(db, "lawyers"))
       .then((querySnapshot) => {
         const newData = querySnapshot.docs
@@ -31,6 +35,43 @@ const All_Lawyers = () => {
         setLawyers(newData);
 
       })
+  }
+  // check login as a user or lawyer
+  const loginUserORLawyer = async () => {
+    if(user){
+      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
+  
+  
+      const docs = await getDocs(q);
+      const info = await getDocs(q1)
+     
+      // lawyer auth
+      if (docs.empty) {
+        console.log("No matching documents.");
+      } else {
+        docs.forEach((doc) => {
+          const data = doc.data();
+          console.log(data);
+          console.log("lawyer login");
+          setUserRole("lawyer");
+         
+        });
+      }
+      // user auth
+      if (info.empty) {
+        console.log("No matching documents.");
+      } else {
+        info.forEach((doc) => {
+          const data = doc.data();
+          console.log(data);
+          console.log("user login");
+          setUserRole("user");
+       
+        });
+      }
+  
+    }
   }
 
 
@@ -51,10 +92,11 @@ const All_Lawyers = () => {
 
 
 
-  useEffect(() => {
+  // useEffect(() => {
     fetchPost();
+   
     console.log(params.cat);
-  }, [])
+  // }, [])
 
   const [currentPage, setCurrentPage] = useState(0);
   const usersPerPage = 6;
@@ -64,7 +106,7 @@ const All_Lawyers = () => {
 
   // alllawyer section code end
   const [totalLawyers, setTotalLawyers] = useState(0);
-  const [selectedValue, setSelectedValue] = useState('');
+
   const [getcheckbox, setCheckbox] = useState("");
 
   const [searchLawyer, setLawyerSearch] = useState("");
@@ -74,7 +116,7 @@ const All_Lawyers = () => {
     e.preventDefault();
     console.log(searchLawyer);
     console.log(lawyeradd);
-    if (!searchLawyer == "" || !lawyeradd == "") {
+    if (!searchLawyer === "" || !lawyeradd === "") {
       const citiesRef = collection(db, "lawyers");
 
       const q1 = query(citiesRef,
@@ -138,7 +180,7 @@ const All_Lawyers = () => {
   //  laywer select option filled
 
   const handleSelectValue = async (e) => {
-    setSelectedValue(e.target.value);
+    
     const q = query(collection(db, "lawyers"), where("work", "==", e.target.value))
     await getDocs(q).then((qq) => {
       const newData = qq.docs
@@ -269,7 +311,7 @@ const All_Lawyers = () => {
         <div className="col-12 mx-auto mt-5">
           <div className="row mx-auto">
 
-            <div className="col-md-4" id='filters'>
+            <div className="col-md-4" id='filters' style={{marginBottom:"45px"}}>
               {alllawyercategory.map((service) => (
                 <>
                   <h4 className='mt-3 font-color'>{service.title}</h4>
@@ -359,7 +401,7 @@ const All_Lawyers = () => {
                             <div className="col-md-9">
                               <h4 className='mt-2 font-color'>{data.specialization}</h4>
                               <div className='d-flex mt-3'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
-                                <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-capitalize' style={{ marginTop: "-7px" }}> <i class="bi bi-geo-alt"></i> {data.address}</h5></div></div>
+                                <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i class="bi bi-geo-alt"></i> {data.address}</h5></div></div>
                               <div className='d-flex'>
                                 <p className='fs-6 text-white'>{data.work}</p>
                                 <p className='fs-6 mx-4 text-white lawexp'>{data.experience}  in practice</p>
@@ -375,10 +417,12 @@ const All_Lawyers = () => {
                                 View Profile
                               </button>
                             </div>
-                            <div className="col-md-1 mx-3 res4" onClick={() => addToLawyer(data.uid)}>
-                              <i class="bi bi-bookmark fw-bold fs-3"></i>
-                              <p className='fs-6 savelist'>save</p>
-                            </div>
+                            {userRole === "user" && (
+      <div className="col-md-1 mx-3 res4" onClick={()=>addToLawyer(data.uid)}>
+        <i class="bi bi-bookmark fw-bold fs-3"></i>
+        <p className="fs-6 savelist">save</p>
+      </div>
+    )}
                           </div>
                         </div>
                       </div>
@@ -418,7 +462,7 @@ const All_Lawyers = () => {
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">
-              <h1 className="mt-4 text-white">
+              <h1 className="text-white" style={{marginTop:"-20px"}}>
                 Recommended
                 <span id="cat" className="ms-2">
                   Lawyers
@@ -426,7 +470,7 @@ const All_Lawyers = () => {
               </h1>
             </div>
             <div className="col-lg-6 featured" >
-              <div className="d-flex mt-4 float-xl-end">
+              <div className="d-flex float-xl-end" style={{marginTop:"-15px"}}>
                 <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-white'>Show all lawyers</a></p>
                 <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
               </div>

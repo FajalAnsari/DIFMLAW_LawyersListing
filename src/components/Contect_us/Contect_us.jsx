@@ -140,13 +140,12 @@ const Contect_us = () => {
         <div className="col-md-6 ">
         <iframe
                 src="https://www.google.com/maps/embed?pb=!1.771070944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc2a66677f%3A0x8f85bd068d1afb8a!2s30%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801%2C%20USA!5e0!3m2!1sen!2sin!4v1684734636299!5m2!1sen!2sin"
-                width="100%"
-               
-                style={{ border: 0 }}
+                width="104%"
                 allowFullScreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                className="h-100 border border-primary"
+                className="h-100 border border-prime rounded border-2"
+                style={{marginLeft:"-11px"}}
               ></iframe>
         </div>
       </div>
