@@ -233,7 +233,6 @@ const loginUserORLawyer = async () => {
 
   }
 
-
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
   checkboxes.forEach(checkbox => {
@@ -290,8 +289,6 @@ const loginUserORLawyer = async () => {
   };
 
 
-
-
   return (
     <>
 
@@ -316,7 +313,7 @@ const loginUserORLawyer = async () => {
               <button class="btn btns-primary border-prime btn-block ms-2" onClick={handleReset}>Reset</button>
             </div>
           </div>
-          <p className='fs-6 text-white pop'>Popular searches :  Defense Lawyers, Real Estate </p>
+          <p className='fs-6 text-white pop'>Popular Searches :  Defense Lawyers, Real Estate </p>
         </div>
 
         <div className="text-center filter_btn" onClick={filterData}>
@@ -351,7 +348,6 @@ const loginUserORLawyer = async () => {
                   <p className='fs-6 text-white'>Showing {totalLawyers} results</p>
                 </div>
 
-
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
                   <div class="input-group mb-3">
                     <span class="input-group-text border-prime btns-primary" >Sort by : </span>
@@ -362,8 +358,6 @@ const loginUserORLawyer = async () => {
                     </select>
                   </div>
                 </div>
-
-
 
                 {/* all lawyer section cards start */}
 
@@ -447,7 +441,7 @@ const loginUserORLawyer = async () => {
                   ))
                 )}
 
-                    {/* all lawyer section cards end */}
+                    {/* All lawyer Section Cards End */}
 
                 <div id="react-paginate" className='mt-5'>
                   <ReactPaginate
@@ -643,6 +637,7 @@ const loginUserORLawyer = async () => {
       </div>
     </>
   )
+  }
 }
-}
+
 export default All_Lawyers
