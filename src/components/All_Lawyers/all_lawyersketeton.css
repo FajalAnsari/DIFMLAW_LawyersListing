@@ -1,0 +1,74 @@
+.skeleton1{
+    width: 60px;
+    height: 60px;
+    /* position: absolute; */
+    border-radius: 50%;
+    margin-top: -10% !important;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.11);
+    background-color: rgba(194, 189, 189, 0.63) !important;
+}
+.skeleton2{
+    width: 80%;
+    height: 15px;
+    margin-top: -5px !important;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.11);
+    background-color:  rgba(194, 189, 189, 0.63);
+}
+.skeleton3{
+    width: 40%;
+    height: 15px;
+    margin-top: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.11);
+    background-color:  rgba(194, 189, 189, 0.63);
+}
+.skeleton4{
+    width: 6%;
+    height: 15px;
+    margin-top: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.11);
+    background-color:  rgba(194, 189, 189, 0.63);
+}
+.skeleton5{
+    width: 40%;
+    height: 15px;
+    margin-top: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.11);
+    background-color:  rgba(194, 189, 189, 0.63);
+}
+.skeleton6{
+    width: 40%;
+    height: 15px;
+    margin-top: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.11);
+    background-color:  rgba(194, 189, 189, 0.63);
+}
+.skeleton7{
+    width: 80%;
+    height: 25px;
+    margin-top: 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.11);
+    background-color:  rgba(194, 189, 189, 0.63);
+}
+
+.loading-animation{
+    overflow: hidden;
+    background:  rgba(194, 189, 189, 0.63);
+}
+
+.loading-animation::before{
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    animation: loading 1s infinite;
+    background: linear-gradient(to right, transparent,rgb(194, 189, 189),transparent);
+}
+
+@keyframes loading {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}

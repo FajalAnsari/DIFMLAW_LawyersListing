@@ -23,11 +23,15 @@ const Lawyers_profile_card = () => {
     firebase.getUsersId(params.lawId).then((value) => setData(value.data()));
   }, []);
 
- 
+  const handleCopyPath = () => {
+    const path = window.location.href;
+    navigator.clipboard.writeText(path);
+    alert('URL path copied to clipboard!');
+  }
   
   return (
    
-    <div className="container">
+    <div className="container" style={{marginTop:"80px"}}>
       <div className="row">
         {/* lawyer profile card start */}
         <div className="col-lg-8 p-5 ">
@@ -139,11 +143,11 @@ const Lawyers_profile_card = () => {
             <div class="form-outline">
               <input
                 type="search"
-                value="https://www.kreate.com/job-apply-325..."
+                value={window.location.href}
                 class="form-control ss-2 w-100"
               />
             </div>
-            <button type="button" class="btn btns-primary s-1">
+            <button type="button" class="btn btns-primary s-1" onClick={handleCopyPath}>
               Copy link
             </button>
           </div>

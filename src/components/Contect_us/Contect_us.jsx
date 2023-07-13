@@ -7,7 +7,7 @@ import Contect_sugg from "../About_page/Contect_sugg";
 const Contect_us = () => {
   return (
     <>
-    <div className="container">
+    <div className="container"  style={{marginTop:"120px"}}>
     <div className="row mt-5">
         <div className="col-md-6 mt-5">
         <h2 className='font-color'>Get In Tauch</h2>

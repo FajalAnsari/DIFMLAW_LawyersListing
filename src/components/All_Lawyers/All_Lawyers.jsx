@@ -11,6 +11,7 @@ import Contect_sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../firebase';
+import "./all_lawyersketeton.css";
 import Skeleton from 'react-loading-skeleton';
 
 
@@ -239,25 +240,25 @@ const All_Lawyers = () => {
   return (
     <>
 
-      <div class="container">
+      <div class="container" style={{marginTop:"100px"}}>
         <h1 className='text-center text-white' id='dis'>Discover more than <span className='font-color'>5000+ Lawyers</span></h1>
         <div className="col-10 mx-auto">
           <div class="row mt-5 ">
             <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div class="input-group mb-3">
                 <input type="text" class="form-control" id="lawyername" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
-                <span class="input-group-text btns-primary"><i class="bi bi-search" onClick={BynameSearch}></i></span>
+                <span class="input-group-text btns-primary border-prime"><i class="bi bi-search" onClick={BynameSearch}></i></span>
               </div>
             </div>
             <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div class="input-group mb-3">
                 <input type="text" class="form-control" onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
-                <span class="input-group-text btns-primary"><i class="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
+                <span class="input-group-text btns-primary border-prime"><i class="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
               </div>
             </div>
             <div class="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
-              <button class="btn btns-primary btn-block" onClick={SubmitLawyer}>Search</button>
-              <button class="btn btns-primary btn-block ms-2" onClick={handleReset}>Reset</button>
+              <button class="btn btns-primary border-prime btn-block" onClick={SubmitLawyer}>Search</button>
+              <button class="btn btns-primary border-prime btn-block ms-2" onClick={handleReset}>Reset</button>
             </div>
           </div>
           <p className='fs-6 text-white pop'>Popular Searches :  Defense Lawyers, Real Estate </p>
@@ -297,7 +298,7 @@ const All_Lawyers = () => {
 
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
                   <div class="input-group mb-3">
-                    <span class="input-group-text btns-primary" >Sort by : </span>
+                    <span class="input-group-text border-prime btns-primary" >Sort by : </span>
                     <select id="inputState" class="form-select" onChange={handleSelectValue}>
                       <option selected> Most relevant</option>
                       <option value="Full Day">Full Day</option>
@@ -314,11 +315,35 @@ const All_Lawyers = () => {
                       <div className='view_buttons mt-4 alllawyersection border border-dark' key={i}>
                         <div className="row mx-auto">
                           <div className="col-md-6">
-                            <Skeleton circle={true} height={100} width={100} />
-                            <Skeleton count={3} />
+                            <Skeleton circle={true}  width={100} />
+                            <Skeleton count={-2} />
+                            <div className="row">
+                            <div className="col-md-3">
+                                <div className='skeleton1 loading-animation'></div>
+                            </div>
+                            <div className="col-md-9">
+                              <h4 className=' font-color skeleton2 rounded-pill loading-animation'></h4>
+                              <div className='d-flex'>
+                                <div className='nam fs-6 text-white text-capitalize skeleton3 rounded-pill loading-animation' ></div>
+                                <div className='mx-auto nameloc skeleton4 rounded-pill loading-animation'></div></div>
+                              <div className='d-flex'>
+                                <div className=' skeleton5 rounded-pill loading-animation'></div>
+                                <div className=' ms-4 skeleton6 rounded-pill loading-animation'></div>
+                              </div>
+                            </div>
+                          </div>
                           </div>
                           <div className="col-md-6">
-                            <Skeleton count={2} />
+                            <div className="row mb-3">
+                            <div className="col-md-10 d-flex justify-content-end">
+                              <div className="w-75 p-4  skeleton7 rounded-pill loading-animation">
+                                
+                              </div>
+                            </div>
+                            <div className="col-md-1 mx-3 res4" style={{opacity:"65%"}}>
+                            <i class="bi bi-bookmark-fill fw-bold fs-3"></i>
+                            </div>
+                          </div>
                           </div>
                         </div>
                       </div>

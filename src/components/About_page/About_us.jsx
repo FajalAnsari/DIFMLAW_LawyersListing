@@ -14,7 +14,7 @@ const About_us = () => {
    {/* about page */}
   
     
-    <div className="aboutsections" style={{backgroundColor:"var(--third-primary)"}}>
+    <div className="aboutsections" style={{backgroundColor:"var(--third-primary)",marginTop:"80px"}}>
     <div className='container'>
         <h2 className='text-center fw-bold p-5 font-color'>About Us</h2>
         <p className='fs-5 text-center w-50 mx-auto lh-sm text-white' style={{textAlign: "justify"}}>Connecting lawyers and seekers from around the world in a seamless and efficient way is our mission at DIFM Law.</p>
