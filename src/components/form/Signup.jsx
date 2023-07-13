@@ -179,7 +179,7 @@ const Signup = () => {
             navigate("/");
           }
         ).catch((err) => {
-          // setUserErr(err);
+          setUserErr(err);
           alert(err);
         })
       } else {

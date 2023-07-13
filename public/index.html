@@ -32,6 +32,7 @@
      
       <!-- progress bar -->
     <script>
+     
       let calcScrollValue = () => {
          let scrollProgress = document.getElementById("progress");
          let progressValue = document.getElementById("progress-value");
@@ -44,14 +45,14 @@
          if(pos > 100){
           scrollProgress.style.display = "grid";
           headrs.style.background = "linear-gradient(125.17deg, #161D27 0%, #161D27 100%)";
-    headrs.style.boxShadow = "0px 10px 5px 0px rgba(0, 0, 0, 0.5)";
-    headrs.style.height = "80px";
-    headrs.style.transition = "1s";
+          headrs.style.boxShadow = "0px 10px 5px 0px rgba(0, 0, 0, 0.5)";
+          headrs.style.height = "80px";
+          headrs.style.transition = "1s";
          } else {
           scrollProgress.style.display = "none";
           headrs.style.background = "none";
-    headrs.style.boxShadow = "none";
-    headrs.style.height = "80px";
+          headrs.style.boxShadow = "none";
+          headrs.style.height = "80px";
          }
          scrollProgress.addEventListener("click", () => {
            document.documentElement.scrollTop = 0;
