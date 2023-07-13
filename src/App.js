@@ -17,7 +17,7 @@ import Default_page from "./components/Default_page/Default_page";
 import Protected from "./components/Protected";
 import ForgetPassword from "./components/form/ForgetPassword";
 import Bookmark from "./components/Bookmark/Bookmark";
-
+import Lawyer_Dashboard from "./components/Lawyer_Dashboard/Lawyer_Dashboard";
 function App() {
   return (
     <>
@@ -39,6 +39,7 @@ function App() {
         <Route path="/terms_condition" element={<Term_condition />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/login/forget_password" element={<ForgetPassword />} />
+        <Route path="/lawyer_dashboard" element={<Lawyer_Dashboard />} />
         <Route path="/*" element={<Default_page />} />
       </Routes>
       </FirebaseProvider>

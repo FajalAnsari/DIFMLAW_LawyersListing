@@ -8,12 +8,12 @@ import Lawyerscards from './Lawyerscards';
 import { useAuthState } from "react-firebase-hooks/auth";
 import Testimonial from '../Testimonial/Testimonial';
 import { auth } from '../../firebase';
-import Contect_sugg from '../About_page/Contect_sugg';
+import Contect_Sugg from '../About_page/Contect_Sugg';
 
 
 
 const Category = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   return (
     <>
@@ -83,7 +83,7 @@ const Category = () => {
       </div>
       {user ? (
          <div className='container'>
-         <Contect_sugg />
+         <Contect_Sugg />
          </div>
        ) : ( 
         <>

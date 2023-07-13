@@ -2,7 +2,7 @@ import React from 'react'
 import "./Contect_us.css";
 import Testimonial from '../Testimonial/Testimonial';
 import { Link } from 'react-router-dom';
-import Contect_sugg from "../About_page/Contect_sugg";
+import Contect_Sugg from "../About_page/Contect_Sugg";
 
 const Contect_us = () => {
   return (
@@ -150,7 +150,7 @@ const Contect_us = () => {
         </div>
       </div>
       <div className="sugg_contects4">
-    <Contect_sugg />
+    <Contect_Sugg />
     </div>
     </div>  
     <Testimonial />

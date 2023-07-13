@@ -11,7 +11,9 @@ const Add_review = (props) => {
   const [rating, setRating] = useState(null);
   const [count, setCount] =useState(0);
   const [fiveRating , setFiverating] = useState(rating)
-  const [setUserId, getUserId] = useState("");
+  // const [setUserId, getUserId] = useState("");
+
+
    // State to show/hide accordion
    const [show, setShow] = useState(false);
    const handleOpen = () => {
@@ -97,7 +99,7 @@ const Add_review = (props) => {
     } catch (err) {
       alert(err)
     }  
-  alert(rating);
+  
 
   }
   useEffect(()=>{
