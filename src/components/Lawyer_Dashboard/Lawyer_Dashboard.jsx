@@ -21,7 +21,6 @@ const Lawyer_Dashboard = ({children}) => {
             path:"/lawyer_dashboard/profile",
             name:"Edit Profile",
             icon:<FaUserEdit/>,
-            link:""
         },
       
     ]
@@ -33,8 +32,8 @@ const Lawyer_Dashboard = ({children}) => {
            <div style={{width: isOpen ? "280px" : "50px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
-                   <div style={{marginLeft: isOpen ? "122px" : "12px"}} className="bars fs-1">
-                       <i class="bi bi-caret-left-fill" onClick={toggle}></i>
+                   <div style={{marginLeft: isOpen ? "208px" : " 16px"}} className="bars fs-5">
+                       <span className="icon-toggle"><i class="bi bi-chevron-left ms-1" onClick={toggle}></i></span>
                    </div>
                </div>
                {

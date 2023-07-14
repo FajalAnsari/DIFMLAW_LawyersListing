@@ -10,8 +10,8 @@ main{
 }
 .sidebar{
     background: var(--fourth-primary);
-    color: #fff;
-    height: 60vh;
+    color: #4C525A;
+    height: 80vh;
     width: 200px;
     border-radius: 0px 40px 40px 0px;
     transition: all 0.5s;
@@ -34,7 +34,10 @@ main{
     color: #fff;
     padding: 10px 15px;
     gap: 15px;
+    background:#4C525A;
     transition: all 0.5s;
+    border-top: 4px solid #4C525A !important;
+    border-bottom: 4px solid #4C525A !important;
 }
 .link:hover{
     background:#4C525A;
@@ -44,10 +47,22 @@ main{
 .active{
     background: #4C525A;
     color: white;
-    border-top: 4px solid var(--primary);
-    border-bottom: 4px solid var(--primary);
+    border-top: 4px solid var(--primary) !important;
+    border-bottom: 4px solid var(--primary) !important;
 }
 .icon, .link_text{
     font-size: 20px;
     
 }
+.icon-toggle{
+    width: 30px;
+    height: 30px;
+    font-weight: bolder !important;
+    margin-top: 10px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+
+
+
