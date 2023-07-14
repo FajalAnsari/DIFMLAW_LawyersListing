@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { FirebaseProvider } from "./firebase";
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
@@ -21,40 +21,37 @@ import Lawyer_Message from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages
 import Lawyer_Dashboard from "./components/Lawyer_Dashboard/Lawyer_Dashboard";
 import Lawyer_Profiles from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages/Lawyer_Profiles";
 
-
 function App() {
   return (
     <>
-     <Router>
-      <Navbar />
-      <FirebaseProvider>
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<EditProfile />} />
-        <Route path="/job/:lawId" element={<Protected Component={Lawyers_profile_card}/>} />
-        <Route path="/alllawyer/:cat" element={<All_Lawyers />} />
-        <Route path="/alllawyer" element={<All_Lawyers />} />
-        <Route path="/contect_us" element={<Contect_us />} />
-        <Route path="/admin" element={<Admin_dashboard />} />
-        <Route path="/about" element={<About_us />} />
-        <Route path="/privacy_policy" element={<Privacy_policy />} />
-        <Route path="/terms_condition" element={<Term_condition />} />
-        <Route path="/bookmark" element={<Bookmark />} />
-        <Route path="/login/forget_password" element={<ForgetPassword />} />
-        {/* <Route path="/*" element={<Default_page />} /> */}
-      </Routes>
+      <Router>
+        <Navbar />
+        <FirebaseProvider>
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<EditProfile />} />
+            <Route path="/job/:lawId" element={<Protected Component={Lawyers_profile_card} />} />
+            <Route path="/alllawyer/:cat" element={<All_Lawyers />} />
+            <Route path="/alllawyer" element={<All_Lawyers />} />
+            <Route path="/contect_us" element={<Contect_us />} />
+            <Route path="/admin" element={<Admin_dashboard />} />
+            <Route path="/about" element={<About_us />} />
+            <Route path="/privacy_policy" element={<Privacy_policy />} />
+            <Route path="/terms_condition" element={<Term_condition />} />
+            <Route path="/bookmark" element={<Bookmark />} />
+            <Route path="/login/forget_password" element={<ForgetPassword />} />
+            {/* <Route path="/*" element={<Default_page />} /> */}
 
-         <Lawyer_Dashboard>
-           <Routes>
-             <Route path="/lawyer_message" element={<Lawyer_Message />} />
-             <Route path="/lawyer_profile" element={<Lawyer_Profiles />} />
-            </Routes>
-        </Lawyer_Dashboard>
-      </FirebaseProvider>
-     <Footer />
-    </Router>
+            <Route path="/lawyer/dashboard" element={<Lawyer_Dashboard />}>
+              <Route path="message" element={<Lawyer_Message />} />
+              <Route path="profile" element={<Lawyer_Profiles />} />
+            </Route>
+          </Routes>
+        </FirebaseProvider>
+        <Footer />
+      </Router>
     </>
   );
 }
