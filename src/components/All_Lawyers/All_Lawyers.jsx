@@ -420,7 +420,7 @@ const All_Lawyers = () => {
         <i class="bi bi-bookmark fw-bold fs-3"></i>
         <p className="fs-6 savelist">save</p>
       </div>
-    )}
+     )}
                           </div>
                         </div>
                       </div>

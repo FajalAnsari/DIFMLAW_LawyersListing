@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Dashboard.css";
 import { dummy } from '../../images';
-
+import { NavLink } from 'react-router-dom';
 const Lawyer_Message = () => {
   return (
     <>
@@ -9,30 +9,36 @@ const Lawyer_Message = () => {
          <div className="row">
             <div className="col-md-4">
                <div className='user_pro'>
-                   <div className="d-flex px-4  usersl um">
+                  <NavLink to='/lawyer_dashboard/message/1' className='text-decoration-none'><div className="d-flex px-4  usersl um">
+                     <img src={dummy} alt="dummy" className='mt-1' style={{width:"20%",height:"20%"}}/>
+                     <p className='ms-3 mt-2 fs-6 text-white'>Fajal Ansari</p>
+                   </div></NavLink> 
+                   <NavLink to='/lawyer_dashboard/message/2' className='text-decoration-none'> <div className="d-flex px-4  usersl mt-2">
                      <img src={dummy} alt="dummy" className='mt-1' style={{width:"20%",height:"20%"}}/>
                      <p className='ms-3 mt-2 fs-6 text-white'>Fajal Ansari</p>
                    </div>
-                   <div className="d-flex px-4  usersl mt-2">
+                   </NavLink> 
+                   <NavLink to='/lawyer_dashboard/message/3' className='text-decoration-none'> <div className="d-flex px-4  usersl mt-2">
                      <img src={dummy} alt="dummy" className='mt-1' style={{width:"20%",height:"20%"}}/>
                      <p className='ms-3 mt-2 fs-6 text-white'>Fajal Ansari</p>
                    </div>
-                   <div className="d-flex px-4  usersl mt-2">
+                   </NavLink> 
+                   <NavLink to='/lawyer_dashboard/message/4' className='text-decoration-none'> <div className="d-flex px-4  usersl mt-2">
                      <img src={dummy} alt="dummy" className='mt-1' style={{width:"20%",height:"20%"}}/>
                      <p className='ms-3 mt-2 fs-6 text-white'>Fajal Ansari</p>
                    </div>
-                   <div className="d-flex px-4  usersl mt-2">
+                   </NavLink> 
+                   <NavLink to='/lawyer_dashboard/message/5' className='text-decoration-none'> <div className="d-flex px-4  usersl mt-2">
                      <img src={dummy} alt="dummy" className='mt-1' style={{width:"20%",height:"20%"}}/>
                      <p className='ms-3 mt-2 fs-6 text-white'>Fajal Ansari</p>
                    </div>
-                   <div className="d-flex px-4  usersl mt-2">
+                   </NavLink> 
+                   <NavLink to='/lawyer_dashboard/message/6' className='text-decoration-none'> <div className="d-flex px-4  usersl mt-2">
                      <img src={dummy} alt="dummy" className='mt-1' style={{width:"20%",height:"20%"}}/>
                      <p className='ms-3 mt-2 fs-6 text-white'>Fajal Ansari</p>
                    </div>
-                   <div className="d-flex px-4  usersl mt-2">
-                     <img src={dummy} alt="dummy" className='mt-1' style={{width:"20%",height:"20%"}}/>
-                     <p className='ms-3 mt-2 fs-6 text-white'>Fajal Ansari</p>
-                   </div>
+                   </NavLink> 
+                 
                 </div>
             </div>
             <div className="col-md-8">
