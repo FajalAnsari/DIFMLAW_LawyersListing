@@ -8,13 +8,14 @@ import {
     FaUserEdit,
    
 }from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+
+import { Link } from "react-router-dom";
 const Lawyer_Dashboard = () => {
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/",
+            path:"",
             name:"Messages",
             icon:<i class="bi bi-chat-left-text"></i>
         },
@@ -33,16 +34,16 @@ const Lawyer_Dashboard = () => {
            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
-                   <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
-                       <FaBars onClick={toggle}/>
+                   <div style={{marginLeft: isOpen ? "122px" : "12px"}} className="bars fs-1">
+                       <i class="bi bi-caret-left-fill" onClick={toggle}></i>
                    </div>
                </div>
                {
                    menuItem.map((item, index)=>(
-                       <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                       <Link to={item.path} key={index} className="link" activeclassName="active" style={{textDecoration:'none'}}>
                            <div className="icon">{item.icon}</div>
-                           <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
-                       </NavLink>
+                           <div style={{display: isOpen ? "block" : "none"}} className="link_text fs-6 mt-1">{item.name}</div>
+                       </Link>
                    ))
                }
            </div>
