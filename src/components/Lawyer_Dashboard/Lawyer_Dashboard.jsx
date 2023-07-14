@@ -7,7 +7,7 @@ import {
     FaUserEdit,
    
 }from "react-icons/fa";
-import { Link , Outlet } from 'react-router-dom';
+import { NavLink , Outlet } from 'react-router-dom';
 const Lawyer_Dashboard = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
@@ -39,10 +39,10 @@ const Lawyer_Dashboard = ({children}) => {
                </div>
                {
                    menuItem.map((item, index)=>(
-                       <Link to={item.path} key={index} className="link text-decoration-none mb-3" activeclassName="active">
+                       <NavLink to={item.path} key={index} className="link text-decoration-none mb-3" activeclassName="active">
                            <div className="icon">{item.icon}</div>
                            <div style={{display: isOpen ? "block" : "none"}} className="link_text fs-6 mt-1">{item.name}</div>
-                       </Link>
+                       </NavLink>
                    ))
                }
            </div>
