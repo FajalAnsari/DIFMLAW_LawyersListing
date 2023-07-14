@@ -32,8 +32,8 @@ const Lawyer_Dashboard = ({children}) => {
            <div style={{width: isOpen ? "280px" : "50px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
-                   <div style={{marginLeft: isOpen ? "208px" : " 16px"}} className="bars fs-5">
-                       <span className="icon-toggle"><i class="bi bi-chevron-left ms-1" onClick={toggle}></i></span>
+                   <div style={{marginLeft: isOpen ? "208px" : " 16px", transition: 'all 0.5s'}} className="bars fs-5">
+                       <span className="icon-toggle">{isOpen ? <i class="bi bi-chevron-left ms-1" onClick={toggle}></i>: <i class="bi bi-chevron-right ms-1" onClick={toggle}></i>}</span>
                    </div>
                </div>
                {
