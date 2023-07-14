@@ -11,12 +11,12 @@ import {getAuth, onAuthStateChanged } from "firebase/auth";
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDEYnLoKhyDPmDSK0vjvFoJq8gdptcQE1E",
-  authDomain: "difmlawyer.firebaseapp.com",
-  projectId: "difmlawyer",
-  storageBucket: "difmlawyer.appspot.com",
-  messagingSenderId: "649083345336",
-  appId: "1:649083345336:web:70ce2757ccf9c8b11c574d"
+  apiKey: "AIzaSyA-GweY6qC-cTm-64WIyt2h3nEu5QRtzGI",
+  authDomain: "difmlawlist.firebaseapp.com",
+  projectId: "difmlawlist",
+  storageBucket: "difmlawlist.appspot.com",
+  messagingSenderId: "644263167841",
+  appId: "1:644263167841:web:49888cb835ebe935a5a720"
 };
 
 export const useFirebase = () => useContext(FirebaseContext);
