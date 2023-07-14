@@ -40,7 +40,7 @@ const Lawyer_Message = () => {
                    <div className='text_msg1 py-4 px-5 text-white'>
                     <p><b>Phone No. :</b> 7800504006</p>
                     <p><b>Email :</b> Fajal@difm.tech</p>
-                    <p className='fs-5'><b>Message :</b> In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                    <p className='fs-5 pb'><b>Message :</b> In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
                    </div>
                    <div className="text_msg2 py-4 px-5 text-white">
                      <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
