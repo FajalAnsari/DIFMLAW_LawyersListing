@@ -13,12 +13,12 @@ const Lawyer_Dashboard = ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/lawyer/dashboard/message",
+            path:"/lawyer_dashboard/message",
             name:"Messages",
             icon:<i class="bi bi-chat-left-text"></i>
         },
         {
-            path:"/lawyer/dashboard/profile",
+            path:"/lawyer_dashboard/profile",
             name:"Edit Profile",
             icon:<FaUserEdit/>,
             link:""

@@ -42,9 +42,8 @@ function App() {
             <Route path="/terms_condition" element={<Term_condition />} />
             <Route path="/bookmark" element={<Bookmark />} />
             <Route path="/login/forget_password" element={<ForgetPassword />} />
-            {/* <Route path="/*" element={<Default_page />} /> */}
-
-            <Route path="/lawyer/dashboard" element={<Lawyer_Dashboard />}>
+            <Route path="/*" element={<Default_page />} />
+            <Route path="/lawyer_dashboard" element={<Lawyer_Dashboard />}>
               <Route path="message" element={<Lawyer_Message />} />
               <Route path="profile" element={<Lawyer_Profiles />} />
             </Route>
