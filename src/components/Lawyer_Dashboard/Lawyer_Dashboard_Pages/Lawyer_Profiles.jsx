@@ -48,39 +48,21 @@ const Lawyer_Profiles = () => {
                             </div>
                             
                             <div className="col-md-6">
-                                <label className="small mb-1 text-white" for="inputExperience">Experience</label>
-                                <select id="inputExperience" 
-                                  class="form-select">
-                                       <option selected></option>
-                                        <option value="1 Year">1 Year</option>
-                                         <option value="2 Year">2 Years</option>
-                                          <option value="3 Year">3 Years</option>
-                                          <option value="4 Year">4 Years</option>
-                                             <option value="5 Year">5 Years</option>
-                                               <option value="6 Year">6 Years</option>
-                                                  <option value="7 Year">7 Years</option>
-                                                     <option value="8 Year" >8 Years</option>
-                                                <option value="9 Year">9 Years</option>
-                                                   <option value="10+ Year">10+ Years</option>
-                                     </select>
-                            
+                                <label className="small mb-1 text-white" for="inputExperience">Experience</label>    
+                                <div class="input-group mb-3">
+                                <input className="form-control " id="inputExperience" type="text"/>
+                                <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
+                              </div>
                             </div>
                         </div>
                        
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6">
                                 <label className="small mb-1 text-white" for="inputSpecialization">Specialization</label>
-                                <select id="inputSpecialization"  class="form-select">
-                                   <option selected></option>
-                                   <option value="Injury Lawyers">Injury Lawyers</option>
-                                     <option value="Family Law Lawyers">Family Law Lawyers</option>
-                                       <option value="Defense Lawyers">Defense Lawyers</option>
-                                       <option value="Corporate Lawyers">Corporate Lawyers</option>
-                                       <option value="Immigration Lawyers">Immigration Lawyers</option>
-                                          <option value="Property Lawyers">Property Lawyers</option>
-                                       <option value="Real Estate Lawyers">Real Estate Lawyers</option>
-                                   <option value="Employment Lawyers">Employment Lawyers</option>
-                                 </select>
+                                <div class="input-group mb-3">
+                                <input className="form-control " id="inputSpecialization" type="text"/>
+                                <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
+                              </div>
                             
                             </div>
                            
@@ -96,11 +78,8 @@ const Lawyer_Profiles = () => {
                             <div className="col-md-6">
                                 <label className="small mb-1 text-white" for="inputWork">Work Type</label>
                                 <div class="input-group mb-3">
-                                <select id="inputWork"  class="form-select">
-                                 <option selected>Choose..</option>
-                                   <option value="Full Day">Full Day</option>
-                                    <option value="Half Day">Half Day</option>
-                                </select>
+                                <input className="form-control " id="inputWor" type="text"/>
+                                <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
                               </div>
                             </div>
                            
