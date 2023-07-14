@@ -1,13 +1,8 @@
 import "./Lawyer_Dashboard.css";
 import React, { useState } from 'react';
 import logo from "../images/Vector.svg";
-import {
-  
-    FaBars,
+import {  FaUserEdit  }from "react-icons/fa";  
 
-    FaUserEdit,
-   
-}from "react-icons/fa";
 import { NavLink , Outlet } from 'react-router-dom';
 const Lawyer_Dashboard = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
