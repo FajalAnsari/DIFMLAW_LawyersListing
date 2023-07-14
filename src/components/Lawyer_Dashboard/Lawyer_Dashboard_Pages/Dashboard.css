@@ -213,18 +213,36 @@
   @media only screen and (width: 820px) {
     
     .lawyer_message .user_pro{
-        margin-top: -75.89%;
+        margin-top: -39.89%;
         width: 25.38%;
+        height: 54.40vh;
         margin-left: -60px;
     }
     .lawyer_message .msg_1{
-        margin-top: -75.89%;
+        margin-top: -39.89%;
         width: 62.42%;
+        height: 54.40vh;
         margin-left: -8.98%;    
      }
      .lawyer_message{
         height: 27.50vh;
        
+    }
+    .lawyer_message .msg_1 .text_msg1{
+        height: 26vh;
+    }
+    .lawyer_message .msg_1 .text_msg2{
+        height: 20vh;
+    }
+    .lawyer_message .msg_1 .text_msg1 p{
+        width: 116%;
+        margin-left: -30px;
+        text-align: justify;
+    }
+    .lawyer_message .msg_1 .text_msg2 p{
+        width: 116%;
+        margin-left: -30px !important;
+        text-align: justify;
     }
     .sidebar{
         position: relative;
