@@ -2,9 +2,6 @@ import "./Lawyer_Dashboard.css";
 import React, { useState } from 'react';
 import logo from "../images/Vector.svg";
 import {
-  
-    FaBars,
-
     FaUserEdit,
    
 }from "react-icons/fa";
@@ -32,7 +29,6 @@ const Lawyer_Dashboard = ({children}) => {
        <div className="">
            <div style={{width: isOpen ? "280px" : "50px"}} className="sidebar">
                <div className="top_section">
-                 
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo text-white"><div className="d-flex"><img src={logo} alt="logo" style={{width:"120%",marginRight:"10px"}}/>Lawyer Dashboard</div></h1>
                    <div style={{marginLeft: isOpen ? "208px" : " 16px", transition: 'all 0.5s'}} className="bars fs-5">
                        <span className="icon-toggle">{isOpen ? <i class="bi bi-chevron-left ms-1" onClick={toggle}></i>: <i class="bi bi-chevron-right ms-1" onClick={toggle}></i>}</span>
