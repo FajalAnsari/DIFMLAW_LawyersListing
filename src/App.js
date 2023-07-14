@@ -22,6 +22,8 @@ import Lawyer_Dashboard from "./components/Lawyer_Dashboard/Lawyer_Dashboard";
 import Lawyer_Profiles from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages/Lawyer_Profiles";
 
 
+
+
 function App() {
   return (
     <>
@@ -43,15 +45,11 @@ function App() {
         <Route path="/terms_condition" element={<Term_condition />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/login/forget_password" element={<ForgetPassword />} />
-        {/* <Route path="/*" element={<Default_page />} /> */}
+        <Route exact path="/dashboard" element={<Lawyer_Dashboard />} />
+         <Route path="/dashboard/message"  element={<Lawyer_Message />} />
+        <Route path="/dashboard/profile" element={<Lawyer_Profiles />} />
+        <Route path="/*" element={<Default_page />} />
       </Routes>
-
-         <Lawyer_Dashboard>
-           <Routes>
-             <Route path="/lawyer_message" element={<Lawyer_Message />} />
-             <Route path="/lawyer_profile" element={<Lawyer_Profiles />} />
-            </Routes>
-        </Lawyer_Dashboard>
       </FirebaseProvider>
      <Footer />
     </Router>
