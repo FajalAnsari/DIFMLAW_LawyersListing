@@ -12,13 +12,9 @@ const Lawyer_Profiles = () => {
           <div className="col-md-4">
              <div className='user_pro'>
                  <div className="d-flex px-4 border border-prime border-4 rounded-full  um">
-<<<<<<< HEAD
                    <img src={dummy} alt="dummy" className='' style={{width:"225%",height:"100%",marginLeft:"-24px"}}/>
                   <label for='changepic' style={{marginTop:'67px'}}><span className='text-white' style={{fontSize:'12px', marginLeft:'-68px'}}>Change</span></label>
                   <input type='file' name='file' id='changepic' className='d-none'></input>
-=======
-                   <img src={dummy} alt="dummy" className='umm' style={{width:"225%",height:"100%",marginLeft:"-24px"}}/>
->>>>>>> cb2c9e60160635a50af4db5c9c9ba1600aab1b51
                  </div>
                  
               </div>
