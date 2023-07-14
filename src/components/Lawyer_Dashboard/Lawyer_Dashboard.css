@@ -37,14 +37,17 @@ main{
     transition: all 0.5s;
 }
 .link:hover{
-    background:lightskyblue;
-    color: #000;
+    background:#4C525A;
+    color: white;
     transition: all 0.5s;
 }
 .active{
-    background: lightskyblue;
-    color: #000;
+    background: #4C525A;
+    color: white;
+    border-top: 4px solid var(--primary);
+    border-bottom: 4px solid var(--primary);
 }
 .icon, .link_text{
     font-size: 20px;
+    
 }
