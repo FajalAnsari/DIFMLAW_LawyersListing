@@ -80,9 +80,58 @@
     background-color: #4C525A;
 }
 .lawyer_profile .um{
-    margin-top: 30px;
+    margin-top: 65px;
     border-radius: 50%;
     width: 100px;
     height: 100px;
     margin-left: 25%;
 }
+
+
+@media only screen and (max-width: 540px) {
+    .lawyer_message{
+        width: 82%;
+        margin-top: -4.89%;
+        margin-left: 18%;
+       
+    }
+    .lawyer_message .msg_1{
+       border-radius: 20px;
+        width: 92.2%;
+        margin-left: -13.98%;
+        height: 75.40vh;
+    }
+    .lawyer_message .msg_1 .text_msg1{
+        border-radius: 25px 25px 25px 25px;
+    }
+    
+    .lawyer_message .msg_1 .text_msg2{
+        height: 210px;
+        border-radius: 25px 25px 25px 25px;
+    }
+    .lawyer_message .msg_1 .text_msg1 p{
+        font-size: 14px;
+        width: 118%;
+        text-align: justify;
+        margin-left: -30px;
+    } 
+    .lawyer_message .msg_1 .text_msg2 p{
+        font-size: 14px;
+        width: 118%;
+        text-align: justify;
+        margin-left: -30px;
+    } 
+    .lawyer_message .msg_1 .text_msg1 .pb{
+        font-size: 14px !important;
+        width: 118%;
+        text-align: justify;
+        margin-left: -30px;
+    } 
+    .lawyer_message .user_pro{
+        width: 77.38%;
+        margin-top: -180.69%;
+        height: 78.90vh;
+        border-radius: 20px 20px 20px 20px;
+    }
+    
+  }
