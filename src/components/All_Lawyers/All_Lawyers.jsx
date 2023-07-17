@@ -4,7 +4,7 @@ import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import { db } from '../../firebase';
-import { collection, getCountFromServer, and, getDocs, or, query, where, setDoc, doc } from "firebase/firestore";
+import { collection, getCountFromServer, and, getDocs, or, query, where, setDoc, doc ,addDoc} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Contect_Sugg from '../About_page/Contect_Sugg';
@@ -26,7 +26,7 @@ const All_Lawyers = () => {
   const [lawyers, setLawyers] = useState([]);
   const [userRole, setUserRole] = useState(null);
   const fetchPost = async () => {
-    loginUserORLawyer();
+  
     await getDocs(collection(db, "lawyers"))
       .then((querySnapshot) => {
         const newData = querySnapshot.docs
@@ -89,13 +89,12 @@ const All_Lawyers = () => {
 
   const uids = GetLawyerUid();
 
-
-
-  // useEffect(() => {
+  loginUserORLawyer();
+  useEffect(() => {
     fetchPost();
-   
+
     console.log(params.cat);
-  // }, [])
+  }, [])
 
   const [currentPage, setCurrentPage] = useState(0);
   const usersPerPage = 6;
@@ -242,32 +241,32 @@ const All_Lawyers = () => {
     }
   }
 
+ 
   const addToLawyer = async (uid) => {
     if (uids !== null) {
-
       const q = query(collection(db, 'lawyers'), where('uid', '==', uid));
       const res = [];
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         res.push({
           id: doc.id,
-          ...doc.data()
+          ...doc.data(),
         });
       });
-
+  
       try {
-        const cartCollectionRef = collection(db, `Cart ${uids}`);
-
+        const cartCollectionRef = collection(db, 'User_Wishlist');
+  
         for (const item of res) {
-          const cartDocRef = doc(cartCollectionRef);
+          const cartDocRef = doc(cartCollectionRef, uids, 'users', item.id);
           await setDoc(cartDocRef, item);
         }
-
+  
         console.log('Successfully added to cart');
       } catch (error) {
         console.error('Error adding to cart:', error);
       }
-
+  
       console.log(res);
     } else {
       navigate('/login');
@@ -420,7 +419,7 @@ const All_Lawyers = () => {
         <i class="bi bi-bookmark fw-bold fs-3"></i>
         <p className="fs-6 savelist">save</p>
       </div>
-    )}
+     )}
                           </div>
                         </div>
                       </div>

@@ -43,19 +43,20 @@ const Add_review = (props) => {
   //  give rating 
   const giveRating = async (e) =>{
     e.preventDefault()
-    if(rating===5){
-      setFiverating(true);
-      setCount(count+1);
-      console.log(count)
-      alert("yes is "+ rating);
-    }
-    else if(rating===4){
-      setFiverating(true);
-      console.log(count+1)
-      alert("yes is "+ rating);
-    }
+    // if(rating===5){
+    //   setFiverating(true);
+    //   setCount(count+1);
+    //   console.log(count)
+    //   alert("yes is "+ rating);
+    // }
+    // else if(rating===4){
+    //   setFiverating(true);
+    //   console.log(count+1)
+    //   alert("yes is "+ rating);
+    // }
+
     
-    const taskDocRef = doc(db,"lawyers", props.id);
+    const taskDocRef = doc(db,"lawyers", "iH7QH4MuNlJl2IsHGIWz");
 
     try{
       await updateDoc(taskDocRef,{
@@ -69,19 +70,21 @@ const Add_review = (props) => {
         //  }
         rating: {
            ...rating,
-           [rating]: (rating[rating] || 0) + 1,
-          // 5: (rating[5] || 0) + 1, // Increment count for rating value 4
-          // 4: (rating[4] || 0) + 1,
-          // 3: (rating[3] || 0) + 1,
-          // 2: (rating[2] || 0) + 1,
+           5: (rating[rating] || 0) + 1,
+           4: (rating[rating] || 0) + 1,
+           3: (rating[rating] || 0) + 1,
+           2: (rating[rating] || 0) + 1,
+           1: (rating[rating] || 0) + 1,
+    
+       
           // 1: (rating[1] || 0) + 1,
           
         },
-        // rating: {
-        //   5:rating,
-        //   4:rating,
-        //   3:rating,
-        //   2:rating,
+        // r5
+        //  45:rating,
+        //  34:rating,
+        //  23:rating,
+        //  12:rating,
         //   1:rating,
         // }
         
@@ -93,7 +96,7 @@ const Add_review = (props) => {
       })
       setUserRating((prevRating) => ({
         ...prevRating,
-        [rating]: (prevRating[rating] || 0) + 1, // Increment count in the userRating state
+        [rating]: (rating[rating] || 0) + 1, // Increment count in the userRating state
       }));
 
     } catch (err) {

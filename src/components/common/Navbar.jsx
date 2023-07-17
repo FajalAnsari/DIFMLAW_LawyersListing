@@ -95,6 +95,9 @@ const Navbar = () => {
         <li class="nav-item ms-3">
           <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
         </li>
+        <li class="nav-item ms-3">
+          <Link class="nav-link text-white fs-5" to={"/lawyer_dashboard"}>Lawyer Dashboard</Link>
+        </li>
       </ul>
       {user ? (
  <div className="btn-group">
