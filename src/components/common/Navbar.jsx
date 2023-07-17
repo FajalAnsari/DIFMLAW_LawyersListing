@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import "./Footer.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut} from 'firebase/auth';
-import logo from "../images/Vector.svg";
+import logo from "../images/Difm_law_logo.png";
+import logo2 from "../images/Logo Transparent png.png";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from '../../firebase';
-import { onAuthStateChanged } from "firebase/auth";
+
 import { auth } from '../../firebase';
 
 
@@ -79,8 +80,14 @@ const Navbar = () => {
     <>
       <nav class="navbar navbar-expand-lg fixed-top" id="headrs">
   <div class="container p-2">
-    <img src={logo} className='me-4 logo mb-2' alt="" />
-    <Link class="navbar-brand text-white fs-4 head" to={"/"}>DIFM LAW</Link>
+
+  <Link to='/'>
+    <img src={logo} width="240" alt="" />
+    {/* <img src={logo2} width="240" alt="" /> */}
+    </Link>
+
+    {/* <img src={logo} className='me-4 logo mb-2' alt="" height='100px' width='800px'/> */}
+    {/* <Link class="navbar-brand text-white fs-4 head" to={"/"}>DIFM LAW</Link> */}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

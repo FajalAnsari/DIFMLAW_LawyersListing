@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { dummy } from "../../images";
-import { collection, getDocs, doc, query, where, getDoc } from "firebase/firestore";
+import { collection, getDocs, doc, query, where, getDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { auth } from "../../../firebase";
 
@@ -11,6 +11,7 @@ const Lawyer_Message = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
   const [messages, setAllmessages] = useState([]);
   const [loginlawyerId, getLoginLawyerId] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -62,12 +63,45 @@ const Messages = async (id) => {
       id: snapshot.id,
       ...snapshot.data()
     };
+const fetchServerDate = async () => {
+  try {
+      var timestamp = snapshot.data().serverTimestamp;
+    var date = new Date(timestamp);
+
+    // Format the date as a string
+    var dateString = date.toLocaleString();
+
+    console.log("Document created on " + dateString);
+    const serverDateSnapshot = await getDoc(doc(cartRef, 'serverTimestamp'));
+
+    if (serverDateSnapshot.exists()) {
+      const serverData = serverDateSnapshot.data();
+      const serverDate = serverData.serverDate;
+      console.log(serverDate);
+
+      if (serverDate) {
+        console.log('Server date:', serverDate);
+      } else {
+        console.log('Server date field not found');
+      }
+    } else {
+      console.log('No server timestamp document found');
+    }
+  } catch (error) {
+    console.log('Error fetching server date:', error);
+  }
+};
+
+// Call the function to fetch the server date
+fetchServerDate();
+  
     setAllmessages(messageData);
     console.log(messageData);
   } else {
     console.log('No message found');
   }
 
+  
 }
   return (
     <>
@@ -84,6 +118,7 @@ const Messages = async (id) => {
                       style={{ width: "20%", height: "20%" }}
                     />
                     <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.name}</p>
+                    {/* {setUserName[{...add_Lawyercart.name}]} */}
                   </div>
                   ))}
               </div>    
@@ -93,7 +128,7 @@ const Messages = async (id) => {
         
               <div className="text_msg1 py-4 px-5 text-white">
                 <p>
-                  <b>Phone No. :</b> 7800504006
+                  <b>Phone No. :</b> <a href='tel:${messages.number}'>{messages.number}</a> 
                 </p>
                 <p>
                   <b>Email :</b> {messages.email}
@@ -102,15 +137,7 @@ const Messages = async (id) => {
                   <b>Message :</b>{messages.message}
                 </p>
               </div>
-              <div className="text_msg2 py-4 px-5 text-white">
-                <p>
-                  In publishing and graphic design, Lorem ipsum is a placeholder
-                  text commonly used to demonstrate the visual form of a
-                  document or a typeface without relying on meaningful content.
-                  Lorem ipsum may be used as a placeholder before final copy is
-                  available.
-                </p>
-              </div>
+          
             </div>
           </div>
         </div>
