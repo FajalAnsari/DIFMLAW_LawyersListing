@@ -26,7 +26,7 @@ const All_Lawyers = () => {
   const [lawyers, setLawyers] = useState([]);
   const [userRole, setUserRole] = useState(null);
   const fetchPost = async () => {
-    loginUserORLawyer();
+  
     await getDocs(collection(db, "lawyers"))
       .then((querySnapshot) => {
         const newData = querySnapshot.docs
@@ -89,13 +89,12 @@ const All_Lawyers = () => {
 
   const uids = GetLawyerUid();
 
-
-
-  // useEffect(() => {
+  loginUserORLawyer();
+  useEffect(() => {
     fetchPost();
-   
+
     console.log(params.cat);
-  // }, [])
+  }, [])
 
   const [currentPage, setCurrentPage] = useState(0);
   const usersPerPage = 6;

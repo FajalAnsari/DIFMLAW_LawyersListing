@@ -84,7 +84,7 @@ const Lawyer_Dashboard = ({children}) => {
                    menuItem.map((item, index)=>(
                        <NavLink to={item.path} key={index} className="link text-decoration-none mb-3" activeclassName="active">
                            <div className="icon">{item.icon}</div>
-                           <div style={{display: isOpen ? "block" : "none"}} className="link_text fs-6 mt-1">{item.name}</div>
+                           <div style={{display: isOpen ? "block" : "none"}} className="link_text fs-6 mt-1">{item.name}</div> 
                        </NavLink>
                    ))
                }
