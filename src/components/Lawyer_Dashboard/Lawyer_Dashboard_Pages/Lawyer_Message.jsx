@@ -6,71 +6,59 @@ import { collection, getDocs, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { auth } from "../../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-// import { doc, updateDoc } from "firebase/firestore";
+
+
 const Lawyer_Message = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
-  // fetch all users who send the message
-  const fetchUsers = async () => {
+
+  useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         try {
-          // Reference to the parent collection (User_Wishlist)
-          const cartRef = collection(db, "User_Messages"); // Reference to the specific document within the User_Wishlist collection using the user's uid
-
-          const userCartRef = doc(cartRef, 'iH7QH4MuNlJl2IsHGIWz'); // Reference to the sub-collection (items) for the user's cart
-
-          const itemsCollectionRef = collection(userCartRef, "AllUsers"); // Fetch the documents from the sub-collection
-
+          const cartRef = collection(db, 'User_Messages');
+          const userCartRef = doc(cartRef, user.uid);
+          const itemsCollectionRef = collection(userCartRef, 'AllUsers');
           const querySnapshot = await getDocs(itemsCollectionRef);
-
           const newCartProduct = querySnapshot.docs.map((doc) => ({
             id: doc.id,
-            image: doc.data().image || "", // Make sure 'image' is the correct field name in your Firestore document
+            image: doc.data().image || '',
             ...doc.data(),
           }));
 
           setAdd_Lawyercarts(newCartProduct);
         } catch (error) {
-          console.error("Error fetching cart:", error);
+          console.error('Error fetching cart:', error);
         }
       } else {
-        console.log("User is not signed in to retrieve cart");
+        console.log('User is not signed in to retrieve cart');
       }
     });
 
     return () => {
-      // Unsubscribe from the auth state listener when the component unmounts
       unsubscribe();
     };
-  };
-  useEffect(() => {
-    fetchUsers();
-    console.log(add_Lawyercarts);
-  },[]);
+  }, []);
+
+  console.log(add_Lawyercarts);
 
   return (
     <>
       <div className="lawyer_message" id="message">
         <div className="row">
-          <div className="col-md-4">
-            {add_Lawyercarts.map((data, i) => (
-              <div className="user_pro">
-                <NavLink
-                  to="/lawyer_dashboard/message/1"
-                  className="text-decoration-none"
-                >
-                  <div className="d-flex px-4  usersl um">
+          <div className="col-md-4">       
+              <div className="user_pro" >
+              {add_Lawyercarts.map((add_Lawyercart, i) => (
+                  <div className="d-flex px-4  usersl um" key={i}>
                     <img
-                      src={data.image}
+                      src={dummy}
                       alt="dummy"
                       className="mt-1"
                       style={{ width: "20%", height: "20%" }}
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{data.user}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.name}</p>
                   </div>
-                </NavLink>
-              </div>
-            ))}
+                  ))}
+              </div>    
           </div>
           <div className="col-md-8">
             <div className="msg_1">
