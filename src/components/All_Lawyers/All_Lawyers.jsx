@@ -253,6 +253,7 @@ const All_Lawyers = () => {
           ...doc.data(),
         });
       });
+      
   
       try {
         const cartCollectionRef = collection(db, 'User_Wishlist');

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { dummy } from "../../images";
-import { NavLink } from "react-router-dom";
-import { collection, getDocs, doc, query, where } from "firebase/firestore";
+import { collection, getDocs, doc, query, where, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { auth } from "../../../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+
 
 
 const Lawyer_Message = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
+  const [messages, setAllmessages] = useState([]);
+  const [loginlawyerId, getLoginLawyerId] = useState("");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -26,6 +27,10 @@ const Lawyer_Message = () => {
           }));
 
           setAdd_Lawyercarts(newCartProduct);
+        
+          console.log(add_Lawyercarts);
+          getLoginLawyerId(user.uid);
+            console.log(loginlawyerId);
         } catch (error) {
           console.error('Error fetching cart:', error);
         }
@@ -39,43 +44,31 @@ const Lawyer_Message = () => {
     };
   }, []);
 
-  console.log(add_Lawyercarts);
+  // console.log(add_Lawyercarts);
 
-  const add_message = async (id) => {
-    alert(id);
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        try {
-          // Reference to the parent collection (User_Messages)
-          const cartRef = collection(db, 'User_Messages');
-  
-          // Reference to the specific document within the User_Messages collection using the user's uid
-          const userCartRef = doc(cartRef, user.uid);
-  
-          // Reference to the sub-collection (AllUsers) for the specific user
-          const allUsersCollectionRef = collection(userCartRef, 'AllUsers');
-  
-          // Query to fetch data from the 'AllUsers' sub-collection for the specific user
-          const q = query(allUsersCollectionRef, where('uid', '==', id));
-  
-          const res = [];
-          const querySnapshot = await getDocs(q);
-          querySnapshot.forEach((doc) => {
-            res.push({
-              id: doc.id,
-              ...doc.data(),
-            });
-          });
-          console.log(res);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      } else {
-        console.log('User is not signed in to retrieve cart');
-      }
-    });
-  };
 
+   // fetch allusers messages
+
+const Messages = async (id) => {
+
+  const cartRef = collection(db, 'User_Messages');
+  const userCartRef = doc(cartRef, loginlawyerId);
+  const userMessagesRef = doc(collection(userCartRef, 'AllUsers'), id);
+  
+  const snapshot = await getDoc(userMessagesRef);
+  
+  if (snapshot.exists()) {
+    const messageData = {
+      id: snapshot.id,
+      ...snapshot.data()
+    };
+    setAllmessages(messageData);
+    console.log(messageData);
+  } else {
+    console.log('No message found');
+  }
+
+}
   return (
     <>
       <div className="lawyer_message" id="message">
@@ -83,7 +76,7 @@ const Lawyer_Message = () => {
           <div className="col-md-4">       
               <div className="user_pro">
               {add_Lawyercarts.map((add_Lawyercart, i) => (
-                  <div className="d-flex px-4  usersl um" key={i} onClick={()=>add_message(add_Lawyercart.id)}>
+                  <div className="d-flex px-4  usersl um" onClick={()=> {Messages(add_Lawyercart.id)}} key={i}>
                     <img
                       src={dummy}
                       alt="dummy"
@@ -97,19 +90,16 @@ const Lawyer_Message = () => {
           </div>
           <div className="col-md-8">
             <div className="msg_1">
+        
               <div className="text_msg1 py-4 px-5 text-white">
                 <p>
                   <b>Phone No. :</b> 7800504006
                 </p>
                 <p>
-                  <b>Email :</b> Fajal@difm.tech
+                  <b>Email :</b> {messages.email}
                 </p>
                 <p className="fs-5 pb">
-                  <b>Message :</b> In publishing and graphic design, Lorem ipsum
-                  is a placeholder text commonly used to demonstrate the visual
-                  form of a document or a typeface without relying on meaningful
-                  content. Lorem ipsum may be used as a placeholder before final
-                  copy is available.
+                  <b>Message :</b>{messages.message}
                 </p>
               </div>
               <div className="text_msg2 py-4 px-5 text-white">
