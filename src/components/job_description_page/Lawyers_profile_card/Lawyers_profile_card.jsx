@@ -9,7 +9,7 @@ import { useFirebase } from "../../../firebase";
 import { useParams } from "react-router-dom";
 import Add_Comment from "../Add_review/Add_Comment";
 import Add_review from "../Add_review/Add_review";
-
+import User_contact_form from "./All_lawyer_card/User_contact_form";
 const Lawyers_profile_card = () => {
   
   const params = useParams();
@@ -155,34 +155,7 @@ const Lawyers_profile_card = () => {
 
          {/* this contect form for laywer start */}
            
-         <div class="mt-4 conatiner">
-          <div className="p-4 border border-prime rounded review">
-            <div class="text-center">
-                <h4 class="font-color">Contact With This Lawyers</h4>
-            </div>
-            <div class=" d-flex align-items-center justify-content-center mt-2">
-                <div class=" col-md-12">
-                    <div class="p-4 rounded shadow-md">
-                           <div class="input-group mb-3">
-                              <input type="text" name="name" class="form-control" placeholder="Enter your name" required style={{backgroundColor:"var( --second-secondary)"}}/>
-                              <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person fs-5"></i></span>
-                           </div>
-                           <div class="input-group mb-3">
-                              <input type="text" name="email" class="form-control" placeholder="Enter your email" required style={{backgroundColor:"var( --second-secondary)"}}/>
-                              <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open fs-5"></i></span>
-                           </div>
-                          <div class="mt-3 mb-3">
-                            <textarea name="message" cols="20" rows="6" class="form-control"
-                            placeholder="Write your message.." style={{backgroundColor:"var( --second-secondary)"}}></textarea>
-                          </div>
-                        <button class="btn btns-primary w-100">
-                            Send
-                        </button>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
+       <User_contact_form lawyer_id={data.uid}/>
 
          {/* this contect form for laywer end */}
 
