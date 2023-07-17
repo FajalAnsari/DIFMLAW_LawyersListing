@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../../../../firebase';
 const User_contact_form = (props) => {
     const [user] = useAuthState(auth);
-    const [name, setName] = useState("");
+    const [number, setNumber] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
@@ -14,17 +14,16 @@ const User_contact_form = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = [];
-        if(!name || !email || !message){
+        if(!number || !email || !message){
             alert("Plese fill the message field!");
         }
         else{
             const parentCollection = collection(db, 'User_Messages');
              data.push({
-                name:name,
+                number:number,
                 email:email,
                 message:message,
-                sender:user.uid,
-                receiver:props.lawyer_id
+               
             })
 
             for (const item of data){
@@ -52,9 +51,10 @@ const User_contact_form = (props) => {
                 <div class=" col-md-12">
                     <div class="p-4 rounded shadow-md">
                            <div class="input-group mb-3">
-                              <input type="text" name="name" class="form-control" placeholder="Enter your name" value={name} required style={{backgroundColor:"var( --second-secondary)"}} onChange={(e) => setName(e.target.value)}/>
+                              <input type="number" name="number" class="form-control" placeholder="Enter your phone" value={number} required style={{backgroundColor:"var( --second-secondary)"}} onChange={(e) => setNumber(e.target.value)}/>
                               <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person fs-5"></i></span>
                            </div>
+                    
                            <div class="input-group mb-3">
                               <input type="text" name="email" class="form-control" placeholder="Enter your email" value={email} required style={{backgroundColor:"var( --second-secondary)"}} onChange={(e) => setEmail(e.target.value)}/>
                               <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open fs-5"></i></span>
