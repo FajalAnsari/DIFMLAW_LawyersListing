@@ -86,7 +86,11 @@
     height: 100px;
     margin-left: 25%;
 }
-
+.lawyer_profile .user_pro .umn{  
+    width: 225%;
+    height: 100%;
+    margin-left: -24px;
+}
 
 @media only screen and (max-width: 540px) {
     .lawyer_message{
@@ -401,9 +405,16 @@
         margin-left: 32%;
         height: 70px;  
     }
-    .lawyer_profile .user_pro .umm{
-        width: 484% !important;
+    .lawyer_profile .user_pro .umn{  
+        width: 435%;
     }
+    .lawyer_profile .change {
+        margin-top: -28px;
+        position: absolute;
+        margin-left: -52px !important;
+    }
+    
+    
     input[type="text"]{
         height: 28px;
     }
@@ -441,7 +452,6 @@
          margin-top: -150.69%;
          height: 112.40vh;
      }
-    
   }
 
   @media only screen and (width: 414px) {
@@ -458,7 +468,6 @@
          margin-top: -156.69%;
          height: 83.40vh;
      }
-    
   }
 
   @media only screen and (width: 390px) {
@@ -470,15 +479,12 @@
         width: 80px;
         height: 80px;
     }
-    .lawyer_profile .user_pro .umm{  
-        margin-top: 2.69%;
-        width: 180px;
-       
-    }
+
     .lawyer_profile .change {
-        margin-left: -28px !important;
-    
-    }
+        margin-top: -18px;
+        position: absolute;
+        margin-left: -56px !important;
+    } 
     .lawyer_profile .user_pro{
         margin-top: -183.69%;
     }
@@ -502,7 +508,6 @@
          margin-top: -156.69%;
          height: 86.40vh;
      }
-    
   }
 
   @media only screen and (width: 412px) {
