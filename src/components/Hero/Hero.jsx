@@ -20,8 +20,8 @@ const Hero = () => {
           <h2 className='fq-2 mb-4 t2'>For Your Legal Needs</h2>
         
       <div class="row no-pad me-2">
-        <div class="col-md-4 col-5 "><input type="search" placeholder='Search Lawyers' class="form-control s-3" /></div>
-        <div class="col-md-4 col-6"><input type="search" placeholder='Search by Location' class="form-control s-2" /></div>
+        <div class="col-md-4 col-5 "><input type="search" placeholder='Search By Category' class="form-control s-3" /></div>
+        <div class="col-md-4 col-6"><input type="search" placeholder='Search By Location' class="form-control s-2" /></div>
         <div class="col-md-4 col-1"><button type="button" class="btn btns-primary s-1"><i class="bi bi-search"></i></button></div>
       </div>
         </div>
