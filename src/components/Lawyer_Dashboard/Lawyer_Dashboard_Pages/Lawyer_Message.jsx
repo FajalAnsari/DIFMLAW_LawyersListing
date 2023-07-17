@@ -74,7 +74,7 @@ const Messages = async (id) => {
       <div className="lawyer_message" id="message">
         <div className="row">
           <div className="col-md-4">       
-              <div className="user_pro" >
+              <div className="user_pro">
               {add_Lawyercarts.map((add_Lawyercart, i) => (
                   <div className="d-flex px-4  usersl um" onClick={()=> {Messages(add_Lawyercart.id)}} key={i}>
                     <img
