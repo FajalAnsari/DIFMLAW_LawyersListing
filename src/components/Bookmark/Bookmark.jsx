@@ -7,32 +7,44 @@ import { deleteDoc } from 'firebase/firestore';
 
 
 const Bookmark = () => {
+  const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
 
-     // getting cart products from firestore collection and updating the state
-     const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          // Reference to the parent collection (User_Wishlist)
+          const cartRef = collection(db, 'User_Wishlist');
 
-     useEffect(() => {
-       const unsubscribe = auth.onAuthStateChanged(async (user) => {
-         if (user) {
-           const cartRef = collection(db, `Cart ${user.uid}`);
-           const querySnapshot = await getDocs(cartRef);
-   
-           const newCartProduct = querySnapshot.docs.map((doc) => ({
-             id: doc.id,
-             image: doc.image || '', 
-             ...doc.data(),
-           }));
-           setAdd_Lawyercarts(newCartProduct);
-         } else {
-           console.log('User is not signed in to retrieve cart');
-         }
-       });
-   
-       return () => {
-         // Unsubscribe from the auth state listener when the component unmounts
-         unsubscribe();
-       };
-     }, []);
+          // Reference to the specific document within the User_Wishlist collection using the user's uid
+          const userCartRef = doc(cartRef, user.uid);
+
+          // Reference to the sub-collection (items) for the user's cart
+          const itemsCollectionRef = collection(userCartRef, 'users');
+
+          // Fetch the documents from the sub-collection
+          const querySnapshot = await getDocs(itemsCollectionRef);
+
+          const newCartProduct = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            image: doc.data().image || '', // Make sure 'image' is the correct field name in your Firestore document
+            ...doc.data(),
+          }));
+
+          setAdd_Lawyercarts(newCartProduct);
+        } catch (error) {
+          console.error('Error fetching cart:', error);
+        }
+      } else {
+        console.log('User is not signed in to retrieve cart');
+      }
+    });
+
+    return () => {
+      // Unsubscribe from the auth state listener when the component unmounts
+      unsubscribe();
+    };
+  }, []);
 
      console.log(add_Lawyercarts);
   
@@ -55,10 +67,10 @@ const Bookmark = () => {
   return (
     <>
       {add_Lawyercarts.length > 0 && (
-        <div className='container' style={{marginTop:"200px"}}>
+        <div className='p-1 rounded' style={{marginTop:"-42%",height:"79.39vh",marginLeft:"300px",width:"84.29%",backgroundColor:"var(--fourth-primary)"}}>
            <div className="row mx-auto lawyers_profile">
            {add_Lawyercarts.map((add_Lawyercart, i) => (
-      <div className="col-lg-3 rounded-3 lawyer ecard mt-4  card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
+      <div className="col-lg-3 rounded-3 lawyer ecard  card me-1 shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
         <div className="row  mt-2" id="lawyer">
           <div className="col-lg-4 col-sm-4 col-4">
             <img src={add_Lawyercart.image} className="ms-2 lawpics" alt='lawyer_card'></img>
