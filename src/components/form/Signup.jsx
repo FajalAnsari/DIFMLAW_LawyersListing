@@ -175,6 +175,7 @@ const Signup = () => {
               email: emails,
               number: number,
               state: state,
+              userProfile:'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png'
             });
             navigate("/");
           }
