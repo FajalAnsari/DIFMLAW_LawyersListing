@@ -17,7 +17,7 @@ const Lawyer_Message = () => {
           // Reference to the parent collection (User_Wishlist)
           const cartRef = collection(db, "User_Messages"); // Reference to the specific document within the User_Wishlist collection using the user's uid
 
-          const userCartRef = doc(cartRef, 'iH7QH4MuNlJl2IsHGIWz'); // Reference to the sub-collection (items) for the user's cart
+          const userCartRef = doc(cartRef, user.uid); // Reference to the sub-collection (items) for the user's cart
 
           const itemsCollectionRef = collection(userCartRef, "AllUsers"); // Fetch the documents from the sub-collection
 
@@ -30,6 +30,7 @@ const Lawyer_Message = () => {
           }));
 
           setAdd_Lawyercarts(newCartProduct);
+          console.log(add_Lawyercarts);
         } catch (error) {
           console.error("Error fetching cart:", error);
         }
@@ -53,20 +54,20 @@ const Lawyer_Message = () => {
       <div className="lawyer_message" id="message">
         <div className="row">
           <div className="col-md-4">
-            {add_Lawyercarts.map((data, i) => (
-              <div className="user_pro">
+            {add_Lawyercarts.map((data) => (
+              <div key={data.id} className="user_pro">
                 <NavLink
                   to="/lawyer_dashboard/message/1"
                   className="text-decoration-none"
                 >
                   <div className="d-flex px-4  usersl um">
                     <img
-                      src={data.image}
+                      src={data.userProfile}
                       alt="dummy"
                       className="mt-1"
                       style={{ width: "20%", height: "20%" }}
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{data.user}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white">{data.name}</p>
                   </div>
                 </NavLink>
               </div>
