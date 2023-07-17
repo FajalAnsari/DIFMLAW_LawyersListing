@@ -12,7 +12,7 @@ import Contect_us from "./components/Contect_us/Contect_us";
 import Privacy_policy from "./components/Privacy_policy/Privacy_policy";
 import Term_condition from "./components/Term_condition/Term_condition";
 import Admin_dashboard from "./components/Admin_dashboard/Admin_dashboard";
-import About_us from "./components/About_page/About_Us";
+import About_us from "./components/About_page/About_us";
 import Default_page from "./components/Default_page/Default_page";
 import Protected from "./components/Protected";
 import ForgetPassword from "./components/form/ForgetPassword";
