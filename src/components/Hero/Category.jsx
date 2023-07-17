@@ -9,6 +9,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Testimonial from '../Testimonial/Testimonial';
 import { auth } from '../../firebase';
 import Contect_Sugg from '../About_page/Contect_Sugg';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -29,12 +31,12 @@ const Category = () => {
               </h1>
             </div>
             <div className="col-lg-6 ">
-              <a href="/alllawyer" className='text-white'>
+              <Link to="/alllawyer" className='text-white'>
               <div className="d-flex mt-4 float-xl-end">
                 <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
                 <i class="bi bi-arrow-right ms-2 fs-2 font-color arr"></i>
               </div>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -67,12 +69,12 @@ const Category = () => {
               </h1>
             </div>
             <div className="col-lg-6 featured">
-            <a href="/alllawyer" className='text-dark'>
+            <Link to="/alllawyer" className='text-dark'>
               <div className="d-flex mt-4 float-xl-end sal">
                 <p className="fs-6 fw-bold mt-2 text-white">Show all lawyers</p>
                 <i class="bi bi-arrow-right ms-2 fs-2 font-color arr"></i>
               </div>
-            </a>
+            </Link>
             </div>
           </div>
 
