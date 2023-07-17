@@ -171,13 +171,13 @@ const Add_review = (props) => {
       </div>
  
     </div>
-    <div className="rating-section">
+    {/* <div className="rating-section">
         <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
         <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
         <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
         <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
         <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
-      </div>
+      </div> */}
     </>
   )
 }
