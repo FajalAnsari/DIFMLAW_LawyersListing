@@ -4,7 +4,7 @@ import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import { db } from '../../firebase';
-import { collection, getCountFromServer, and, getDocs, or, query, where, setDoc, doc } from "firebase/firestore";
+import { collection, getCountFromServer, and, getDocs, or, query, where, setDoc, doc ,addDoc} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Contect_Sugg from '../About_page/Contect_Sugg';
@@ -241,32 +241,32 @@ const All_Lawyers = () => {
     }
   }
 
+ 
   const addToLawyer = async (uid) => {
     if (uids !== null) {
-
       const q = query(collection(db, 'lawyers'), where('uid', '==', uid));
       const res = [];
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         res.push({
           id: doc.id,
-          ...doc.data()
+          ...doc.data(),
         });
       });
-
+  
       try {
-        const cartCollectionRef = collection(db, `Cart ${uids}`);
-
+        const cartCollectionRef = collection(db, 'User_Wishlist');
+  
         for (const item of res) {
-          const cartDocRef = doc(cartCollectionRef);
+          const cartDocRef = doc(cartCollectionRef, uids, 'users', item.id);
           await setDoc(cartDocRef, item);
         }
-
+  
         console.log('Successfully added to cart');
       } catch (error) {
         console.error('Error adding to cart:', error);
       }
-
+  
       console.log(res);
     } else {
       navigate('/login');

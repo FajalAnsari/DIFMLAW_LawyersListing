@@ -7,32 +7,44 @@ import { deleteDoc } from 'firebase/firestore';
 
 
 const Bookmark = () => {
+  const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
 
-     // getting cart products from firestore collection and updating the state
-     const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          // Reference to the parent collection (User_Wishlist)
+          const cartRef = collection(db, 'User_Wishlist');
 
-     useEffect(() => {
-       const unsubscribe = auth.onAuthStateChanged(async (user) => {
-         if (user) {
-           const cartRef = collection(db, `Cart ${user.uid}`);
-           const querySnapshot = await getDocs(cartRef);
-   
-           const newCartProduct = querySnapshot.docs.map((doc) => ({
-             id: doc.id,
-             image: doc.image || '', 
-             ...doc.data(),
-           }));
-           setAdd_Lawyercarts(newCartProduct);
-         } else {
-           console.log('User is not signed in to retrieve cart');
-         }
-       });
-   
-       return () => {
-         // Unsubscribe from the auth state listener when the component unmounts
-         unsubscribe();
-       };
-     }, []);
+          // Reference to the specific document within the User_Wishlist collection using the user's uid
+          const userCartRef = doc(cartRef, user.uid);
+
+          // Reference to the sub-collection (items) for the user's cart
+          const itemsCollectionRef = collection(userCartRef, 'users');
+
+          // Fetch the documents from the sub-collection
+          const querySnapshot = await getDocs(itemsCollectionRef);
+
+          const newCartProduct = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            image: doc.data().image || '', // Make sure 'image' is the correct field name in your Firestore document
+            ...doc.data(),
+          }));
+
+          setAdd_Lawyercarts(newCartProduct);
+        } catch (error) {
+          console.error('Error fetching cart:', error);
+        }
+      } else {
+        console.log('User is not signed in to retrieve cart');
+      }
+    });
+
+    return () => {
+      // Unsubscribe from the auth state listener when the component unmounts
+      unsubscribe();
+    };
+  }, []);
 
      console.log(add_Lawyercarts);
   
