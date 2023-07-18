@@ -45,7 +45,13 @@ const Lawyer_Dashboard = ({ children }) => {
       path: "/lawyer_dashboard/message/:id",
       name: "Messages",
       icon: <i className="bi bi-chat-left-text"></i>,
-      roles: ["lawyer", "user"] // Display for both lawyer and user
+      roles: ["lawyer"] // Only display for lawyer
+    },
+    {
+      path: "/lawyer_dashboard/user_messages/",
+      name: "Messages",
+      icon: <i className="bi bi-chat-left-text"></i>,
+      roles: ["user"]  // Only display for user
     },
     {
       path: "/lawyer_dashboard/profile",

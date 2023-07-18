@@ -21,6 +21,7 @@ import Lawyer_Message from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages
 import Lawyer_Dashboard from "./components/Lawyer_Dashboard/Lawyer_Dashboard";
 import Lawyer_Profiles from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages/Lawyer_Profiles";
 import User_Profile from "./components/User_Dashboard/User_Profile";
+import User_messages from "./components/User_Dashboard/User_messages";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
               <Route path="profile" element={<Lawyer_Profiles />} />
               <Route path="bookmark" element={<Bookmark />} />
               <Route path="user_profile" element={<User_Profile />} />
+              <Route path="user_messages" element={<User_messages />} />
             </Route>
           </Routes>
         </FirebaseProvider>
