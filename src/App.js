@@ -19,6 +19,7 @@ import Bookmark from "./components/Bookmark/Bookmark";
 import Lawyer_Message from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages/Lawyer_Message";
 import Lawyer_Dashboard from "./components/Lawyer_Dashboard/Lawyer_Dashboard";
 import Lawyer_Profiles from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages/Lawyer_Profiles";
+import User_Profile from "./components/User_Dashboard/User_Profile";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
               <Route path="message/:id" element={<Lawyer_Message />} />
               <Route path="profile" element={<Lawyer_Profiles />} />
               <Route path="bookmark" element={<Bookmark />} />
+              <Route path="user_profile" element={<User_Profile />} />
             </Route>
           </Routes>
         </FirebaseProvider>
