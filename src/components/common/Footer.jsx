@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from "../images/Vector.svg";
+import logo from "../images/Difm_law_logo.png";
 import Devider from '../Testimonial/Devider';
 import { Link } from 'react-router-dom';
 import './Footer.css';
@@ -27,9 +27,6 @@ const Footer = () => {
       setError(true); // Set error state if email is invalid
       alert("Please enter a valid email address.");
     } else {
-      // Perform subscription logic here, e.g., send API request to subscribe the email
-      // You can customize this logic based on your requirements
-      // For this example, let's simply set the subscribed state to true
       setSubscribed(true);
     }
    }
@@ -48,7 +45,6 @@ const Footer = () => {
         
           <a href="/" class="d-flex align-items-center p-0 text-white  text-decoration-none">
           <img src={logo} className=' logo mb-2' alt="difm_law_logo" />
-            <span class="ms-3 h5 font-weight-bold ">DIFM LAW</span>
           </a>
           <p class="my-3 content text-white">
           We are a leading lawyer listing portal, dedicated to simplifying the process of connecting lawyers and clients.
