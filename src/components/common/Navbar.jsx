@@ -16,6 +16,7 @@ const Navbar = () => {
   const [activeUser, setactiveUser] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
+  const [userimage, setUserImage] = useState("");
   const fetchUserName = async () => {
     if (user) {
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
@@ -45,6 +46,7 @@ const Navbar = () => {
           const data = doc.data();
           console.log(data);
           setName(data.name);
+          setUserImage(data.userProfile);
           setactiveUser(true);
           // setImage(data.image);
         });
@@ -108,7 +110,7 @@ const Navbar = () => {
       {user ? (
  <div className="btn-group">
  <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
- {!activeUser ? ( <img src={image} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />  ) :<img src='https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png' id='profiles' className="per1  border border-3 border-prime" alt="avatar" />} 
+ {!activeUser ? ( <img src={image} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />  ) :<img src={userimage} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />} 
         <b><span>{name} </span></b>
   </Link>
      

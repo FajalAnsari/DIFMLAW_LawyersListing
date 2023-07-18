@@ -51,13 +51,13 @@ const Lawyer_Dashboard = ({ children }) => {
       path: "/lawyer_dashboard/profile",
       name: "Edit Profile",
       icon: <FaUserEdit />,
-      roles: ["lawyer", "user"] // Only display for lawyer
+      roles: ["lawyer"] // Only display for lawyer
     },
     {
       path: "/lawyer_dashboard/user_profile",
       name: "Edit Profile",
       icon: <FaUserEdit />,
-      roles: ["lawyer", "user"] // Only display for lawyer
+      roles: ["user"] // Only display for user
     },
     {
       path: "/lawyer_dashboard/bookmark",
