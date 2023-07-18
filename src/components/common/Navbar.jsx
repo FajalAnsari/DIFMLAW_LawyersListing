@@ -82,7 +82,7 @@ const Navbar = () => {
   <div class="container p-2">
 
   <Link to='/'>
-    <img src={logo} width="240" alt="" />
+    <img src={logo} width="240" alt="difm logo" />
     {/* <img src={logo2} width="240" alt="" /> */}
     </Link>
 
