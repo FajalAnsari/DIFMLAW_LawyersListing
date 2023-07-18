@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { collection,  doc,  getDocs, query, setDoc, where } from "firebase/firestore";
 import { db } from '../../../../firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
+import { serverTimestamp } from 'firebase/firestore';
 import { auth } from '../../../../firebase';
 const User_contact_form = (props) => {
     const [user] = useAuthState(auth);
@@ -49,6 +50,7 @@ useEffect(()=>{
                 number:number,
                 email:email,
                 message:message,
+                date: serverTimestamp()
                
             })
 

@@ -63,46 +63,30 @@ const Messages = async (id) => {
       id: snapshot.id,
       ...snapshot.data()
     };
-const fetchServerDate = async () => {
-  try {
-    var timestamp = snapshot.data().serverTimestamp;
-    var date = new Date(timestamp);
 
-    // Format the date as a string
-    var dateString = date.toLocaleString();
+    // Check if createdAt field is a server timestamp
+    if (messageData) {
+      // Convert server timestamp to a JavaScript Date object
+      const createdAtDate = messageData.date.toDate();
 
-    console.log("Document created on " + dateString);
-    const serverDateSnapshot = await getDoc(doc(cartRef, 'serverTimestamp'));
+      // Format the date as a readable string
+      const formattedDate = createdAtDate.toLocaleDateString();
+      const formattedTime = createdAtDate.toLocaleTimeString();
 
-    if (serverDateSnapshot.exists()) {
-      const serverData = serverDateSnapshot.data();
-      const serverDate = serverData.serverDate;
-      console.log(serverDate);
-
-      if (serverDate) {
-        console.log('Server date:', serverDate);
-      } else {
-        console.log('Server date field not found');
-      }
-    } else {
-      console.log('No server timestamp document found');
+      // Add the formatted date and time back to the messageData object
+      messageData.createdAtDate = formattedDate;
+      messageData.createdAtTime = formattedTime;
     }
-  } catch (error) {
-    console.log('Error fetching server date:', error);
-  }
-};
-
-// Call the function to fetch the server date
-fetchServerDate();
-  
     setAllmessages(messageData);
-    console.log(messageData);
+    console.log(messageData.createdAtDate);
   } else {
     console.log('No message found');
   }
 
   
 }
+
+
   return (
     <>
       <div className="lawyer_message" id="message">
@@ -135,6 +119,9 @@ fetchServerDate();
                 </p>
                 <p className="fs-5 pb">
                   <b>Message :</b>{messages.message}
+                </p>
+                <p className="fs-5 pb">
+                  <b>Date :</b> {messages.createdAtDate} {messages.createdAtTime}
                 </p>
               </div>
           

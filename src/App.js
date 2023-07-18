@@ -6,7 +6,6 @@ import Login from "./components/form/Login";
 import Hero from "./components/Hero/Hero";
 import Signup from './components/form/Signup';
 import Lawyers_profile_card from "./components/job_description_page/Lawyers_profile_card/Lawyers_profile_card";
-import EditProfile from './components/EditProfile/EditProfile';
 import All_Lawyers from "./components/All_Lawyers/All_Lawyers";
 import Contect_us from "./components/Contect_us/Contect_us";
 import Privacy_policy from "./components/Privacy_policy/Privacy_policy";
@@ -32,7 +31,6 @@ function App() {
             <Route path="/" element={<Hero />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<EditProfile />} />
             <Route path="/job/:lawId" element={<Protected Component={Lawyers_profile_card} />} />
             <Route path="/alllawyer/:cat" element={<All_Lawyers />} />
             <Route path="/alllawyer" element={<All_Lawyers />} />
