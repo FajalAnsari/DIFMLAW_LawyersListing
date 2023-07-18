@@ -42,7 +42,7 @@ function App() {
             <Route path="/bookmark" element={<Bookmark />} />
             <Route path="/login/forget_password" element={<ForgetPassword />} />
             <Route path="/*" element={<Default_page />} />
-            <Route path="/lawyer_dashboard" element={<Lawyer_Dashboard />}>
+            <Route path="/lawyer_dashboard" element={<Protected Component={Lawyer_Dashboard} />}>
               <Route path="message/:id" element={<Lawyer_Message />} />
               <Route path="profile" element={<Lawyer_Profiles />} />
               <Route path="bookmark" element={<Bookmark />} />
