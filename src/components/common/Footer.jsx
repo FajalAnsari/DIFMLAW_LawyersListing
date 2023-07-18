@@ -27,9 +27,6 @@ const Footer = () => {
       setError(true); // Set error state if email is invalid
       alert("Please enter a valid email address.");
     } else {
-      // Perform subscription logic here, e.g., send API request to subscribe the email
-      // You can customize this logic based on your requirements
-      // For this example, let's simply set the subscribed state to true
       setSubscribed(true);
     }
    }

@@ -65,13 +65,13 @@ const Messages = async (id) => {
     };
 const fetchServerDate = async () => {
   try {
-      var timestamp = snapshot.data().serverTimestamp;
-    var date = new Date(timestamp);
+    var timestamp = snapshot.data().serverTimestamp;
+    var date = new Date(timestamp);
 
-    // Format the date as a string
-    var dateString = date.toLocaleString();
+    // Format the date as a string
+    var dateString = date.toLocaleString();
 
-    console.log("Document created on " + dateString);
+    console.log("Document created on " + dateString);
     const serverDateSnapshot = await getDoc(doc(cartRef, 'serverTimestamp'));
 
     if (serverDateSnapshot.exists()) {
@@ -128,7 +128,7 @@ fetchServerDate();
         
               <div className="text_msg1 py-4 px-5 text-white">
                 <p>
-                  <b>Phone No. :</b> <a href='tel:${messages.number}'>{messages.number}</a> 
+                  <b>Phone No. :</b> <a href='tel:${messages.number}' className="text-white" style={{textDecoration:'none'}}>{messages.number}</a> 
                 </p>
                 <p>
                   <b>Email :</b> {messages.email}

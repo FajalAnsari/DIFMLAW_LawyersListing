@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import React, { useEffect, useState } from 'react'
+import { collection,  doc,  getDocs, query, setDoc, where } from "firebase/firestore";
 import { db } from '../../../../firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../../../../firebase';
@@ -8,6 +8,31 @@ const User_contact_form = (props) => {
     const [number, setNumber] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [UserName, setUserName] = useState("");
+
+    // get username
+    const fetchuserName = () => {
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
+      const res = [];
+      
+      getDocs(q).then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          res.push({
+            id: doc.id,
+            ...doc.data()
+          });
+        });
+      
+        setUserName(res[0].name);
+      }).catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+
+    }
+   
+useEffect(()=>{
+  fetchuserName();
+})
 
     // message send to lawyer
 
@@ -20,6 +45,7 @@ const User_contact_form = (props) => {
         else{
             const parentCollection = collection(db, 'User_Messages');
              data.push({
+                name:UserName,
                 number:number,
                 email:email,
                 message:message,
