@@ -127,8 +127,8 @@ fetchServerDate();
             <div className="msg_1">
         
               <div className="text_msg1 py-4 px-5 text-white">
-                <p className="text-decoration-none">
-                  <b>Phone No. :</b> <a href='tel:${messages.number}'>{messages.number}</a> 
+                <p>
+                  <b>Phone No. :</b> <a href='tel:${messages.number}' className="text-white" style={{textDecoration:'none'}}>{messages.number}</a> 
                 </p>
                 <p>
                   <b>Email :</b> {messages.email}
