@@ -18,9 +18,11 @@ const Lawyer_Dashboard = ({ children }) => {
     if (user) {
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
       const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
+      const q2 = query(collection(db, "admin"), where("uid", "==", user.uid));
 
       const docs = await getDocs(q);
       const info = await getDocs(q1);
+      const admin = await getDocs(q2);
 
       // Check if the user is a lawyer
       if (!docs.empty) {
@@ -29,6 +31,9 @@ const Lawyer_Dashboard = ({ children }) => {
       // Check if the user is a regular user
       else if (!info.empty) {
         setUserRole("user");
+      }
+      else if (!admin.empty) {
+        setUserRole("admin");
       }
     }
   }
@@ -52,6 +57,30 @@ const Lawyer_Dashboard = ({ children }) => {
       name: "Messages",
       icon: <i className="bi bi-chat-left-text"></i>,
       roles: ["user"]  // Only display for user
+    },
+    {
+      path: "/lawyer_dashboard/alllawyers",
+      name: "All Lawyers",
+      icon: <i class="bi bi-people-fill"></i>,
+      roles: ["admin"] // Display for both lawyer and user
+    },
+    {
+      path: "/lawyer_dashboard/allusers",
+      name: "All Users",
+      icon: <i class="bi bi-people-fill"></i>,
+      roles: ["admin"] // Display for both lawyer and user
+    },
+    {
+      path: "/lawyer_dashboard/Add_Users",
+      name: "Add Users",
+      icon: <i class="bi bi-person-add"></i>,
+      roles: ["admin"] // Display for both lawyer and user
+    },
+    {
+      path: "/lawyer_dashboard/Edit_Profile_admin",
+      name: "Edit Profile",
+      icon: <FaUserEdit />,
+      roles: ["admin"] // Only display for lawyer
     },
     {
       path: "/lawyer_dashboard/profile",

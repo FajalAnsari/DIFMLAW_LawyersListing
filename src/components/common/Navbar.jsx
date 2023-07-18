@@ -21,10 +21,12 @@ const Navbar = () => {
     if (user) {
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
       const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
+      const q2 = query(collection(db, "admin"), where("uid", "==", user.uid));
 
 
       const docs = await getDocs(q);
       const info = await getDocs(q1)
+      const admin = await getDocs(q2)
 
       // lawyer auth
       if (docs.empty) {
@@ -51,7 +53,19 @@ const Navbar = () => {
           // setImage(data.image);
         });
       }
-
+// admin auth
+if (admin.empty) {
+  console.log("No matching documents.");
+} else {
+  admin.forEach((doc) => {
+    const data = doc.data();
+    console.log(data);
+    setName(data.name);
+    setUserImage(data.image);
+    setactiveUser(true);
+    // setImage(data.image);
+  });
+}
     }
   };
   // logout
@@ -82,13 +96,10 @@ const Navbar = () => {
       <nav class="navbar navbar-expand-lg fixed-top" id="headrs">
   <div class="container p-2">
 
-  <Link to='/'>
-    <img src={logo} width="240" alt="DIFM LAW LOGO" />
-    {/* <img src={logo2} width="240" alt="" /> */}
+    <Link to='/'>
+      <img src={logo} width="240" alt="DIFM LAW LOGO" />
     </Link>
 
-    {/* <img src={logo} className='me-4 logo mb-2' alt="" height='100px' width='800px'/> */}
-    {/* <Link class="navbar-brand text-white fs-4 head" to={"/"}>DIFM LAW</Link> */}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -103,9 +114,6 @@ const Navbar = () => {
         <li class="nav-item ms-3">
           <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
         </li>
-        <li class="nav-item ms-3">
-          <Link class="nav-link text-white fs-5" to={"/lawyer_dashboard"}>Lawyer Dashboard</Link>
-        </li>
       </ul>
       {user ? (
  <div className="btn-group">
@@ -115,9 +123,7 @@ const Navbar = () => {
   </Link>
      
   <ul className="dropdown-menu">
-     <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span >Profile</span></Link></li>
      <li><Link className="dropdown-item" to="/lawyer_dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
-     <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span>  Change Password</span></Link></li>
      <li><hr className="dropdown-divider"/></li>
     <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
   </ul>

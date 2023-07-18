@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 // import { dummy } from '../../images';
 
-const User_Profile = () => {
+const  Edit_Profile_admin = () => {
     const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [username, setUsername] = useState('');
@@ -19,7 +19,7 @@ const User_Profile = () => {
   const [url , setUrl] = useState("");
   const fetchUserName = async () => {
   
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const q = query(collection(db, "admin"), where("uid", "==", user.uid));
     const res = [];
       const doc = await getDocs(q);
       doc.forEach(value=>{
@@ -33,11 +33,7 @@ const User_Profile = () => {
       const data = doc.docs[0].data();
       setUsername(data.name);
       setEmail(data.email);
-      setNumber(data.number);
-  
-      setLocation(data.state);
- 
-      setUrl(data.userProfile);
+      setUrl(data.image);
 
     
   };
@@ -82,9 +78,7 @@ const handleUpdate = async (e) => {
     await updateDoc(taskDocRef,{
       name: username,
       email: email,
-      number: number,
-      userProfile: url,
-      state: location,
+      image: url,
     }).then(() => {
       alert("Document successfully updated!");
     })
@@ -130,23 +124,6 @@ const handleUpdate = async (e) => {
                                </div>
                             </div>
                         </div>
-                        <div className="row gx-3 mb-1">
-                        <div className="col-md-6 mbs1">
-                                <label className="small mb-1 text-white" for="inputMobile">Phone Number</label> 
-                                <div class="input-group mb-3 mbs">
-                                  <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder={number} value={number} onChange={(e) => {setNumber(e.target.value)}}/>
-                                  <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
-                                </div>    
-                            </div>
-                            
-                            <div className="col-md-6 mbs1">
-                            <label className="small mb-1 text-white" for="inputWork">Location</label>
-                            <div class="input-group mb-3 mbs">
-                             <input type="text" class="form-control contect-bgColors" id="inputZip" placeholder="Location, country, city, state..."  value={location} onChange={(e) => {setLocation(e.target.value)}}/>
-                             <span class="input-group-text btns-primary dm" ><i class="bi bi-geo-alt"></i></span>
-                           </div>
-                            </div>
-                        </div>
                        
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6 mbs1">
@@ -188,4 +165,4 @@ const handleUpdate = async (e) => {
   )
 }
 
-export default User_Profile
+export default  Edit_Profile_admin
