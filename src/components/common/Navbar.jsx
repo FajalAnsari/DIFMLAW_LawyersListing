@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Footer.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut} from 'firebase/auth';
-import logo from "../images/Difm_law_logo.png";
-import logo2 from "../images/Logo Transparent png.png";
+import logo from "../images/Difm_law_logo.svg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from '../../firebase';
@@ -25,7 +24,7 @@ const Navbar = () => {
 
       const docs = await getDocs(q);
       const info = await getDocs(q1)
-     
+
       // lawyer auth
       if (docs.empty) {
         console.log("No matching documents.");
@@ -54,7 +53,7 @@ const Navbar = () => {
     }
   };
   // logout
-  const handleLogout = () => {               
+  const handleLogout = () => {
     signOut(auth).then(() => {
       // Clear the user-related state values
       setName("");
@@ -65,12 +64,12 @@ const Navbar = () => {
       // Reload the page to update the UI
       window.location.reload();
     }).catch((error) => {
-       alert(error);
+      alert(error);
     });
   }
   useEffect(() => {
-    if (loading) 
-    return;
+    if (loading)
+      return;
     fetchUserName();
     console.log(name);
   }, [user, loading]);
@@ -82,7 +81,7 @@ const Navbar = () => {
   <div class="container p-2">
 
   <Link to='/'>
-    <img src={logo} width="240" alt="difm logo" />
+    <img src={logo} width="240" alt="DIFM LAW LOGO" />
     {/* <img src={logo2} width="240" alt="" /> */}
     </Link>
 

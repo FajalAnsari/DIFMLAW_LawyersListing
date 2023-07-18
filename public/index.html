@@ -19,6 +19,7 @@
     <title>DIFM LAW</title>
   </head>
   <body id="style-16">
+    
  
     <!-- Option 1: Progress bar on scroll window -->
     <div id="progress">
@@ -32,38 +33,40 @@
      
       <!-- progress bar -->
     <script>
-     
       let calcScrollValue = () => {
-         let scrollProgress = document.getElementById("progress");
-         let progressValue = document.getElementById("progress-value");
-         let pos = document.documentElement.scrollTop;
-         let calcHeight = 
-         document.documentElement.scrollHeight - 
-         document.documentElement.clientHeight;
-         let scrollValue = Math.round((pos * 100) / calcHeight);
-        
-         if(pos > 50){
-          scrollProgress.style.display = "grid";
-          headrs.style.background = "linear-gradient(125.17deg, #161D27 0%, #161D27 100%)";
-          headrs.style.boxShadow = "0px 10px 5px 0px rgba(0, 0, 0, 0.5)";
-          headrs.style.height = "80px";
-          headrs.style.transition = "1s";
-         } else {
-          scrollProgress.style.display = "none";
-          headrs.style.background = "none";
-          headrs.style.boxShadow = "none";
-          headrs.style.height = "80px";
-         }
-         scrollProgress.addEventListener("click", () => {
-           document.documentElement.scrollTop = 0;
-         });
-        scrollProgress.style.background = `radial-gradient(white 50%, transparent 51%),
-             conic-gradient(transparent 0% ${scrollValue}%, gainsboro ${scrollValue}%),
-             conic-gradient( #D1B06B  0deg, #A37707  90deg,  #D1B06B 180deg,  #D1B06B)`;
-           };
-      
-      window.onscroll = calcScrollValue;
-      window.onload = calcScrollValue;
-     </script>
+  let scrollProgress = document.getElementById("progress");
+  let progressValue = document.getElementById("progress-value");
+  let pos = document.documentElement.scrollTop;
+  let calcHeight = 
+    document.documentElement.scrollHeight - 
+    document.documentElement.clientHeight;
+  let scrollValue = Math.round((pos * 100) / calcHeight);
+  let headrs = document.getElementById("headrs");
+
+  if (headrs !== null) { // Check if headrs is not null before accessing its style property
+    if (pos > 50) {
+      scrollProgress.style.display = "grid";
+      headrs.style.background = "linear-gradient(125.17deg, #161D27 0%, #161D27 100%)";
+      headrs.style.boxShadow = "0px 10px 5px 0px rgba(0, 0, 0, 0.5)";
+      headrs.style.height = "80px";
+      headrs.style.transition = "1s";
+    } else {
+      scrollProgress.style.display = "none";
+      headrs.style.background = "none";
+      headrs.style.boxShadow = "none";
+      headrs.style.height = "80px";
+    }
+  }
+  scrollProgress.addEventListener("click", () => {
+    document.documentElement.scrollTop = 0;
+  });
+  scrollProgress.style.background = `radial-gradient(white 50%, transparent 51%),
+    conic-gradient(transparent 0% ${scrollValue}%, gainsboro ${scrollValue}%),
+    conic-gradient( #D1B06B  0deg, #A37707  90deg,  #D1B06B 180deg,  #D1B06B)`;
+};
+
+window.onscroll = calcScrollValue;
+window.onload = calcScrollValue;
+    //  </script>
   </body>
 </html>
