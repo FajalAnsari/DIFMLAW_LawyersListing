@@ -10,7 +10,8 @@ import All_Lawyers from "./components/All_Lawyers/All_Lawyers";
 import Contect_us from "./components/Contect_us/Contect_us";
 import Privacy_policy from "./components/Privacy_policy/Privacy_policy";
 import Term_condition from "./components/Term_condition/Term_condition";
-import Admin_dashboard from "./components/Admin_dashboard/Admin_dashboard";
+import All_Lawyerss from "./components/Admin_dashboard/All_Lawyers";
+import All_Users from "./components/Admin_dashboard/All_Users";
 import About_us from "./components/About_page/About_us";
 import Default_page from "./components/Default_page/Default_page";
 import Protected from "./components/Protected";
@@ -20,6 +21,8 @@ import Lawyer_Message from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages
 import Lawyer_Dashboard from "./components/Lawyer_Dashboard/Lawyer_Dashboard";
 import Lawyer_Profiles from "./components/Lawyer_Dashboard/Lawyer_Dashboard_Pages/Lawyer_Profiles";
 import User_Profile from "./components/User_Dashboard/User_Profile";
+import Edit_Profile_admin from "./components/Admin_dashboard/Edit_Profile_admin";
+import Add_Users from "./components/Admin_dashboard/Add_Users";
 
 
 function App() {
@@ -36,7 +39,6 @@ function App() {
             <Route path="/alllawyer/:cat" element={<All_Lawyers />} />
             <Route path="/alllawyer" element={<All_Lawyers />} />
             <Route path="/contect_us" element={<Contect_us />} />
-            <Route path="/admin" element={<Admin_dashboard />} />
             <Route path="/about" element={<About_us />} />
             <Route path="/privacy_policy" element={<Privacy_policy />} />
             <Route path="/terms_condition" element={<Term_condition />} />
@@ -48,6 +50,10 @@ function App() {
               <Route path="profile" element={<Lawyer_Profiles />} />
               <Route path="bookmark" element={<Bookmark />} />
               <Route path="user_profile" element={<User_Profile />} />
+              <Route path="alllawyers" element={<All_Lawyerss />} />
+              <Route path="allusers" element={<All_Users />} />
+              <Route path="Edit_Profile_admin" element={<Edit_Profile_admin />} />
+              <Route path="Add_Users" element={<Add_Users />} />
             </Route>
           </Routes>
         </FirebaseProvider>

@@ -1,0 +1,10 @@
+.admin_dashboard{
+    width: 82%;
+    margin-top: -41.89%;
+    margin-left: 18%;
+    height: 79.16vh;
+}
+.admin_dashboard th, tr, td,
+.admin_dashboard th, tr {
+    border: none;
+  }

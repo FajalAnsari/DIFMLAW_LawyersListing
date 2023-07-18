@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
+import "./admin.css";
 
 
-const Admin_dashboard = () => {
+const All_Users = () => {
 
     const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
-    await getDocs(collection(db, "lawyers"))
+    await getDocs(collection(db, "users"))
         .then((querySnapshot)=>{              
             const newData = querySnapshot.docs
                 .map((doc) => ({...doc.data(), id:doc.id }));
@@ -29,9 +30,9 @@ useEffect(()=>{
                             <tr className='text-white'>
                                 <th scope="col">I.D</th>
                                 <th scope="col">User Name</th>
-                                <th scope="col">Lawyer Time</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Request Date</th>
-                                <th scope="col">Expertise In</th>
+                                <th scope="col">Loaction</th>
                                 <th scope="col"> Action</th>
                             </tr>
                         </thead>
@@ -43,10 +44,10 @@ useEffect(()=>{
                                         <>
                                             <tr className='text-white'>
                                                 <th scope="row">0{id + 1}</th>
-                                                <td>{element.username}</td>
-                                                <td>{element.work}</td>
+                                                <td>{element.name}</td>
+                                                <td>{element.email}</td>
                                                 <td>34/09/2023</td>                                             
-                                                <td>Technolocgy</td>
+                                                <td>{element.state}</td>
                                                 <td className="d-flex justify-content-between">
                                                   <i class="bi bi-eye"></i>
                                                   <i class="bi bi-pencil"></i>
@@ -65,4 +66,4 @@ useEffect(()=>{
   )
 }
 
-export default Admin_dashboard
+export default All_Users

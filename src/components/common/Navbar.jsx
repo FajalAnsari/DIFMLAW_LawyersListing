@@ -21,10 +21,12 @@ const Navbar = () => {
     if (user) {
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
       const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
+      const q2 = query(collection(db, "admin"), where("uid", "==", user.uid));
 
 
       const docs = await getDocs(q);
       const info = await getDocs(q1)
+      const admin = await getDocs(q2)
 
       // lawyer auth
       if (docs.empty) {
@@ -51,7 +53,19 @@ const Navbar = () => {
           // setImage(data.image);
         });
       }
-
+// admin auth
+if (admin.empty) {
+  console.log("No matching documents.");
+} else {
+  admin.forEach((doc) => {
+    const data = doc.data();
+    console.log(data);
+    setName(data.name);
+    setUserImage(data.image);
+    setactiveUser(true);
+    // setImage(data.image);
+  });
+}
     }
   };
   // logout

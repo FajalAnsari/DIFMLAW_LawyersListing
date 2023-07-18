@@ -18,14 +18,6 @@ main{
     /* position: absolute; */
     
 }
-.admin_dashboard{
-    margin-top: 150px !important;
-}
-.admin_dashboard th, tr, td,
-.admin_dashboard th, tr {
-    border: none;
-  }
-
 .top_section{
     display: flex;
     align-items:center;
