@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { dummy } from "../../images";
-import { collection, getDocs, doc, query, where, getDoc, serverTimestamp } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { auth } from "../../../firebase";
 
@@ -11,7 +11,7 @@ const Lawyer_Message = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
   const [messages, setAllmessages] = useState([]);
   const [loginlawyerId, getLoginLawyerId] = useState("");
-  const [userName, setUserName] = useState("");
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
