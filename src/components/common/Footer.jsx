@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from "../images/Vector.svg";
+import logo from "../images/Difm_law_logo.svg";
 import Devider from '../Testimonial/Devider';
 import { Link } from 'react-router-dom';
 import './Footer.css';
@@ -46,10 +46,10 @@ const Footer = () => {
       <div class="d-flex flex-wrap justify-content-between">
         <div>
         
-          <a href="/" class="d-flex align-items-center p-0 text-white  text-decoration-none">
-          <img src={logo} className=' logo mb-2' alt="difm_law_logo" />
-            <span class="ms-3 h5 font-weight-bold ">DIFM LAW</span>
-          </a>
+        
+          <img src={logo} width="240" alt="DIFM LAW LOGO" />
+            {/* <span class="ms-3 h5 font-weight-bold ">DIFM LAW</span> */}
+         
           <p class="my-3 content text-white">
           We are a leading lawyer listing portal, dedicated to simplifying the process of connecting lawyers and clients.
           </p>
