@@ -48,54 +48,63 @@ const Lawyer_Dashboard = ({ children }) => {
   const menuItem = [
     {
       path: "/lawyer_dashboard/message/:id",
+      title: "Lawyer Dashboard",
       name: "Messages",
       icon: <i className="bi bi-chat-left-text"></i>,
       roles: ["lawyer"] // Only display for lawyer
     },
     {
       path: "/lawyer_dashboard/user_messages/",
+      title: "User Dashboard",
       name: "Messages",
       icon: <i className="bi bi-chat-left-text"></i>,
       roles: ["user"]  // Only display for user
     },
     {
       path: "/lawyer_dashboard/alllawyers",
+      title: "Admin Dashboard",
       name: "All Lawyers",
       icon: <i class="bi bi-people-fill"></i>,
       roles: ["admin"] // Display for both lawyer and user
     },
     {
       path: "/lawyer_dashboard/allusers",
+      title: "Admin Dashboard",
       name: "All Users",
       icon: <i class="bi bi-people-fill"></i>,
       roles: ["admin"] // Display for both lawyer and user
     },
     {
       path: "/lawyer_dashboard/Add_Users",
+      title: "Admin Dashboard",
       name: "Add Users",
       icon: <i class="bi bi-person-add"></i>,
       roles: ["admin"] // Display for both lawyer and user
     },
     {
       path: "/lawyer_dashboard/Edit_Profile_admin",
+      title: "Admin Dashboard",
       name: "Edit Profile",
       icon: <FaUserEdit />,
       roles: ["admin"] // Only display for lawyer
     },
     {
       path: "/lawyer_dashboard/profile",
+      title: "Lawyer Dashboard",
       name: "Edit Profile",
       icon: <FaUserEdit />,
       roles: ["lawyer"] // Only display for lawyer
     },
     {
       path: "/lawyer_dashboard/user_profile",
+      title: "User Dashboard",
       name: "Edit Profile",
       icon: <FaUserEdit />,
       roles: ["user"] // Only display for user
     },
     {
       path: "/lawyer_dashboard/bookmark",
+      title: "User Dashboard",
       name: "Saved Lawyers",
       icon: <i className="bi bi-bookmark-star-fill"></i>,
       roles: ["user"] // Only display for user
