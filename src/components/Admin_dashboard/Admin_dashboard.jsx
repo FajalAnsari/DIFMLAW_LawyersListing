@@ -22,10 +22,12 @@ useEffect(()=>{
 }, [])
 
   return (
-    <div className='container mt-5 mb-5 form-control'>
+    <div className='admin_dashboard'>
+    <div className='container mt-5 mb-5 form-control' style={{backgroundColor:"var(--fourth-primary)"}}>
        <table class="table ">
                         <thead>
-                            <tr className="table-light">
+                            <tr className='text-white'>
+                                <th scope="col">I.D</th>
                                 <th scope="col">User Name</th>
                                 <th scope="col">Lawyer Time</th>
                                 <th scope="col">Request Date</th>
@@ -39,13 +41,13 @@ useEffect(()=>{
                                 lawyers.map((element, id) => {
                                     return (
                                         <>
-                                            <tr>
+                                            <tr className='text-white'>
+                                                <th scope="row">0{id + 1}</th>
                                                 <td>{element.username}</td>
                                                 <td>{element.work}</td>
                                                 <td>34/09/2023</td>                                             
                                                 <td>Technolocgy</td>
                                                 <td className="d-flex justify-content-between">
-                                                  <i class="bi bi-check2-circle"></i>
                                                   <i class="bi bi-eye"></i>
                                                   <i class="bi bi-pencil"></i>
                                                   <i class="bi bi-trash3"></i>
@@ -58,6 +60,7 @@ useEffect(()=>{
                         </tbody>
                     </table>
 
+    </div>
     </div>
   )
 }
