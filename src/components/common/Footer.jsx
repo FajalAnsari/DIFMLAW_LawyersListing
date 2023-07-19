@@ -8,7 +8,7 @@ const Footer = () => {
 
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  const [setError] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
