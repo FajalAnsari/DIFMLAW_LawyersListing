@@ -175,14 +175,14 @@ const handleSubmit = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
                                 <div class="input-group mb-3 mbs">
-                                 <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
-                                 <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
+                                 <input className="form-control contect-bgColors"  placeholder="Enter Your Full Name" id="inputFirstName" type="text"  value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                                 <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person-circle"></i></span>
                                </div>
                             </div>
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEmail">Email</label>
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors dm" id="inputEmail" type="email"  placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                                <input className="form-control contect-bgColors dm" id="inputEmail" type="email"  placeholder="Enter Your Email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
                                  <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
                                </div>
                             </div>
@@ -208,20 +208,21 @@ const handleSubmit = async (e) => {
                         </div>
                         <div className="row gx-3 mb-1 mt-2">
                         <div class="col-md-6 mbs1">
-                        <label className="small mb-1 text-white" for="inputState">User Role</label>   
+                        <label className="small mb-1 text-white" for="inputState">User Role</label>  
+                        <div class="input-group mb-3 mbs"> 
                     <select
                       id="inputState"
                       value={User}
                       onChange={handleUserChange}
-                      class="form-select inputs selct"
-                      style={{backgroundColor:'red'}}
+                      class="form-select  selct contect-bgColors"
                     >
                       <option selected>Select user role</option>
                       <option value="admin">Admin</option>
                       <option value="lawyer">Lawyer</option>
                       <option value="user">User</option>
-                     
                     </select>
+                    <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
+                    </div>
                   </div>
                   </div>
                   <p className="text-danger fs-5">{error}</p>
