@@ -7,14 +7,13 @@ import { auth, storage, db } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-// import { dummy } from '../../images';
+
 
 const  Add_Users = () => {
     const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
- 
+  const [email, setEmail] = useState(''); 
   const [url , setUrl] = useState("");
   const [User, setUserAdd] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +22,7 @@ const  Add_Users = () => {
   const [fileError, setFileError] = useState("");
   const [picture, setPicture] = useState([]);
   const [title, settitle] =useState("");
-  // const [User, setUser] = useState("");
+  const [previewUrl, setPreviewUrl] = useState("");
 
   useEffect(() => {
     if (loading) return;
@@ -43,6 +42,23 @@ const handleUserChange = (e) => {
    
   } else if (e.target.value === "user") {
     settitle("User Register");
+  }
+};
+
+
+// preview image
+
+const handleImagePreview = (e) => {
+  const reader = new FileReader();
+  const file = e.target.files[0];
+
+  if (file) {
+    reader.onloadend = () => {
+      setPicture(file);
+      setPreviewUrl(reader.result);
+    };
+
+    reader.readAsDataURL(file);
   }
 };
 const handleSubmit = async (e) => {
@@ -96,44 +112,30 @@ const handleSubmit = async (e) => {
                 getDownloadURL(uploadTask.snapshot.ref).then((url) => {
 
                   console.log(url);
+
+                  let collectionName = "";
                   if (User === "admin") {
-                    // Add user to the "admin" collection
-                     addDoc(collection(db, "admin"), {
-                      uid: user.uid,
-                      username,
-                      authProvider: "local",
-                      email,
-                      image: url
-                    });
+                    collectionName = "admin";
                   } else if (User === "lawyer") {
-                    // Add user to the "lawyers" collection
-                    addDoc(collection(db, "lawyers"), {
-                      uid: user.uid,
-                      username,
-                      authProvider: "local",
-                      email,
-                      image: url
-                    });
+                    collectionName = "lawyers";
                   } else if (User === "user") {
-                    // Add user to the "users" collection
-                    addDoc(collection(db, "users"), {
-                      uid: user.uid,
-                      username,
-                      authProvider: "local",
-                      email,
-                      image: url          
-                    });
+                    collectionName = "users";
                   }
-                  addDoc(collection(db, "lawyers"), {
+                   // Add user to the specified collection
+                   addDoc(collection(db, collectionName), {
                     uid: user.uid,
                     username,
                     authProvider: "local",
-                    email: email,
+                    email,
                     image: url
                   })
                     .then(() => {
-                      navigate("/");
-                    }).catch((err) => { alert(err); })
+                      alert('Succesfully Register '+ collectionName);
+                    })
+                    .catch((err) => {
+                      alert(err);
+                    });
+                  
                 });
               });
           }).catch((err) => {
@@ -154,9 +156,9 @@ const handleSubmit = async (e) => {
           <div className="col-md-4">
              <div className='user_pro'>
                  <div className="d-flex px-4 border border-prime border-4 rounded-full  um">
-                   <img src={url} alt="dummy" className='umn'/>
+                   <img src={previewUrl || url} alt="dummy" className='umn'/>
                   <label for='changepic' style={{marginTop:'67px'}}><span className='text-white change' style={{fontSize:'12px', position:"relative"}}>Change</span></label>
-                  <input type='file' name='file' id='changepic' className='d-none'  onChange={(e) => setPicture(e.target.files[0])} />
+                  <input type='file' name='file' id='changepic' className='d-none'  onChange={handleImagePreview} />
                  </div>
                  <span className="text-danger">{fileError}</span>
                  

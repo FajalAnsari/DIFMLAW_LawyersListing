@@ -47,8 +47,8 @@ const Navbar = () => {
         info.forEach((doc) => {
           const data = doc.data();
           console.log(data);
-          setName(data.name);
-          setUserImage(data.userProfile);
+          setName(data.username);
+          setUserImage(data.image);
           setactiveUser(true);
           // setImage(data.image);
         });

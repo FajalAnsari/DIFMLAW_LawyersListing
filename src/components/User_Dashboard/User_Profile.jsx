@@ -31,7 +31,7 @@ const User_Profile = () => {
       console.log(res[0].id);
       getUserId(res[0].id);
       const data = doc.docs[0].data();
-      setUsername(data.name);
+      setUsername(data.username);
       setEmail(data.email);
       setNumber(data.number);
   
