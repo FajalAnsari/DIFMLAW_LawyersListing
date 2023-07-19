@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react'
 import "../Lawyer_Dashboard/Lawyer_Dashboard_Pages/Dashboard.css";
-import { query, collection, getDocs, where, doc, updateDoc  } from "firebase/firestore";
+import { query, collection, getDocs, where, doc, updateDoc, and, or  } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, storage, db } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// import { dummy } from '../../images';
+import { useParams } from 'react-router-dom';
 
 const User_Profile = () => {
     const navigate = useNavigate();
+    const params = useParams();
   const [user, loading] = useAuthState(auth);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -19,9 +20,16 @@ const User_Profile = () => {
   const [url , setUrl] = useState("");
   const fetchUserName = async () => {
   
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    // const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const allusers = collection(db, "users");
+    const a = query(allusers,
+      and(or(where("uid", "==", user.uid), where("uid", "==", params.id)),
+  
+      )
+    )
+   
     const res = [];
-      const doc = await getDocs(q);
+      const doc = await getDocs(a);
       doc.forEach(value=>{
           res.push({
               id: value.id,
@@ -80,11 +88,11 @@ const handleUpdate = async (e) => {
 
   try{
     await updateDoc(taskDocRef,{
-      name: username,
+      username: username,
       email: email,
       number: number,
       userProfile: url,
-      state: location,
+      address: location,
     }).then(() => {
       alert("Document successfully updated!");
     })

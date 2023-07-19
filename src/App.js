@@ -49,7 +49,7 @@ function App() {
               <Route path="message/:id" element={<Lawyer_Message />} />
               <Route path="profile/:id" element={<Lawyer_Profiles />} />
               <Route path="bookmark" element={<Bookmark />} />
-              <Route path="user_profile" element={<User_Profile />} />
+              <Route path="user_profile/:id" element={<User_Profile />} />
               <Route path="alllawyers" element={<All_Lawyerss />} />
               <Route path="allusers" element={<All_Users />} />
               <Route path="Edit_Profile_admin" element={<Edit_Profile_admin />} />
