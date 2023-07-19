@@ -45,7 +45,6 @@ const Footer = () => {
         
         
           <img src={logo} width="240" alt="DIFM LAW LOGO" />
-            {/* <span class="ms-3 h5 font-weight-bold ">DIFM LAW</span> */}
          
           <p class="my-3 content text-white">
           We are a leading lawyer listing portal, dedicated to simplifying the process of connecting lawyers and clients.
