@@ -52,8 +52,8 @@ useEffect(()=>{
                                 <th scope="col">Lawyers Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Registration Date</th>
-                                <th scope="col">Loaction</th>
-                                <th scope="col"> Action</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>

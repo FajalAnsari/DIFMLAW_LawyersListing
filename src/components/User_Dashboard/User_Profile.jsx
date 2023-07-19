@@ -12,6 +12,7 @@ const User_Profile = () => {
     const navigate = useNavigate();
     const params = useParams();
   const [user, loading] = useAuthState(auth);
+  const [userRole, setUserRole] = useState(null);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
@@ -19,6 +20,43 @@ const User_Profile = () => {
   const [setUserId ,getUserId] = useState("");
   const [url , setUrl] = useState("");
   const fetchUserName = async () => {
+      // check login as a user or lawyer
+  const loginUserORLawyer = async () => {
+    if(user){
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
+      const q1 = query(collection(db, "admin"), where("uid", "==", user.uid));
+  
+  
+      const docs = await getDocs(q);
+      const info = await getDocs(q1)
+     
+      // user auth
+      if (docs.empty) {
+        console.log("No matching documents.");
+      } else {
+        docs.forEach((doc) => {
+          const data = doc.data();
+         
+          setUserRole("user");
+         
+        });
+      }
+      // admin auth
+      if (info.empty) {
+        console.log("No matching documents.");
+      } else {
+        info.forEach((doc) => {
+          const data = doc.data();
+      
+          setUserRole("admin");
+       
+        });
+      }
+  
+    }
+  }
+  loginUserORLawyer();
+
   
     // const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const allusers = collection(db, "users");
@@ -178,7 +216,7 @@ const handleUpdate = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
+					                    {userRole == 'user' &&  <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Discard</button></Link>} {userRole == 'admin' && <Link to="/lawyer_dashboard/allusers"><button type="button" id="submits" name="submit" className="btn btn-secondary">Back</button></Link>} 
 					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Update</button>
 				                     </div>
 			                     </div>
