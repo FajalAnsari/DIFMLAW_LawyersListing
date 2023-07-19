@@ -11,7 +11,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 const Lawyer_Dashboard = ({ children }) => {
   const [user] = useAuthState(auth);
   const [userRole, setUserRole] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   // Function to check the user's role (lawyer or user)
   const checkUserRole = async () => {
