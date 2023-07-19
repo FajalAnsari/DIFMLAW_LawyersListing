@@ -74,7 +74,7 @@ useEffect(()=>{
                                                 <td>{element.address || "N/A"}</td>
                                                 <td className="d-flex justify-content-between">
                                                   <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
-                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={()=>{alert(element.id)}} ></i></p>
+                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={()=>{alert(element.uid)}} ></i></p>
                                                   <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>
                                             </tr>
