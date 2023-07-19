@@ -8,7 +8,7 @@ import Lawyerscards from './Lawyerscards';
 import { useAuthState } from "react-firebase-hooks/auth";
 import Testimonial from '../Testimonial/Testimonial';
 import { auth } from '../../firebase';
-import Contect_Sugg from '../About_page/Contect_Sugg';
+import Contect_Sugg from '../About_page/Contect_sugg';
 import { Link } from 'react-router-dom';
 
 
