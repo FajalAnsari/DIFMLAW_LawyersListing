@@ -24,7 +24,26 @@ useEffect(()=>{
 
   return (
     <div className='admin_dashboard'>
-    <div className='container mt-5 mb-5 form-control' style={{backgroundColor:"var(--fourth-primary)"}}>
+    <div className='mt-5 mb-5 form-control admindash'>
+        <div className="row">
+            <div className="col-md-10">
+                <p className='px-4 text-white mt-4'>All Lawyers</p>
+            </div>
+            <div className="col-md-2">
+               <div class="input-group mt-3 px-4 ">
+                  <div class="form-outline">
+                    <button type="button" class="btn btns-primary">
+                     Filter 
+                    </button>
+                 </div>
+              <select id="inputState" class="form-select contect-bgColors selct" style={{width:"10%"}}>
+                 <option selected>latest</option>
+                 <option value="Full Day">Full Day</option>
+                 <option value="Half Day">Half Day</option>
+              </select>
+             </div>
+         </div>
+      </div>
        <table class="table ">
                         <thead>
                             <tr className='text-white'>
@@ -49,9 +68,9 @@ useEffect(()=>{
                                                 <td>34/09/2023</td>                                             
                                                 <td>{element.address}</td>
                                                 <td className="d-flex justify-content-between">
-                                                  <i class="bi bi-eye"></i>
-                                                  <i class="bi bi-pencil"></i>
-                                                  <i class="bi bi-trash3"></i>
+                                                  <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
+                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil"></i></p>
+                                                  <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>
                                             </tr>
                                         </>
