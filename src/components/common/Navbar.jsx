@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import "./Footer.css";
 import { Link, useNavigate } from 'react-router-dom';
-import { signOut} from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import logo from "../images/Difm_law_logo.svg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { db } from '../../firebase';
-
-import { auth } from '../../firebase';
+import { db, auth } from '../../firebase';
+import Skeleton from 'react-loading-skeleton';
 
 
 const Navbar = () => {
@@ -16,6 +15,7 @@ const Navbar = () => {
   const [activeUser, setactiveUser] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
+  const [loadingData, setLoadingData] = useState(false);
   const fetchUserName = async () => {
     if (user) {
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
@@ -78,57 +78,97 @@ const Navbar = () => {
   return (
     <>
       <nav class="navbar navbar-expand-lg fixed-top" id="headrs">
-  <div class="container p-2">
+        <div class="container p-2">
 
-  <Link to='/'>
-    <img src={logo} width="240" alt="DIFM LAW LOGO" />
-    {/* <img src={logo2} width="240" alt="" /> */}
+          <Link to='/'>
+            <img src={logo} width="240" alt="DIFM LAW LOGO" />
+            {/* <img src={logo2} width="240" alt="" /> */}
+          </Link>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
+              <li class="nav-item ms-2">
+                <Link class="nav-link text-white fs-5" to={"/about"}>About Us</Link>
+              </li>
+              <li class="nav-item ms-3">
+                <Link class="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
+              </li>
+              <li class="nav-item ms-3">
+                <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
+              </li>
+              <li class="nav-item ms-3">
+                <Link class="nav-link text-white fs-5" to={"/lawyer_dashboard"}>Lawyer Dashboard</Link>
+              </li>
+            </ul>
+            {user ? (
+  <div className="btn-group">
+    <Link
+      className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      {!activeUser ? (
+        <img src={image} id="profiles" className="per1  border border-3 border-prime" alt="avatar" />
+      ) : (
+        <img
+          src="https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png"
+          id="profiles"
+          className="per1  border border-3 border-prime"
+          alt="avatar"
+        />
+      )}
+      <b>
+        <span>{loading ? <Skeleton width={80} /> : name}</span>
+      </b>
     </Link>
 
-    {/* <img src={logo} className='me-4 logo mb-2' alt="" height='100px' width='800px'/> */}
-    {/* <Link class="navbar-brand text-white fs-4 head" to={"/"}>DIFM LAW</Link> */}
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
-        <li class="nav-item ms-2">
-          <Link class="nav-link text-white fs-5" to={"/about"}>About Us</Link>
-        </li>
-        <li class="nav-item ms-3">
-          <Link class="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
-        </li>
-        <li class="nav-item ms-3">
-          <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
-        </li>
-        <li class="nav-item ms-3">
-          <Link class="nav-link text-white fs-5" to={"/lawyer_dashboard"}>Lawyer Dashboard</Link>
-        </li>
-      </ul>
-      {user ? (
- <div className="btn-group">
- <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-prime text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
- {!activeUser ? ( <img src={image} id='profiles' className="per1  border border-3 border-prime" alt="avatar" />  ) :<img src='https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png' id='profiles' className="per1  border border-3 border-prime" alt="avatar" />} 
-        <b><span>{name} </span></b>
-  </Link>
-     
-  <ul className="dropdown-menu">
-     <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span >Profile</span></Link></li>
-     <li><Link className="dropdown-item" to="/lawyer_dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
-     <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span>  Change Password</span></Link></li>
-     <li><hr className="dropdown-divider"/></li>
-    <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
-  </ul>
-</div>
-) : (
-      <div class="d-flex">
-       <Link to={"/login"}><button class="btn btns-primary me-2 w-100" type="submit">Login</button></Link> 
-       <Link to={"/signup"}><button class="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
-      </div>
-         )}
-    </div>
+    <ul className="dropdown-menu">
+      <li>
+        <Link className="dropdown-item" to="/profile">
+          <i className="fa-solid fa-user-pen"></i>
+          <span>Profile</span>
+        </Link>
+      </li>
+      <li>
+        <Link className="dropdown-item" to="/lawyer_dashboard">
+          <i className="fa-sharp fa-solid fa-pen"></i>
+          <span>Dashboard</span>
+        </Link>
+      </li>
+      <li>
+        <Link className="dropdown-item" to="/profile">
+          <i className="fa-solid fa-user-pen"></i>
+          <span>Change Password</span>
+        </Link>
+      </li>
+      <li>
+        <hr className="dropdown-divider" />
+      </li>
+      <li>
+        <Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}>
+          <i className="fa-solid fa-right-from-bracket"></i>
+          <span>Sign Out</span>
+        </Link>
+      </li>
+    </ul>
   </div>
-</nav>
+) : (
+  <div className="d-flex">
+    {loading ? (
+      <div style={{ width: '100px', height: '32px', backgroundColor: '#ccc' }}></div>
+    ) : (
+      <>
+        <Link to={"/login"}><button className="btn btns-primary me-2 w-100" type="submit">Login</button></Link>
+        <Link to={"/signup"}><button className="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
+      </>
+    )}
+  </div>
+)}
+          </div>
+        </div>
+      </nav>
     </>
   );
 }

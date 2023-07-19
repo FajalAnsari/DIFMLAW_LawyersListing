@@ -44,14 +44,14 @@ const About_us = () => {
             <h2 className='s fw-bold mt-5 font-color'>Committed to Your Needs</h2>
             <p className='fs-6 lh-sm mt-4 w-75 mx-auto text-white' style={{textAlign: "justify"}}>We believe that connecting seekers with the right lawyer can make all the difference, and we're passionate about making that happen. At DIFM Law, we're committed to providing you with the best possible experience, and we're always here to help you with any questions or concerns you may have. Our team of dedicated professionals is available to assist you with any inquiries you may have.</p>
             </div>
-            <div className='col-lg-6 col-12'>
-             <img src={user_needs} className='w-75' style={{marginTop:"-10px", marginLeft:"10%",opacity:"0.75",height:"400px"}} alt='user_needs'></img>
+            <div className='col-lg-6 col-12 '>
+             <img src={user_needs} className='w-75 ' alt='user_needs'></img>
             </div>
         </div>
 
         <div className='row'>
-            <div className='col-lg-6 col-12 mt-4'>
-            <img src={our_promises} className=' h-75 frend' style={{width:"140%", marginLeft:"-20%",opacity:"0.75"}} alt='our_promises'></img>
+            <div className='col-lg-6 col-12 mt-4 about-img'>
+            <img src={our_promises} className=' h-75 frend'  alt='our_promises'></img>
             </div>
             <div className='col-lg-6 col-12'> 
              <h2 className='s fw-bold mt-4 font-color'>Our Promise</h2>
