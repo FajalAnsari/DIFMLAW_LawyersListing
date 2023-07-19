@@ -1,27 +1,74 @@
 import React, {useEffect, useState} from 'react'
 import "../Lawyer_Dashboard/Lawyer_Dashboard_Pages/Dashboard.css";
-import { query, collection, getDocs, where, doc, updateDoc  } from "firebase/firestore";
+import { query, collection, getDocs, where, doc, updateDoc, and, or  } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, storage, db } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// import { dummy } from '../../images';
+import { useParams } from 'react-router-dom';
 
 const User_Profile = () => {
     const navigate = useNavigate();
+    const params = useParams();
   const [user, loading] = useAuthState(auth);
+  const [userRole, setUserRole] = useState(null);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
   const [location, setLocation] = useState('');
   const [setUserId ,getUserId] = useState("");
   const [url , setUrl] = useState("");
+  const [image, setUserimage] = useState("");
   const fetchUserName = async () => {
+      // check login as a user or lawyer
+  const loginUserORLawyer = async () => {
+    if(user){
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
+      const q1 = query(collection(db, "admin"), where("uid", "==", user.uid));
   
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+  
+      const docs = await getDocs(q);
+      const info = await getDocs(q1)
+     
+      // user auth
+      if (docs.empty) {
+        console.log("No matching documents.");
+      } else {
+        docs.forEach((doc) => {
+          const data = doc.data();
+         
+          setUserRole("user");
+         
+        });
+      }
+      // admin auth
+      if (info.empty) {
+        console.log("No matching documents.");
+      } else {
+        info.forEach((doc) => {
+          const data = doc.data();
+      
+          setUserRole("admin");
+       
+        });
+      }
+  
+    }
+  }
+  loginUserORLawyer();
+
+  
+    // const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const allusers = collection(db, "users");
+    const a = query(allusers,
+      and(or(where("uid", "==", user.uid), where("uid", "==", params.id)),
+  
+      )
+    )
+   
     const res = [];
-      const doc = await getDocs(q);
+      const doc = await getDocs(a);
       doc.forEach(value=>{
           res.push({
               id: value.id,
@@ -37,7 +84,7 @@ const User_Profile = () => {
   
       setLocation(data.address);
  
-      setUrl(data.userProfile);
+      setUserimage(data.userProfile);
 
     
   };
@@ -80,11 +127,11 @@ const handleUpdate = async (e) => {
 
   try{
     await updateDoc(taskDocRef,{
-      name: username,
+      username: username,
       email: email,
       number: number,
       userProfile: url,
-      state: location,
+      address: location,
     }).then(() => {
       alert("Document successfully updated!");
     })
@@ -101,7 +148,7 @@ const handleUpdate = async (e) => {
           <div className="col-md-4">
              <div className='user_pro'>
                  <div className="d-flex px-4 border border-prime border-4 rounded-full  um">
-                   <img src={url} alt="dummy" className='umn'/>
+                   <img src={url || image} alt="dummy" className='umn'/>
                   <label for='changepic' style={{marginTop:'67px'}}><span className='text-white change' style={{fontSize:'12px', position:"relative"}}>Change</span></label>
                   <input type='file' name='file' id='changepic' className='d-none' onChange={handleImageChange} />
                  </div>
@@ -170,7 +217,7 @@ const handleUpdate = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
+					                    {userRole == 'user' &&  <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Discard</button></Link>} {userRole == 'admin' && <Link to="/lawyer_dashboard/allusers"><button type="button" id="submits" name="submit" className="btn btn-secondary">Back</button></Link>} 
 					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Update</button>
 				                     </div>
 			                     </div>

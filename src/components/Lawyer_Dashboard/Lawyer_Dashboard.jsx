@@ -11,7 +11,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 const Lawyer_Dashboard = ({ children }) => {
   const [user] = useAuthState(auth);
   const [userRole, setUserRole] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   // Function to check the user's role (lawyer or user)
   const checkUserRole = async () => {
@@ -89,7 +89,7 @@ const Lawyer_Dashboard = ({ children }) => {
       roles: ["Lawyer"] // Only display for lawyer
     },
     {
-      path: "/lawyer_dashboard/user_profile",
+      path: "/lawyer_dashboard/user_profile/id",
       name: "Edit Profile",
       icon: <FaUserEdit />,
       roles: ["User"] // Only display for user
@@ -104,7 +104,7 @@ const Lawyer_Dashboard = ({ children }) => {
 
   return (
     <>
-      <div className='lawyer_dashboard' style={{ marginTop: '100px', backgroundColor: 'var(--third-primary)' }}>
+      <div className='lawyer_dashboard' style={{ marginTop: '80px', backgroundColor: 'var(--third-primary)' }}>
         <div className="">
           <div style={{ width: isOpen ? "280px" : "50px" }} className="sidebar">
             <div className="top_section">

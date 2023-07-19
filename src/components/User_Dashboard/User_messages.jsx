@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import "../Lawyer_Dashboard/Lawyer_Dashboard_Pages/Dashboard.css";
 import { query, collection, getDocs, where, doc, updateDoc, getDoc  } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, storage, db } from "../../firebase";
 import { dummy } from "../images";
@@ -40,6 +40,7 @@ const User_messages = () => {
             ...doc.data(),
           }));
 
+
           setAdd_Lawyercarts(newCartProduct);
         
           console.log(add_Lawyercarts);
@@ -57,9 +58,6 @@ const User_messages = () => {
       unsubscribe();
     };
   }, []);
-
-
-
 
 
 

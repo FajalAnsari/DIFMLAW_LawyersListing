@@ -310,7 +310,7 @@ const Signup = () => {
                     </select>
                   </div>
                   <div class="col-md-6 mt-4">
-                    <input type="file" name="file-input" id="file-input" className="file-input__input" onChange={(e) => setPicture(e.target.files[0])} />
+                    <input type="file" name="file-input" id="file-input" className="file-input__input" multiple onChange={(e) => setPicture(e.target.files[0])} />
                     <label className="file-input__label  btns-primary" for="file-input" id="slects">
                       <svg
                         aria-hidden="true"

@@ -20,13 +20,14 @@ const Lawyer_Profiles = () => {
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
   const [experience, setExperience] = useState('');
-  const [picture, setPicture] = useState([]);
   const [specialization, setSpecialization] = useState('');
   const [education, setEducation] = useState('');
+  const [work, setWork] = useState('');
   const [bio, setBio] = useState('');
   const [location, setLocation] = useState('');
   const [setUserId ,getUserId] = useState("");
   const [url , setUrl] = useState("");
+  const [picture, setPicture]= useState([]);
   const fetchUserName = async () => {
   
     // check login as a user or lawyer
@@ -94,6 +95,7 @@ const Lawyer_Profiles = () => {
       setSpecialization(data.specialization);
       setExperience(data.experience);
       setLocation(data.address);
+      setWork(data.work);
       setBio(data.summary);
       setEducation(data.education);
       setUrl(data.image);
@@ -157,6 +159,7 @@ const handleUpdate = async (e) => {
       experience: experience,
       specialization: specialization,
       education: education,
+      work: work,
       image: url,
       address: location,
       summary: bio,
@@ -207,7 +210,7 @@ const handleUpdate = async (e) => {
                         </div>
                         <div className="row gx-3 mb-1">
                         <div className="col-md-6 mbs1">
-                                <label className="small mb-1 text-white" for="inputMobile">Phone Number</label> 
+                                <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
                                 <div class="input-group mb-3 mbs">
                                   <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder={number} value={number} onChange={(e) => {setNumber(e.target.value)}}/>
                                   <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
@@ -217,20 +220,19 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputExperience">Experience</label>    
                                 <div class="input-group mb-3 mbs">
-                                <select id="inputExperience" value={experience}
-                                 onChange={(e) => {setExperience(e.target.value)}} class="form-select contect-bgColors">
-                                       <option selected>{experience}</option>
-                                        <option value="1 Year">1 Year</option>
-                                         <option value="2 Year">2 Years</option>
-                                          <option value="3 Year">3 Years</option>
-                                          <option value="4 Year">4 Years</option>
-                                             <option value="5 Year">5 Years</option>
-                                               <option value="6 Year">6 Years</option>
-                                                  <option value="7 Year">7 Years</option>
-                                                     <option value="8 Year" >8 Years</option>
-                                                <option value="9 Year">9 Years</option>
-                                                   <option value="10+ Year">10+ Years</option>
-                                     </select>
+                                <select id="inputState" value={experience} onChange={(e) => setExperience(e.target.value)} class="form-select contect-bgColors selct">
+                                 <option selected>Choose...</option>
+                                 <option value="1 Year">1 Year</option>
+                                 <option value="2 Year">2 Years</option>
+                                 <option value="3 Year">3 Years</option>
+                                 <option value="4 Year">4 Years</option>
+                                 <option value="5 Year">5 Years</option>
+                                 <option value="6 Year">6 Years</option>
+                                 <option value="7 Year">7 Years</option>
+                                 <option value="8 Year">8 Years</option>
+                                 <option value="9 Year">9 Years</option>
+                                 <option value="10+ Year">10+ Years</option>
+                               </select>
                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-briefcase-fill"></i></span>
                               </div>
                             </div>
@@ -240,17 +242,17 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputSpecialization">Specialization</label>
                                 <div class="input-group mb-3 mbs">
-                                <select id="inputSpecialization" value={specialization} onChange={(e) => {setSpecialization(e.target.value)}} class="form-select contect-bgColors">
-                                   <option selected>{specialization}</option>
+                                <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct">
+                                   <option selected>Select your expertise</option>
                                    <option value="Injury Lawyers">Injury Lawyers</option>
-                                     <option value="Family Law Lawyers">Family Law Lawyers</option>
-                                       <option value="Defense Lawyers">Defense Lawyers</option>
-                                       <option value="Corporate Lawyers">Corporate Lawyers</option>
-                                       <option value="Immigration Lawyers">Immigration Lawyers</option>
-                                          <option value="Property Lawyers">Property Lawyers</option>
-                                       <option value="Real Estate Lawyers">Real Estate Lawyers</option>
+                                   <option value="Family Law Lawyers">Family Law Lawyers</option>
+                                   <option value="Defense Lawyers">Defense Lawyers</option>
+                                   <option value="Corporate Lawyers">Corporate Lawyers</option>
+                                   <option value="Immigration Lawyers">Immigration Lawyers</option>
+                                   <option value="Property Lawyers">Property Lawyers</option>
+                                   <option value="Real Estate Lawyers">Real Estate Lawyers</option>
                                    <option value="Employment Lawyers">Employment Lawyers</option>
-                                 </select>
+                               </select>
                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
                               </div>
                             
@@ -268,12 +270,12 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputWork">Location</label>
                                 <div class="input-group mb-3 mbs">
-                                <input type="text" class="form-control contect-bgColors" id="inputZip" placeholder="Location, country, city, state..."  value={location} onChange={(e) => {setLocation(e.target.value)}}/>
-                                <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt"></i></span>
+                                <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder={location} value={location} onChange={(e) => {setLocation(e.target.value)}}/>
+                                <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt-fill"></i></span>
                               </div>
                             </div>
                            
-                            <div className="col-md-6 mbs1 pict">
+                            <div className="col-md-6 mbs1">
                             <label className="small mb-1 text-white" for="inputWork">Pictures</label>
                             <div class="input-group mb-3 mbs">
                              <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={(e) => setPicture(e.target.files[0])} />
@@ -288,7 +290,7 @@ const handleUpdate = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
+					                    {userRole == 'lawyer' &&  <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Discard</button></Link>} {userRole == 'admin' && <Link to="/lawyer_dashboard/alllawyers"><button type="button" id="submits" name="submit" className="btn btn-secondary">Back</button></Link>} 
 					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Update</button>
 				                     </div>
 			                     </div>

@@ -11,6 +11,11 @@
 .dmis{
     margin-left: 15% !important;
 }
+.about-img img{
+    width: 140%;
+    opacity: 70%;
+}
+
 @media only screen and (max-width: 1200px) {
     .frend{
         margin-top: 0px;
@@ -24,5 +29,10 @@
     .consugg{
         margin-top: 30px !important;
      }
+     .about-img img{
+        width: 100% !important;
+        opacity: 0.75;
+       
+    }
      
   }

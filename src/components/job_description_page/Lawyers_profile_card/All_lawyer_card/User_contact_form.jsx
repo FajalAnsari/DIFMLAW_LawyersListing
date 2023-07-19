@@ -10,6 +10,7 @@ const User_contact_form = (props) => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [UserName, setUserName] = useState("");
+    const [userImage, setUserImage] = useState("");
 
     // get username
     const fetchuserName = () => {
@@ -23,7 +24,7 @@ const User_contact_form = (props) => {
             ...doc.data()
           });
         });
-      
+      setUserImage(res[0].image);
         setUserName(res[0].username);
       }).catch((error) => {
         console.log("Error getting documents: ", error);
@@ -50,8 +51,8 @@ useEffect(()=>{
                 number:number,
                 email:email,
                 message:message,
-                date: serverTimestamp()
-               
+                date: serverTimestamp(),
+                image:userImage
             })
 
             for (const item of data){

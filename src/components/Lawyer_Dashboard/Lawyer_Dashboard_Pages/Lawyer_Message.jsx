@@ -25,8 +25,9 @@ const Lawyer_Message = () => {
             id: doc.id,
             image: doc.data().image || '',
             ...doc.data(),
+           
           }));
-
+      
           setAdd_Lawyercarts(newCartProduct);
         
           console.log(add_Lawyercarts);
@@ -103,7 +104,7 @@ element1.classList.add("block-styles");
               {add_Lawyercarts.map((add_Lawyercart, i) => (
                   <div className="d-flex px-4 usersl mb-2" onClick={()=> {Messages(add_Lawyercart.id)}} key={i} activeClassName="active">
                     <img
-                      src={dummy}
+                      src={add_Lawyercart.image || dummy}
                       alt="dummy"
                       className="mt-1"
                       style={{ width: "20%", height: "20%" }}
