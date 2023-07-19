@@ -16,6 +16,11 @@ const All_Users = () => {
             setLawyers(newData);                
             console.log(lawyers);
         }) 
+
+
+
+
+
     }
 
 useEffect(()=>{
@@ -51,8 +56,8 @@ useEffect(()=>{
                                 <th scope="col">User Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Request Date</th>
-                                <th scope="col">Loaction</th>
-                                <th scope="col"> Action</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,14 +67,14 @@ useEffect(()=>{
                                     return (
                                         <>
                                             <tr className='text-white'>
-                                                <th scope="row">0{id + 1}</th>
+                                                <th scope="row">{(id + 1).toString().padStart(2, '0')}</th>
                                                 <td>{element.username}</td>
                                                 <td>{element.email}</td>
                                                 <td>34/09/2023</td>                                             
-                                                <td>{element.address}</td>
+                                                <td>{element.address || "N/A"}</td>
                                                 <td className="d-flex justify-content-between">
                                                   <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
-                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil"></i></p>
+                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={()=>{alert(element.id)}} ></i></p>
                                                   <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>
                                             </tr>

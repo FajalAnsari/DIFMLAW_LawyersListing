@@ -26,14 +26,14 @@ const Lawyer_Dashboard = ({ children }) => {
 
       // Check if the user is a lawyer
       if (!docs.empty) {
-        setUserRole("lawyer");
+        setUserRole("Lawyer");
       }
       // Check if the user is a regular user
       else if (!info.empty) {
-        setUserRole("user");
+        setUserRole("User");
       }
       else if (!admin.empty) {
-        setUserRole("admin");
+        setUserRole("Admin");
       }
     }
   }
@@ -50,55 +50,55 @@ const Lawyer_Dashboard = ({ children }) => {
       path: "/lawyer_dashboard/message/:id",
       name: "Messages",
       icon: <i className="bi bi-chat-left-text"></i>,
-      roles: ["lawyer"] // Only display for lawyer
+      roles: ["Lawyer"] // Only display for lawyer
     },
     {
       path: "/lawyer_dashboard/user_messages/",
       name: "Messages",
       icon: <i className="bi bi-chat-left-text"></i>,
-      roles: ["user"]  // Only display for user
+      roles: ["User"]  // Only display for user
     },
     {
       path: "/lawyer_dashboard/alllawyers",
       name: "All Lawyers",
       icon: <i class="bi bi-people-fill"></i>,
-      roles: ["admin"] // Display for both lawyer and user
+      roles: ["Admin"] // Display for both lawyer and user
     },
     {
       path: "/lawyer_dashboard/allusers",
       name: "All Users",
       icon: <i class="bi bi-people-fill"></i>,
-      roles: ["admin"] // Display for both lawyer and user
+      roles: ["Admin"] // Display for both lawyer and user
     },
     {
       path: "/lawyer_dashboard/Add_Users",
       name: "Add Users",
       icon: <i class="bi bi-person-add"></i>,
-      roles: ["admin"] // Display for both lawyer and user
+      roles: ["Admin"] // Display for both lawyer and user
     },
     {
       path: "/lawyer_dashboard/Edit_Profile_admin",
       name: "Edit Profile",
       icon: <FaUserEdit />,
-      roles: ["admin"] // Only display for lawyer
+      roles: ["Admin"] // Only display for lawyer
     },
     {
-      path: "/lawyer_dashboard/profile",
+      path: "/lawyer_dashboard/profile/id/",
       name: "Edit Profile",
       icon: <FaUserEdit />,
-      roles: ["lawyer"] // Only display for lawyer
+      roles: ["Lawyer"] // Only display for lawyer
     },
     {
       path: "/lawyer_dashboard/user_profile",
       name: "Edit Profile",
       icon: <FaUserEdit />,
-      roles: ["user"] // Only display for user
+      roles: ["User"] // Only display for user
     },
     {
       path: "/lawyer_dashboard/bookmark",
       name: "Saved Lawyers",
       icon: <i className="bi bi-bookmark-star-fill"></i>,
-      roles: ["user"] // Only display for user
+      roles: ["User"] // Only display for user
     }
   ];
 
@@ -111,7 +111,7 @@ const Lawyer_Dashboard = ({ children }) => {
               <h1 style={{ display: isOpen ? "block" : "none" }} className="logo text-white">
                 <div className="d-flex">
                   <img src={logo} alt="logo" style={{ width: "120%", marginRight: "10px" }} />
-                  Lawyer Dashboard
+                  {userRole} Dashboard
                 </div>
               </h1>
               <div style={{ marginLeft: isOpen ? "145px" : " 16px", transition: 'all 0.5s' }} className="bars fs-5">

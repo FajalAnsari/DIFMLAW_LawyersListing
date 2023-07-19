@@ -3,12 +3,19 @@ import { collection, getDocs} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import "./admin.css";
+import { useNavigate } from 'react-router-dom';
 
 
 const All_Lawyers = () => {
+<<<<<<< HEAD
   
   const navigate = useNavigate();
   const [lawyers, setLawyers] = useState([]);
+=======
+
+    const [lawyers, setLawyers] = useState([]);
+    const navigate = useNavigate();
+>>>>>>> a52550e5551eca43702f1deff1d214410aaf4d0c
   const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
@@ -64,14 +71,19 @@ useEffect(()=>{
                                     return (
                                         <>
                                             <tr className='text-white'>
-                                                <th scope="row">0{id + 1}</th>
+                                                <th scope="row">{(id + 1).toString().padStart(2, '0')}</th>
                                                 <td>{element.username}</td>
                                                 <td>{element.email}</td>
                                                 <td>34/09/2023</td>                                             
                                                 <td>{element.address}</td>
                                                 <td className="d-flex justify-content-between">
+<<<<<<< HEAD
                                                   <p style={{color:"green"}} onClick={(e) => navigate(`/job/${element.id}`)}><i class="bi bi-eye"></i></p>
                                                   <p style={{color:"skyblue"}}><i class="bi bi-pencil"></i></p>
+=======
+                                                  <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
+                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
+>>>>>>> a52550e5551eca43702f1deff1d214410aaf4d0c
                                                   <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>
                                             </tr>

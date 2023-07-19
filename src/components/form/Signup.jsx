@@ -174,7 +174,7 @@ const Signup = () => {
               authProvider: "local",
               email: emails,
               number: number,
-              state: state,
+              address: state,
               image:'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png'
             });
             navigate("/");

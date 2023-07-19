@@ -7,10 +7,13 @@ import { auth, storage, db } from '../../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { dummy } from '../../images';
+import { useParams } from 'react-router-dom';
+
 
 const Lawyer_Profiles = () => {
 
   const navigate = useNavigate();
+  const params = useParams();
   const [user, loading] = useAuthState(auth);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -26,6 +29,7 @@ const Lawyer_Profiles = () => {
   const fetchUserName = async () => {
   
     const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+    // const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
     const res = [];
       const doc = await getDocs(q);
       doc.forEach(value=>{
@@ -34,6 +38,7 @@ const Lawyer_Profiles = () => {
               ...value.data()
           });
       });
+      // console.log("id "+params.id);
       console.log(res[0].id);
       getUserId(res[0].id);
       const data = doc.docs[0].data();
