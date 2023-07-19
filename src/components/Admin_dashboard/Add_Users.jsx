@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import "../Lawyer_Dashboard/Lawyer_Dashboard_Pages/Dashboard.css";
-import { query, collection, getDocs, where, doc, updateDoc, addDoc  } from "firebase/firestore";
+import { collection, getDocs, where, doc, updateDoc, addDoc  } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, storage, db } from "../../firebase";
@@ -14,7 +14,6 @@ const  Add_Users = () => {
   const [user, loading] = useAuthState(auth);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState(''); 
-  const [url , setUrl] = useState("");
   const [User, setUserAdd] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -156,7 +155,7 @@ const handleSubmit = async (e) => {
           <div className="col-md-4">
              <div className='user_pro'>
                  <div className="d-flex px-4 border border-prime border-4 rounded-full  um">
-                   <img src={previewUrl || url} alt="dummy" className='umn'/>
+                   <img src={previewUrl} alt="dummy" className='umn'/>
                   <label for='changepic' style={{marginTop:'67px'}}><span className='text-white change' style={{fontSize:'12px', position:"relative"}}>Change</span></label>
                   <input type='file' name='file' id='changepic' className='d-none'  onChange={handleImagePreview} />
                  </div>

@@ -35,7 +35,7 @@ const User_Profile = () => {
       setEmail(data.email);
       setNumber(data.number);
   
-      setLocation(data.state);
+      setLocation(data.address);
  
       setUrl(data.userProfile);
 

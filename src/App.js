@@ -47,7 +47,7 @@ function App() {
             <Route path="/*" element={<Default_page />} />
             <Route path="/lawyer_dashboard" element={<Protected Component={Lawyer_Dashboard} />}>
               <Route path="message/:id" element={<Lawyer_Message />} />
-              <Route path="profile" element={<Lawyer_Profiles />} />
+              <Route path="profile/:id" element={<Lawyer_Profiles />} />
               <Route path="bookmark" element={<Bookmark />} />
               <Route path="user_profile" element={<User_Profile />} />
               <Route path="alllawyers" element={<All_Lawyerss />} />

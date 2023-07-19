@@ -24,7 +24,7 @@ const User_contact_form = (props) => {
           });
         });
       
-        setUserName(res[0].name);
+        setUserName(res[0].username);
       }).catch((error) => {
         console.log("Error getting documents: ", error);
       });
@@ -46,7 +46,7 @@ useEffect(()=>{
         else{
             const parentCollection = collection(db, 'User_Messages');
              data.push({
-                name:UserName,
+                username:UserName,
                 number:number,
                 email:email,
                 message:message,
