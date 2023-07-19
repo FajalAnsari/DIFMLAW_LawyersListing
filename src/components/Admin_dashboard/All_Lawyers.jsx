@@ -70,11 +70,7 @@ useEffect(()=>{
                                                 <td>34/09/2023</td>                                             
                                                 <td>{element.address}</td>
                                                 <td className="d-flex justify-content-between">
-<<<<<<< HEAD
                                                   <p style={{color:"green"}}><i class="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
-=======
-                                                  <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
->>>>>>> 403c9274a6bc85e79d0dbbf3523894f90744b99e
                                                   <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>

@@ -27,6 +27,7 @@ const Lawyer_Profiles = () => {
   const [location, setLocation] = useState('');
   const [setUserId ,getUserId] = useState("");
   const [url , setUrl] = useState("");
+  const [picture, setPicture]= useState([]);
   const fetchUserName = async () => {
   
     // check login as a user or lawyer
