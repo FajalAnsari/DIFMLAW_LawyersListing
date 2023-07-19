@@ -104,7 +104,7 @@ const Lawyer_Dashboard = ({ children }) => {
 
   return (
     <>
-      <div className='lawyer_dashboard' style={{ marginTop: '100px', backgroundColor: 'var(--third-primary)' }}>
+      <div className='lawyer_dashboard' style={{ marginTop: '80px', backgroundColor: 'var(--third-primary)' }}>
         <div className="">
           <div style={{ width: isOpen ? "280px" : "50px" }} className="sidebar">
             <div className="top_section">
