@@ -103,6 +103,13 @@
     height: 92px;
     margin-left: -24px;
 }
+.lawyer_profile input[type="file"]::file-selector-button {
+    background: linear-gradient(180deg, #A37707 0%, #D1B06B 100%) !important;
+    border-radius: 4px 0px 0px 4px;
+  }
+  .lawyer_profile .inpu{
+    border-radius: 4px 0px 0px 4px;
+  }
 
 @media only screen and (max-width: 540px) {
     .lawyer_message{
