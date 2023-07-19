@@ -90,7 +90,7 @@ const Lawyers_profile_card = () => {
           <h4 className="font-color">Photos</h4>
           <div className="row">
             <div className="col-lg-6 col-6">
-              <img src={lawyer_pics} alt="lawyer_pic"></img>
+              <img src={data.photos} alt="lawyer_pic"></img>
             </div>
             <div className="col-lg-6 col-6">
               <img src={lawyer_pics} alt="lawyer_pic"></img>

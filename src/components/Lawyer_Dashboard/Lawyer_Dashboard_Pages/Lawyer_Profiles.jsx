@@ -305,7 +305,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                             <label className="small mb-1 text-white" for="inputWork">Pictures</label>
                             <div class="input-group mb-3 mbs">
-                             <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={(e) => setPicture(e.target.files[0])} />
+                             <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={(e) => setPicture(e.target.files)} />
                              <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-card-image"></i></span>
                            </div>
                             </div>
