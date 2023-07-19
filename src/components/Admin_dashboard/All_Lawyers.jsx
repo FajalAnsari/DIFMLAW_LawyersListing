@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import "./admin.css";
-import { useNavigate } from 'react-router-dom';
-
 
 const All_Lawyers = () => {
-
-    const [lawyers, setLawyers] = useState([]);
-    const navigate = useNavigate();
+  
+  const navigate = useNavigate();
+  const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
