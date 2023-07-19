@@ -267,7 +267,7 @@ const handleUpdate = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
+					                    {userRole == 'lawyer' &&  <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Discard</button></Link>} {userRole == 'admin' && <Link to="/lawyer_dashboard/alllawyers"><button type="button" id="submits" name="submit" className="btn btn-secondary">Back</button></Link>} 
 					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Update</button>
 				                     </div>
 			                     </div>
