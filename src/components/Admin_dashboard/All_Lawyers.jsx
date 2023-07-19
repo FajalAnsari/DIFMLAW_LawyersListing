@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import "./admin.css";
 
 
 const All_Lawyers = () => {
-
-    const [lawyers, setLawyers] = useState([]);
+  
+  const navigate = useNavigate();
+  const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
@@ -68,7 +70,7 @@ useEffect(()=>{
                                                 <td>34/09/2023</td>                                             
                                                 <td>{element.address}</td>
                                                 <td className="d-flex justify-content-between">
-                                                  <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
+                                                  <p style={{color:"green"}} onClick={(e) => navigate(`/job/${element.id}`)}><i class="bi bi-eye"></i></p>
                                                   <p style={{color:"skyblue"}}><i class="bi bi-pencil"></i></p>
                                                   <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>
