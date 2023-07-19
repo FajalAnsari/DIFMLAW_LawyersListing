@@ -51,12 +51,6 @@ const Lawyer_Message = () => {
    // fetch allusers messages
 
 const Messages = async (id) => {
-  
-  // Get the element you want to style
-const element = document.getElementById("text_msg3"); 
-element.classList.add("block-style");
-const element1 = document.getElementById("no"); 
-element1.classList.add("block-styles");
 
   const cartRef = collection(db, 'User_Messages');
   const userCartRef = doc(cartRef, loginlawyerId);
@@ -99,16 +93,15 @@ element1.classList.add("block-styles");
         <div className="row">
           <div className="col-md-4">       
               <div className="user_pro">
-                <p className="text-white mt-4 text-center">Messages</p>
               {add_Lawyercarts.map((add_Lawyercart, i) => (
-                  <div className="d-flex px-4 usersl mb-2" onClick={()=> {Messages(add_Lawyercart.id)}} key={i} activeClassName="active">
+                  <div className="d-flex px-4  usersl um" onClick={()=> {Messages(add_Lawyercart.id)}} key={i}>
                     <img
                       src={dummy}
                       alt="dummy"
                       className="mt-1"
                       style={{ width: "20%", height: "20%" }}
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.username}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.name}</p>
                     {/* {setUserName[{...add_Lawyercart.name}]} */}
                   </div>
                   ))}
@@ -116,8 +109,8 @@ element1.classList.add("block-styles");
           </div>
           <div className="col-md-8">
             <div className="msg_1">
-              <p className="text-center text-white fs-5" style={{padding:"28%"}} id="no">No Message Selected</p>
-              <div className="text_msg1 py-4 px-5 text-white" id="text_msg3">
+        
+              <div className="text_msg1 py-4 px-5 text-white">
                 <p>
                   <b>Phone No. :</b> <a href='tel:${messages.number}' className="text-white" style={{textDecoration:'none'}}>{messages.number}</a> 
                 </p>
@@ -127,8 +120,8 @@ element1.classList.add("block-styles");
                 <p className="fs-5 pb">
                   <b>Message :</b>{messages.message}
                 </p>
-                <p className="text-end mt-4 font-color" style={{fontSize:"12px",marginBottom:"-15px"}}>
-                  {messages.createdAtDate} {messages.createdAtTime}
+                <p className="fs-5 pb">
+                  <b>Date :</b> {messages.createdAtDate} {messages.createdAtTime}
                 </p>
               </div>
           
