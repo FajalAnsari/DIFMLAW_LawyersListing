@@ -1,6 +1,6 @@
 import React from 'react'
 import { our_mission, user_friendly,user_needs, our_promises } from '../images';
-import Contect_Sugg from './Contect_Sugg';
+import Contect_Sugg from './Contect_sugg';
 import Testimonial from '../Testimonial/Testimonial';
 import { useAuthState } from "react-firebase-hooks/auth";
 import Join_Network from "../join_network/Join_Network";

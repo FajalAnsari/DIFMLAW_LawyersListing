@@ -2,7 +2,7 @@ import React from 'react'
 import "./Contect_us.css";
 import Testimonial from '../Testimonial/Testimonial';
 import { Link } from 'react-router-dom';
-import Contect_Sugg from "../About_page/Contect_Sugg";
+import Contect_Sugg from "../About_page/Contect_sugg";
 
 const Contect_us = () => {
   return (

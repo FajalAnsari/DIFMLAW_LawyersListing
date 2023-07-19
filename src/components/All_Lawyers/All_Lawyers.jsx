@@ -4,10 +4,10 @@ import Testimonial from '../Testimonial/Testimonial';
 import { alllawyercategory } from '../constant/data';
 import Lawyerscards from '../Hero/Lawyerscards';
 import { db } from '../../firebase';
-import { collection, getCountFromServer, and, getDocs, or, query, where, setDoc, doc, addDoc } from "firebase/firestore";
+import { collection, getCountFromServer, and, getDocs, or, query, where, setDoc, doc ,addDoc} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import Contect_Sugg from '../About_page/Contect_Sugg';
+import Contect_Sugg from '../About_page/Contect_sugg';
 import { useParams } from 'react-router-dom';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../../firebase';
@@ -22,11 +22,11 @@ const All_Lawyers = () => {
   // alllawyer section code start
 
   const navigate = useNavigate();
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth); 
   const [lawyers, setLawyers] = useState([]);
   const [userRole, setUserRole] = useState(null);
   const fetchPost = async () => {
-
+  
     await getDocs(collection(db, "lawyers"))
       .then((querySnapshot) => {
         const newData = querySnapshot.docs
@@ -37,14 +37,14 @@ const All_Lawyers = () => {
   }
   // check login as a user or lawyer
   const loginUserORLawyer = async () => {
-    if (user) {
+    if(user){
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
       const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
-
-
+  
+  
       const docs = await getDocs(q);
       const info = await getDocs(q1)
-
+     
       // lawyer auth
       if (docs.empty) {
         console.log("No matching documents.");
@@ -54,7 +54,7 @@ const All_Lawyers = () => {
           console.log(data);
           console.log("lawyer login");
           setUserRole("lawyer");
-
+         
         });
       }
       // user auth
@@ -66,10 +66,10 @@ const All_Lawyers = () => {
           console.log(data);
           console.log("user login");
           setUserRole("user");
-
+       
         });
       }
-
+  
     }
   }
 
@@ -178,7 +178,7 @@ const All_Lawyers = () => {
   //  laywer select option filled
 
   const handleSelectValue = async (e) => {
-
+    
     const q = query(collection(db, "lawyers"), where("work", "==", e.target.value))
     await getDocs(q).then((qq) => {
       const newData = qq.docs
@@ -241,7 +241,7 @@ const All_Lawyers = () => {
     }
   }
 
-
+ 
   const addToLawyer = async (uid) => {
     if (uids !== null) {
       const q = query(collection(db, 'lawyers'), where('uid', '==', uid));
@@ -253,21 +253,21 @@ const All_Lawyers = () => {
           ...doc.data(),
         });
       });
-
-
+      
+  
       try {
         const cartCollectionRef = collection(db, 'User_Wishlist');
-
+  
         for (const item of res) {
           const cartDocRef = doc(cartCollectionRef, uids, 'users', item.id);
           await setDoc(cartDocRef, item);
         }
-
+  
         console.log('Successfully added to cart');
       } catch (error) {
         console.error('Error adding to cart:', error);
       }
-
+  
       console.log(res);
     } else {
       navigate('/login');
@@ -278,7 +278,7 @@ const All_Lawyers = () => {
   return (
     <>
 
-      <div class="container" style={{ marginTop: "100px" }}>
+      <div class="container" style={{marginTop:"100px"}}>
         <h1 className='text-center text-white' id='dis'>Discover more than <span className='font-color'>5000+ Lawyers</span></h1>
         <div className="col-10 mx-auto">
           <div class="row mt-5 ">
@@ -309,7 +309,7 @@ const All_Lawyers = () => {
         <div className="col-12 mx-auto mt-5">
           <div className="row mx-auto">
 
-            <div className="col-md-4" id='filters' style={{ marginBottom: "45px" }}>
+            <div className="col-md-4" id='filters' style={{marginBottom:"45px"}}>
               {alllawyercategory.map((service) => (
                 <>
                   <h4 className='mt-3 font-color'>{service.title}</h4>
@@ -353,35 +353,35 @@ const All_Lawyers = () => {
                       <div className='view_buttons mt-4 alllawyersection border border-dark' key={i}>
                         <div className="row mx-auto">
                           <div className="col-md-6">
-                            <Skeleton circle={true} width={100} />
+                            <Skeleton circle={true}  width={100} />
                             <Skeleton count={-2} />
                             <div className="row">
-                              <div className="col-md-3">
+                            <div className="col-md-3">
                                 <div className='skeleton1 loading-animation'></div>
-                              </div>
-                              <div className="col-md-9">
-                                <h4 className='font-color skeleton2 rounded-pill loading-animation'> </h4>
-                                <div className='d-flex'>
-                                  <div className='nam fs-6 text-white text-capitalize skeleton3 rounded-pill loading-animation' ></div>
-                                  <div className='mx-auto nameloc skeleton4 rounded-pill loading-animation'></div></div>
-                                <div className='d-flex'>
-                                  <div className=' skeleton5 rounded-pill loading-animation'></div>
-                                  <div className=' ms-4 skeleton6 rounded-pill loading-animation'></div>
-                                </div>
+                            </div>
+                            <div className="col-md-9">
+                              <h4 className='font-color skeleton2 rounded-pill loading-animation'> </h4>
+                              <div className='d-flex'>
+                                <div className='nam fs-6 text-white text-capitalize skeleton3 rounded-pill loading-animation' ></div>
+                                <div className='mx-auto nameloc skeleton4 rounded-pill loading-animation'></div></div>
+                              <div className='d-flex'>
+                                <div className=' skeleton5 rounded-pill loading-animation'></div>
+                                <div className=' ms-4 skeleton6 rounded-pill loading-animation'></div>
                               </div>
                             </div>
                           </div>
+                          </div>
                           <div className="col-md-6">
                             <div className="row mb-3">
-                              <div className="col-md-10 d-flex justify-content-end">
-                                <div className="w-75 p-4  skeleton7 rounded-pill loading-animation">
-
-                                </div>
-                              </div>
-                              <div className="col-md-1 mx-3 res4" style={{ opacity: "65%" }}>
-                                <i class="bi bi-bookmark-fill fw-bold fs-3"></i>
+                            <div className="col-md-10 d-flex justify-content-end">
+                              <div className="w-75 p-4  skeleton7 rounded-pill loading-animation">
+                                
                               </div>
                             </div>
+                            <div className="col-md-1 mx-3 res4" style={{opacity:"65%"}}>
+                            <i class="bi bi-bookmark-fill fw-bold fs-3"></i>
+                            </div>
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -416,11 +416,11 @@ const All_Lawyers = () => {
                               </button>
                             </div>
                             {userRole === "user" && (
-                              <div className="col-md-1 mx-3 res4" onClick={() => addToLawyer(data.uid)}>
-                                <i class="bi bi-bookmark fw-bold fs-3"></i>
-                                <p className="fs-6 savelist">save</p>
-                              </div>
-                            )}
+      <div className="col-md-1 mx-3 res4" onClick={()=>addToLawyer(data.uid)}>
+        <i class="bi bi-bookmark fw-bold fs-3"></i>
+        <p className="fs-6 savelist">save</p>
+      </div>
+     )}
                           </div>
                         </div>
                       </div>
@@ -429,7 +429,7 @@ const All_Lawyers = () => {
                   ))
                 )}
 
-                {/* All lawyer Section Cards End */}
+                    {/* All lawyer Section Cards End */}
 
                 <div id="react-paginate" className='mt-5'>
                   <ReactPaginate
@@ -460,7 +460,7 @@ const All_Lawyers = () => {
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">
-              <h1 className="text-white" style={{ marginTop: "-20px" }}>
+              <h1 className="text-white" style={{marginTop:"-20px"}}>
                 Recommended
                 <span id="cat" className="ms-2">
                   Lawyers
@@ -468,7 +468,7 @@ const All_Lawyers = () => {
               </h1>
             </div>
             <div className="col-lg-6 featured" >
-              <div className="d-flex float-xl-end" style={{ marginTop: "-15px" }}>
+              <div className="d-flex float-xl-end" style={{marginTop:"-15px"}}>
                 <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-white'>Show all lawyers</a></p>
                 <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
               </div>
@@ -482,7 +482,7 @@ const All_Lawyers = () => {
 
       </div>
       <div className='container'>
-        <Contect_Sugg />
+          <Contect_Sugg />
       </div>
       <div className='mt-5'>
         <Testimonial />

@@ -5,7 +5,6 @@ import "./admin.css";
 import { useNavigate } from 'react-router-dom';
 
 
-
 const All_Lawyers = () => {
 
     const [lawyers, setLawyers] = useState([]);
