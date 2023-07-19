@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import "./Dashboard.css";
-import { query, collection, getDocs, where, doc, updateDoc  } from "firebase/firestore";
+import { query, collection, getDocs, where, doc, updateDoc, and, or  } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, storage, db } from '../../../firebase';
@@ -14,6 +14,7 @@ const Lawyer_Profiles = () => {
 
   const navigate = useNavigate();
   const params = useParams();
+  const [userRole, setUserRole] = useState(null);
   const [user, loading] = useAuthState(auth);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -28,17 +29,62 @@ const Lawyer_Profiles = () => {
   const [url , setUrl] = useState("");
   const fetchUserName = async () => {
   
-    const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
-    // const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+    // check login as a user or lawyer
+  const loginUserORLawyer = async () => {
+    if(user){
+      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const q1 = query(collection(db, "admin"), where("uid", "==", user.uid));
+  
+  
+      const docs = await getDocs(q);
+      const info = await getDocs(q1)
+     
+      // lawyer auth
+      if (docs.empty) {
+        console.log("No matching documents.");
+      } else {
+        docs.forEach((doc) => {
+          const data = doc.data();
+          console.log(data);
+          console.log("lawyer login");
+          setUserRole("lawyer");
+         
+        });
+      }
+      // admin auth
+      if (info.empty) {
+        console.log("No matching documents.");
+      } else {
+        info.forEach((doc) => {
+          const data = doc.data();
+          console.log(data);
+          console.log("admin login");
+          setUserRole("admin");
+       
+        });
+      }
+  
+    }
+  }
+  loginUserORLawyer();
+
+  const alllawyers = collection(db, "lawyers");
+  const a = query(alllawyers,
+    and(or(where("uid", "==", user.uid), where("uid", "==", params.id)),
+
+    )
+  )
+ 
     const res = [];
-      const doc = await getDocs(q);
+      const doc = await getDocs(a);
       doc.forEach(value=>{
           res.push({
               id: value.id,
               ...value.data()
           });
       });
-      // console.log("id "+params.id);
+      console.log(params.id);
+   
       console.log(res[0].id);
       getUserId(res[0].id);
       const data = doc.docs[0].data();
