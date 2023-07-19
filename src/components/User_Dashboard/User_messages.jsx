@@ -61,11 +61,14 @@ const User_messages = () => {
 
 
 
+
+
+
   // fetch allusers messages
   const Messages = async () => {
     if (uids !== null) {
       const cartRef = collection(db, 'User_Messages');
-      const userCartRef = doc(cartRef, "VB2LoK7A4YSRmYJpsTlJmAx94Ss1");
+      const userCartRef = doc(cartRef, "xhQiwTrA11bddTf9Ll3akVas47w2");
       const userMessagesRef = doc(collection(userCartRef, 'AllUsers'), uids);      
       const snapshot = await getDoc(userMessagesRef);
       
@@ -76,7 +79,7 @@ const User_messages = () => {
         };
     
         
-        setAdd_Lawyercarts(messageData );
+        setAdd_Lawyercarts(messageData);
         } else {
           console.log(loginUserId);
         }
@@ -100,7 +103,7 @@ const User_messages = () => {
                       className="mt-1"
                       style={{ width: "20%", height: "20%" }}
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercarts.name}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercarts.username}</p>
       
                   </div>
           

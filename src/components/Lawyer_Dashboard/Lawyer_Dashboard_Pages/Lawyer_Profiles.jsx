@@ -28,6 +28,7 @@ const Lawyer_Profiles = () => {
   const [setUserId ,getUserId] = useState("");
   const [url , setUrl] = useState("");
   const [picture, setPicture]= useState([]);
+  const [multiImages,setMultiImages] = useState([]);
   const fetchUserName = async () => {
   
     // check login as a user or lawyer
@@ -148,6 +149,31 @@ const Lawyer_Profiles = () => {
 
 const handleUpdate = async (e) => {
   e.preventDefault()
+  console.log(picture);
+  // update the lawyer images
+  const storageRef = ref(storage, `/images/${picture.name}`);
+  const uploadTask = uploadBytesResumable(storageRef, picture);
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+        const percent = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+
+        // update progress
+        console.log(percent);
+    },
+    (err) => console.log(err),
+    () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          console.log(url);
+            setMultiImages(url);
+        }).catch((err)=>{
+          console.log(err);
+        })
+    }
+); 
 
   const taskDocRef = doc(db,"lawyers", setUserId);
 
@@ -163,6 +189,7 @@ const handleUpdate = async (e) => {
       image: url,
       address: location,
       summary: bio,
+      photos:multiImages
       
     }).then(() => {
       alert("Document successfully updated!");
@@ -254,7 +281,7 @@ const handleUpdate = async (e) => {
                             </div>
                            
                             <div className="col-md-6 mbs1">
-                            <label className="small mb-1 text-white" for="inputWork">Enter or choose location</label>
+                            <label className="small mb-1 text-white" for="inputWork">Choose Images</label>
                             <div class="input-group mb-3 mbs">
                              <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={(e) => setPicture(e.target.files[0])} />
                              <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-card-image"></i></span>
