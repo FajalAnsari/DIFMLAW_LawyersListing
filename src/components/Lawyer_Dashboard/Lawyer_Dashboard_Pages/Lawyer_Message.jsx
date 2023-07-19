@@ -127,8 +127,8 @@ element1.classList.add("block-styles");
                 <p className="fs-5 pb">
                   <b>Message :</b>{messages.message}
                 </p>
-                <p className="fs-5 pb">
-                  <b>Date :</b> {messages.createdAtDate} {messages.createdAtTime}
+                <p className="text-end mt-4 font-color" style={{fontSize:"12px",marginBottom:"-15px"}}>
+                  {messages.createdAtDate} {messages.createdAtTime}
                 </p>
               </div>
           
