@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { dummy } from "../../images";
-import { collection, getDocs, doc, query, where, getDoc, serverTimestamp } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { auth } from "../../../firebase";
 
@@ -11,7 +11,7 @@ const Lawyer_Message = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
   const [messages, setAllmessages] = useState([]);
   const [loginlawyerId, getLoginLawyerId] = useState("");
-  const [userName, setUserName] = useState("");
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -51,6 +51,12 @@ const Lawyer_Message = () => {
    // fetch allusers messages
 
 const Messages = async (id) => {
+  
+  // Get the element you want to style
+const element = document.getElementById("text_msg3"); 
+element.classList.add("block-style");
+const element1 = document.getElementById("no"); 
+element1.classList.add("block-styles");
 
   const cartRef = collection(db, 'User_Messages');
   const userCartRef = doc(cartRef, loginlawyerId);
@@ -63,61 +69,46 @@ const Messages = async (id) => {
       id: snapshot.id,
       ...snapshot.data()
     };
-const fetchServerDate = async () => {
-  try {
-    var timestamp = snapshot.data().serverTimestamp;
-    var date = new Date(timestamp);
 
-    // Format the date as a string
-    var dateString = date.toLocaleString();
+    // Check if createdAt field is a server timestamp
+    if (messageData) {
+      // Convert server timestamp to a JavaScript Date object
+      const createdAtDate = messageData.date.toDate();
 
-    console.log("Document created on " + dateString);
-    const serverDateSnapshot = await getDoc(doc(cartRef, 'serverTimestamp'));
+      // Format the date as a readable string
+      const formattedDate = createdAtDate.toLocaleDateString();
+      const formattedTime = createdAtDate.toLocaleTimeString();
 
-    if (serverDateSnapshot.exists()) {
-      const serverData = serverDateSnapshot.data();
-      const serverDate = serverData.serverDate;
-      console.log(serverDate);
-
-      if (serverDate) {
-        console.log('Server date:', serverDate);
-      } else {
-        console.log('Server date field not found');
-      }
-    } else {
-      console.log('No server timestamp document found');
+      // Add the formatted date and time back to the messageData object
+      messageData.createdAtDate = formattedDate;
+      messageData.createdAtTime = formattedTime;
     }
-  } catch (error) {
-    console.log('Error fetching server date:', error);
-  }
-};
-
-// Call the function to fetch the server date
-fetchServerDate();
-  
     setAllmessages(messageData);
-    console.log(messageData);
+    console.log(messageData.createdAtDate);
   } else {
     console.log('No message found');
   }
 
   
 }
+
+
   return (
     <>
       <div className="lawyer_message" id="message">
         <div className="row">
           <div className="col-md-4">       
               <div className="user_pro">
+                <p className="text-white mt-4 text-center">Messages</p>
               {add_Lawyercarts.map((add_Lawyercart, i) => (
-                  <div className="d-flex px-4  usersl um" onClick={()=> {Messages(add_Lawyercart.id)}} key={i}>
+                  <div className="d-flex px-4 usersl mb-2" onClick={()=> {Messages(add_Lawyercart.id)}} key={i} activeClassName="active">
                     <img
                       src={dummy}
                       alt="dummy"
                       className="mt-1"
                       style={{ width: "20%", height: "20%" }}
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.name}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.username}</p>
                     {/* {setUserName[{...add_Lawyercart.name}]} */}
                   </div>
                   ))}
@@ -125,8 +116,8 @@ fetchServerDate();
           </div>
           <div className="col-md-8">
             <div className="msg_1">
-        
-              <div className="text_msg1 py-4 px-5 text-white">
+              <p className="text-center text-white fs-5" style={{padding:"28%"}} id="no">No Message Selected</p>
+              <div className="text_msg1 py-4 px-5 text-white" id="text_msg3">
                 <p>
                   <b>Phone No. :</b> <a href='tel:${messages.number}' className="text-white" style={{textDecoration:'none'}}>{messages.number}</a> 
                 </p>
@@ -135,6 +126,9 @@ fetchServerDate();
                 </p>
                 <p className="fs-5 pb">
                   <b>Message :</b>{messages.message}
+                </p>
+                <p className="text-end mt-4 font-color" style={{fontSize:"12px",marginBottom:"-15px"}}>
+                  {messages.createdAtDate} {messages.createdAtTime}
                 </p>
               </div>
           

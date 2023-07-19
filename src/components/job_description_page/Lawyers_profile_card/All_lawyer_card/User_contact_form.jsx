@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { collection,  doc,  getDocs, query, setDoc, where } from "firebase/firestore";
 import { db } from '../../../../firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
+import { serverTimestamp } from 'firebase/firestore';
 import { auth } from '../../../../firebase';
 const User_contact_form = (props) => {
     const [user] = useAuthState(auth);
@@ -23,7 +24,7 @@ const User_contact_form = (props) => {
           });
         });
       
-        setUserName(res[0].name);
+        setUserName(res[0].username);
       }).catch((error) => {
         console.log("Error getting documents: ", error);
       });
@@ -45,10 +46,11 @@ useEffect(()=>{
         else{
             const parentCollection = collection(db, 'User_Messages');
              data.push({
-                name:UserName,
+                username:UserName,
                 number:number,
                 email:email,
                 message:message,
+                date: serverTimestamp()
                
             })
 
