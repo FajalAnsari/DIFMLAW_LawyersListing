@@ -3,8 +3,6 @@ import { collection, getDocs} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import "./admin.css";
-import { useNavigate } from 'react-router-dom';
-
 
 const All_Lawyers = () => {
   
