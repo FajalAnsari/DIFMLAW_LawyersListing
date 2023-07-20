@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -214,157 +214,132 @@ const Signup = () => {
                   User
                 </button>
               </div>
-              <div className="shadow form-container forms-bg w-75 mx-auto p-4">
+              <div className="shadow form-container forms-bg w-75 mx-auto p-2">
 
                 <form
-                  class="row g-3 me-4 mx-4 mt-1"
+                  class="row g-3 me-4 mx-4"
                   onSubmit={handleLawyerFormSubmit}
                 >
-                  <div class="col-md-6">
-                    <input
-                      type="text"
-                      placeholder="Enter your full name"
-                      class="form-control inputs selct"
-                      id="inputEmail4"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      class="form-control inputs selct"
-                      id="inputPassword4"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
                   <div class="col-md-6 mt-4">
-                    <input
-                      type="number"
-                      placeholder="Enter your number"
-                      class="form-control inputs selct"
-                      id="inputPassword4"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                  </div>
-
-                  <div class="col-md-6 mt-4">
-                    <select
-                      id="inputState"
-                      value={experience}
-                      onChange={(e) => setExperience(e.target.value)}
-                      class="form-select inputs selct"
-                    >
-                      <option selected>Choose...</option>
-                      <option value="1 Year">1 Year</option>
-                      <option value="2 Year">2 Years</option>
-                      <option value="3 Year">3 Years</option>
-                      <option value="4 Year">4 Years</option>
-                      <option value="5 Year">5 Years</option>
-                      <option value="6 Year">6 Years</option>
-                      <option value="7 Year">7 Years</option>
-                      <option value="8 Year">8 Years</option>
-                      <option value="9 Year">9 Years</option>
-                      <option value="10+ Year">10+ Years</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <select
-                      id="inputState"
-                      value={specialization}
-                      onChange={(e) => setSpecialization(e.target.value)}
-                      class="form-select inputs selct"
-                    >
-                      <option selected>Select your expertise</option>
-                      <option value="Injury Lawyers">Injury Lawyers</option>
-                      <option value="Family Law Lawyers">Family Law Lawyers</option>
-                      <option value="Defense Lawyers">Defense Lawyers</option>
-                      <option value="Corporate Lawyers">Corporate Lawyers</option>
-                      <option value="Immigration Lawyers">Immigration Lawyers</option>
-                      <option value="Property Lawyers">Property Lawyers</option>
-                      <option value="Real Estate Lawyers">Real Estate Lawyers</option>
-                      <option value="Employment Lawyers">Employment Lawyers</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6 mt-4">
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control inputs selct" id="inputZip" placeholder="Location, country, city, state..." value={location}
-                        onChange={(e) => setLocation(e.target.value)} />
-                      <span class="input-group-text inputs border-prime selct" ><i class="bi bi-geo-alt "></i></span>
+                    <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                      <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-4">
+                    <label className="small mb-1 text-white" for="inputEmail">Email</label>
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-3">
+                    <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder="Enter your number" value={phone}  onChange={(e) => setPhone(e.target.value)}/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
+                    </div>  
+                  </div>
+
+                  <div class="col-md-6 mt-3">
+                     <label className="small mb-1 text-white" for="inputExperience">Experience</label>    
+                        <div class="input-group mbs">
+                          <select id="inputState" value={experience} onChange={(e) => setExperience(e.target.value)} class="form-select contect-bgColors selct">
+                           <option selected>Choose...</option>
+                           <option value="1 Year">1 Year</option>
+                           <option value="2 Year">2 Years</option>
+                           <option value="3 Year">3 Years</option>
+                           <option value="4 Year">4 Years</option>
+                           <option value="5 Year">5 Years</option>
+                           <option value="6 Year">6 Years</option>
+                           <option value="7 Year">7 Years</option>
+                           <option value="8 Year">8 Years</option>
+                           <option value="9 Year">9 Years</option>
+                           <option value="10+ Year">10+ Years</option>
+                           </select>
+                           <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-briefcase-fill"></i></span>
+                        </div>
+                  </div>
+                  <div class="col-md-6 mt-3">
+                    <label className="small mb-1 text-white" for="inputSpecialization">Specialization</label>
+                      <div class="input-group mbs">
+                        <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct">
+                          <option selected>Select your expertise</option>
+                          <option value="Injury Lawyers">Injury Lawyers</option>
+                          <option value="Family Law Lawyers">Family Law Lawyers</option>
+                          <option value="Defense Lawyers">Defense Lawyers</option>
+                          <option value="Corporate Lawyers">Corporate Lawyers</option>
+                          <option value="Immigration Lawyers">Immigration Lawyers</option>
+                          <option value="Property Lawyers">Property Lawyers</option>
+                          <option value="Real Estate Lawyers">Real Estate Lawyers</option>
+                          <option value="Employment Lawyers">Employment Lawyers</option>
+                        </select>
+                        <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mt-3">
+                   <label className="small mb-1 text-white" for="inputWork">Location</label>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={location} onChange={(e) => {setLocation(e.target.value)}}/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt-fill"></i></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-3">
+                  <label className="small mb-1 text-white" for="inputWork">Work</label>
+                    <div class="input-group mbs">
                     <select
                       id="inputState"
                       value={work}
                       onChange={(e) => setWork(e.target.value)}
-                      class="form-select inputs selct"
+                      class="form-select contect-bgColors selct"
                     >
                       <option selected>Choose..</option>
                       <option value="Full Day">Full Day</option>
                       <option value="Half Day">Half Day</option>
                     </select>
+                    <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
+                    </div>
                   </div>
-                  <div class="col-md-6 mt-4">
-                    <input type="file" name="file-input" id="file-input" className="file-input__input" multiple onChange={(e) => setPicture(e.target.files[0])} />
-                    <label className="file-input__label  btns-primary" for="file-input" id="slects">
-                      <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        data-prefix="fas"
-                        data-icon="upload"
-                        className="svg-inline--fa fa-upload fa-w-16 "
-                        role="img"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                        ></path>
-                      </svg>
-                      <span>Choose Profile Picture</span></label>
-                    <span className="text-danger">{fileError}</span>
+                  <div class="col-md-6 mt-3">
+                    <label className="small mb-1 text-white" for="inputWork">Pictures</label>
+                      <div class="input-group mbs">
+                      <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" onChange={(e) => setPicture(e.target.files[0])} />
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-card-image"></i></span>
+                    </div>
                   </div>
-                  <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      placeholder="Password "
-                      class="form-control inputs selct"
-                      id="inputZip"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
+                  <div class="col-md-6 mt-3">
+                    <label className="small mb-1 text-white" for="inputSpecialization">New Password</label>
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
+                       <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                      </div>
                   </div>
-                  <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      placeholder="Confirm password"
-                      class="form-control inputs selct"
-                      id="inputZip"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
+                  <div class="col-md-6 mt-3">
+                    <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter your confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                      </div>
                   </div>
-                  <div class="col-md-12 mt-4">
-                    <textarea
-                      class="form-control inputs border-grays"
-                      placeholder="Write about yourself..."
-                      id="form6Example7"
-                      rows="4"
-                      value={bio}
-                      onChange={biohaldle}
-                    ></textarea>
+                  <div class="col-md-12 mt-3">
+                    <label for="inputZip" class="form-label text-white">Bio/Profile Summary</label>
+                    <textarea class="form-control ed text-primary contect-bgColors" maxLength="250"  id="form6Example7" rows="4"  placeholder="Write about yourself..." value={bio} onChange={biohaldle}></textarea>      
                   </div>
+                  
+                 <div class="form-check mb-0 mx-2">
+                  <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3"/>
+                   <label class="form-check-label  text-white" for="form2Example3">
+                   I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
+                  </label>
+                </div>
                   <p className="text-danger fs-5">{error}</p>
-                  <div class="col-md-12 mb-4 ">
+                  <div class="col-md-12">
                     <button
                       type="submit"
-                      class=" mt-2 mb-5 w-25 signup border-prime  btn-regi"
+                      class=" mb-4 w-25 signup border-prime btns-primary  btn-regi"
+                      style={{marginTop:"-20px"}}
                     >
                       Register Now
                     </button>
@@ -399,73 +374,60 @@ const Signup = () => {
 
                 <form class="row g-3 me-4 mx-4 mt-1" onSubmit={handleUserFormSubmit}>
                   <div class="col-md-6">
-                    <input
-                      type="text"
-                      placeholder="Enter your full name"
-                      class="form-control inputs selct"
-                      id="inputEmail4"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
+                     <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={name} onChange={(e) => {setName(e.target.value)}}/>
+                      <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
+                    </div>
                   </div>
                   <div class="col-md-6">
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      class="form-control inputs selct"
-                      id="inputPassword4"
-                      value={emails}
-                      onChange={(e) => setEmails(e.target.value)}
-                    />
+                    <label className="small mb-1 text-white" for="inputEmail">Email</label>
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}}  disabled/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+                    </div>
                   </div>
                   <div class="col-md-6 mt-4">
-                    <input
-                      type="number"
-                      placeholder="Enter your number"
-                      class="form-control inputs selct"
-                      id="inputPassword4"
-                      value={number}
-                      onChange={(e) => setNumber(e.target.value)}
-                    />
+                    <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder="Enter your number"  value={number}  onChange={(e) => setNumber(e.target.value)}/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
+                    </div>
                   </div>
 
                   <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      placeholder="Select your state"
-                      class="form-control inputs selct"
-                      id="inputZip"
-                      value={state}
-                      onChange={(e) => setState(e.target.value)}
-                    />
+                     <label className="small mb-1 text-white" for="inputWork">Location</label>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..."  value={state}  onChange={(e) => setState(e.target.value)}/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt-fill"></i></span>
+                    </div>
                   </div>
 
                   <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      placeholder="Password "
-                      class="form-control inputs selct"
-                      id="inputZip"
-                      value={pass}
-                      onChange={(e) => setPass(e.target.value)}
-                    />
+                     <label className="small mb-1 text-white" for="inputSpecialization">New Password</label>
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={pass} onChange={(e) => setPass(e.target.value)}/>
+                       <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                      </div>
                   </div>
                   <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      placeholder="Confirm password"
-                      class="form-control inputs selct"
-                      id="inputZip"
-                      value={confirmPass}
-                      onChange={(e) => setConfirmPass(e.target.value)}
-                    />
-
+                     <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
+                      <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter your confirm password" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)}/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                      </div>
                   </div>
+                  <div class="form-check mb-0 mx-2">
+                  <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3"/>
+                   <label class="form-check-label  text-white" for="form2Example3">
+                   I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
+                  </label>
+                </div>
                   {/* <span className="text-danger">{userErr}</span> */}
                   <div class="col-md-12 mt-5 ">
                     <button
                       type="submit"
-                      class=" mt-2 mb-5 signup border-prime w-25 btn-regi"
+                      class=" mt-2 mb-5 signup border-prime btns-primary w-25 btn-regi"
                     >
                       Register Now
                     </button>
