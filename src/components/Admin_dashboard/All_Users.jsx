@@ -16,11 +16,12 @@ const All_Users = () => {
             setLawyers(newData);                
             console.log(lawyers);
         }) 
+    }
 
-
-
-
-
+    // delete the user
+    const handleDelete = (id) => {
+   alert(id);
+  
     }
 
 useEffect(()=>{
@@ -75,7 +76,7 @@ useEffect(()=>{
                                                 <td className="d-flex justify-content-between">
                                                   <p style={{color:"green"}}><i class="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
+                                                  <p style={{color:"red"}}><i class="bi bi-trash3" onClick={() =>{handleDelete(element.uid)}}></i></p>
                                                 </td>
                                             </tr>
                                         </>
