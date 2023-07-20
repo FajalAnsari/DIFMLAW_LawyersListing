@@ -64,6 +64,26 @@ useEffect(()=>{
                  })
             }
           
+            // send to wishlist
+            const parentsubCollection = collection(db, 'User_Wishlist');
+            data.push({
+               username:UserName,
+               number:number,
+               email:email,
+               message:message,
+               date: serverTimestamp(),
+               image:userImage
+           })
+
+           for (const item of data){
+                const cartCollectionRef = doc(parentsubCollection, user.uid, 'AllMessages', props.lawyer_id); 
+                await setDoc(cartCollectionRef,item).then(()=>{
+                   alert("message sent successfully");
+                }).catch((err)=>{
+                   console.log(err);
+                })
+           }
+         
          
         }
 

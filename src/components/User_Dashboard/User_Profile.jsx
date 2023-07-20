@@ -84,7 +84,7 @@ const User_Profile = () => {
   
       setLocation(data.address);
  
-      setUserimage(data.userProfile);
+      setUserimage(data.image);
 
     
   };
@@ -148,7 +148,7 @@ const handleUpdate = async (e) => {
           <div className="col-md-4">
              <div className='user_pro'>
                  <div className="d-flex px-4 border border-prime border-4 rounded-full  um">
-                   <img src={url || image} alt="dummy" className='umn'/>
+                   <img src={ url || image } alt="dummy" className='umn'/>
                   <label for='changepic' style={{marginTop:'67px'}}><span className='text-white change' style={{fontSize:'12px', position:"relative"}}>Change</span></label>
                   <input type='file' name='file' id='changepic' className='d-none' onChange={handleImageChange} />
                  </div>
