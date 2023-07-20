@@ -7,6 +7,7 @@ import { dummy } from '../images';
 const User_messages = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
   const [messages, setAllmessages] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
   const [loginlawyerId, getLoginLawyerId] = useState("");
 const [lawyer, addLawyer] = useState("");
 

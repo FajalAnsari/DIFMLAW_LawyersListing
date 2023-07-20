@@ -487,6 +487,19 @@
        height: 28px;
        font-size: 12px;
     }    
+    .bookmark_lawyer{
+        margin-left: -1% !important;
+        width: 100% !important;
+        background-color: var(--third-primary) !important;
+        padding: 0% !important;
+        margin-top: -142% !important;
+        height: 182.40vh !important;
+    }
+    .bookmark_lawyer .lawyers-card {
+        width: 100% !important;
+        margin-left: 10%;
+        margin-top: -15% !important;
+    }
   }
 
 

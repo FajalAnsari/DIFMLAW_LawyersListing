@@ -67,8 +67,8 @@ const Bookmark = () => {
   return (
     <>
       {add_Lawyercarts.length > 0 && (
-        <div className='p-1 rounded ' style={{marginTop:"-40%",height:"79.39vh",marginLeft:"300px",width:"84.29%",backgroundColor:"var(--fourth-primary)"}}>
-           <div className="row lawyers_profile">
+        <div className='p-1 rounded bookmark_lawyer' style={{marginTop:"-40%",height:"79.39vh",marginLeft:"300px",width:"84.29%",backgroundColor:"var(--fourth-primary)"}}>
+           <div className="row lawyers_profile ">
            {add_Lawyercarts.map((add_Lawyercart, i) => (
       <div className="col-lg-3 rounded-3 lawyer ecard  card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
         <div className="row  mt-2" id="lawyer">
@@ -101,10 +101,6 @@ const Bookmark = () => {
               <button className="btn btns-primary sfcs viewbtn">
                 View Profile
               </button>
-              {/* <div className="col-md-1 mx-3 res4">
-          <i class="bi bi-bookmark fw-bold fs-3"></i>
-          <p className='fs-6 savelist'>save</p>
-          </div> */}
             </div>
           </div>
         </div>
