@@ -17,6 +17,16 @@
     margin-top: -15px !important; 
     
 }
+.all_lmsg{
+    background-color: #4C525A !important;
+    border-radius: 0px 10px 10px 10px;
+}
+.all_lmsg1{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--primary) !important;
+}
 .ab{
     justify-content: center !important;
    

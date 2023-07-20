@@ -33,6 +33,12 @@ const Footer = () => {
    
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
   return (
     <>
     <Devider />
@@ -68,19 +74,19 @@ const Footer = () => {
           <p class="h5 mb-4 Devwares mt-4">Quick Links</p>
           <ul class="p-0 lis ">
             <li class="my-2 ">
-              <Link class="text-dark text-decoration-none text-white" to="/contect_us">Contact</Link>
+              <Link class="text-dark text-decoration-none text-white" to="/contect_us" onClick={scrollToTop}>Contact</Link>
             </li>
             <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/about">About</Link>
+              <Link class="text-dark text-decoration-none text-white" to="/about" onClick={scrollToTop}>About</Link>
             </li>
             <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/alllawyer">Lawyers</Link>
+              <Link class="text-dark text-decoration-none text-white" to="/alllawyer" onClick={scrollToTop}>Lawyers</Link>
             </li>
             <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/privacy_policy">Privacy Policy</Link>
+              <Link class="text-dark text-decoration-none text-white" to="/privacy_policy" onClick={scrollToTop}>Privacy Policy</Link>
             </li>
             <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/terms_condition">Terms and Conditions</Link>
+              <Link class="text-dark text-decoration-none text-white" to="/terms_condition" onClick={scrollToTop}>Terms and Conditions</Link>
             </li>
           </ul>
         </div>

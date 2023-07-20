@@ -20,20 +20,19 @@ const handleSubmit = async(e)=>{
 }
 
   return (
+    <div className="form-sectionss" style={{marginTop:"1px"}}>
     <div className="container">
-        <div className="mx-auto mt-5">
-      <div class="card" style={{width: "600px"}}>
-    <div class="card-header h5 font-color ">Password Reset</div>
+<div class="card text-center py-4" style={{width: "30%",marginTop:"15%",marginLeft:"20%" ,position:"absolute",backgroundColor:" #161D27"}}>
+<p class="fs-2 font-color ">Password Reset</p>
     <div class="card-body px-5">
-        <p class="card-text">
+        <p class="card-text text-white">
             Enter your email address and we'll send you an email with instructions to reset your password.
         </p>
         <form onSubmit={(e)=>handleSubmit(e)}>
-        <div class="form-outline">
-        <label class="form-label" for="typeEmail">Email:</label>
-            <input type="email" id="typeEmail"  name="email" 
-              placeholder='Enter Your Email' class="form-control my-3" />       
-        </div>
+                      <div class="input-group mbs mt-5">
+                      <input className="form-control contect-bgColors dm" id="typeEmail" type="email" name="email"  placeholder="Enter your email"/>
+                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+                    </div>
         <p className='text-danger fs-6 mt-4'>{error}</p>
         <button href="#" class="btn btns-primary w-100">Reset password</button>
         </form>
@@ -43,7 +42,7 @@ const handleSubmit = async(e)=>{
         </div>
     </div>
 </div>
-</div>
+    </div>
     </div>
   )
 }
