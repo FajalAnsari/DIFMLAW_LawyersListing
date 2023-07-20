@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { collection, getDocs} from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
 import "./admin.css";
 import { useNavigate } from 'react-router-dom';
@@ -19,9 +19,20 @@ const All_Users = () => {
     }
 
     // delete the user
-    const handleDelete = (id) => {
-   alert(id);
+    const handleDelete = async (id) => {
   
+   const confirmDelete = window.confirm('Are you sure you want to delete this item?');
+
+   if (confirmDelete) {
+     // User confirmed, proceed with deletion
+     // Your deletion logic here...
+     await deleteDoc(doc(db, "users", "DC"));
+     alert(`Deleting item with ID: ${id}`);
+   } else {
+     // User canceled the deletion
+     alert('Deletion canceled.');
+   }
+    
     }
 
 useEffect(()=>{
