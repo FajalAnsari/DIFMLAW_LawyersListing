@@ -24,7 +24,7 @@ const [lawyer, addLawyer] = useState("");
             ...doc.data(),
            
           }));
-          console.log(user.uid);
+          getLoginLawyerId(user.uid);
           
        console.log(newCartProduct);
           setAdd_Lawyercarts(newCartProduct);
@@ -60,7 +60,7 @@ const element1 = document.getElementById("no");
 element1.classList.add("block-styles");
 
   const cartRef = collection(db, 'User_Wishlist');
-  const userCartRef = doc(cartRef, );
+  const userCartRef = doc(cartRef, loginlawyerId);
   const userMessagesRef = doc(collection(userCartRef, 'AllMessages'), id);
   
   const snapshot = await getDoc(userMessagesRef);
@@ -85,7 +85,7 @@ element1.classList.add("block-styles");
       messageData.createdAtTime = formattedTime;
     }
     setAllmessages(messageData);
-    console.log(messages);
+    console.log(id);
   } else {
     console.log('No message found');
   }
