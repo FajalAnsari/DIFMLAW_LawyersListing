@@ -85,7 +85,7 @@ element1.classList.add("block-styles");
       messageData.createdAtTime = formattedTime;
     }
     setAllmessages(messageData);
-    console.log(messageData.createdAtDate);
+    console.log(messages);
   } else {
     console.log('No message found');
   }
@@ -103,12 +103,12 @@ element1.classList.add("block-styles");
               {add_Lawyercarts.map((add_Lawyercart, i) => (
                   <div className="d-flex px-4 usersl mb-2" onClick={()=> {Messages(add_Lawyercart.id)}} key={i} activeClassName="active">
                     <img
-                      src={add_Lawyercart.image || dummy}
+                      src={add_Lawyercart.lawyer_image || dummy}
                       alt="dummy"
-                      className="mt-1"
-                      style={{ width: "20%", height: "20%" }}
+                      className="mt-1 all_lmsg1"
+                      width="40"
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.username}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.lawyername}</p>
                     {/* {setUserName[{...add_Lawyercart.name}]} */}
                   </div>
                   ))}
