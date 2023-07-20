@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import Add_Comment from "../Add_review/Add_Comment";
 import Add_review from "../Add_review/Add_review";
 import User_contact_form from "./All_lawyer_card/User_contact_form";
+import User_message from "./All_lawyer_card/User_message";
 const Lawyers_profile_card = () => {
   
   const params = useParams();
@@ -169,6 +170,7 @@ const Lawyers_profile_card = () => {
          {/* this contect form for laywer start */}
            
        <User_contact_form lawyer_id={data.uid}/>
+       <User_message />
 
          {/* this contect form for laywer end */}
 

@@ -5,7 +5,7 @@
     font-size: 20px;
 }
 .forms-bg{
-  background-color: var(--secondary);
+  background-color: var(--secondary) !important;
   border-radius: 2px;
 }
 .inputs{

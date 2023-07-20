@@ -3,26 +3,48 @@ import { Link } from 'react-router-dom';
 import "../Hero/Category.css";
 
 const Contect_now = () => {
+
+
+  function validates(){
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const exampleModalToggle2 = document.getElementById("exampleModalToggle2");
+   if(!email || !message){
+   alert("Please Fill the form");
+   return false;
+   }
+    if(email.indexOf("@") == -1 || email.length < 6){
+      alert("Please Enter valid Email");
+      return false;
+    }
+    if(message.length <= 140){
+      alert("Please Enter More Than 140 Characters");
+      return false;
+    }
+    alert("Form Submitted Successfully!");
+    return true;
+  }
   return (
     <>
+
      <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content border border-prime border-3">
+    <div class="modal-content border border-prime border-3" >
       <div class="modal-header">
         <h4 class="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion </h4>
       </div>
       <div className='container'>
       <div class="mb-3 mt-4">
-  <label for="exampleFormControlInput1" class="form-label">Enter Email or Phone </label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email"/>
+  <label for="exampleFormControlInput1" class="form-label">Enter Email</label>
+  <input type="email" class="form-control" id="email" placeholder="Enter your email"/>
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Write your message</label>
-  <textarea class="form-control" placeholder='Write your message' id="exampleFormControlTextarea1" rows="3"></textarea>
+  <textarea class="form-control" placeholder='Write your message' id="message" rows="3"></textarea>
 </div>
 </div>
       <div class="mx-auto mb-4">
-        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={validates}>Submit</button>
       </div>
     </div>
   </div>
