@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Testimonial.css";
-import { Testimonial_icon, testimonial_reviewicon,Image_testimonial } from '../images'
+import { Testimonial_icon, testimonial_reviewicon,Image_testimonial,Image_testimonial2,Image_testimonial3,Image_testimonial4 } from '../images'
 
 const Testimonial = () => {
   return (
@@ -28,7 +28,7 @@ const Testimonial = () => {
          <div className="col-md-3">
             <div className="row  mt-2 devider2">
                 <div className="col-lg-4 col-sm-4 col-6 mts">
-                   <img src={Image_testimonial}></img>
+                   <img src={Image_testimonial2}></img>
                </div>
                <div className="col-lg-8 col-sm-8 col-6 mts">
                  <h4 className="text-white me-4">Minci pall</h4>
@@ -49,7 +49,7 @@ const Testimonial = () => {
              </div>
              <div className="row  mt-4 devider2">
                 <div className="col-lg-4 col-sm-4 col-6 mts">
-                   <img src={Image_testimonial}></img>
+                   <img src={Image_testimonial3}></img>
                </div>
                <div className="col-lg-8 col-sm-8 col-6 mts">
                  <h4 className="text-white me-4">Julia Rose</h4>
@@ -62,11 +62,11 @@ const Testimonial = () => {
          <div className="col-md-3">
           <div className="row  mt-2 devider2">
                 <div className="col-lg-4 col-sm-2 col-6 mts">
-                   <img src={Image_testimonial}></img>
+                   <img src={Image_testimonial4}></img>
                </div>
                <div className="col-lg-8 col-sm-8 col-6 mts">
                  <h4 className="text-white me-4">John David</h4>
-                 <p className="fs-5 text-white">Junior Lawyer</p>
+                 <p className="fs-5 text-white">Corporate Lawyers</p>
                </div>
             </div>
             <div className='testimonial1 w-75 mt-2 mtss'>

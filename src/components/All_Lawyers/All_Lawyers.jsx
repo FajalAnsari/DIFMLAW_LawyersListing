@@ -284,7 +284,15 @@ const All_Lawyers = () => {
           <div class="row mt-5 ">
             <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" id="lawyername" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
+                <input type="text" class="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
+                <datalist id="categoryOptions">
+                    <option value="Injury Lawyers" />
+                    <option value="Family Law Lawyers" />
+                    <option value="Defense Lawyers" />
+                    <option value="Corporate Lawyers" />
+                    <option value="Immigration Lawyers" />
+                    <option value="Property Lawyers" />
+                  </datalist>
                 <span class="input-group-text btns-primary border-prime"><i class="bi bi-search" onClick={BynameSearch}></i></span>
               </div>
             </div>

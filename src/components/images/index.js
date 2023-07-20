@@ -16,6 +16,9 @@ import DIFM_LAW_bgcolor from "./DIFM_LAW_bgcolor.jpg";
 import Testimonial_icon from "./testimonial_icon.svg";
 import testimonial_reviewicon from "./testimonial_reviewicon.svg";
 import Image_testimonial from "./Image_testimonial.svg";
+import Image_testimonial2 from "./Image_testimonial2.svg";
+import Image_testimonial3 from "./Image_testimonial3.svg";
+import Image_testimonial4 from "./Image_testimonial4.svg";
 import icon_devider from "./icon_devider.svg";
 import profile from "./profile.jpg";
 import dummy from "./dummy.png";
@@ -41,6 +44,9 @@ export {
          Testimonial_icon,
          testimonial_reviewicon,
          Image_testimonial,
+         Image_testimonial2,
+         Image_testimonial3,
+         Image_testimonial4,
          icon_devider,
          profile,
          dummy,
