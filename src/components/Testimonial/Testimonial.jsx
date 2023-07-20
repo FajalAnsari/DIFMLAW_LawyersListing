@@ -20,7 +20,7 @@ const Testimonial = () => {
                </div>
                <div className="col-lg-8 col-sm-8 col-6 mts">
                  <h4 className="text-white me-4">Nattasha</h4>
-                 <p className="fs-5 text-white">Junior Lawyer</p>
+                 <p className="fs-5 text-white">Injury Lawyers</p>
                </div>
             </div>
          </div>
@@ -32,7 +32,7 @@ const Testimonial = () => {
                </div>
                <div className="col-lg-8 col-sm-8 col-6 mts">
                  <h4 className="text-white me-4">Minci pall</h4>
-                 <p className="fs-5 text-white">Junior Lawyer</p>
+                 <p className="fs-5 text-white">Defense Lawyers</p>
                </div>
             </div>
             <div className='testimonial1 w-75 mt-2 mtss'>
@@ -53,7 +53,7 @@ const Testimonial = () => {
                </div>
                <div className="col-lg-8 col-sm-8 col-6 mts">
                  <h4 className="text-white me-4">Julia Rose</h4>
-                 <p className="fs-5 text-white">Junior Lawyer</p>
+                 <p className="fs-5 text-white">Property Lawyers</p>
                </div>
             </div>
 

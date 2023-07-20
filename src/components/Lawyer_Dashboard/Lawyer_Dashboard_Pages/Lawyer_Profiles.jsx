@@ -27,6 +27,7 @@ const Lawyer_Profiles = () => {
   const [location, setLocation] = useState('');
   const [setUserId ,getUserId] = useState("");
   const [url , setUrl] = useState("");
+  const [picture, setPicture]= useState([]);
   const fetchUserName = async () => {
   
     // check login as a user or lawyer
@@ -219,7 +220,19 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputExperience">Experience</label>    
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors" id="inputExperience" type="text" placeholder={experience}  value={experience} onChange={(e) => {setExperience(e.target.value)}}/>
+                                <select id="inputState" value={experience} onChange={(e) => setExperience(e.target.value)} class="form-select contect-bgColors selct">
+                                 <option selected>Choose...</option>
+                                 <option value="1 Year">1 Year</option>
+                                 <option value="2 Year">2 Years</option>
+                                 <option value="3 Year">3 Years</option>
+                                 <option value="4 Year">4 Years</option>
+                                 <option value="5 Year">5 Years</option>
+                                 <option value="6 Year">6 Years</option>
+                                 <option value="7 Year">7 Years</option>
+                                 <option value="8 Year">8 Years</option>
+                                 <option value="9 Year">9 Years</option>
+                                 <option value="10+ Year">10+ Years</option>
+                               </select>
                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-briefcase-fill"></i></span>
                               </div>
                             </div>
@@ -229,14 +242,24 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputSpecialization">Specialization</label>
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors" id="inputSpecialization" type="text" placeholder={specialization} value={specialization} onChange={(e) => {setSpecialization(e.target.value)}}/>
+                                <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct">
+                                   <option selected>Select your expertise</option>
+                                   <option value="Injury Lawyers">Injury Lawyers</option>
+                                   <option value="Family Law Lawyers">Family Law Lawyers</option>
+                                   <option value="Defense Lawyers">Defense Lawyers</option>
+                                   <option value="Corporate Lawyers">Corporate Lawyers</option>
+                                   <option value="Immigration Lawyers">Immigration Lawyers</option>
+                                   <option value="Property Lawyers">Property Lawyers</option>
+                                   <option value="Real Estate Lawyers">Real Estate Lawyers</option>
+                                   <option value="Employment Lawyers">Employment Lawyers</option>
+                               </select>
                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
                               </div>
                             
                             </div>
                            
                             <div className="col-md-6 mbs1">
-                                <label className="small mb-1 text-white" for="inputEducation">Education</label>   
+                                <label className="small mb-1 text-white" for="inputEducation">Qualification</label>   
                                 <div class="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} required/>
                                   <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
@@ -245,18 +268,18 @@ const handleUpdate = async (e) => {
                         </div>
                         <div className="row gx-3 mb-3">
                             <div className="col-md-6 mbs1">
-                                <label className="small mb-1 text-white" for="inputWork">Work Type</label>
+                                <label className="small mb-1 text-white" for="inputWork">Location</label>
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder={work} value={work} onChange={(e) => {setWork(e.target.value)}}/>
-                                <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-workspace"></i></span>
+                                <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder={location} value={location} onChange={(e) => {setLocation(e.target.value)}}/>
+                                <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt-fill"></i></span>
                               </div>
                             </div>
                            
                             <div className="col-md-6 mbs1">
-                            <label className="small mb-1 text-white" for="inputWork">Enter or choose location</label>
+                            <label className="small mb-1 text-white" for="inputWork">Pictures</label>
                             <div class="input-group mb-3 mbs">
-                             <input type="text" class="form-control contect-bgColors" id="inputZip" placeholder="Location, country, city, state..."  value={location} onChange={(e) => {setLocation(e.target.value)}}/>
-                             <span class="input-group-text btns-primary dm" ><i class="bi bi-geo-alt"></i></span>
+                             <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={(e) => setPicture(e.target.files[0])} />
+                             <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-card-image"></i></span>
                            </div>
                             </div>
                         </div>

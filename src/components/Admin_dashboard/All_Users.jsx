@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
 import "./admin.css";
-
+import { useNavigate } from 'react-router-dom';
 
 const All_Users = () => {
-
+    const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
@@ -73,8 +73,8 @@ useEffect(()=>{
                                                 <td>34/09/2023</td>                                             
                                                 <td>{element.address || "N/A"}</td>
                                                 <td className="d-flex justify-content-between">
-                                                  <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
-                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={()=>{alert(element.uid)}} ></i></p>
+                                                  <p style={{color:"green"}}><i class="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
+                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>
                                             </tr>

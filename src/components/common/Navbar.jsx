@@ -105,11 +105,11 @@ if (admin.empty) {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
-        <li class="nav-item ms-2">
-          <Link class="nav-link text-white fs-5" to={"/about"}>About Us</Link>
-        </li>
         <li class="nav-item ms-3">
           <Link class="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
+        </li>
+        <li class="nav-item ms-2">
+          <Link class="nav-link text-white fs-5" to={"/about"}>About Us</Link>
         </li>
         <li class="nav-item ms-3">
           <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>

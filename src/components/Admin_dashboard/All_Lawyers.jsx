@@ -53,8 +53,8 @@ useEffect(()=>{
                                 <th scope="col">Lawyers Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Registration Date</th>
-                                <th scope="col">Loaction</th>
-                                <th scope="col"> Action</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,7 +70,7 @@ useEffect(()=>{
                                                 <td>34/09/2023</td>                                             
                                                 <td>{element.address}</td>
                                                 <td className="d-flex justify-content-between">
-                                                  <p style={{color:"green"}}><i class="bi bi-eye"></i></p>
+                                                  <p style={{color:"green"}}><i class="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"red"}}><i class="bi bi-trash3"></i></p>
                                                 </td>
