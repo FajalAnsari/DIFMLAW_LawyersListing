@@ -130,7 +130,7 @@ const handleUpdate = async (e) => {
       username: username,
       email: email,
       number: number,
-      userProfile: url,
+      image: url,
       address: location,
     }).then(() => {
       alert("Document successfully updated!");
