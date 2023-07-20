@@ -121,7 +121,7 @@ const Lawyer_Dashboard = ({ children }) => {
             {menuItem.map((item, index) => {
               if (item.roles.includes(userRole)) { // Check if the user's role matches the item's roles
                 return (
-                  <NavLink to={item.path} key={index} className="link text-decoration-none mb-3" activeClassName="active">
+                  <NavLink to={item.path} key={index} className="link text-decoration-none mb-3">
                     <div className="icon">{item.icon}</div>
                     <div style={{ display: isOpen ? "block" : "none" }} className="link_text fs-6 mt-1">{item.name}</div>
                   </NavLink>

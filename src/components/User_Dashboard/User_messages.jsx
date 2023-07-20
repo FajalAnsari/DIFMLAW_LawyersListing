@@ -7,6 +7,7 @@ import { dummy } from '../images';
 const User_messages = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
   const [messages, setAllmessages] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
   const [loginlawyerId, getLoginLawyerId] = useState("");
 const [lawyer, addLawyer] = useState("");
 
@@ -24,7 +25,7 @@ const [lawyer, addLawyer] = useState("");
             ...doc.data(),
            
           }));
-          console.log(user.uid);
+          getLoginLawyerId(user.uid);
           
        console.log(newCartProduct);
           setAdd_Lawyercarts(newCartProduct);
@@ -60,7 +61,7 @@ const element1 = document.getElementById("no");
 element1.classList.add("block-styles");
 
   const cartRef = collection(db, 'User_Wishlist');
-  const userCartRef = doc(cartRef, );
+  const userCartRef = doc(cartRef, loginlawyerId);
   const userMessagesRef = doc(collection(userCartRef, 'AllMessages'), id);
   
   const snapshot = await getDoc(userMessagesRef);
@@ -85,7 +86,7 @@ element1.classList.add("block-styles");
       messageData.createdAtTime = formattedTime;
     }
     setAllmessages(messageData);
-    console.log(messageData.createdAtDate);
+    console.log(id);
   } else {
     console.log('No message found');
   }
@@ -103,12 +104,12 @@ element1.classList.add("block-styles");
               {add_Lawyercarts.map((add_Lawyercart, i) => (
                   <div className="d-flex px-4 usersl mb-2" onClick={()=> {Messages(add_Lawyercart.id)}} key={i} activeClassName="active">
                     <img
-                      src={add_Lawyercart.image || dummy}
+                      src={add_Lawyercart.lawyer_image || dummy}
                       alt="dummy"
-                      className="mt-1"
-                      style={{ width: "20%", height: "20%" }}
+                      className="mt-1 all_lmsg1"
+                      width="40"
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.username}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.lawyername}</p>
                     {/* {setUserName[{...add_Lawyercart.name}]} */}
                   </div>
                   ))}
