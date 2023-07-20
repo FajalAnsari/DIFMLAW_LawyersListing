@@ -5,13 +5,74 @@ import "./Lawyers_profile_card.css";
 import All_lawyers_card from "./All_lawyer_card/All_lawyers_card";
 import Lawyers_personal_information from "../Lawyers_personal_information/Lawyers_personal_information";
 import Expertise_and_services from "../Expertise_and_service/Expertise_and_services";
-import { useFirebase } from "../../../firebase";
+import { db, useFirebase } from "../../../firebase";
 import { useParams } from "react-router-dom";
 import Add_Comment from "../Add_review/Add_Comment";
 import Add_review from "../Add_review/Add_review";
 import User_contact_form from "./All_lawyer_card/User_contact_form";
 import User_message from "./All_lawyer_card/User_message";
+import { auth } from "../../../firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 const Lawyers_profile_card = () => {
+  const [userRole, setUserRole] = useState(null);
+  const [user] = useAuthState(auth); 
+   // check login as a user or lawyer
+   const loginUserORLawyer = async () => {
+    if(user){
+      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const q1 = query(collection(db, "users"), where("uid", "==", user.uid));
+  
+  
+      const docs = await getDocs(q);
+      const info = await getDocs(q1)
+     
+      // lawyer auth
+      if (docs.empty) {
+        console.log("No matching documents.");
+      } else {
+        docs.forEach((doc) => {
+          const data = doc.data();
+          console.log(data);
+          console.log("lawyer login");
+          setUserRole("lawyer");
+         
+        });
+      }
+      // user auth
+      if (info.empty) {
+        console.log("No matching documents.");
+      } else {
+        info.forEach((doc) => {
+          const data = doc.data();
+          console.log(data);
+          console.log("user login");
+          setUserRole("user");
+       
+        });
+      }
+  
+    }
+  }
+
+
+  // getting current user uid
+  function GetLawyerUid() {
+    const [uid, setUid] = useState(null);
+    useEffect(() => {
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          setUid(user.uid);
+        }
+      })
+    }, [])
+    return uid;
+  }
+
+  const uids = GetLawyerUid();
+
+  loginUserORLawyer();
   
   const params = useParams();
   const firebase = useFirebase();
@@ -168,10 +229,12 @@ const Lawyers_profile_card = () => {
           {/* job url link */}
 
          {/* this contect form for laywer start */}
-           
+           {userRole == "user" &&
        <User_contact_form lawyer_id={data.uid}/>
+      }
+      {userRole == "lawyer" &&
        <User_message />
-
+      }
          {/* this contect form for laywer end */}
 
          {/* all lawyers card */}
