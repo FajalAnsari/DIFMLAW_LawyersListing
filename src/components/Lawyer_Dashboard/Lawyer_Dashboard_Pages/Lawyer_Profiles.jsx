@@ -29,8 +29,9 @@ const Lawyer_Profiles = () => {
   const [url , setUrl] = useState("");
   const [picture, setPicture]= useState([]);
   const [multiImages,setMultiImages] = useState([]);
+  const [multipleImages ,setMultipleImages] = useState([]);
   const fetchUserName = async () => {
-  
+ 
     // check login as a user or lawyer
   const loginUserORLawyer = async () => {
     if(user){
@@ -146,13 +147,37 @@ const Lawyer_Profiles = () => {
     setBio(e.target.value);
   }
 
+// maximum two images upload
+const handleMultiImages = (e) => {
+  const selectedImages = e.target.files;
+  // Check if the total number of images selected is greater than 2
+  if (selectedImages.length > 2) {
+    alert("Please select up to two images only.");
+    return;
+  }
+
+  const imageNames = [];
+  for (let i = 0; i < selectedImages.length; i++) {
+     const NewImage = selectedImages[i]
+       // Update the setPicture state with the array of image names
+  setPicture((prevState) => [...prevState, NewImage]);
+  }
+  
+
+
+  console.log(imageNames);
+  
+}
 
 const handleUpdate = async (e) => {
   e.preventDefault()
+  const promises = []
   console.log(picture);
-  // update the lawyer images
-  const storageRef = ref(storage, `/images/${picture.name}`);
-  const uploadTask = uploadBytesResumable(storageRef, picture);
+  picture.map((image)=>{
+      // update the lawyer images
+  const storageRef = ref(storage, `/images/${image.name}`);
+  const uploadTask = uploadBytesResumable(storageRef, image);
+  promises.push(uploadTask)
   uploadTask.on(
     "state_changed",
     (snapshot) => {
@@ -162,18 +187,25 @@ const handleUpdate = async (e) => {
 
         // update progress
         console.log(percent);
-    },
+    },  
     (err) => console.log(err),
-    () => {
+   async () => {
         // download url
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+      await getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           console.log(url);
-            setMultiImages(url);
+          setMultiImages(url);
+            // setMultiImages((prevState)=> [...prevState, url]);
         }).catch((err)=>{
           console.log(err);
         })
     }
+   
 ); 
+
+
+
+
+  })
 
   const taskDocRef = doc(db,"lawyers", setUserId);
 
@@ -305,7 +337,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                             <label className="small mb-1 text-white" for="inputWork">Pictures</label>
                             <div class="input-group mb-3 mbs">
-                             <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={(e) => setPicture(e.target.files)} />
+                             <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={handleMultiImages} />
                              <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-card-image"></i></span>
                            </div>
                             </div>

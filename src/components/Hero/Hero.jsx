@@ -21,7 +21,7 @@ const Hero = () => {
 
               <div className="row no-pad me-2">
                 <div className="col-md-4 col-5">
-                  <input type="search" placeholder="Search By Category" className="form-control s-3" list="categoryOptions" />
+                  <input type="text" placeholder="Search By Category" className="form-control s-3" list="categoryOptions" />
                   <datalist id="categoryOptions">
                     <option value="Injury Lawyers" />
                     <option value="Family Law Lawyers" />

@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import Add_Comment from "../Add_review/Add_Comment";
 import Add_review from "../Add_review/Add_review";
 import User_contact_form from "./All_lawyer_card/User_contact_form";
+import User_message from "./All_lawyer_card/User_message";
 const Lawyers_profile_card = () => {
   
   const params = useParams();
@@ -89,12 +90,25 @@ const Lawyers_profile_card = () => {
           {/* photos */}
           <h4 className="font-color">Photos</h4>
           <div className="row">
-            <div className="col-lg-6 col-6">
-              <img src={data.photos} alt="lawyer_pic"></img>
-            </div>
-            <div className="col-lg-6 col-6">
-              <img src={lawyer_pics} alt="lawyer_pic"></img>
-            </div>
+           
+          {data.photos && data.photos.length > 0 ? (
+    // If data.photos array has image URLs, display the images
+    data.photos.map((photoUrl, index) => (
+      <div className="col-lg-6 col-6" key={index}>
+        <img style={{ width: '108%' }} src={photoUrl} alt={`lawyer_pic_${index}`} />
+      </div>
+    ))
+  ) : (
+    // If data.photos array is empty, display the default lawyer picture
+    <>
+      <div className="col-lg-6 col-6">
+        <img src={lawyer_pics} alt="default_lawyer_pic" />
+      </div>
+      <div className="col-lg-6 col-6">
+        <img src={lawyer_pics} alt="default_lawyer_pic" />
+      </div>
+    </>
+  )}
           </div>
           {/* photos */}
 
@@ -156,6 +170,7 @@ const Lawyers_profile_card = () => {
          {/* this contect form for laywer start */}
            
        <User_contact_form lawyer_id={data.uid}/>
+       <User_message />
 
          {/* this contect form for laywer end */}
 
