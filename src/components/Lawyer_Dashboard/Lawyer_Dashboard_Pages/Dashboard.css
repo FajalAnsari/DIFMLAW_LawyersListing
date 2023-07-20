@@ -898,3 +898,9 @@
         line-height: 34px;
     }
   }
+  .active{
+    background: #4C525A;
+    color: white;
+    border-top: 4px solid var(--primary) !important;
+    border-bottom: 4px solid var(--primary) !important;
+}
