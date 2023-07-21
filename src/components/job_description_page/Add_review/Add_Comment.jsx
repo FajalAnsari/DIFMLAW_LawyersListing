@@ -56,7 +56,7 @@ const Add_Comment = () => {
       <div className="row">
         <div className="col-md-2" key={i}>
           <div className="lim">
-          <img src={add_Lawyercart.image} alt="" width="80" className='rounded-circle'/>
+          <img src={add_Lawyercart.image} alt="" width="80" height="80" className='rounded-circle'/>
           </div>
         </div>
         <div className="col-md-10">

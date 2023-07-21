@@ -66,6 +66,12 @@
     border-radius: 50%;
     width: 70px;
  }
+ .lims2{
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    border: 2px solid var(--primary) !important;
+ }
  .lawyrscard6{
     background-color: var(--third-primary);
  }
