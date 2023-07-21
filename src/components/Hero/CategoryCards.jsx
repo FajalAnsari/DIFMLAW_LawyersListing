@@ -20,11 +20,11 @@ const CategoryCards = ({logo, type,  avalilabe}) => {
       <div className='col-lg-3 p-4'>
           <Link className='text-decoration-none' to={`/alllawyer/${type}`}>
           <div className='category rounded-3 mt-4 p-4 ecard'>
-              <img src={logo} className='w-25' style={{marginLeft:"30%"}} alt='cat_logo' />
-          <p className='mt-2 mx-2 text-darks' >{type}</p>
-          <div className='d-flex'>
+          <img src={logo} className='w-25 mx-auto d-block' style={{marginLeft:"30%"}} alt='cat_logo' />
+          <p className='mt-2 text-center text-darks' >{type}</p>
+          <div className='d-flex ms-4'>
           <h6 className='mt-2 text-darks'>{Count}{ avalilabe}</h6>
-          <div><i class="bi bi-arrow-right ms-2 fs-4 font-color"></i></div>
+          <div className='arrow-icon'><i class="bi bi-arrow-right ms-2 fs-4 font-color"></i></div>
           </div>
           </div>
           </Link>
