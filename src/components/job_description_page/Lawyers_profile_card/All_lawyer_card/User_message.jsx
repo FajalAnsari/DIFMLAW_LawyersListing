@@ -58,7 +58,7 @@ const User_message = () => {
                            <div className="row"> 
                               <div className="col-md-2">
                                 <div className='mt-1 all_lmsg1' style={{marginLeft:"8px"}}>
-                                <img src={userImage} alt="dummy" width="40"/>
+                                <img src={userImage} alt="dummy" width="40" style={{borderRadius:"50%"}}/>
                                 </div>
                               </div>
                               <div className="col-md-10">
