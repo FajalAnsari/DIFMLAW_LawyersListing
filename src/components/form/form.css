@@ -24,6 +24,9 @@ option:checked,
 option:hover {
   background-color: var(--primary);
 }
+option:focus {
+  background-color: var(--third-primary);
+}
 
 .form-sectionss{
   background-image: url("../images/DIFM_LAW_bgcolor.jpg") !important;
