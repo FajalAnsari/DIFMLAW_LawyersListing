@@ -233,7 +233,7 @@ const Signup = () => {
                   <div class="col-md-6 mt-4">
                     <label className="small mb-1 text-white" for="inputEmail">Email</label>
                       <div class="input-group mbs">
-                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
+                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={email} onChange={(e) => {setEmail(e.target.value)}}  />
                       <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
                     </div>
                   </div>
@@ -386,7 +386,7 @@ const Signup = () => {
                   <div class="col-md-6">
                     <label className="small mb-1 text-white" for="inputEmail">Email</label>
                       <div class="input-group mbs">
-                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}}  disabled/>
+                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}} />
                       <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
                     </div>
                   </div>
