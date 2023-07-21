@@ -51,6 +51,9 @@ const User_message = () => {
             <div class="text-center">
                 <h4 class="font-color">Your Recent Messages</h4>
             </div>
+
+            {userMessage.length === 0 ?  <h5 className='text-center text-white'>No messages available</h5> 
+            : 
             <div class=" d-flex align-items-center justify-content-center mt-2">
                 <div class=" col-md-12">
                     <div class="p-4 rounded shadow-md">
@@ -71,6 +74,7 @@ const User_message = () => {
                     </div>
                 </div>
             </div>
+            }
           </div>
         </div>
     </>
