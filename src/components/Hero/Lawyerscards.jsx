@@ -80,7 +80,7 @@ const Lawyerscards = () => {
                 </div>
                 <div className="col-lg-8 col-sm-8 col-6">
                   <p className="fs-6 mb-0 pb-1 h6">{data.username}</p>
-                  <p className="city">{data.address}</p>
+                  <p className="city"><i class="bi bi-geo-alt"></i> {data.address}</p>
                 </div>
               </div>
               <span className="fs-5 fw-normal ms-3">{data.specialization}</span>

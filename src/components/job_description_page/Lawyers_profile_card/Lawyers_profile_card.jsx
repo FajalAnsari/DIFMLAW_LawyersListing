@@ -102,7 +102,9 @@ const Lawyers_profile_card = () => {
               <div className="row ab">
  
                 <div className="col-lg-6 col-xs-12 d-flex justify-content-around">
+                  <div className="limsf">
                   <img src={data.image} className="lprocls" alt="lawyer_profile"></img>
+                  </div>
                 </div>
                 <div className="col-lg-6 col-xs-12">
                   <p className="fs-5 fw-bold mb-2">{data.username}</p>
@@ -110,11 +112,13 @@ const Lawyers_profile_card = () => {
                   <p className="fs-6 laywer_exp fw-bold">
                   {data.experience} in practice
                   </p>
+                  <div style={{marginTop:"-20px"}}>
                   {[...Array(5)].map((star, index) => (
-        <p key={index} className="fw-bold  star fs-6" style={{display:'inline'}}>
+        <p key={index} className="fw-bold fs-6" style={{display:'inline'}}>
           <i className="bi bi-star-fill" style={{ color: '#ffc107'}}></i>
         </p>
       ))}
+      </div>
                 </div>
               </div>
             </div>
