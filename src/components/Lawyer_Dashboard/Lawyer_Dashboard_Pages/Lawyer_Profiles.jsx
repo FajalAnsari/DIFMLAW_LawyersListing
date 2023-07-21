@@ -204,7 +204,6 @@ const handleUpdate = async (e) => {
 
 
 
-
   })
 
   const taskDocRef = doc(db,"lawyers", setUserId);

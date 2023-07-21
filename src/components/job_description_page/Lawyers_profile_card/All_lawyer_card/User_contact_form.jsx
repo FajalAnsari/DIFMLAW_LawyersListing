@@ -72,7 +72,9 @@ useEffect(()=>{
                email:email,
                message:message,
                date: serverTimestamp(),
-               image:userImage
+               image:userImage,
+               lawyername:props.lawyer_name,
+               lawyer_image:props.lawyer_profile
            })
 
            for (const item of data){
