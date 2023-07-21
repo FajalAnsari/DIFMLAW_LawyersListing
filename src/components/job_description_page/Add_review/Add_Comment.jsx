@@ -56,7 +56,7 @@ const Add_Comment = () => {
         {add_Lawyercarts.map((add_Lawyercart, i) => {
            const filledStars = Math.round(add_Lawyercart.rating * 2) / 2;
           return (
-           <div className="row">
+           <div className="row mb-3">
            <div className="col-md-2" key={i}>
              <div className="lim">
              <img src={add_Lawyercart.image} alt="" width="80" height="80" className='rounded-circle'/>
