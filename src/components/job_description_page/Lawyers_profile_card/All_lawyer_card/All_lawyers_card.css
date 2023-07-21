@@ -21,8 +21,14 @@
   margin: auto !important;
 }
 .pics-pro{
-    height: 65px;
+    height: 61px;
     border-radius: 50%;
+    width: 61px;
+}
+.lims{
     width: 65px;
     margin-left: 10px;
+    height: 65px;
+    border-radius: 50%;
+    border: 2px solid var(--primary) !important;
 }
