@@ -24,6 +24,10 @@ const Lawyerscards = () => {
   }, []);
 
   const slice = lawyers.slice(0, limit);
+
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
   
   return (
     <>
@@ -77,9 +81,9 @@ const Lawyerscards = () => {
                   <p className="city">{data.address}</p>
                 </div>
               </div>
-              <span className="fs-5 fw-normal text-center">{data.specialization}</span>
+              <span className="fs-5 fw-normal ms-3">{data.specialization}</span>
 
-              <div className="mt-3 ms-3 me-3">
+              <div className="mt-2 ms-3 me-3">
                 <p className="font-weight-bold fs-6 mb-1">{data.work}</p>
                 <p className="fs-6 lawyers-desc font-weight-normal lh-base text-justify summ">{data.summary}</p>
                 <div className="row mt-4 practice">
@@ -87,7 +91,7 @@ const Lawyerscards = () => {
                     <span className="fs-6 exp">{data.experience} in practice</span>
                   </div>
                   <div className="col-lg-6 col-sm-6 col-6">
-                    <button className="btn btns-primary sfcs viewbtn" onClick={(e) => navigate(`/job/${data.id}`)}>
+                    <button className="btn btns-primary sfcs viewbtn" onClick={(e) =>{ navigate(`/job/${data.id}`); scrollToTop()}}>
                       View Profile
                     </button>
                   </div>

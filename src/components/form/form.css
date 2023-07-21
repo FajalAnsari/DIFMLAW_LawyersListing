@@ -20,6 +20,11 @@ input::placeholder {
 textarea::placeholder {
   color: var(--third-primary) !important;
 }
+option:checked,
+option:hover {
+  background-color: var(--primary);
+}
+
 .form-sectionss{
   background-image: url("../images/DIFM_LAW_bgcolor.jpg") !important;
   background-size: cover;

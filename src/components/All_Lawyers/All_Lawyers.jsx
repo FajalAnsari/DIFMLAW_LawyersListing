@@ -274,6 +274,12 @@ const All_Lawyers = () => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <>
@@ -419,7 +425,7 @@ const All_Lawyers = () => {
                         <div className="col-md-6">
                           <div className="row">
                             <div className="col-md-10 d-flex justify-content-end">
-                              <button className="btn btns-primary cont profi w-75" onClick={(e) => navigate(`/job/${data.id}`)}>
+                              <button className="btn btns-primary cont profi w-75" onClick={(e) => { navigate(`/job/${data.id}`); scrollToTop();}}>
                                 View Profile
                               </button>
                             </div>
