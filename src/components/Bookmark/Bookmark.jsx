@@ -49,18 +49,29 @@ const Bookmark = () => {
      console.log(add_Lawyercarts);
   
      const handleToDelete = (id) => {
-      auth.onAuthStateChanged(user => {
-        if (user) {
-          const docRef = doc(db, `Cart ${user.uid}`, id);
-          deleteDoc(docRef)
-            .then(() => {
-              console.log('Successfully deleted');
-            })
-            .catch(error => {
-              console.log('Error deleting document:', error);
-            });
-        }
-      });
+      const confirmDelete = window.confirm('Are you sure you want to delete this User?');
+
+      if (confirmDelete) {
+        // User confirmed, proceed with deletion
+        // Your deletion logic here...
+        auth.onAuthStateChanged(user => {
+          if (user) {
+            const docRef = doc(db, `Cart ${user.uid}`, id);
+            deleteDoc(docRef)
+              .then(() => {
+                console.log('Successfully deleted');
+              })
+              .catch(error => {
+                console.log('Error deleting document:', error);
+              });
+          }
+        });
+        alert(`Deleting the user ID: ${id}`);
+      } else {
+        // User canceled the deletion
+        alert('Deletion canceled.');
+      }
+    
   
     };
    
