@@ -59,7 +59,7 @@ const Add_Comment = () => {
            <div className="row mb-3">
            <div className="col-md-2" key={i}>
              <div className="lim">
-             <img src={add_Lawyercart.image} alt="" width="80" height="80" className='rounded-circle'/>
+             <img src={add_Lawyercart.image} alt="" width="80" height="80" style={{border:"2px solid var(--primary)"}} className='rounded-circle'/>
              </div>
            </div>
            <div className="col-md-10">
@@ -80,8 +80,8 @@ const Add_Comment = () => {
                      </div>
                     </div>
                    </div>
-                   <p className='fs-6 font-color'>{add_Lawyercart.title}</p>
-                   <p style={{fontSize:"13px",color:"var(--text-color)"}}>
+                   <p className='fs-6 font-color' style={{fontWeight:"500"}}>{add_Lawyercart.title}</p>
+                   <p style={{fontSize:"13px",color:"var(--text-color)",marginTop:"-10px"}}>
                    {add_Lawyercart.message}
                    </p>
                    <hr
