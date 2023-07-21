@@ -47,7 +47,7 @@ const All_lawyers_card = () => {
             <h5 className='mt-2 fs-6 lawyer_name fw-bold font-color'>{data.username}</h5>
             <span className='fs-6 lawyer_work_type fw-bold text-white'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6 text-white">{[...Array(5)].map((star, index) => (
         <p key={index} className="fw-bold  star fs-6" style={{display:'inline'}}>
-          <i className="bi bi-star-fill" style={{ color: '#ffc107', }}></i>
+          <i className="bi bi-star-fill" style={{ color: '#ffc107', fontSize:'10px'}}></i>
         </p>
       ))}</span><br></br>
             <span className='lawyer_work_experience fw-bold text-white'>{data.experience}  in practice</span>

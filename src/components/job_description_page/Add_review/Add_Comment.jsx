@@ -6,8 +6,10 @@ import { collection, doc, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
 const Add_Comment = () => {
+ 
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
   const [loginlawyerId, getLoginLawyerId] = useState("");
+  const filledStars = Math.round(4 * 2) / 2;
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -60,11 +62,12 @@ const Add_Comment = () => {
                 </div>
                 <div className="col-md-4">
                  <div className="btns-primary d-flex px-1 w-50" style={{height:"23px"}}>
-                 <i class="bi bi-star me-1"></i>
-                 <i class="bi bi-star me-1"></i>
-                 <i class="bi bi-star me-1"></i>
-                 <i class="bi bi-star me-1"></i>
-                 <i class="bi bi-star me-1"></i>
+                 {[...Array(5)].map((star, index) => (
+        <i
+          key={index}
+          className={`bi ${index < filledStars ? 'bi-star-fill' : 'bi-star'} me-1`}
+        ></i>
+      ))}
                   <div className='px-2 ' style={{height:"23px",backgroundColor:"var(--third-secondary)"}}>
                     <p className='fs-6 fw-bold font-color' style={{marginTop:"-2px"}}>{add_Lawyercart.rating}.0</p>
                   </div>
