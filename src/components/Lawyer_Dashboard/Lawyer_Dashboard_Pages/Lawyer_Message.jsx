@@ -109,7 +109,7 @@ element1.classList.add("block-styles");
                       className="mt-1 all_lmsg1"
                       width="40"
                     />
-                    <p className="ms-3 mt-2 fs-6 text-white">{add_Lawyercart.username}</p>
+                    <p className="ms-3 mt-2 fs-6 text-white" >{add_Lawyercart.username}</p>
                     {/* {setUserName[{...add_Lawyercart.name}]} */}
                   </div>
                   ))}

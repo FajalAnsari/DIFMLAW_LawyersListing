@@ -7,6 +7,8 @@ import { auth, storage, db } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { EmailAuthProvider, getAuth, reauthenticateWithCredential, updatePassword } from "firebase/auth";
+
 
 const User_Profile = () => {
     const navigate = useNavigate();
@@ -20,6 +22,8 @@ const User_Profile = () => {
   const [setUserId ,getUserId] = useState("");
   const [url , setUrl] = useState("");
   const [image, setUserimage] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const fetchUserName = async () => {
       // check login as a user or lawyer
   const loginUserORLawyer = async () => {
@@ -119,10 +123,31 @@ const User_Profile = () => {
     if(!user) navigate("/login");
   }, [user, loading]);
  
+// update the password
+const handlePasswordUpdate = async (oldPassword, newPassword) => {
+  try {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    // Reauthenticate the user with their old password
+    const credential = EmailAuthProvider.credential(user.email, oldPassword);
+    await reauthenticateWithCredential(user, credential);
+
+    // Update the password
+    await updatePassword(user, newPassword);
+
+    // Password updated successfully
+    alert("Password updated successfully!");
+  } catch (error) {
+    // Handle errors
+    alert(error);
+    console.error("Error updating password:", error);
+  }
+};
 
 const handleUpdate = async (e) => {
   e.preventDefault()
-
+  handlePasswordUpdate(oldPassword, newPassword); 
   const taskDocRef = doc(db,"users", setUserId);
 
   try{
@@ -137,7 +162,8 @@ const handleUpdate = async (e) => {
     })
   } catch (err) {
     alert(err)
-  }    
+  }   
+ 
 }
 
 
@@ -199,7 +225,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputSpecialization">Old Password</label>
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors" id="inputSpecialization" type="text" placeholder="Enter your old password" />
+                                <input className="form-control contect-bgColors" id="inputSpecialization" value={oldPassword} type="password" placeholder="Enter your old password" onChange={(e) => setOldPassword(e.target.value)} />
                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
                               </div>
                             
@@ -208,7 +234,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEducation">New Password</label>   
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter new password"/>
+                                <input className="form-control contect-bgColors" id="inputEducation" value={newPassword} type="password" name="education" placeholder="Enter new password" onChange={(e) => setNewPassword(e.target.value)}/>
                                   <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
                                 </div>
                             </div>

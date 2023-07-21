@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { collection, getDocs} from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
 import "./admin.css";
 import { useNavigate } from 'react-router-dom';
@@ -19,9 +19,20 @@ const All_Users = () => {
     }
 
     // delete the user
-    const handleDelete = (id) => {
-   alert(id);
+    const handleDelete = async (id) => {
   
+   const confirmDelete = window.confirm('Are you sure you want to delete this User?');
+
+   if (confirmDelete) {
+     // User confirmed, proceed with deletion
+     // Your deletion logic here...
+     await deleteDoc(doc(db, "users", id));
+     alert(`Deleting the user ID: ${id}`);
+   } else {
+     // User canceled the deletion
+     alert('Deletion canceled.');
+   }
+    
     }
 
 useEffect(()=>{
@@ -76,7 +87,7 @@ useEffect(()=>{
                                                 <td className="d-flex justify-content-between">
                                                   <p style={{color:"green"}}><i class="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"red"}}><i class="bi bi-trash3" onClick={() =>{handleDelete(element.uid)}}></i></p>
+                                                  <p style={{color:"red"}}><i class="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
                                                 </td>
                                             </tr>
                                         </>
