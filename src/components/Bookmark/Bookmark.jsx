@@ -56,10 +56,11 @@ const Bookmark = () => {
         // Your deletion logic here...
         auth.onAuthStateChanged(user => {
           if (user) {
-            const docRef = doc(db, `Cart ${user.uid}`, id);
+           
+            const docRef = doc(db, 'User_Wishlist', user.uid, 'users', id);
             deleteDoc(docRef)
               .then(() => {
-                console.log('Successfully deleted');
+                alert('Successfully deleted');
               })
               .catch(error => {
                 console.log('Error deleting document:', error);

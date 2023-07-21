@@ -110,7 +110,11 @@ const Lawyers_profile_card = () => {
                   <p className="fs-6 laywer_exp fw-bold">
                   {data.experience} in practice
                   </p>
-                  <p className="fw-bold mb-2 star fs-5">*****</p>
+                  {[...Array(5)].map((star, index) => (
+        <p key={index} className="fw-bold  star fs-6" style={{display:'inline'}}>
+          <i className="bi bi-star-fill" style={{ color: '#ffc107'}}></i>
+        </p>
+      ))}
                 </div>
               </div>
             </div>
