@@ -18,12 +18,19 @@ padding-bottom: 90px;
     border-radius: 17px !important;
 }
 h6{
-
- /* font-style: normal; */
 font-weight: 490;
 font-size: 16px;
 line-height: 19px; 
 } 
+.arrow-icon:hover{
+  transform: scale(1.5);
+  transition: 0.5s;
+}
+.arrow-icons:hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+   
+  }
 p{
     font-weight: 490;
 font-size: 22px;

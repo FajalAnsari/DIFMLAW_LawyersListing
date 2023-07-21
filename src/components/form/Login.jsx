@@ -44,21 +44,19 @@ const Login = () => {
         
           <div class="form-outline mb-4">
           <label class="form-label font-color" for="form3Example3">Email address</label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address"   
-              name="email" 
-              value={email}
-              onChange={handleEmailChange} required/>            
+          <div class="input-group mbs">
+            <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+            <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+          </div>         
           </div>
 
        
           <div class="form-outline mb-3">
-          <label class="form-label font-color" for="form3Example4">Password</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter Password" 
-              name="password" 
-              value={password}
-              onChange={handlePasswordChange} required/>          
+          <label class="form-label font-color" for="form3Example4">Password</label>  
+             <div class="input-group mbs">
+              <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your password"  value={password}  onChange={handlePasswordChange} required/>
+              <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+              </div>       
           </div>
           <p className='text-danger fs-6 mt-4'>{error}</p>
           <div class="d-flex justify-content-between align-items-center">
@@ -76,7 +74,7 @@ const Login = () => {
             <button  class="btn btns-primary btn-lg"
               style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}} >Login</button>
             <p class="small fw-bold mt-2 pt-1 mb-0 text-white">Don't have an account? <a href="/signup"
-                class="link-danger">Register</a></p>
+                class="font-color">Register</a></p>
           </div>
 
         </form>
