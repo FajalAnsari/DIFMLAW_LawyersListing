@@ -10,7 +10,7 @@ const Contect_us = () => {
     <div className="container"  style={{marginTop:"120px"}}>
     <div className="row mt-5">
         <div className="col-md-6 mt-5">
-        <h2 className='font-color'>Get In Tauch</h2>
+        <h2 className='font-color'>Get In Touch</h2>
         <p className='fs-5 w-75 text-white' style={{textAlign: "justify"}}>If you have any questions or comments about our difmlaw, please do not hesitate to contact us. Our team of dedicated professionals is available to assist you with any inquiries you may have.</p>
         <span class="mt-4 ">
             <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
@@ -59,37 +59,11 @@ const Contect_us = () => {
                 // onChange={handleEmailChange}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputPassword4" class="form-label  font-color">
-                Phone No.
-              </label>
-              <input
-                type="number"
-                placeholder="Enter your number"
-                class="form-control contect-bgColors"
-                id="inputPassword4"
-                // value={phone}
-                // onChange={handlePhoneChange}
-              />
-            </div>
-            <div class="col-md-6">
-              <label for="inputState" class="form-label  font-color">
-                Subject
-              </label>
-              <select
-                id="inputState"
-                // value={work}
-                // onChange={handleWorkChange}
-                class="form-select contect-bgColors"
-              >
-                <option selected>Choose Subject..</option>
-                <option value="Full Day">Full Day</option>
-                <option value="Half Day">Half Day</option>
-              </select>
-            </div>
+      
+           
             <div class="col-md-12">
               <label for="inputZip" class="form-label  font-color">
-                Bio/Profile Summary
+                Message
               </label>
               <textarea
                 class="form-control contect-bgColors"
