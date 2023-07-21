@@ -64,6 +64,7 @@
  .lawpicd{
     height: 70px;
     border-radius: 50%;
+    border: 2px solid var(--primary) !important;
     width: 70px;
  }
  .lawyrscard6{

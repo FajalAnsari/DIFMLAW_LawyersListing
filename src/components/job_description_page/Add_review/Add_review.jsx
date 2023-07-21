@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { query, collection, getDocs, where } from "firebase/firestore";
 import { db } from '../../../firebase';
 import { auth } from '../../../firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, serverTimestamp, query, collection, getDocs, where , setDoc } from "firebase/firestore";
 import "./review_section.css";
+
 const Add_review = (props) => {
-  const [userRating, setUserRating] = useState(null);
   const [user, loading] = useAuthState(auth);
   const [rating, setRating] = useState(null);
-  const [count, setCount] =useState(0);
-  const [fiveRating , setFiverating] = useState(rating)
+  const [title , setTitle] = useState("");
+  const [message ,setMessage] = useState("");
+  const [data , setData] = useState([]);
+  const [userImage, setUserImage] = useState("");
+  const [userName, setUserName] = useState("");
   // const [setUserId, getUserId] = useState("");
 
 
@@ -19,97 +21,57 @@ const Add_review = (props) => {
    const handleOpen = () => {
      setShow(!show); // Toggle accordion
    };
-  //  fetch user id to update rating
 
 
+    // get username
+    const fetchuserName = () => {
+      const q = query(collection(db, "users"), where("uid", "==", user.uid));
+      const res = [];
+      
+      getDocs(q).then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          res.push({
+            id: doc.id,
+            ...doc.data()
+          });
+        });
+      setUserImage(res[0].image);
+        setUserName(res[0].username);
+      }).catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
 
-// const fetchUserId = async () => {
-//   const q = query(collection(db, "lawyers"), where("uid", "==", "tZtNoQFa1DYvuzvYmjIL57ZrcYu1"));
-//    const res = [];
-//      const doc = await getDocs(q);
-//      doc.forEach(value=>{
-//          res.push({
-//              id: value.id,
-//              ...value.data()
-//          });
-//      });
-//      console.log(res);
-//     //  getUserId(res[0].uid)
-//      const userRatingValue = res[0].rating; // Assuming rating field is present in the Firestore document
-//     setUserRating(userRatingValue);
-    
-// }
+    }
+   
+useEffect(()=>{
+  fetchuserName();
+})
 
   //  give rating 
   const giveRating = async (e) =>{
     e.preventDefault()
-    // if(rating===5){
-    //   setFiverating(true);
-    //   setCount(count+1);
-    //   console.log(count)
-    //   alert("yes is "+ rating);
-    // }
-    // else if(rating===4){
-    //   setFiverating(true);
-    //   console.log(count+1)
-    //   alert("yes is "+ rating);
-    // }
+    const parentCollection = collection(db, 'User_Messages');
+      data.push({
+       image:userImage,
+       username:userName,
+       rating:rating,
+       title:title,
+       message:message,
+       date: serverTimestamp()
+   })
 
-    
-    const taskDocRef = doc(db,"lawyers", "iH7QH4MuNlJl2IsHGIWz");
-
-    try{
-      await updateDoc(taskDocRef,{
-        
-        //  rating:{ 
-        //   5:count,
-        //   4:count,
-        //   3:count,
-        //   2:count,
-        //   1:count,
-        //  }
-        rating: {
-           ...rating,
-           5: (rating[rating] || 0) + 1,
-           4: (rating[rating] || 0) + 1,
-           3: (rating[rating] || 0) + 1,
-           2: (rating[rating] || 0) + 1,
-           1: (rating[rating] || 0) + 1,
-    
-       
-          // 1: (rating[1] || 0) + 1,
-          
-        },
-        // r5
-        //  45:rating,
-        //  34:rating,
-        //  23:rating,
-        //  12:rating,
-        //   1:rating,
-        // }
-        
-      }
-      
-      
-      ).then(() => {
-        alert("Your Rating is"+ rating);
-      })
-      setUserRating((prevRating) => ({
-        ...prevRating,
-        [rating]: (rating[rating] || 0) + 1, // Increment count in the userRating state
-      }));
-
-    } catch (err) {
-      alert(err)
-    }  
+   for (const item of data){
+        const cartCollectionRef = doc(parentCollection, props.id, 'Ratings_review', user.uid); 
+        await setDoc(cartCollectionRef,item).then(()=>{
+           alert("message sent successfully");
+        }).catch((err)=>{
+           console.log(err);
+        })
+   }
+  
   
 
   }
-  useEffect(()=>{
-    // fetchUserId();
-    console.log('yes'+props.uid);
-  },[])
-  
    
   return (
     <>
@@ -155,14 +117,10 @@ const Add_review = (props) => {
              <div className=''>
       {show && (
           <div className="accordian-body">
-           <p className='text-white fs-5 mt-1'>Title</p>
-          <div className=''>
-           <div style={{backgroundColor:'var(--second-secondary)'}} className='p-1 rounded'><p className='fs-6  ms-3 my-1'>Example : It was awesome experience with Mr. Fajal Ansari</p></div>
-            </div>
-            <p className='text-white fs-5 mt-1'>Review</p>
-            <div className=''>
-          <textarea rows={10} cols={92} style={{backgroundColor:'var(--second-secondary)'}} className='w-100 rounded' placeholder='Write your review'></textarea>
-              </div>
+              <label className="fs-5 mt-3 text-white mb-1 " for="inputFirstName">Title</label>
+              <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
+              <label className="fs-5 mt-3 text-white mb-2 " for="inputMessage">Review</label>
+              <textarea rows={10} cols={92} style={{backgroundColor:'var(--second-secondary)'}} id='inputMessage' className='w-100 rounded' placeholder='Write your review' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
               <button className='btns-primary border-prime w-25 mt-2' onClick={giveRating}><p className='fs-6  fw-bold my-2' style={{fontSize:"20px"}}>Signup & Submit</p></button>
           </div>
         )}
@@ -171,13 +129,6 @@ const Add_review = (props) => {
       </div>
  
     </div>
-    {/* <div className="rating-section">
-        <p className='text-white'>Rating 5: {userRating && userRating[5]}</p>
-        <p className='text-white'>Rating 4: {userRating && userRating[4]}</p>
-        <p className='text-white'>Rating 3: {userRating && userRating[3]}</p>
-        <p className='text-white'>Rating 2: {userRating && userRating[2]}</p>
-        <p className='text-white'>Rating 1: {userRating && userRating[1]}</p>
-      </div> */}
     </>
   )
 }

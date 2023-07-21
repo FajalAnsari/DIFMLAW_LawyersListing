@@ -39,13 +39,17 @@ const All_lawyers_card = () => {
       <div className="col-lg-9">
           <div className="row">
             <div className="col-lg-4 col-6 mt-2">
-                <img src={data.image} className='rounded-circle w-75 pics-pro' alt="image" />
+                <img src={data.image} className='rounded-circle pics-pro' alt="image" />
             </div>
 
             <div className="col-lg-8 col-6">
           
             <h5 className='mt-2 fs-6 lawyer_name fw-bold font-color'>{data.username}</h5>
-            <span className='fs-6 lawyer_work_type fw-bold text-white'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6 text-white">*****</span><br></br>
+            <span className='fs-6 lawyer_work_type fw-bold text-white'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6 text-white">{[...Array(5)].map((star, index) => (
+        <p key={index} className="fw-bold  star fs-6" style={{display:'inline'}}>
+          <i className="bi bi-star-fill" style={{ color: '#ffc107', fontSize:'10px'}}></i>
+        </p>
+      ))}</span><br></br>
             <span className='lawyer_work_experience fw-bold text-white'>{data.experience}  in practice</span>
 
             </div>

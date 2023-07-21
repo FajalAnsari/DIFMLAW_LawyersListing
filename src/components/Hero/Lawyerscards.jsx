@@ -74,11 +74,11 @@ const Lawyerscards = () => {
             <div className="col-lg-3 rounded-3 lawyer ecard mt-4 card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
               <div className="row mt-2" id="lawyer">
                 <div className="col-lg-4 col-sm-4 col-6">
-                  <img src={data.image} className="ms-2 lawpics" alt="lawyer_card"></img>
+                  <img src={data.image} className="lawpics" alt="lawyer_card"></img>
                 </div>
                 <div className="col-lg-8 col-sm-8 col-6">
                   <p className="fs-6 mb-0 pb-1 h6">{data.username}</p>
-                  <p className="city">{data.address}</p>
+                  <p className="city"><i class="bi bi-geo-alt"></i> {data.address}</p>
                 </div>
               </div>
               <span className="fs-5 fw-normal ms-3">{data.specialization}</span>

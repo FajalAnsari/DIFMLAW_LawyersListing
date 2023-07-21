@@ -51,15 +51,16 @@ const User_message = () => {
             <div class="text-center">
                 <h4 class="font-color">Your Recent Messages</h4>
             </div>
+
+            {userMessage.length === 0 ?  <h5 className='text-center text-white'>No messages available</h5> 
+            : 
             <div class=" d-flex align-items-center justify-content-center mt-2">
                 <div class=" col-md-12">
                     <div class="p-4 rounded shadow-md">
                     <div className='all_lmsg p-1 mb-4' style={{width:"115%",marginLeft:"-30px"}}>
                            <div className="row"> 
                               <div className="col-md-2">
-                                <div className='mt-1 all_lmsg1' style={{marginLeft:"8px"}}>
-                                <img src={userImage} alt="dummy" width="40"/>
-                                </div>
+                                <img src={userImage} alt="dummy" width="40" height="40" className='mt-1' style={{borderRadius:"50%",marginLeft:"8px",border:"2px solid var(--primary)"}}/>
                               </div>
                               <div className="col-md-10">
                                 <p className='text-white mt-1 w-100' style={{marginLeft:"-5px",fontSize:"12px",lineHeight:"16px"}}>{userMessage}</p>
@@ -73,6 +74,7 @@ const User_message = () => {
                     </div>
                 </div>
             </div>
+            }
           </div>
         </div>
     </>

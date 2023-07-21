@@ -15,6 +15,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [activeUser, setactiveUser] = useState(false);
+  const [id , setId] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [userimage, setUserImage] = useState("");
@@ -28,7 +29,6 @@ const Navbar = () => {
       const docs = await getDocs(q);
       const info = await getDocs(q1)
       const admin = await getDocs(q2)
-
       // lawyer auth
       if (docs.empty) {
         console.log("No matching documents.");
@@ -37,6 +37,7 @@ const Navbar = () => {
           const data = doc.data();
           console.log(data);
           setName(data.username);
+          setId(user.uid);
           // setName(data.name);
           setImage(data.image);
         });
@@ -124,6 +125,7 @@ const Navbar = () => {
                 </Link>
 
                 <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" to={""}><i className="fa-sharp fa-solid fa-pen"></i><span>  Profile</span></Link></li>
                   <li><Link className="dropdown-item" to="/lawyer_dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
                   <li><hr className="dropdown-divider" /></li>
                   <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
