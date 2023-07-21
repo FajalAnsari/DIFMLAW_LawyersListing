@@ -142,6 +142,8 @@ line-height: 21px !important;
     height: 65px;
     border-radius: 50%;
     width: 65px;
+    margin-top: -8px;
+    border: 2px solid var(--primary) !important;
 }
 .summ{
     margin: 0;

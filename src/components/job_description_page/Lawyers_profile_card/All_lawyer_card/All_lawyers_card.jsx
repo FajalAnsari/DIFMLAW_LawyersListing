@@ -39,9 +39,7 @@ const All_lawyers_card = () => {
       <div className="col-lg-9">
           <div className="row">
             <div className="col-lg-4 col-6 mt-2">
-              <div className='lims'>
                 <img src={data.image} className='rounded-circle pics-pro' alt="image" />
-                </div>
             </div>
 
             <div className="col-lg-8 col-6">

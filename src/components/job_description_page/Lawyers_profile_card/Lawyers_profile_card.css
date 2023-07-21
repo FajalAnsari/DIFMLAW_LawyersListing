@@ -39,10 +39,5 @@
     height: 130px;
     border-radius: 50%;
     width: 130px;
-}
-.limsf{
-    width: 132px;
-    height: 132px;
-    border-radius: 50%;
     border: 1px solid var(--primary) !important;
 }

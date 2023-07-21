@@ -53,11 +53,9 @@ const Add_Comment = () => {
     <>
     <div className="add-comment py-4 px-4 rounded-3  border border-prime border-1" style={{backgroundColor:"var(--fourth-primary)"}}>
     {add_Lawyercarts.map((add_Lawyercart, i) => (
-      <div className="row">
+      <div className="row mb-3">
         <div className="col-md-2" key={i}>
-          <div className="lim">
-          <img src={add_Lawyercart.image} alt="" width="80" height="80" className='rounded-circle'/>
-          </div>
+          <img src={add_Lawyercart.image} alt="user pic" width="80" height="80" className='rounded-circle' style={{border:"2px solid var(--primary)"}}/>
         </div>
         <div className="col-md-10">
             <div className="row">

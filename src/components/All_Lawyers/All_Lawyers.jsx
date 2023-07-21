@@ -408,9 +408,7 @@ const All_Lawyers = () => {
                         <div className="col-md-6">
                           <div className="row">
                             <div className="col-md-3 mt-3">
-                              <div className='lims2'>
                               <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
-                              </div>
                             </div>
                             <div className="col-md-9">
                               <h4 className='mt-2 font-color'>{data.specialization}</h4>
