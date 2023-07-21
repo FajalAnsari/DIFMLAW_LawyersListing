@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Footer.css";
+import "./Navbar.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut} from 'firebase/auth';
 import logo from "../images/Difm_law_logo.svg";
@@ -100,19 +101,19 @@ if (admin.empty) {
       <img src={logo} width="240" alt="DIFM LAW LOGO" />
     </Link>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon icone"><i className="bi bi-list"></i></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
-        <li class="nav-item ms-3">
-          <Link class="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
+    <div className="collapse navbar-collapse toggler-btn" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
+        <li className="nav-item ms-3">
+          <Link className="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
         </li>
-        <li class="nav-item ms-2">
-          <Link class="nav-link text-white fs-5" to={"/about"}>About Us</Link>
+        <li className="nav-item ms-2">
+          <Link className="nav-link text-white fs-5" to={"/about"}>About Us</Link>
         </li>
-        <li class="nav-item ms-3">
-          <Link class="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
+        <li className="nav-item ms-3">
+          <Link className="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
         </li>
       </ul>
       {user ? (
