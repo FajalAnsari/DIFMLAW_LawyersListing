@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase";
 import { auth } from "../../firebase";
 // import { useAuthState } from 'react-firebase-hooks/auth';
@@ -131,7 +132,8 @@ const Signup = () => {
                       address: location,
                       work: work,
                       summary: bio,
-                      image: url
+                      image: url,
+                      date: serverTimestamp()
                     })
                       .then(() => {
                         navigate("/");
@@ -175,7 +177,8 @@ const Signup = () => {
               email: emails,
               number: number,
               address: state,
-              image:'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png'
+              image:'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png',
+              date: serverTimestamp()
             });
             navigate("/");
           }

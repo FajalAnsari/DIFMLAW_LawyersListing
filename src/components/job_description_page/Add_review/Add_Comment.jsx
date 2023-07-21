@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 
 const Add_Comment = () => {
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
-  const [loginlawyerId, getLoginLawyerId] = useState("");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -17,18 +16,20 @@ const Add_Comment = () => {
           const userCartRef = doc(cartRef, user.uid);
           const itemsCollectionRef = collection(userCartRef, 'Ratings_review');
           const querySnapshot = await getDocs(itemsCollectionRef);
-          const newCartProduct = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            image: doc.data().image || '',
-            ...doc.data(),
-           
-          }));
-      
+  
+          const newCartProduct = querySnapshot.docs.map((doc) => {
+            const data = doc.data();
+            const createdAtDate = data.date?.toDate ? data.date.toDate() : null;
+  
+            return {
+              id: doc.id,
+              image: data.image || '',
+              ...data,
+              createdAtDate: createdAtDate ? createdAtDate.toLocaleDateString() : null,
+            };
+          });
+  
           setAdd_Lawyercarts(newCartProduct);
-        
-          console.log(add_Lawyercarts);
-          // getLoginLawyerId(user.uid);
-            // console.log(loginlawyerId);
         } catch (error) {
           console.error('Error fetching cart:', error);
         }
@@ -36,7 +37,7 @@ const Add_Comment = () => {
         console.log('User is not signed in to retrieve cart');
       }
     });
-
+  
     return () => {
       unsubscribe();
     };
@@ -51,12 +52,14 @@ const Add_Comment = () => {
     {add_Lawyercarts.map((add_Lawyercart, i) => (
       <div className="row">
         <div className="col-md-2" key={i}>
-          <img src={add_Lawyercart.image} alt="" className='w-100 rounded-circle'/>
+          <div className="lim">
+          <img src={add_Lawyercart.image} alt="" width="80" className='rounded-circle'/>
+          </div>
         </div>
         <div className="col-md-10">
             <div className="row">
                 <div className="col-md-8">
-                  <p className='fs-6' style={{color:"var(--third-secondary)"}}>{add_Lawyercart.username}<br />June 2, 2023</p>
+                  <p className='fs-6' style={{color:"var(--third-secondary)"}}>{add_Lawyercart.username}<br />{add_Lawyercart.createdAtDate}</p>
                 </div>
                 <div className="col-md-4">
                  <div className="btns-primary d-flex px-1 w-50" style={{height:"23px"}}>

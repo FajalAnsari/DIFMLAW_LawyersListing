@@ -9,3 +9,9 @@
 .review .arrow{
    background-color: var(--primary);
 }
+.lim{
+   width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    border: 2px solid var(--primary) !important;
+}
