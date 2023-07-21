@@ -40,7 +40,6 @@ const Add_review = (props) => {
       }).catch((error) => {
         console.log("Error getting documents: ", error);
       });
-
     }
    
 useEffect(()=>{
