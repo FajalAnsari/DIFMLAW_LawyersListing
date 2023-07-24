@@ -95,8 +95,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg fixed-top" id="headrs">
-        <div class="container p-2">
+      <nav className="navbar navbar-expand-lg fixed-top" id="headrs">
+        <div className="container p-2">
 
           <Link to='/'>
             <img src={logo} width="240" alt="DIFM LAW LOGO" />
@@ -132,9 +132,9 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              <div class="d-flex">
-                <Link to={"/login"}><button class="btn btns-primary me-2 w-100" type="submit">Login</button></Link>
-                <Link to={"/signup"}><button class="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
+              <div className="d-flex">
+                <Link to={"/login"}><button className="btn btns-primary me-2 w-100" type="submit">Login</button></Link>
+                <Link to={"/signup"}><button className="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
               </div>
             )}
           </div>
