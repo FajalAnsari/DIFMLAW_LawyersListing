@@ -31,10 +31,10 @@ const Hero = () => {
                     <option value="Property Lawyers" />
                   </datalist>
                 </div>
-                <div className="col-md-4 col-6">
+                <div className="col-md-4 col-5">
                   <input type="search" placeholder="Search By Location" className="form-control s-2" />
                 </div>
-                <div className="col-md-4 col-1">
+                <div className="col-md-4 col-2">
                   <button type="button" className="btn btns-primary s-1"><i className="bi bi-search"></i></button>
                 </div>
               </div>

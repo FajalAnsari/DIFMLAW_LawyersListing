@@ -27,36 +27,36 @@ const Contect_now = () => {
   return (
     <>
 
-     <div className="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div className="modal-dialog modal-dialog-centered">
-    <div className="modal-content border border-prime border-3" >
-      <div className="modal-header">
-        <h4 className="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion </h4>
+     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border border-prime border-3" >
+      <div class="modal-header">
+        <h4 class="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion </h4>
       </div>
       <div className='container'>
-      <div className="mb-3 mt-4">
-  <label for="exampleFormControlInput1" className="form-label">Enter Email</label>
-  <input type="email" className="form-control" id="email" placeholder="Enter your email"/>
+      <div class="mb-3 mt-4">
+  <label for="exampleFormControlInput1" class="form-label">Enter Email</label>
+  <input type="email" class="form-control" id="email" placeholder="Enter your email"/>
 </div>
-<div className="mb-3">
-  <label for="exampleFormControlTextarea1" className="form-label">Write your message</label>
-  <textarea className="form-control" placeholder='Write your message' id="message" rows="3"></textarea>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Write your message</label>
+  <textarea class="form-control" placeholder='Write your message' id="message" rows="3"></textarea>
 </div>
 </div>
-      <div className="mx-auto mb-4">
-        <button className="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={validates}>Submit</button>
+      <div class="mx-auto mb-4">
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={validates}>Submit</button>
       </div>
     </div>
   </div>
 </div>
-<div className="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-  <div className="modal-dialog modal-dialog-centered">
-    <div className="modal-content border border-prime border-3">
-      <h5 className=" text-center mt-4">
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border border-prime border-3">
+      <h5 class=" text-center mt-4">
       Thank you for contacting us we’ll get back to you shortly with some awesome lawyers.
       </h5>
-      <a href='/' className="mx-auto mb-4 text-decoration-none mt-4">
-        <button className="btn btns-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
+      <a href='/' class="mx-auto mb-4 text-decoration-none mt-4">
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Home</button>
       </a>
     </div>
   </div>

@@ -54,8 +54,8 @@ h1{
   h2{
     font-size: 36px !important;
   }
-  .s-1{
-    width: 14% !important;
+  .s-3{
+    height: 40px !important;
   }
   .navbar .navbar-toggler[aria-expanded="true"] {
     color: var(--primary)!important;
@@ -63,6 +63,5 @@ h1{
     .navbar .navbar-toggler:focus{
     color: var(--primary);
     }
-  
     
   }
