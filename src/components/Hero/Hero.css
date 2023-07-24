@@ -63,5 +63,8 @@ h1{
     .navbar .navbar-toggler:focus{
     color: var(--primary);
     }
+    .viewbtn{
+      font-size: 70.2% !important;
+    }
     
   }

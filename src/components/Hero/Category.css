@@ -189,4 +189,7 @@ line-height: 21px !important;
       .mss-4 {
         margin-left: 2.9rem!important;
     }
+    .devider_page {
+        margin-top: -16% !important;
+    }
   }
