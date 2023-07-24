@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import logo from "../images/Difm_law_logo.svg";
 import Devider from '../Testimonial/Devider';
 import { Link } from 'react-router-dom';
+import { addDoc, collection } from "firebase/firestore";
+import { db } from '../../firebase';
+import { serverTimestamp } from "firebase/firestore";
+
 import './Footer.css';
 
 const Footer = () => {
@@ -28,6 +32,14 @@ const Footer = () => {
       alert("Please enter a valid email address.");
     } else {
       setSubscribed(true);
+      addDoc(collection(db, "subscribed_users"),{
+        email:email,
+        date: serverTimestamp()
+      }).then(()=>{
+        alert('Thank you for subcribing');
+      }).catch((err)=>{
+        alert(err);
+      })
     }
    }
    

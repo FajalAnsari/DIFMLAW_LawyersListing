@@ -42,10 +42,10 @@ const Add_review = (props) => {
       });
 
     }
-   
-useEffect(()=>{
-  fetchuserName();
-})
+    // fetchuserName();
+// useEffect(()=>{
+// 
+// })
 
   //  give rating 
   const giveRating = async (e) =>{

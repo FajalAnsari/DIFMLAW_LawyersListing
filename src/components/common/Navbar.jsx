@@ -15,6 +15,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [activeUser, setactiveUser] = useState(false);
+  const [activeAdmin, setActiveAdmin] = useState(false);
   const [id , setId] = useState("");
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -35,11 +36,11 @@ const Navbar = () => {
       } else {
         docs.forEach((doc) => {
           const data = doc.data();
-          console.log(data);
+          const documentId = doc.id;
+          setId(documentId);
           setName(data.username);
-          setId(user.uid);
           console.log(user);
-          // setName(data.name);
+          setActiveAdmin(true);
           setImage(data.image);
         });
       }
@@ -126,7 +127,16 @@ const Navbar = () => {
                 </Link>
 
                 <ul className="dropdown-menu">
+               {!activeAdmin ? '' :  (
+<>
+<li><Link className="dropdown-item" to={`/job/${id}`}><i className="fa-sharp fa-solid fa-pen"></i><span>Profile</span></Link></li>
+     <li><hr className="dropdown-divider" /></li>  
+</>
+               )
             
+                
+               } 
+                   
                   <li><Link className="dropdown-item" to="/lawyer_dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
                   <li><hr className="dropdown-divider" /></li>
                   <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>

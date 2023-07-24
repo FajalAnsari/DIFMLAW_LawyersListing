@@ -3,6 +3,7 @@ import law from "../images/DIFMLAW-Findlaw.svg";
 import Category from './Category';
 import "../../index.css";
 import "./Hero.css";
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   useEffect(() => {
@@ -35,7 +36,7 @@ const Hero = () => {
                   <input type="search" placeholder="Search By Location" className="form-control s-2" />
                 </div>
                 <div className="col-md-4 col-1">
-                  <button type="button" className="btn btns-primary s-1"><i className="bi bi-search"></i></button>
+                  <Link to='/alllawyer'><button type="button" className="btn btns-primary s-1"><i className="bi bi-search"></i></button></Link>
                 </div>
               </div>
             </div>
