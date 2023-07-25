@@ -63,10 +63,12 @@ const Login = () => {
 
   return (
     <>
-      <section className="vh-50 form-control p-5 mb-5 w-50 mx-auto forms-bg border-prime" style={{ marginTop: "140px" }}>
+     
+    
+      <section className="vh-50 form-control p-5 mb-5 w-50 mx-auto forms-bg border-prime login_page_main_box" style={{ marginTop: "140px" }}>
         <div className="container-fluid h-custom">
           <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-md-9 col-lg-6 col-xl-5">
+            <div className="col-md-9 col-lg-6 col-xl-5 login_page_image">
               <img src={loginimg}
                 className="img-fluid" alt="Sample image" />
             </div>
@@ -76,8 +78,8 @@ const Login = () => {
                 <div className="form-outline mb-4">
                   <label className="form-label font-color" for="form3Example3">Email address</label>
                   <div className="input-group mbs">
-                    <input className="form-control contect-bgColors dm" id="inputEmail" type="email" placeholder="Enter your email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
-                    <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-envelope-open"></i></span>
+                    <input className="form-control contect-bgColors" id="inputEmail" type="email" placeholder="Enter your email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+                    <span className="input-group-text btns-primary border-prime" ><i className="bi bi-envelope-open"></i></span>
                   </div>
                 </div>
 
@@ -86,7 +88,7 @@ const Login = () => {
                   <label className="form-label font-color" for="form3Example4">Password</label>
                   <div className="input-group mbs">
                     <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your password" value={password} onChange={handlePasswordChange} required />
-                    <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-lock-fill"></i></span>
+                    <span className="input-group-text btns-primary border-prime" ><i className="bi bi-lock-fill"></i></span>
                   </div>
                 </div>
                 <p className='text-danger fs-6 mt-4'>{error}</p>

@@ -82,15 +82,15 @@ option:focus {
   line-height: 23px;
 }
  .form-sectionss  .input-group>.form-select {
-  height: 28px;
+  height: auto;
   font-size: 12px;
 }  
 .form-sectionss  input[type="password"]{
-  height: 28px;
+  height: auto;
   font-size: 12px;
 } 
 .forms-bg{
-  width: 100% !important;
+  width: 92% !important;
   padding: 0% !important;
   margin-top: 15px;
 }
@@ -107,7 +107,6 @@ option:focus {
 .form-sectionss{
   height: 990px;
 }
-
 
 }
 
@@ -140,3 +139,79 @@ option:focus {
   height: 16px;
   margin-right: 4px;
 }
+/* media query for login page */
+
+/* 320px — 480px: Mobile devices */
+
+@media (max-width: 480px) {
+  .login_page_image{
+    max-width: 75% !important;
+    text-align: center !important;
+  }
+  .small{
+    margin-bottom: 18px !important;
+  }
+  .devider_page{
+    padding: 0px !important;
+  }
+}
+/* 481px — 768px: iPads, Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px){
+  .forms-bg{
+    width: 92% !important;
+    padding: 0% !important;
+    margin-top: 15px;
+  }
+  .login_page_image{
+    width: 60% !important;
+    text-align: center !important;
+  }
+  .small{
+    margin-bottom: 19px !important;
+  }
+  .devider_page{
+    padding: 0px !important;
+  }
+}
+/* 769px — 1024px: Small screens, laptops */
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+  .login_page_image{
+    width: 48% !important;
+    text-align: center !important;
+  }
+  .forms-bg{
+    width: 92% !important;
+    padding: 2% !important;
+    margin-top: 15px;
+  }
+  .small{
+    margin-bottom: 28px !important;
+  }
+}
+/* 1025px — 1200px: Desktops, large screens */
+@media only screen and (min-width: 1025px) and (max-width: 1200px){
+  .login_page_image{
+    width: 40% !important;
+    text-align: center !important;
+  }
+  .forms-bg{
+    width: 98% !important;
+    padding: 2% !important;
+    margin-top: 15px;
+  }
+}
+/* 1201px — 1440px: Desktops, large screens laptops*/
+@media only screen and (min-width: 1201px) and (max-width: 1440px){
+  .login_page_image{
+    width: 35% !important;
+   
+  }
+  .forms-bg{
+    width: 98% !important;
+    padding: 2% !important;
+    margin-top: 15px;
+  }
+}
+
+
+

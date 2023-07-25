@@ -20,7 +20,7 @@ const All_Lawyers = () => {
 
   const params = useParams();
   // alllawyer section code start
-
+  const [isBookmarked, setBookmarked] = useState(false);
   const navigate = useNavigate();
   const [user] = useAuthState(auth); 
   const [lawyers, setLawyers] = useState([]);
@@ -281,6 +281,14 @@ const All_Lawyers = () => {
     });
   };
 
+  // is bookmarked click
+  const toggleBookmark = (uid) => {
+    setBookmarked(prevState => ({
+      ...prevState,
+      [uid]: !prevState[uid] // Toggle the bookmark state for the specific item
+    }));
+  };
+
   return (
     <>
 
@@ -392,9 +400,12 @@ const All_Lawyers = () => {
                                 
                               </div>
                             </div>
-                            <div className="col-md-1 mx-3 res4" style={{opacity:"65%"}}>
+                          
+      <div className="col-md-1 mx-3 res4" style={{opacity:"65%"}}>
                             <i class="bi bi-bookmark-fill fw-bold fs-3"></i>
                             </div>
+
+                         
                           </div>
                           </div>
                         </div>
@@ -430,8 +441,8 @@ const All_Lawyers = () => {
                               </button>
                             </div>
                             {userRole === "user" && (
-      <div className="col-md-1 mx-3 res4" onClick={()=>addToLawyer(data.uid)}>
-        <i class="bi bi-bookmark fw-bold fs-3"></i>
+      <div key ={data.uid} className="col-md-1 mx-3 res4" >
+        <i class={`bi ${isBookmarked[data.uid] ? 'bi-bookmark-star-fill' : 'bi-bookmark'} fw-bold fs-3`}  onClick={() => { addToLawyer(data.uid); toggleBookmark(data.uid); }}></i>
         <p className="fs-6 savelist">save</p>
       </div>
      )}
