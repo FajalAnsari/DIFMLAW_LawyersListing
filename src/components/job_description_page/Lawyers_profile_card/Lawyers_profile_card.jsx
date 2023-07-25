@@ -235,7 +235,7 @@ const Lawyers_profile_card = () => {
 
          {/* this contect form for laywer start */}
            {userRole == "user" &&
-       <User_contact_form lawyer_id={data.uid} lawyer_profile={data.image} lawyer_name={data.username} />
+       <User_contact_form lawyer_id={data.uid} lawyer_email={data.email} lawyer_profile={data.image} lawyer_name={data.username} />
       }
       {userRole == "lawyer" &&
        <User_message />
