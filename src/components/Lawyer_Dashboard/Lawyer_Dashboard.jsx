@@ -77,11 +77,18 @@ const Lawyer_Dashboard = ({ children }) => {
       roles: ["Admin"] // Display for both lawyer and user
     },
     {
+      path: "/lawyer_dashboard/subscribers",
+      name: "Subscribers",
+      icon: <i class="bi bi-people-fill"></i>,
+      roles: ["Admin"] // Only display for lawyer
+    },
+    {
       path: "/lawyer_dashboard/Edit_Profile_admin",
       name: "Edit Profile",
       icon: <FaUserEdit />,
       roles: ["Admin"] // Only display for lawyer
     },
+
     {
       path: "/lawyer_dashboard/profile/id/",
       name: "Edit Profile",

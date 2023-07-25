@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { lawyer_pics } from "../../images";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Lawyers_profile_card.css";
 import All_lawyers_card from "./All_lawyer_card/All_lawyers_card";
 import Lawyers_personal_information from "../Lawyers_personal_information/Lawyers_personal_information";
@@ -54,6 +54,9 @@ const Lawyers_profile_card = () => {
       }
   
     }
+    // else {
+    //   Navigate('/');
+    // }
   }
 
 
