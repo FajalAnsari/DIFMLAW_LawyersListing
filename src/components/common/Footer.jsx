@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from "../images/Difm_law_logo.svg";
-import Devider from '../Testimonial/Devider';
+// import Devider from '../Testimonial/Devider';
 import { Link } from 'react-router-dom';
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../../firebase';
@@ -53,7 +53,7 @@ const Footer = () => {
   };
   return (
     <>
-    <Devider />
+    {/* <Devider /> */}
       <div className="blockcode f-1">
 
   <footer className="page-footer shadow text-white">

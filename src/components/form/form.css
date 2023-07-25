@@ -80,6 +80,7 @@ option:focus {
 .form-sectionss .inpu{
   width: 85% !important;
   line-height: 23px;
+  height: auto !important;
 }
  .form-sectionss  .input-group>.form-select {
   height: auto;
@@ -152,8 +153,20 @@ option:focus {
     margin-bottom: 18px !important;
   }
   .devider_page{
-    padding: 4px !important;
+    padding: 0px !important;
   }
+  .asa{
+    margin-top: 120px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form-sectionss .inpu{
+    width: 88% !important;
+    line-height: 32px;
+    height: 36px !important;
+  }
+ 
 }
 /* 481px — 768px: iPads, Tablets */
 @media only screen and (min-width: 481px) and (max-width: 768px){
@@ -170,7 +183,18 @@ option:focus {
     margin-bottom: 19px !important;
   }
   .devider_page{
-    padding: 38px !important;
+    padding: 0px !important;
+  }
+  .asa{
+    margin-top: 120px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form-sectionss .inpu{
+    width: 88% !important;
+    line-height: 32px;
+    height: 36px !important;
   }
 }
 /* 769px — 1024px: Small screens, laptops */
@@ -187,6 +211,9 @@ option:focus {
   .small{
     margin-bottom: 28px !important;
   }
+  .devider_page{
+    padding: 0px !important;
+  }
 }
 /* 1025px — 1200px: Desktops, large screens */
 @media only screen and (min-width: 1025px) and (max-width: 1200px){
@@ -199,17 +226,22 @@ option:focus {
     padding: 2% !important;
     margin-top: 15px;
   }
+  .devider_page{
+    padding: 0px !important;
+  }
 }
 /* 1201px — 1440px: Desktops, large screens laptops*/
 @media only screen and (min-width: 1201px) and (max-width: 1440px){
   .login_page_image{
     width: 35% !important;
-   
   }
   .forms-bg{
     width: 98% !important;
     padding: 2% !important;
     margin-top: 15px;
+  }
+  .devider_page{
+    padding: 12px !important;
   }
 }
 
