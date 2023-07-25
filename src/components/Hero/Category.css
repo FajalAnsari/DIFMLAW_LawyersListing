@@ -182,4 +182,14 @@ line-height: 21px !important;
       .cont{
         height: 50px !important;
       }
+      .ecard{
+        margin-top: -34px !important;
+        padding: 2rem!important;
+      }
+      .mss-4 {
+        margin-left: 2.9rem!important;
+    }
+    .devider_page {
+        margin-top: -16% !important;
+    }
   }

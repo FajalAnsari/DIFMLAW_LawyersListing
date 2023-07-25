@@ -12,48 +12,48 @@ const Contect_us = () => {
         <div className="col-md-6 mt-5">
         <h2 className='font-color'>Get In Touch</h2>
         <p className='fs-5 w-75 text-white' style={{textAlign: "justify"}}>If you have any questions or comments about our difmlaw, please do not hesitate to contact us. Our team of dedicated professionals is available to assist you with any inquiries you may have.</p>
-        <span class="mt-4 ">
-            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
-            <i class="bi bi-facebook"></i>
+        <span className="mt-4 ">
+            <button className="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
+            <i className="bi bi-facebook"></i>
             </button>
-            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
-            <i class="bi bi-linkedin"></i>
+            <button className="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
+            <i className="bi bi-linkedin"></i>
             </button>
-            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
-            <i class="bi bi-twitter"></i>
+            <button className="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
+            <i className="bi bi-twitter"></i>
             </button>
-            <button class="btn btn-white btn-flat pk-1 px-2 ficon">
-            <i class="bi bi-envelope-fill"></i>
+            <button className="btn btn-white btn-flat pk-1 px-2 ficon">
+            <i className="bi bi-envelope-fill"></i>
             </button>
           </span>
         </div>
 
         <div className="col-md-6 border border-prime rounded forms" style={{backgroundColor: "var(--fourth-primary)"}}>
         <form
-            class="row g-3 me-4 mx-4 mt-4"
+            className="row g-3 me-4 mx-4 mt-4"
             // onSubmit={handleLawyerFormSubmit}
           >
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label font-color">
+            <div className="col-md-6">
+              <label for="inputEmail4" className="form-label font-color">
                 Enter Full Name
               </label>
               <input
                 type="text"
                 placeholder="Enter your full name"
-                class="form-control contect-bgColors"
+                className="form-control contect-bgColors"
                 id="inputEmail4"
                 // value={username}
                 // onChange={handleUsernameChange}
               />
             </div>
-            <div class="col-md-6">
-              <label for="inputPassword4" class="form-label  font-color">
+            <div className="col-md-6">
+              <label for="inputPassword4" className="form-label  font-color">
                 Enter Email
               </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                class="form-control contect-bgColors"
+                className="form-control contect-bgColors"
                 id="inputPassword4"
                 // value={email}
                 // onChange={handleEmailChange}
@@ -66,7 +66,7 @@ const Contect_us = () => {
                 Message
               </label>
               <textarea
-                class="form-control contect-bgColors"
+                className="form-control contect-bgColors"
                 placeholder="Write about yourself..."
                 id="form6Example7"
                 rows="4"
@@ -75,17 +75,17 @@ const Contect_us = () => {
               ></textarea>
             </div>
 
-            <div class="form-check mb-0 mx-2">
-              <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3"/>
-              <label class="form-check-label  text-white" for="form2Example3">
+            <div className="form-check mb-0 mx-2">
+              <input className="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3"/>
+              <label className="form-check-label  text-white" for="form2Example3">
               I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
               </label>
             </div>
             {/* <p className="text-danger fs-5">{error}</p> */}
-            <div class="col-md-12 mb-4 ">
+            <div className="col-md-12 mb-4 ">
               <button
                 type="submit"
-                class="btn btns-primary form-control mt-2 mb-5 signup"
+                className="btn btns-primary form-control mt-2 mb-5 signup"
               >
                 Submit
               </button>
@@ -108,7 +108,7 @@ const Contect_us = () => {
         <h4 className='mt-4 font-color'>Headquarters</h4>
         <p className='text-white fs-6'>30 N Gould St, Sheridan, WY 82801, United States</p>
 
-        <a href="" className='mt-4 text-decoration-none text-white'>Get Direction <i class="bi bi-arrow-right font-color"></i></a>
+        <a href="" className='mt-4 text-decoration-none text-white'>Get Direction <i className="bi bi-arrow-right font-color"></i></a>
         </div>
 
         <div className="col-md-6 ">

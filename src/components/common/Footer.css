@@ -93,15 +93,18 @@ font-size: 93.2% !important;
   .content{
     width: 300px;
   }
-  .s-1{
-    width: 90px;
-    border-radius: 0px 5px 5px 0px !important; 
-    margin-top: 0px;
-  }
-  .ss-2{
-    width: 190px;
-    border-radius:  5px 0px 0px 5px !important;
-  }
+  .input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+.devider_page {
+  margin-top: -10% !important;
+}
+.reg_btn {
+  width: 82% !important;
+}
   .main {
     margin-top: 0px !important;
 }

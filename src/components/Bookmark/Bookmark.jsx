@@ -93,7 +93,7 @@ const Bookmark = () => {
           </div>
            <div className="col-lg-2 col-sm-2 col-2">
               <div style={{marginTop:"-12px"}} onClick={() => handleToDelete(add_Lawyercart.id)}>
-                <i class="bi bi-bookmark-star-fill fw-bold fs-2"></i>
+                <i className="bi bi-bookmark-star-fill fw-bold fs-2"></i>
               </div>
           </div>
         </div>

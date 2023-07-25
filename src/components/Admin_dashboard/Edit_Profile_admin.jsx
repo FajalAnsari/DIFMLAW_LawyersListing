@@ -111,16 +111,16 @@ const handleUpdate = async (e) => {
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
-                                <div class="input-group mb-3 mbs">
+                                <div className="input-group mb-3 mbs">
                                  <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
-                                 <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
+                                 <span className="input-group-text btns-primary border-prime bolder dm"><i className="bi bi-person"></i></span>
                                </div>
                             </div>
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEmail">Email</label>
-                                <div class="input-group mb-3 mbs">
+                                <div className="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors dm" id="inputEmail" type="email"  placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
-                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+                                 <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-envelope-open"></i></span>
                                </div>
                             </div>
                         </div>
@@ -128,18 +128,18 @@ const handleUpdate = async (e) => {
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputSpecialization">Old Password</label>
-                                <div class="input-group mb-3 mbs">
+                                <div className="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputSpecialization" type="text" placeholder="Enter your old password" />
-                                <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                                <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-lock-fill"></i></span>
                               </div>
                             
                             </div>
                            
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEducation">New Password</label>   
-                                <div class="input-group mb-3 mbs">
+                                <div className="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter new password"/>
-                                  <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                                  <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-lock-fill"></i></span>
                                 </div>
                             </div>
                         </div>
