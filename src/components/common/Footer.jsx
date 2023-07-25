@@ -54,76 +54,76 @@ const Footer = () => {
   return (
     <>
     <Devider />
-      <div class="blockcode f-1">
+      <div className="blockcode f-1">
 
-  <footer class="page-footer shadow text-white">
-    <div class="d-flex flex-column mx-auto footer-1 ">
-      <div class="d-flex flex-wrap justify-content-between">
+  <footer className="page-footer shadow text-white">
+    <div className="d-flex flex-column mx-auto footer-1 ">
+      <div className="d-flex flex-wrap justify-content-between">
         <div>
         
         
           <img src={logo} width="240" alt="DIFM LAW LOGO" />
          
-          <p class="my-3 content text-white">
+          <p className="my-3 content text-white">
           We are a leading lawyer listing portal, dedicated to simplifying the process of connecting lawyers and clients.
           </p>
-          <span class="mt-4 ">
-            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
-            <i class="bi bi-facebook"></i>
+          <span className="mt-4 ">
+            <button className="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
+            <i className="bi bi-facebook"></i>
             </button>
-            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
-            <i class="bi bi-linkedin"></i>
+            <button className="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
+            <i className="bi bi-linkedin"></i>
             </button>
-            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
-            <i class="bi bi-twitter"></i>
+            <button className="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
+            <i className="bi bi-twitter"></i>
             </button>
-            <button class="btn btn-white btn-flat pk-1 px-2 ficon">
-            <i class="bi bi-envelope-fill"></i>
+            <button className="btn btn-white btn-flat pk-1 px-2 ficon">
+            <i className="bi bi-envelope-fill"></i>
             </button>
           </span>
         </div>
         <div>
-          <p class="h5 mb-4 Devwares mt-4">Quick Links</p>
-          <ul class="p-0 lis ">
-            <li class="my-2 ">
-              <Link class="text-dark text-decoration-none text-white" to="/contect_us" onClick={scrollToTop}>Contact</Link>
+          <p className="h5 mb-4 Devwares mt-4">Quick Links</p>
+          <ul className="p-0 lis ">
+            <li className="my-2 ">
+              <Link className="text-dark text-decoration-none text-white" to="/contect_us" onClick={scrollToTop}>Contact</Link>
             </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/about" onClick={scrollToTop}>About</Link>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="/about" onClick={scrollToTop}>About</Link>
             </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/alllawyer" onClick={scrollToTop}>Lawyers</Link>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="/alllawyer" onClick={scrollToTop}>Lawyers</Link>
             </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/privacy_policy" onClick={scrollToTop}>Privacy Policy</Link>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="/privacy_policy" onClick={scrollToTop}>Privacy Policy</Link>
             </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="/terms_condition" onClick={scrollToTop}>Terms and Conditions</Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p class="h5 mb-4 mt-4" style={{fontWeight: '600'}}>DIFM Group</p>
-          <ul class="p-0 lis">
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="https://difm.llc/">Difm.llc</Link>
-            </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="https://www.worldmodelhunt.com/">Worldmodelhunt.com</Link>
-            </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="https://bragsocial.com/">BragSocial.com</Link>
-            </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="https://www.worldmodelhunt.com/">Worldmodelhunt.com</Link>
-            </li>
-            <li class="my-2">
-              <Link class="text-dark text-decoration-none text-white" to="https://bragsocial.com/">BragSocial.com</Link>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="/terms_condition" onClick={scrollToTop}>Terms and Conditions</Link>
             </li>
           </ul>
         </div>
         <div>
-         <div class="input-group mt-4">
+          <p className="h5 mb-4 mt-4" style={{fontWeight: '600'}}>DIFM Group</p>
+          <ul className="p-0 lis">
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="https://difm.llc/">Difm.llc</Link>
+            </li>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="https://www.worldmodelhunt.com/">Worldmodelhunt.com</Link>
+            </li>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="https://bragsocial.com/">BragSocial.com</Link>
+            </li>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="https://www.worldmodelhunt.com/">Worldmodelhunt.com</Link>
+            </li>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white" to="https://bragsocial.com/">BragSocial.com</Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+         <div className="input-group mt-4">
          <p className="text-black">
         {subscribed
           ? "Thank you for subscribing!"
@@ -131,11 +131,11 @@ const Footer = () => {
       </p>
          {!subscribed && (
           <>
-           <div class="form-outline">
-             <input type="search" placeholder='Enter your email' class="form-control ss-2" value={email}
+           <div className="form-outline">
+             <input type="search" placeholder='Enter your email' className="form-control ss-2" value={email}
               onChange={handleEmailChange}/> 
            </div>
-           <button type="button" class="btn btns-primary s-1" onClick={handleSubscribe}>
+           <button type="button" className="btn btns-primary s-1" onClick={handleSubscribe}>
              Subscribe 
            </button>
            </>
@@ -143,7 +143,7 @@ const Footer = () => {
          </div>
         </div>
       </div>
-      <small class="text-center mt-5">&copy; DIFM.LLC, <span className='font-color'>2023</span>. All rights reserved.</small>
+      <small className="text-center mt-5">&copy; DIFM.LLC, <span className='font-color'>2023</span>. All rights reserved.</small>
     </div>
   </footer>
 </div>

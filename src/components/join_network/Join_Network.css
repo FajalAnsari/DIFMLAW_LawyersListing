@@ -28,13 +28,16 @@ border-radius: 9px;
 
 @media screen and (max-width: 587px) {
     .legal_network{
-        width: 92%;
-        padding: 7%;
-        margin-left: 4px !important;
-        margin-top: -160px;
+        width: 94%;
+        padding: 12%;
+        margin-left: -2px !important;
+        margin-top: -140px;
     }
     .reg_btn{
         width: 80% !important;
         margin-top: 10px !important;
+    }
+    .legalnet{
+        display: none;
     }
 }

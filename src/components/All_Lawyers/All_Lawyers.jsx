@@ -292,13 +292,13 @@ const All_Lawyers = () => {
   return (
     <>
 
-      <div class="container" style={{marginTop:"100px"}}>
+      <div className="container" style={{marginTop:"100px"}}>
         <h1 className='text-center text-white' id='dis'>Discover more than <span className='font-color'>5000+ Lawyers</span></h1>
         <div className="col-10 mx-auto">
-          <div class="row mt-5 ">
-            <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
+          <div className="row mt-5 ">
+            <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
                 <datalist id="categoryOptions">
                     <option value="Injury Lawyers" />
                     <option value="Family Law Lawyers" />
@@ -307,18 +307,18 @@ const All_Lawyers = () => {
                     <option value="Immigration Lawyers" />
                     <option value="Property Lawyers" />
                   </datalist>
-                <span class="input-group-text btns-primary border-prime"><i class="bi bi-search" onClick={BynameSearch}></i></span>
+                <span className="input-group-text btns-primary border-prime"><i className="bi bi-search" onClick={BynameSearch}></i></span>
               </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
-                <span class="input-group-text btns-primary border-prime"><i class="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
+            <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
+                <span className="input-group-text btns-primary border-prime"><i className="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
               </div>
             </div>
-            <div class="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
-              <button class="btn btns-primary border-prime btn-block" onClick={SubmitLawyer}>Search</button>
-              <button class="btn btns-primary border-prime btn-block ms-2" onClick={handleReset}>Reset</button>
+            <div className="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
+              <button className="btn btns-primary border-prime btn-block" onClick={SubmitLawyer}>Search</button>
+              <button className="btn btns-primary border-prime btn-block ms-2" onClick={handleReset}>Reset</button>
             </div>
           </div>
           <p className='fs-6 text-white pop'>Popular Searches :  Defense Lawyers, Real Estate </p>
@@ -337,10 +337,10 @@ const All_Lawyers = () => {
                   <h4 className='mt-3 font-color'>{service.title}</h4>
                   {service.children &&
                     service.children.map((child) => (
-                      <div class="form-check mt-2">
+                      <div className="form-check mt-2">
                         {/* checked={child.title===params.cat} */}
-                        <input class="form-check-input" type="checkbox" name='check' value={child.title} id="flexCheckDefault" onClick={handleCheckbox} />
-                        <label class="form-check-label text-white" for="flexCheckDefault">
+                        <input className="form-check-input" type="checkbox" name='check' value={child.title} id="flexCheckDefault" onClick={handleCheckbox} />
+                        <label className="form-check-label text-white" for="flexCheckDefault">
                           {child.title}
                         </label>
                       </div>
@@ -356,10 +356,10 @@ const All_Lawyers = () => {
                   <p className='fs-6 text-white'>Showing {totalLawyers} results</p>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
-                  <div class="input-group mb-3">
-                    <span class="input-group-text border-prime btns-primary" >Sort by : </span>
-                    <select id="inputState" class="form-select" onChange={handleSelectValue}>
+                <div className="col-lg-6 col-md-6 col-sm-12 col-12 ">
+                  <div className="input-group mb-3">
+                    <span className="input-group-text border-prime btns-primary" >Sort by : </span>
+                    <select id="inputState" className="form-select" onChange={handleSelectValue}>
                       <option selected> Most relevant</option>
                       <option value="Full Day">Full Day</option>
                       <option value="Half Day">Half Day</option>
@@ -400,9 +400,8 @@ const All_Lawyers = () => {
                                 
                               </div>
                             </div>
-                          
-      <div className="col-md-1 mx-3 res4" style={{opacity:"65%"}}>
-                            <i class="bi bi-bookmark-fill fw-bold fs-3"></i>
+                            <div className="col-md-1 mx-3 res4" style={{opacity:"65%"}}>
+                            <i className="bi bi-bookmark-fill fw-bold fs-3"></i>
                             </div>
 
                          
@@ -424,7 +423,7 @@ const All_Lawyers = () => {
                             <div className="col-md-9">
                               <h4 className='mt-2 font-color'>{data.specialization}</h4>
                               <div className='d-flex mt-3'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
-                                <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i class="bi bi-geo-alt"></i> {data.address}</h5></div></div>
+                                <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i className="bi bi-geo-alt"></i> {data.address}</h5></div></div>
                               <div className='d-flex'>
                                 <p className='fs-6 text-white'>{data.work}</p>
                                 <p className='fs-6 mx-4 text-white lawexp'>{data.experience} in practice</p>
@@ -495,7 +494,7 @@ const All_Lawyers = () => {
             <div className="col-lg-6 featured" >
               <div className="d-flex float-xl-end" style={{marginTop:"-15px"}}>
                 <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-white'>Show all lawyers</a></p>
-                <i class="bi bi-arrow-right ms-2 fs-2 font-color"></i>
+                <i className="bi bi-arrow-right ms-2 fs-2 font-color"></i>
               </div>
             </div>
           </div>

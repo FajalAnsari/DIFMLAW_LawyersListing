@@ -17,6 +17,10 @@ import { Link } from 'react-router-dom';
 const Category = () => {
   const [user] = useAuthState(auth);
 
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <>
       <div className="section-2">
@@ -32,7 +36,7 @@ const Category = () => {
             </div>
             <div className="col-lg-6 ">
               <Link to="/alllawyer" className='text-white'>
-              <div className="d-flex mt-4 float-xl-end">
+              <div className="d-flex mt-4 float-xl-end" onClick={scrollToTop}>
                 <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
                 <div className='arrow-icons'><i class="bi bi-arrow-right ms-2 fs-2 font-color arr"></i></div>
               </div>
@@ -70,7 +74,7 @@ const Category = () => {
             </div>
             <div className="col-lg-6 featured">
             <Link to="/alllawyer" className='text-dark'>
-              <div className="d-flex mt-4 float-xl-end sal">
+              <div className="d-flex mt-4 float-xl-end sal" onClick={scrollToTop}>
                 <p className="fs-6 fw-bold mt-2 text-white">Show all lawyers</p>
                 <div className='arrow-icons'><i class="bi bi-arrow-right ms-2 fs-2 font-color arr"></i></div>
               </div>

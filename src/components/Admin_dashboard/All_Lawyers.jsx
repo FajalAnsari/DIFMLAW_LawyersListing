@@ -50,13 +50,13 @@ useEffect(()=>{
                 <p className='px-4 text-white mt-4'>All Lawyers</p>
             </div>
             <div className="col-md-2">
-               <div class="input-group mt-3 px-4 ">
-                  <div class="form-outline">
-                    <button type="button" class="btn btns-primary">
+               <div className="input-group mt-3 px-4 ">
+                  <div className="form-outline">
+                    <button type="button" className="btn btns-primary">
                      Filter 
                     </button>
                  </div>
-              <select id="inputState" class="form-select contect-bgColors selct" style={{width:"10%"}}>
+              <select id="inputState" className="form-select contect-bgColors selct" style={{width:"10%"}}>
                  <option selected>latest</option>
                  <option value="Full Day">Full Day</option>
                  <option value="Half Day">Half Day</option>
@@ -64,7 +64,7 @@ useEffect(()=>{
              </div>
          </div>
       </div>
-       <table class="table ">
+       <table className="table ">
                         <thead>
                             <tr className='text-white'>
                                 <th scope="col">I.D</th>
@@ -88,9 +88,9 @@ useEffect(()=>{
                                                 <td>34/09/2023</td>                                             
                                                 <td>{element.address}</td>
                                                 <td className="d-flex justify-content-between">
-                                                  <p style={{color:"green"}}><i class="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"skyblue"}}><i class="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"red"}}><i class="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
+                                                  <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
+                                                  <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
+                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
                                                 </td>
                                             </tr>
                                         </>

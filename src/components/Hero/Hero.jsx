@@ -32,7 +32,7 @@ const Hero = () => {
                     <option value="Property Lawyers" />
                   </datalist>
                 </div>
-                <div className="col-md-4 col-6">
+                <div className="col-md-4 col-5">
                   <input type="search" placeholder="Search By Location" className="form-control s-2" />
                 </div>
                 <div className="col-md-4 col-1">
