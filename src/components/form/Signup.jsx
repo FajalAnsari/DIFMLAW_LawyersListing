@@ -313,7 +313,7 @@ const Signup = () => {
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
-                    <label className="small mb-1 text-white" for="inputSpecialization">New Password</label>
+                    <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
                        <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
@@ -407,7 +407,7 @@ const Signup = () => {
                   </div>
 
                   <div class="col-md-6 mt-4">
-                     <label className="small mb-1 text-white" for="inputSpecialization">New Password</label>
+                     <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={pass} onChange={(e) => setPass(e.target.value)}/>
                        <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>

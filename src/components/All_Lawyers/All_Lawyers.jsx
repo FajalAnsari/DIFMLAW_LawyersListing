@@ -416,7 +416,7 @@ const All_Lawyers = () => {
                                 <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i className="bi bi-geo-alt"></i> {data.address}</h5></div></div>
                               <div className='d-flex'>
                                 <p className='fs-6 text-white'>{data.work}</p>
-                                <p className='fs-6 mx-4 text-white lawexp'>{data.experience}  in practice</p>
+                                <p className='fs-6 mx-4 text-white lawexp'>{data.experience} in practice</p>
                               </div>
                             </div>
                           </div>

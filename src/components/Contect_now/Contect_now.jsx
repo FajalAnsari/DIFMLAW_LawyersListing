@@ -1,29 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import "../Hero/Category.css";
 
 const Contect_now = () => {
+ 
 
+  //   const email = document.getElementById("email").value;
+  //   const message = document.getElementById("message").value;
+  //   const exampleModalToggle2 = document.getElementById("exampleModalToggle2");
+  //  if(!email || !message){
+  //  alert("Please Fill the form");
+  //  return false;
+  //  }
+  //   if(email.indexOf("@") == -1 || email.length < 6){
+  //     alert("Please Enter valid Email");
+  //     return false;
+  //   }
+  //   if(message.length <= 140){
+  //     alert("Please Enter More Than 140 Characters");
+  //     return false;
+  //   }
+  //   alert("Form Submitted Successfully!");
+  //   return true;
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  function validates(){
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-    const exampleModalToggle2 = document.getElementById("exampleModalToggle2");
-   if(!email || !message){
-   alert("Please Fill the form");
-   return false;
-   }
-    if(email.indexOf("@") == -1 || email.length < 6){
-      alert("Please Enter valid Email");
-      return false;
-    }
-    if(message.length <= 140){
-      alert("Please Enter More Than 140 Characters");
-      return false;
-    }
-    alert("Form Submitted Successfully!");
-    return true;
-  }
+  const baseUrl = "http://localhost:8000";
+
+  const sendEmail = async () => {
+    let dataSend = {
+      email: email,
+      message: message,
+    };
+
+    const res = await fetch(`${baseUrl}/email/sendEmail`, {
+      method: "POST",
+      body: JSON.stringify(dataSend),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      // HANDLING ERRORS
+      .then((res) => {
+        console.log(res);
+        if (res.status > 199 && res.status < 300) {
+          alert("Send Successfully !");
+        }
+      });
+  };
   return (
     <>
 
@@ -36,15 +62,16 @@ const Contect_now = () => {
       <div className='container'>
       <div class="mb-3 mt-4">
   <label for="exampleFormControlInput1" class="form-label">Enter Email</label>
-  <input type="email" class="form-control" id="email" placeholder="Enter your email"/>
+  <input type="email" class="form-control" id="email" placeholder="Enter your email"  onChange={(e) => setEmail(e.target.value)}/>
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Write your message</label>
-  <textarea class="form-control" placeholder='Write your message' id="message" rows="3"></textarea>
+  <textarea class="form-control" placeholder='Write your message' id="messages" rows="3"  onChange={(e) => setMessage(e.target.value)}
+></textarea>
 </div>
 </div>
       <div class="mx-auto mb-4">
-        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={validates}>Submit</button>
+        <button class="btn btns-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onClick={() => sendEmail()}>Submit</button>
       </div>
     </div>
   </div>
