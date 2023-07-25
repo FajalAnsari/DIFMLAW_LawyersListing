@@ -152,7 +152,7 @@ option:focus {
     margin-bottom: 18px !important;
   }
   .devider_page{
-    padding: 0px !important;
+    padding: 4px !important;
   }
 }
 /* 481px — 768px: iPads, Tablets */
@@ -170,7 +170,7 @@ option:focus {
     margin-bottom: 19px !important;
   }
   .devider_page{
-    padding: 0px !important;
+    padding: 38px !important;
   }
 }
 /* 769px — 1024px: Small screens, laptops */
