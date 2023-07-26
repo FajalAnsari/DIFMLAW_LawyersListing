@@ -12,8 +12,6 @@ const User_contact_form = (props) => {
     const [UserName, setUserName] = useState("");
     const [userImage, setUserImage] = useState("");
 
-    const baseUrl = "http://localhost:8000";
-
     // get username
     const fetchuserName = () => {
       const q = query(collection(db, "users"), where("uid", "==", user.uid));
@@ -60,7 +58,7 @@ useEffect(()=>{
             for (const item of data){
                  const cartCollectionRef = doc(parentCollection, props.lawyer_id, 'AllUsers', user.uid); 
                  await setDoc(cartCollectionRef,item).then(()=>{
-                    // alert("message sent successfully");
+                    alert("message sent successfully");
                  }).catch((err)=>{
                     console.log(err);
                  })
@@ -82,7 +80,7 @@ useEffect(()=>{
            for (const item of data){
                 const cartCollectionRef = doc(parentsubCollection, user.uid, 'AllMessages', props.lawyer_id); 
                 await setDoc(cartCollectionRef,item).then(()=>{
-                  //  alert("message sent successfully");
+                   alert("message sent successfully");
                 }).catch((err)=>{
                    console.log(err);
                 })
@@ -90,31 +88,6 @@ useEffect(()=>{
          
          
         }
-
-
-        let dataSend = {
-          name: props.lawyer_name,
-          email: email,
-          number: number,
-          message: message,
-          lawyerEmail:props.lawyer_email,
-        };
-    
-        const res = await fetch(`${baseUrl}/emailsss/sendEmaillaw`, {
-          method: "POST",
-          body: JSON.stringify(dataSend),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
-          // HANDLING ERRORS
-          .then((res) => {
-            console.log(res);
-            if (res.status > 199 && res.status < 300) {
-              // alert("Send Successfully !");
-            }
-          });
 
     }
 

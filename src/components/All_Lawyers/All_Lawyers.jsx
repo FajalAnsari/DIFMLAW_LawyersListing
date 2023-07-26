@@ -297,7 +297,7 @@ const All_Lawyers = () => {
         <div className="col-10 mx-auto">
           <div className="row mt-5 ">
             <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
-              <div className="input-group mb-3 ser">
+              <div className="input-group mb-3">
                 <input type="text" className="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
                 <datalist id="categoryOptions">
                     <option value="Injury Lawyers" />
@@ -311,7 +311,7 @@ const All_Lawyers = () => {
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
-              <div className="input-group mb-3 ser">
+              <div className="input-group mb-3">
                 <input type="text" className="form-control" onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
                 <span className="input-group-text btns-primary border-prime"><i className="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
               </div>
@@ -417,11 +417,11 @@ const All_Lawyers = () => {
                       <div className="row mx-auto">
                         <div className="col-md-6">
                           <div className="row">
-                            <div className="col-md-3 mt-3 col-3">
+                            <div className="col-md-3 mt-3">
                               <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
                             </div>
-                            <div className="col-md-9 col-9">
-                              <h4 className='mt-2 font-color'>{data.specialization}</h4>
+                            <div className="col-md-9">
+                              <p className='mt-2 fs-4 font-color'>{data.specialization}</p>
                               <div className='d-flex mt-3'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
                                 <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i className="bi bi-geo-alt"></i> {data.address}</h5></div></div>
                               <div className='d-flex'>

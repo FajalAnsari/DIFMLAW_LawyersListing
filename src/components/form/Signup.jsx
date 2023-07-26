@@ -28,7 +28,6 @@ const Signup = () => {
   const handleRegisterAsUser = () => {
     setIsLawyer(false);
     setIsUser(true);
-   
   };
 
   // this for lawyer form
@@ -218,7 +217,7 @@ const Signup = () => {
                   User
                 </button>
               </div>
-              <div className="shadow form-container forms-bg w-75 mx-auto p-2">
+              <div className="shadow form-container forms-bg w-75 mx-auto p-2" style={{marginBottom:'40px'}}>
 
                 <form
                   class="row g-3 me-4 mx-4"
@@ -374,7 +373,7 @@ const Signup = () => {
                   User
                 </button>
               </div>
-              <div className="shadow form-container forms-bg  mb-4 w-75 mx-auto p-5" id="form-bk">
+              <div className="shadow form-container forms-bg  mb-4 w-75 mx-auto p-5">
 
                 <form class="row g-3 me-4 mx-4 mt-1" onSubmit={handleUserFormSubmit}>
                   <div class="col-md-6">
@@ -387,7 +386,7 @@ const Signup = () => {
                   <div class="col-md-6">
                     <label className="small mb-1 text-white" for="inputEmail">Email</label>
                       <div class="input-group mbs">
-                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}} />
+                      <input className="form-control contect-bgColors" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open"></i></span>
                     </div>
                   </div>

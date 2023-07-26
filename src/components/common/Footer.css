@@ -106,11 +106,9 @@ font-size: 93.2% !important;
   width: 82% !important;
 }
   .main {
-    margin-top: 79px !important;
+    margin-top: 0px !important;
 }
-.asa{
-  display: none;
-}
+
 }
 
 /* styling for navbar */

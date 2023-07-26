@@ -5,6 +5,24 @@ import "../Hero/Category.css";
 
 const Contect_now = () => {
  
+
+  //   const email = document.getElementById("email").value;
+  //   const message = document.getElementById("message").value;
+  //   const exampleModalToggle2 = document.getElementById("exampleModalToggle2");
+  //  if(!email || !message){
+  //  alert("Please Fill the form");
+  //  return false;
+  //  }
+  //   if(email.indexOf("@") == -1 || email.length < 6){
+  //     alert("Please Enter valid Email");
+  //     return false;
+  //   }
+  //   if(message.length <= 140){
+  //     alert("Please Enter More Than 140 Characters");
+  //     return false;
+  //   }
+  //   alert("Form Submitted Successfully!");
+  //   return true;
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -32,8 +50,6 @@ const Contect_now = () => {
         }
       });
   };
-
-  
   return (
     <>
 
