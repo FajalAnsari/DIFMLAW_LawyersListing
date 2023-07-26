@@ -1,5 +1,5 @@
 .toggler-btn{
-    background-color: rgba(31, 39, 50);
+    background-color: var(--secondary);
     padding: 10px; 
     margin-top: 11px;
     border-bottom: 3px solid #d1b06b;
