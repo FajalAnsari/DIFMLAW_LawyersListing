@@ -302,13 +302,13 @@ const All_Lawyers = () => {
                 <span className="input-group-text btns-primary border-prime"><i className="bi bi-search" onClick={BynameSearch}></i></span>
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
+            <div className="col-lg-4 col-md-6 col-sm-12 col-12 col-xl-4">
               <div className="input-group mb-3 ser">
                 <input type="text" className="form-control" onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
                 <span className="input-group-text btns-primary border-prime"><i className="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
               </div>
             </div>
-            <div className="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
+            <div className="col-lg-3 col-md-12 col-sm-12 col-12 col-xl-3">
               <button className="btn btns-primary border-prime btn-block" onClick={SubmitLawyer}>Search</button>
               <button className="btn btns-primary border-prime btn-block ms-2" onClick={handleReset}>Reset</button>
             </div>
@@ -407,14 +407,14 @@ const All_Lawyers = () => {
                       <div className="row mx-auto">
                         <div className="col-md-6">
                           <div className="row">
-                            <div className="col-md-3 mt-3 col-3">
+                            <div className="col-md-3 mt-3 col-3 ">
                               <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
                             </div>
                             <div className="col-md-9 col-9">
-                              <h4 className='mt-2 font-color'>{data.specialization}</h4>
-                              <div className='d-flex mt-3'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
+                              <p className='mt-2 fs-4 tb1 font-color'>{data.specialization}</p>
+                              <div className='d-flex mt-3 tb11'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
                                 <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i className="bi bi-geo-alt"></i> {data.address}</h5></div></div>
-                              <div className='d-flex'>
+                              <div className='d-flex tb12'>
                                 <p className='fs-6 text-white'>{data.work}</p>
                                 <p className='fs-6 mx-4 text-white lawexp'>{data.experience} in practice</p>
                               </div>

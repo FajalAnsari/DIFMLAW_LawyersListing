@@ -271,7 +271,7 @@ const Signup = () => {
                         <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct">
                           <option selected>Select your expertise</option>
                           <option value="Injury Lawyers">Injury Lawyers</option>
-                          <option value="Family Law Lawyers">Family Law Lawyers</option>
+                          <option value="Family Law Lawyers">Family Lawyers</option>
                           <option value="Defense Lawyers">Defense Lawyers</option>
                           <option value="Corporate Lawyers">Corporate Lawyers</option>
                           <option value="Immigration Lawyers">Immigration Lawyers</option>

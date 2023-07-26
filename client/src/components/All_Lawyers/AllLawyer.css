@@ -81,15 +81,23 @@ input[type="text"]{
   margin-left: 150px !important;
   position: absolute;
 }
-@media only screen and (max-width: 767px) {
-    .filter_btn{
+/* @media only screen and (max-width: 767px) {
+    
+} */
+
+
+@media (max-width: 480px){
+     .filter_btn{
         display: block;
     }
     #filters{
         display: none;
     }
     .view_buttons .lawexp{
-        margin-left: 134px !important;
+        margin-left: 77px !important;
+      }
+      .view_buttons .lawexpv{
+        margin-left: -22px !important;
       }
     .res1{
         margin-top: -74px !important;
@@ -108,6 +116,7 @@ input[type="text"]{
         width: 45% !important;
         font-size: 16px !important;
         height: 42px !important;
+       
     }
     
     .ser input[type="text"] {
@@ -123,7 +132,84 @@ input[type="text"]{
     }
 }
 
-@media screen and (min-device-width: 768px) and (max-device-width: 1968px) { 
+@media only screen and (min-width: 481px) and (max-width: 767px){
+    .filter_btn{
+        display: block;
+    }
+    #filters{
+        display: none;
+    }
+    .view_buttons .lawexp{
+        margin-left: 77px !important;
+      }
+      .view_buttons .lawexpv{
+        margin-left: -22px !important;
+      }
+    .res1{
+        margin-top: -74px !important;
+        margin-left: 80px;
+    }
+    .res2{
+        margin-left: 80px;
+    }
+    .res3{
+        margin-top: 2px;
+        margin-left: 50px;
+    }
+    .profi {
+        margin-top: 0% !important;
+        margin-bottom: 10px;
+        width: 45% !important;
+        font-size: 16px !important;
+        height: 42px !important;
+       
+    }
+    
+    .ser input[type="text"] {
+        height: 36px !important;
+        font-size: 14px !important;
+    }
+    .res4{
+        margin-top: -65px !important;
+       
+    }
+    .pop{
+        margin-top: 8px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    #filters{
+        display: block !important;
+    }
+    .tb1{
+        font-size: 14px !important;
+        font-weight: 500;
+        padding-left: 15% !important;
+    }
+    .profi {
+        width: 85% !important;
+        margin-top: 110px;
+    }
+    .alllawyersection{
+        height: 160px;
+    }
+    .tb12,
+    .tb11{
+        padding-left: 10%;
+    }
+    .lawpicd {
+        height: 60px;
+        width: 60px;
+    }
+    
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px){
+
+}
+
+@media screen and (min-device-width: 992px) and (max-device-width: 1968px) { 
     #filters{
         display: block !important;
     }
