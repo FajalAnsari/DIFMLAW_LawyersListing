@@ -70,46 +70,7 @@ option:focus {
   line-height: 34px;
   width: 89.99% !important;
 }
-@media only screen and (max-width: 540px) {
-  .form-sectionss{
-    height: 1300px !important;
-  }
-  .btn-law{
-   margin-top: 34% !important;
-  }
-.form-sectionss .inpu{
-  width: 85% !important;
-  line-height: 23px;
-}
- .form-sectionss  .input-group>.form-select {
-  height: 28px;
-  font-size: 12px;
-}  
-.form-sectionss  input[type="password"]{
-  height: 28px;
-  font-size: 12px;
-} 
-.forms-bg{
-  width: 100% !important;
-  padding: 0% !important;
-  margin-top: 15px;
-}
-.btn-law{
-  width: 30% !important;
-}
-.btns-formssec{
-  margin-left: 0% !important;
-}
-.btn-regi{
-  width: 40% !important;
-  margin-left: 28%;
-}
-.form-sectionss{
-  height: 990px;
-}
 
-
-}
 
 
 /* choose forpfile Picture button style  */
@@ -140,3 +101,130 @@ option:focus {
   height: 16px;
   margin-right: 4px;
 }
+
+
+@media (max-width: 480px){
+  .btn-law{
+    margin-top: 14% !important;
+    width: 30% !important;
+   }
+ .form-sectionss .inpu{
+   width: 85% !important;
+   line-height: 23px;
+ }
+  .form-sectionss  .input-group>.form-select {
+   height: 28px;
+   font-size: 12px;
+ }  
+ .form-sectionss  input[type="password"]{
+   height: 28px;
+   font-size: 12px;
+ } 
+ .forms-bg{
+   width: 100% !important;
+   padding: 0% !important;
+   margin-top: 16px;
+ }
+ #form-bk{
+   margin-top: -4px;
+ }
+
+ .btns-formssec{
+   margin-left: 0% !important;
+ }
+ .btn-regi{
+  width: 51% !important;
+  margin-left: 22%;
+ }
+ .form-sectionss{
+   height: 1170px !important;
+   margin-top: 79px !important;
+   height: auto !important;
+   padding: 4%;
+ }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+  .btn-law{
+    margin-top: 14% !important;
+    width: 30% !important;
+   }
+ .form-sectionss .inpu{
+   width: 85% !important;
+   line-height: 23px;
+ }
+  .form-sectionss  .input-group>.form-select {
+   height: 28px;
+   font-size: 12px;
+ }  
+ .form-sectionss  input[type="password"]{
+   height: 28px;
+   font-size: 12px;
+ } 
+ .forms-bg{
+   width: 100% !important;
+   padding: 0% !important;
+   margin-top: 16px;
+ }
+ #form-bk{
+   margin-top: -4px;
+ }
+ .btns-formssec{
+   margin-left: 0% !important;
+ }
+ .btn-regi{
+   width: 40% !important;
+   margin-left: 28%;
+ }
+ .form-sectionss{
+   height: 1170px !important;
+   margin-top: 79px !important;
+   height: auto !important;
+   padding: 4%;
+ }
+ 
+
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+  .btn-law{
+    margin-top: 14% !important;
+    width: 20% !important;
+   }
+ .form-sectionss .inpu{
+   width: 85% !important;
+   line-height: 31px;
+ }
+ .forms-bg{
+   width: 100% !important;
+   padding: 0% !important;
+   margin-top: 16px;
+ }
+ #form-bk{
+   margin-top: -4px;
+ }
+ 
+ .btns-formssec{
+   margin-left: 0% !important;
+ }
+ .btn-regi{
+   width: 40% !important;
+   margin-left: 28%;
+ }
+ .form-sectionss{
+   height: 1170px !important;
+   margin-top: 79px !important;
+   height: auto !important;
+   padding: 4%;
+ }
+ 
+}
+@media only screen and (min-width: 1024px) and (max-width: 1200px){
+  .inpu {
+    width: 85.99% !important;
+}
+}
+@media only screen and (min-width: 1201px) and (max-width: 1440px){
+  .inpu {
+    width: 88.99% !important;
+}
+}
+

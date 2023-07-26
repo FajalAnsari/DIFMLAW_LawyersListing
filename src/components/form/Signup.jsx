@@ -28,6 +28,7 @@ const Signup = () => {
   const handleRegisterAsUser = () => {
     setIsLawyer(false);
     setIsUser(true);
+   
   };
 
   // this for lawyer form
@@ -373,7 +374,7 @@ const Signup = () => {
                   User
                 </button>
               </div>
-              <div className="shadow form-container forms-bg  mb-4 w-75 mx-auto p-5">
+              <div className="shadow form-container forms-bg  mb-4 w-75 mx-auto p-5" id="form-bk">
 
                 <form class="row g-3 me-4 mx-4 mt-1" onSubmit={handleUserFormSubmit}>
                   <div class="col-md-6">

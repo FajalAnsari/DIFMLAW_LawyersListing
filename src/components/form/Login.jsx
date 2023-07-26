@@ -63,12 +63,14 @@ const Login = () => {
 
   return (
     <>
-      <section className="vh-50 form-control p-5 mb-5 w-50 mx-auto forms-bg border-prime" style={{ marginTop: "140px" }}>
+      <section className="vh-50 form-control p-5 mb-5 w-50 mx-auto forms-bg fom-bg border-prime" style={{ marginTop: "140px" }}>
         <div className="container-fluid h-custom">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-md-9 col-lg-6 col-xl-5">
+              <div className='login_page_image'>
               <img src={loginimg}
                 className="img-fluid" alt="Sample image" />
+                </div>
             </div>
             <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form onSubmit={handleFormSubmit}>
