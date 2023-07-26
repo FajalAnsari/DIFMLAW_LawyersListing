@@ -16,23 +16,3 @@
     opacity: 70%;
 }
 
-@media only screen and (max-width: 1200px) {
-    .frend{
-        margin-top: 0px;
-    }
-  }
-
-  @media only screen and (max-width: 540px) {
-    .ab-1{
-        flex-direction: column-reverse !important;
-    }
-    .consugg{
-        margin-top: 30px !important;
-     }
-     .about-img img{
-        width: 100% !important;
-        opacity: 0.75;
-       
-    }
-     
-  }

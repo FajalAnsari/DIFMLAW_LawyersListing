@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import logo from "../images/Difm_law_logo.svg";
-// import Devider from '../Testimonial/Devider';
+import Devider from '../Testimonial/Devider';
 import { Link } from 'react-router-dom';
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../../firebase';
 import { serverTimestamp } from "firebase/firestore";
-
 import './Footer.css';
 
 const Footer = () => {
@@ -53,7 +52,7 @@ const Footer = () => {
   };
   return (
     <>
-    {/* <Devider /> */}
+    <Devider />
       <div className="blockcode f-1">
 
   <footer className="page-footer shadow text-white">
@@ -85,8 +84,8 @@ const Footer = () => {
         <div>
           <p className="h5 mb-4 Devwares mt-4">Quick Links</p>
           <ul className="p-0 lis ">
-            <li className="my-2 ">
-              <Link className="text-dark text-decoration-none text-white" to="/contect_us" onClick={scrollToTop}>Contact</Link>
+            <li className="my-2">
+              <Link className="text-dark text-decoration-none text-white"  to="/contect_us" onClick={scrollToTop}>Contact</Link>
             </li>
             <li className="my-2">
               <Link className="text-dark text-decoration-none text-white" to="/about" onClick={scrollToTop}>About</Link>

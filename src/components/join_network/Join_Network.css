@@ -41,3 +41,14 @@ border-radius: 9px;
         display: none;
     }
 }
+
+/* tabs size */
+@media only screen and (min-width: 481px) and (max-width: 768px){
+    .legal_network{
+        width: 90%;
+        padding: 5%;
+        height: 28vh;
+        margin-left: 25px !important;
+        margin-top: -140px;
+    }  
+}

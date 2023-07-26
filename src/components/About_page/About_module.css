@@ -1,0 +1,118 @@
+/* media query for about page */
+/* small devices */
+@media (max-width: 480px){
+    .ab-1{
+        flex-direction: column-reverse !important;
+    }
+    .consugg{
+        margin-top: 30px !important;
+     }
+     .about-img img{
+        width: 100% !important;
+        opacity: 0.75; 
+    }
+    .contact_aboutas{
+      margin-left: 12px !important;
+      margin-top: 12px !important;
+    }
+   .aboutsections p{
+        width: 90% !important;
+    }
+    .our_promise_para{
+        margin-bottom: 154px;
+    }
+     .user_friendly{
+        margin-top: 0px;
+    }
+    .user_title{
+      font-size: 198% !important;
+      width: 90% !important;
+     margin-left: 18px;
+    }
+    .user_needs{
+        margin-left: 62px;
+        width: 70% !important;
+    }
+    .user_reviews_opinion{
+        margin-top: 254px !important;
+    }
+    .commited_needs{
+       margin-left: 10px;
+       width: 100%;
+       font-size: 195% !important;
+    }
+    .our_promise_block{
+        margin-top: -37px;
+    }
+}
+
+/* tabscreen */
+@media only screen and (min-width: 481px) and (max-width: 768px){
+    .ab-1{
+        flex-direction: column-reverse !important;
+    }
+    .consugg{
+        margin-top: 30px !important;
+     }
+     .about-img img{
+        width: 80% !important;
+        opacity: 0.75; 
+    }
+    .contact_aboutas{
+      margin-left: 12px !important;
+      margin-top: 8px !important;
+      
+    }
+   .aboutsections p{
+        width: 90% !important;
+    }
+    .our_promise_para{
+        margin-bottom: 154px;
+    }
+     .user_friendly{
+        margin-top: 0px;
+    }
+    .user_title{
+      font-size: 198% !important;
+      width: 90% !important;
+     margin-left: 18px;
+    }
+    .user_needs{
+        margin-left: 62px;
+        width: 70% !important;
+    }
+    .user_reviews_opinion{
+        margin-top: 254px !important;
+    }
+    .commited_needs{
+       margin-left: 10px;
+       width: 100%;
+       font-size: 195% !important;
+    }
+    .our_promise_block{
+        margin-top: -37px;
+    }
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+    .frend{
+        margin-top: 0px;
+    }
+  }
+
+  /* @media only screen and (max-width: 540px) {
+    .ab-1{
+        flex-direction: column-reverse !important;
+    }
+    .consugg{
+        margin-top: 30px !important;
+     }
+     .about-img img{
+        width: 100% !important;
+        opacity: 0.75;
+       
+    }
+     
+  } */
