@@ -226,3 +226,6 @@ input[type="checkbox"]:checked{
     border: 0px solid #A37707
    
 }
+.bookmarked {
+    background-color: #A37707;
+  }

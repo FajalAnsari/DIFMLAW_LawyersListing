@@ -218,7 +218,7 @@ const Signup = () => {
                   User
                 </button>
               </div>
-              <div className="shadow form-container forms-bg w-75 mx-auto p-2">
+              <div className="shadow form-container forms-bg w-75 mx-auto p-2" style={{marginBottom:'40px'}}>
 
                 <form
                   class="row g-3 me-4 mx-4"
@@ -228,21 +228,21 @@ const Signup = () => {
                     <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
-                      <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
+                      <span class="input-group-text btns-primary border-prime bolder"><i class="bi bi-person"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-4">
                     <label className="small mb-1 text-white" for="inputEmail">Email</label>
                       <div class="input-group mbs">
-                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={email} onChange={(e) => {setEmail(e.target.value)}}  />
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+                      <input className="form-control contect-bgColors" id="inputEmail" type="email"   placeholder="Enter your email" value={email} onChange={(e) => {setEmail(e.target.value)}}  />
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
                       <div class="input-group mbs">
-                      <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder="Enter your number" value={phone}  onChange={(e) => setPhone(e.target.value)}/>
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
+                      <input className="form-control contect-bgColors" id="inputMobile" type="tel" placeholder="Enter your number" value={phone}  onChange={(e) => setPhone(e.target.value)}/>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-telephone"></i></span>
                     </div>  
                   </div>
 
@@ -262,7 +262,7 @@ const Signup = () => {
                            <option value="9 Year">9 Years</option>
                            <option value="10+ Year">10+ Years</option>
                            </select>
-                           <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-briefcase-fill"></i></span>
+                           <span class="input-group-text btns-primary border-prime" ><i class="bi bi-briefcase-fill"></i></span>
                         </div>
                   </div>
                   <div class="col-md-6 mt-3">
@@ -279,7 +279,7 @@ const Signup = () => {
                           <option value="Real Estate Lawyers">Real Estate Lawyers</option>
                           <option value="Employment Lawyers">Employment Lawyers</option>
                         </select>
-                        <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
+                        <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
                       </div>
                   </div>
 
@@ -287,7 +287,7 @@ const Signup = () => {
                    <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={location} onChange={(e) => {setLocation(e.target.value)}}/>
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt-fill"></i></span>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
@@ -303,28 +303,28 @@ const Signup = () => {
                       <option value="Full Day">Full Day</option>
                       <option value="Half Day">Half Day</option>
                     </select>
-                    <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
+                    <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputWork">Pictures</label>
                       <div class="input-group mbs">
                       <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" onChange={(e) => setPicture(e.target.files[0])} />
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-card-image"></i></span>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-card-image"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
-                       <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
                       </div>
                   </div>
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter your confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
                       </div>
                   </div>
                   <div class="col-md-12 mt-3">
@@ -381,21 +381,21 @@ const Signup = () => {
                      <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={name} onChange={(e) => {setName(e.target.value)}}/>
-                      <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
+                      <span class="input-group-text btns-primary border-prime bolder"><i class="bi bi-person"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label className="small mb-1 text-white" for="inputEmail">Email</label>
                       <div class="input-group mbs">
-                      <input className="form-control contect-bgColors dm" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}} />
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+                      <input className="form-control contect-bgColors" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}} />
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-4">
                     <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder="Enter your number"  value={number}  onChange={(e) => setNumber(e.target.value)}/>
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-telephone"></i></span>
                     </div>
                   </div>
 
@@ -403,7 +403,7 @@ const Signup = () => {
                      <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..."  value={state}  onChange={(e) => setState(e.target.value)}/>
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt-fill"></i></span>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
 
@@ -411,14 +411,14 @@ const Signup = () => {
                      <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={pass} onChange={(e) => setPass(e.target.value)}/>
-                       <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
                       </div>
                   </div>
                   <div class="col-md-6 mt-4">
                      <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
                       <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter your confirm password" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)}/>
-                      <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
                       </div>
                   </div>
                   <div class="form-check mb-0 mx-2">

@@ -466,11 +466,11 @@
     
     
     input[type="text"]{
-        height: 28px;
+        height: auto;
         font-size: 12px;
     }
     input[type="tel"]{
-        height: 28px;
+        height: auto;
         font-size: 12px;
     }
     .dm{
@@ -484,7 +484,7 @@
         width: 83.99% !important;
     }
     .lawyer_profile  .input-group>.form-select {
-       height: 28px;
+       height: auto;
        font-size: 12px;
     }    
     .bookmark_lawyer{

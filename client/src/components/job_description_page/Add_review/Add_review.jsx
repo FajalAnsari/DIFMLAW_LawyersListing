@@ -24,27 +24,28 @@ const Add_review = (props) => {
 
 
     // get username
-    const fetchuserName = () => {
-      const q = query(collection(db, "users"), where("uid", "==", user.uid));
-      const res = [];
-      
-      getDocs(q).then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          res.push({
-            id: doc.id,
-            ...doc.data()
+    if(user){
+     
+        const q = query(collection(db, "users"), where("uid", "==", user.uid));
+        const res = [];
+        
+        getDocs(q).then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            res.push({
+              id: doc.id,
+              ...doc.data()
+            });
           });
+        setUserImage(res[0].image);
+          setUserName(res[0].username);
+        }).catch((error) => {
+          console.log("Error getting documents: ", error);
         });
-      setUserImage(res[0].image);
-        setUserName(res[0].username);
-      }).catch((error) => {
-        console.log("Error getting documents: ", error);
-      });
+  
+      // }
     }
-   
-useEffect(()=>{
-  fetchuserName();
-})
+  
+
 
   //  give rating 
   const giveRating = async (e) =>{

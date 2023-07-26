@@ -24,6 +24,7 @@ import User_Profile from "./components/User_Dashboard/User_Profile";
 import Edit_Profile_admin from "./components/Admin_dashboard/Edit_Profile_admin";
 import Add_Users from "./components/Admin_dashboard/Add_Users";
 import User_messages from "./components/User_Dashboard/User_messages";
+import Subscribed_Users from "./components/Admin_dashboard/Subscribed_Users";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
               <Route path="Edit_Profile_admin" element={<Edit_Profile_admin />} />
               <Route path="Add_Users" element={<Add_Users />} />
               <Route path="user_messages" element={<User_messages />} />
+              <Route path="subscribers" element={<Subscribed_Users />} />
             </Route>
           </Routes>
         </FirebaseProvider>

@@ -1,21 +1,3 @@
-.frend{
-    margin-top: -100px;
-}
-.s{
-    margin-left: 80px;
-}
-.consugg{
-   margin-top: -95px !important;
-   background-color: var(--second-primary);
-}
-.dmis{
-    margin-left: 15% !important;
-}
-.about-img img{
-    width: 140%;
-    opacity: 70%;
-}
-
 /* media query for about page */
 /* small devices */
 @media (max-width: 480px){
@@ -201,4 +183,3 @@
         margin-top: 0px;
     }
   }
-
