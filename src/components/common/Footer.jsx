@@ -14,12 +14,14 @@ const Footer = () => {
   const [subscribed, setSubscribed] = useState(false);
   const [error, setError] = useState(false);
 
+  const baseUrl = "http://localhost:8000";
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
     setError(false); // Reset error state when user starts typing
   };
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async() => {
     const emailRegex = /\S+@\S+\.\S+/; // Email regex pattern
 
     if(!email){
@@ -43,6 +45,26 @@ const Footer = () => {
     }
    }
    
+   let dataSend = {
+    email: email,
+  };
+
+  const res = await fetch(`${baseUrl}/emailss/sendEmailSubs`, {
+    method: "POST",
+    body: JSON.stringify(dataSend),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    // HANDLING ERRORS
+    .then((res) => {
+      console.log(res);
+      if (res.status > 199 && res.status < 300) {
+        alert("Send Successfully !");
+      }
+    });
+
   };
 
   const scrollToTop = () => {
