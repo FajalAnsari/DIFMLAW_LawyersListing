@@ -1,10 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Contect_us.css";
 import Testimonial from '../Testimonial/Testimonial';
 import { Link } from 'react-router-dom';
 import Contect_Sugg from "../About_page/Contect_sugg";
 
 const Contect_us = () => {
+ 
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [username, setUsername] = useState("");
+  
+    const baseUrl = "http://localhost:8000";
+  
+    const sendEmail = async () => {
+      let dataSend = {
+        email: email,
+        username: username,
+        message: message,
+      };
+  
+      const res = await fetch(`${baseUrl}/emails/sendEmails`, {
+        method: "POST",
+        body: JSON.stringify(dataSend),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+        // HANDLING ERRORS
+        .then((res) => {
+          console.log(res);
+          if (res.status > 199 && res.status < 300) {
+            alert("Send Successfully !");
+          }
+        });
+    };
+
   return (
     <>
     <div className="container"  style={{marginTop:"120px"}}>
@@ -43,7 +74,7 @@ const Contect_us = () => {
                 className="form-control contect-bgColors"
                 id="inputEmail4"
                 // value={username}
-                // onChange={handleUsernameChange}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div className="col-md-6">
@@ -56,7 +87,7 @@ const Contect_us = () => {
                 className="form-control contect-bgColors"
                 id="inputPassword4"
                 // value={email}
-                // onChange={handleEmailChange}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
       
@@ -71,7 +102,7 @@ const Contect_us = () => {
                 id="form6Example7"
                 rows="4"
                 // value={bio}
-                // onChange={handleBioChange}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
 
@@ -86,6 +117,7 @@ const Contect_us = () => {
               <button
                 type="submit"
                 className="btn btns-primary form-control mt-2 mb-5 signup"
+                onClick={() => sendEmail()}
               >
                 Submit
               </button>
