@@ -141,7 +141,7 @@ option:focus {
     width: 30% !important;
    }
  .form-sectionss .inpu{
-   width: 85% !important;
+   width: 91% !important;
    line-height: 33px;
  }
  .forms-bg{
@@ -211,7 +211,7 @@ option:focus {
 }
 @media only screen and (min-width: 1201px) and (max-width: 1440px){
   .inpu {
-    width: 88.99% !important;
+    width: 87.99% !important;
 }
 .form-sectionss{
   height: auto !important;

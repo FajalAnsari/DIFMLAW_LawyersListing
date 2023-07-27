@@ -35,7 +35,7 @@ const Lawyerscards = () => {
       {isLoading ? ( // Wrap the content in a conditional statement that checks if the data is still loading
         <div className="row mx-auto lawyers_profile">
           {[...Array(8)].map((_, i) => (
-           <div className="col-lg-3 rounded-3 lawyer ecard mt-4 card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
+           <div className="col-lg-3  rounded-3 lawyer ecard mt-4 card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
            <div style={{ height: 430 , width: 300}}>
             <div className="row mt-2" id="lawyer">
                 <div className="col-lg-4 col-sm-4 col-6">
@@ -71,7 +71,7 @@ const Lawyerscards = () => {
       ) : (
         <div className="row mx-auto lawyers_profile">
           {slice.map((data, i) => (
-            <div className="col-lg-3 rounded-3 lawyer ecard mt-4 card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
+            <div className="col-lg-3  rounded-3 lawyer ecard mt-4 card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
               <div className="row mt-2" id="lawyer">
                 <div className="col-lg-4 col-sm-4 col-4">
                   <img src={data.image} className="lawpics" alt="lawyer_card"></img>

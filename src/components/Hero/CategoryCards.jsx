@@ -17,7 +17,7 @@ const CategoryCards = ({logo, type,  avalilabe}) => {
   },[])
   return (
     <>
-      <div className='col-lg-3 p-4'>
+      <div className='col-lg-3 col-sm-6 p-4'>
           <Link className='text-decoration-none' to={`/alllawyer/${type}`}>
           <div className='category rounded-3 mt-4 p-4 ecard'>
           <img src={logo} className='w-25 mx-auto d-block' style={{marginLeft:"30%"}} alt='cat_logo' />
