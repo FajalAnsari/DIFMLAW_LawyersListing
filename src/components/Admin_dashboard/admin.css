@@ -23,3 +23,15 @@
     padding: 0rem 0rem;
     border: 1px solid  var(--fourth-primary);
 }
+@media (max-width: 480px){
+ 
+.admin_dashboard{
+  width: 82%;
+  margin-top: -4.89%;
+  margin-left: 18%;  
+  height: 36vh !important;
+}
+}
+@media only screen and (min-width: 481px) and (max-width: 768px){
+  
+}

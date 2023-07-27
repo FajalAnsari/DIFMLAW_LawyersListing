@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { sendPasswordResetEmail} from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
+import"../form/forget.css";
 
 const ForgetPassword = () => {
     
@@ -20,9 +21,9 @@ const handleSubmit = async(e)=>{
 }
 
   return (
-    <div className="form-sectionss" style={{marginTop:"1px"}}>
+    <div className="delete_section" style={{marginTop:"1px"}}>
     <div className="container">
-<div class="card text-center py-4" style={{width: "30%",marginTop:"15%",marginLeft:"20%" ,position:"absolute",backgroundColor:" #161D27"}}>
+<div class="card text-center py-4 deteles" style={{width: "40%",marginTop:"15%",marginLeft:"12%" ,position:"absolute",backgroundColor:" #161D27"}}>
 <p class="fs-2 font-color ">Password Reset</p>
     <div class="card-body px-5">
         <p class="card-text text-white">

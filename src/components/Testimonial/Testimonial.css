@@ -121,8 +121,26 @@
         height: 65px !important;
         border-radius: 50%;
     }
+    .asa{
+        margin-top: 25% !important;
+    }
 }
-@media only screen and (min-width: 768px) and (max-width: 1199px){
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .testimonial1 {
+        padding-left: 8%;
+        padding-right: 14%;
+        word-spacing: -5.2px;
+    }
+    .mts img{
+        width: 65px !important;
+        height: 65px !important;
+        border-radius: 50%;
+    }
+    .asa{
+        margin-top: 25% !important;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px){
     .testimonial1 {
         padding-left: 8%;
         padding-right: 14%;

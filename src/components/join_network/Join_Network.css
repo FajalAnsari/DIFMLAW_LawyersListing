@@ -42,34 +42,26 @@
 }
 /* tabs size */
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 767px) {
   .legal_network {
-    width: 90%;
-
-    padding: 7%;
-
-    height: 30vh;
-
+    width: auto !important;
+    padding: 3%;
+    height: auto;
     margin-left: 25px !important;
-
-    margin-top: -140px;
-  }
+    margin-top: -95px;
+}
 }
 
 /* laptops screen */
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .legal_network {
-    width: 90%;
-
-    padding: 7%;
-
-    height: 28vh;
-
+    width: auto !important;
+    padding: 3%;
+    height: auto;
     margin-left: 25px !important;
-
-    margin-top: -140px;
-  }
+    margin-top: -95px;
+}
 }
 
 /* desktop screen */
