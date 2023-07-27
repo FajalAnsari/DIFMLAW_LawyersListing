@@ -165,6 +165,9 @@
        z-index: 1;
        height: 65vh !important;
    }
+   .bok{
+    margin-top: 60px !important;
+   }
   }
 
   @media only screen and (max-width: 360px) {
@@ -500,6 +503,9 @@
         margin-left: 10%;
         margin-top: -15% !important;
     }
+    .bok{
+        margin-top: 60px !important;
+       }
   }
 
 
@@ -551,6 +557,9 @@
         line-height: 26px;
         width: 75.99% !important;
     }
+    .ecard {
+        padding: 0.2rem!important;
+    }
   }
   @media only screen and (width: 375px) {
     .lawyer_profile{
@@ -572,6 +581,12 @@
         line-height: 26px;
         width: 75.99% !important;
     }
+    .bok{
+        margin-top: 160px !important;
+       }
+       .ecard {
+        padding: 0.4rem!important;
+    }
   }
   @media only screen and (width: 360px) {
    
@@ -587,6 +602,12 @@
     .lawyer_profile  .inpu{
         line-height: 26px;
         width: 80.99% !important;
+    }
+    .bok{
+        margin-top: 80px !important;
+       }
+       .ecard {
+        padding: 0.4rem!important;
     }
   }
 
@@ -723,7 +744,14 @@
     width: 74.99% !important;
     line-height: 34px;
 }
-
+.bookmark_lawyer{
+    margin-top: -77% !important;
+    height: auto !important;
+    margin-left: 71px !important;
+}
+.bok{
+    margin-top: 40px !important;
+   }
   }
 
   @media only screen and (width: 768px) { 
@@ -761,6 +789,14 @@
     width: 74.99% !important;
     line-height: 34px;
 }
+.bookmark_lawyer{
+    margin-top: -82% !important;
+    height: auto !important;
+    margin-left: 71px !important;
+}
+.bok{
+    margin-top: 40px !important;
+   }
   }
 
  
@@ -873,6 +909,14 @@
     width: 84.99% !important;
     line-height: 34px;
 }
+.bookmark_lawyer{
+    margin-top: -57% !important;
+    height: auto !important;
+    margin-left: 71px !important;
+}
+.bok{
+    margin-top: 40px !important;
+   }
   }
 
   @media only screen and (width: 1280px) {
@@ -910,6 +954,14 @@
         width: 86.99% !important;
         line-height: 34px;
     }
+    .bookmark_lawyer{
+        margin-top: -50% !important;
+        height: 640px !important;
+        margin-left: 71px !important;
+    }
+    .bok{
+        margin-top: 40px !important;
+       }
   }
   .active{
     background: #4C525A;
