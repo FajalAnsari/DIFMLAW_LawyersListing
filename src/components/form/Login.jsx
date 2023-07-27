@@ -63,7 +63,16 @@ const Login = () => {
           }
           navigate("/");
         })
-        .catch((err) => setError(err.message));
+        .catch((error) => {
+         // Handle Firebase error and set custom error message
+      if (error.code === 'auth/user-not-found') {
+        setError('Invalid email address. Please enter a valid email.');
+      } else if (error.code === 'auth/wrong-password') {
+        setError('Invalid password. Please enter the correct password.');
+      } else {
+        setError('An error occurred. Please try again later.');
+      }
+        })
     }
   };
   
@@ -134,7 +143,6 @@ const Login = () => {
                   <p className="small fw-bold mt-2 pt-1 mb-0 text-white">Don't have an account? <Link to="/signup"
                     className="font-color">Register</Link></p>
                 </div>
-
               </form>
             </div>
           </div>

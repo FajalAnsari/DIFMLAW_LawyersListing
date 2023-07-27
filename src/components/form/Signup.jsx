@@ -44,7 +44,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-
+  const [errors, setErrors] = useState(null);
   const [fileError, setFileError] = useState("");
 
 
@@ -164,7 +164,7 @@ const Signup = () => {
       !pass ||
       !confirmPass
     ) {
-      setError("Please fill all the value!");
+      setErrors("Please fill all the value!");
     } else {
       if (pass === confirmPass) {
         createUserWithEmailAndPassword(auth, emails, pass).then(
@@ -184,11 +184,13 @@ const Signup = () => {
             navigate("/");
           }
         ).catch((err) => {
-          setUserErr(err);
-          alert(err);
+          if (err.code === 'auth/email-already-in-use') {
+            alert('You are already registered please login!.');
+            navigate("/login");
+          } 
         })
       } else {
-        setError("Your password and confirm password is doesn't match!");
+        setErrors("Your password and confirm password is doesn't match!");
       }
     }
   };
@@ -427,7 +429,7 @@ const Signup = () => {
                    I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
                   </label>
                 </div>
-                  {/* <span className="text-danger">{userErr}</span> */}
+                <p className="text-danger fs-5">{errors}</p>
                   <div class="col-md-12 mt-5 ">
                     <button
                       type="submit"

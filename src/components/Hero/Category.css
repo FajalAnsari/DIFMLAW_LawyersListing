@@ -352,12 +352,10 @@ line-height: 21px !important;
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1280px){
-   
       .suggestion{
-        margin-left: 15% !important;
-        height: 180px !important;
-        width: auto !important;
-      }
-      
+        margin-left: -20px !important;
+        width: 90% !important;
+        height: auto !important;
+      }    
      
 }
