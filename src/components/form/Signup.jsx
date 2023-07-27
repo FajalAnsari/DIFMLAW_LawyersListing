@@ -16,9 +16,12 @@ const Signup = () => {
   const navigate = useNavigate();
   const [isLawyer, setIsLawyer] = useState(true);
   const [isUser, setIsUser] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
 
-
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleRegisterAsLawyer = () => {
     setIsLawyer(true);
@@ -28,7 +31,7 @@ const Signup = () => {
   const handleRegisterAsUser = () => {
     setIsLawyer(false);
     setIsUser(true);
-   
+
   };
 
   // this for lawyer form
@@ -176,12 +179,12 @@ const Signup = () => {
             console.log(user);
             await addDoc(collection(db, "users"), {
               uid: user.uid,
-              username:name,
+              username: name,
               authProvider: "local",
               email: emails,
               number: number,
               address: state,
-              image:'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png',
+              image: 'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png',
               date: serverTimestamp()
             });
             navigate("/");
@@ -200,7 +203,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className="form-sectionss" style={{marginTop:"1px"}}>
+      <div className="form-sectionss" style={{ marginTop: "1px" }}>
         <div className="container">
           {isLawyer && (
             <>
@@ -231,124 +234,136 @@ const Signup = () => {
                 >
                   <div class="col-md-6 mt-4">
                     <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={username} onChange={(e) => { setUsername(e.target.value) }} />
                       <span class="input-group-text btns-primary border-prime bolder"><i class="bi bi-person"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-4">
                     <label className="small mb-1 text-white" for="inputEmail">Email</label>
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputEmail" type="email"   placeholder="Enter your email" value={email} onChange={(e) => {setEmail(e.target.value)}}  />
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputEmail" type="email" placeholder="Enter your email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
-                    <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputMobile" type="tel" placeholder="Enter your number" value={phone}  onChange={(e) => setPhone(e.target.value)}/>
+                    <label className="small mb-1 text-white" for="inputMobile">Mobile</label>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputMobile" type="tel" placeholder="Enter your number" value={phone} onChange={(e) => setPhone(e.target.value)} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-telephone"></i></span>
-                    </div>  
+                    </div>
                   </div>
 
                   <div class="col-md-6 mt-3">
-                     <label className="small mb-1 text-white" for="inputExperience">Experience</label>    
-                        <div class="input-group mbs">
-                          <select id="inputState" value={experience} onChange={(e) => setExperience(e.target.value)} class="form-select contect-bgColors selct">
-                           <option selected>Choose...</option>
-                           <option value="1 Year">1 Year</option>
-                           <option value="2 Year">2 Years</option>
-                           <option value="3 Year">3 Years</option>
-                           <option value="4 Year">4 Years</option>
-                           <option value="5 Year">5 Years</option>
-                           <option value="6 Year">6 Years</option>
-                           <option value="7 Year">7 Years</option>
-                           <option value="8 Year">8 Years</option>
-                           <option value="9 Year">9 Years</option>
-                           <option value="10+ Year">10+ Years</option>
-                           </select>
-                           <span class="input-group-text btns-primary border-prime" ><i class="bi bi-briefcase-fill"></i></span>
-                        </div>
+                    <label className="small mb-1 text-white" for="inputExperience">Experience</label>
+                    <div class="input-group mbs">
+                      <select id="inputState" value={experience} onChange={(e) => setExperience(e.target.value)} class="form-select contect-bgColors selct">
+                        <option selected>Choose...</option>
+                        <option value="1 Year">1 Year</option>
+                        <option value="2 Year">2 Years</option>
+                        <option value="3 Year">3 Years</option>
+                        <option value="4 Year">4 Years</option>
+                        <option value="5 Year">5 Years</option>
+                        <option value="6 Year">6 Years</option>
+                        <option value="7 Year">7 Years</option>
+                        <option value="8 Year">8 Years</option>
+                        <option value="9 Year">9 Years</option>
+                        <option value="10+ Year">10+ Years</option>
+                      </select>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-briefcase-fill"></i></span>
+                    </div>
                   </div>
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputSpecialization">Specialization</label>
-                      <div class="input-group mbs">
-                        <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct">
-                          <option selected>Select your expertise</option>
-                          <option value="Injury Lawyers">Injury Lawyers</option>
-                          <option value="Family Law Lawyers">Family Law Lawyers</option>
-                          <option value="Defense Lawyers">Defense Lawyers</option>
-                          <option value="Corporate Lawyers">Corporate Lawyers</option>
-                          <option value="Immigration Lawyers">Immigration Lawyers</option>
-                          <option value="Property Lawyers">Property Lawyers</option>
-                          <option value="Real Estate Lawyers">Real Estate Lawyers</option>
-                          <option value="Employment Lawyers">Employment Lawyers</option>
-                        </select>
-                        <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
-                      </div>
+                    <div class="input-group mbs">
+                      <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct">
+                        <option selected>Select your expertise</option>
+                        <option value="Injury Lawyers">Injury Lawyers</option>
+                        <option value="Family Law Lawyers">Family Law Lawyers</option>
+                        <option value="Defense Lawyers">Defense Lawyers</option>
+                        <option value="Corporate Lawyers">Corporate Lawyers</option>
+                        <option value="Immigration Lawyers">Immigration Lawyers</option>
+                        <option value="Property Lawyers">Property Lawyers</option>
+                        <option value="Real Estate Lawyers">Real Estate Lawyers</option>
+                        <option value="Employment Lawyers">Employment Lawyers</option>
+                      </select>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
+                    </div>
                   </div>
 
                   <div class="col-md-6 mt-3">
-                   <label className="small mb-1 text-white" for="inputWork">Location</label>
+                    <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={location} onChange={(e) => {setLocation(e.target.value)}}/>
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={location} onChange={(e) => { setLocation(e.target.value) }} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
-                  <label className="small mb-1 text-white" for="inputWork">Work</label>
+                    <label className="small mb-1 text-white" for="inputWork">Work</label>
                     <div class="input-group mbs">
-                    <select
-                      id="inputState"
-                      value={work}
-                      onChange={(e) => setWork(e.target.value)}
-                      class="form-select contect-bgColors selct"
-                    >
-                      <option selected>Choose..</option>
-                      <option value="Full Day">Full Day</option>
-                      <option value="Half Day">Half Day</option>
-                    </select>
-                    <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
+                      <select
+                        id="inputState"
+                        value={work}
+                        onChange={(e) => setWork(e.target.value)}
+                        class="form-select contect-bgColors selct"
+                      >
+                        <option selected>Choose..</option>
+                        <option value="Full Day">Full Day</option>
+                        <option value="Half Day">Half Day</option>
+                      </select>
+                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-person-fill"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputWork">Pictures</label>
-                      <div class="input-group mbs">
+                    <div class="input-group mbs">
                       <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" onChange={(e) => setPicture(e.target.files[0])} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-card-image"></i></span>
                     </div>
                   </div>
+
                   <div class="col-md-6 mt-3">
-                    <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
-                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
-                      </div>
+                    <label className="small mb-1 text-white" htmlForfor="inputSpecialization">Password</label>
+                    <div class="input-group mbs">
+                      <input
+                        className="form-control contect-bgColors"
+                        id="inputSpecialization" type={showPassword ? 'text' : 'password'}
+                        placeholder="Enter Your New Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+
+                      <span className="input-group-text btns-primary border-prime" onClick={togglePasswordVisibility}>
+                        {showPassword ? <i className="bi bi-eye-slash"></i> : <i className="bi bi-eye"></i>}
+                      </span>
+                    </div>
                   </div>
+
                   <div class="col-md-6 mt-3">
-                    <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter your confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+                    <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputEducation" type="password" name="education" placeholder="Re Enter The Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
-                      </div>
+                    </div>
                   </div>
                   <div class="col-md-12 mt-3">
                     <label for="inputZip" class="form-label text-white">Bio/Profile Summary</label>
-                    <textarea class="form-control ed text-primary contect-bgColors" maxLength="250"  id="form6Example7" rows="4"  placeholder="Write about yourself..." value={bio} onChange={biohaldle}></textarea>      
+                    <textarea class="form-control ed text-primary contect-bgColors" maxLength="250" id="form6Example7" rows="4" placeholder="Write about yourself..." value={bio} onChange={biohaldle}></textarea>
                   </div>
-                  
-                 <div class="form-check mb-0 mx-2">
-                  <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3"/>
-                   <label class="form-check-label  text-white" for="form2Example3">
-                   I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
-                  </label>
-                </div>
+
+                  <div class="form-check mb-0 mx-2">
+                    <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3" required checked />
+                    <label class="form-check-label  text-white" for="form2Example3">
+                      I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
+                    </label>
+                  </div>
                   <p className="text-danger fs-5">{error}</p>
                   <div class="col-md-12">
                     <button
                       type="submit"
                       class=" mb-4 w-25 signup border-prime btns-primary  btn-regi"
-                      style={{marginTop:"-20px"}}
+                      style={{ marginTop: "-20px" }}
                     >
                       Register Now
                     </button>
@@ -383,56 +398,69 @@ const Signup = () => {
 
                 <form class="row g-3 me-4 mx-4 mt-1" onSubmit={handleUserFormSubmit}>
                   <div class="col-md-6">
-                     <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={name} onChange={(e) => {setName(e.target.value)}}/>
+                    <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your full name" value={name} onChange={(e) => { setName(e.target.value) }} />
                       <span class="input-group-text btns-primary border-prime bolder"><i class="bi bi-person"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label className="small mb-1 text-white" for="inputEmail">Email</label>
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputEmail" type="email"   placeholder="Enter your email" value={emails} onChange={(e) => {setEmails(e.target.value)}} />
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputEmail" type="email" placeholder="Enter your email" value={emails} onChange={(e) => { setEmails(e.target.value) }} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-4">
-                    <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder="Enter your number"  value={number}  onChange={(e) => setNumber(e.target.value)}/>
+                    <label className="small mb-1 text-white" for="inputMobile">Mobile</label>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder="Enter your number" value={number} onChange={(e) => setNumber(e.target.value)} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-telephone"></i></span>
                     </div>
                   </div>
 
                   <div class="col-md-6 mt-4">
-                     <label className="small mb-1 text-white" for="inputWork">Location</label>
+                    <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..."  value={state}  onChange={(e) => setState(e.target.value)}/>
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={state} onChange={(e) => setState(e.target.value)} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
 
+
                   <div class="col-md-6 mt-4">
-                     <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your new password"  value={pass} onChange={(e) => setPass(e.target.value)}/>
-                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
-                      </div>
+                    <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
+                    <div class="input-group mbs">
+                      <input
+                        className="form-control contect-bgColors"
+                        id="inputSpecialization"
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Enter Your New Password"
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)}
+                      />
+
+                      <span className="input-group-text btns-primary border-prime" onClick={togglePasswordVisibility}>
+                        {showPassword ? <i className="bi bi-eye-slash"></i> : <i className="bi bi-eye"></i>}
+                      </span>
+                    </div>
                   </div>
+
+
                   <div class="col-md-6 mt-4">
-                     <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
-                      <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter your confirm password" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)}/>
+                    <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>
+                    <div class="input-group mbs">
+                      <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Re Enter Your Password" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
-                      </div>
+                    </div>
                   </div>
                   <div class="form-check mb-0 mx-2">
-                  <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3"/>
-                   <label class="form-check-label  text-white" for="form2Example3">
-                   I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
-                  </label>
-                </div>
-                <p className="text-danger fs-5">{errors}</p>
+                    <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3" required checked />
+                    <label class="form-check-label  text-white" for="form2Example3">
+                      I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
+                    </label>
+                  </div>
+                  <p className="text-danger fs-5">{errors}</p>
                   <div class="col-md-12 mt-5 ">
                     <button
                       type="submit"
