@@ -134,6 +134,7 @@ option:focus {
    height: auto !important;
    padding: 4%;
  }
+ 
 }
 @media only screen and (min-width: 481px) and (max-width: 767px){
   .btn-law{
