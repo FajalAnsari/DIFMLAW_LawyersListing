@@ -15,7 +15,7 @@ const Hero = () => {
       <section id="hero" class="d-flex align-items-center main">
         <div class="container heroes">
           <div class="row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 text-white order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 text-white order-2 order-lg-1 her0s" data-aos="fade-up" data-aos-delay="200">
               <h2 className='fq-1 t2 mt-5'>Find the<br />
                 <span className='t-1 t2'>Right Lawyer</span></h2>
               <h2 className='fq-2 mb-4 t2'>For Your Legal Needs</h2>
