@@ -6,7 +6,7 @@ const Expertise_and_services = (props) => {
     <div className='row border law border border-prime rounded mt-5 p-4 expertise_service' style={{backgroundColor: "var(--second-secondary)"}}>
         <h3 className='bt-primary p-2 fs-5'>Expertise and Services</h3>
         <p className='fs-6'>{props.Bio}</p>
-        <h2>Requirements:</h2>
+        <h2 className='fs-3'>Requirements:</h2>
         <div className='row'>
             <div className='col-lg-6'>
                 <div className='row'>

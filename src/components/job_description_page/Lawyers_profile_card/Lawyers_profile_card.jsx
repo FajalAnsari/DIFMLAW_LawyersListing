@@ -99,17 +99,17 @@ const Lawyers_profile_card = () => {
     <div className="container" style={{marginTop:"80px"}}>
       <div className="row">
         {/* lawyer profile card start */}
-        <div className="col-lg-8 p-5 ">
+        <div className="col-lg-8 p-5 advocate_main_profile">
           <div className="row law ab d-flex border border-prime rounded justify-content-around p-4" style={{backgroundColor: "var(--second-secondary)"}}>
-            <div className="col-lg-6 col-md-6 col-sm-6 ">
+            <div className="col-lg-6 col-md-6 col-sm-12 ">
               <div className="row ab">
-                <div className="col-lg-6  col-6 d-flex justify-content-around">
+                <div className="col-lg-6 col-sm-6 col-6 d-flex justify-content-around">
                   <img src={data.image} className="lprocls" alt="lawyer_profile"></img>
                 </div>
-                <div className="col-lg-6 col-6">
-                  <p className="fs-5 fw-bold mb-2">{data.username}</p>
-                  <p className="fs-6 mb-2 laywer_city">{data.address}</p>
-                  <p className="fs-6 laywer_exp fw-bold">
+                <div className="col-lg-6 col-6 col-sm-6">
+                  <p className="fs-5 fw-bold mb-2 ad_name">{data.username}</p>
+                  <p className="fs-6 mb-2 laywer_city"><i className="bi bi-geo-alt"></i>{data.address}</p>
+                  <p className="fs-6 laywer_exp fw-bold ad_exp">
                   {data.experience} in practice
                   </p>
                   <div style={{marginTop:"-20px"}}>
@@ -122,9 +122,9 @@ const Lawyers_profile_card = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-6 text-end d-flex justify-content-end gap-2">
+            <div className="col-lg-6 col-md-6 col-sm-12 text-end d-flex justify-content-end gap-2">
               <div className="me-4 w-50">
-               <Link to="/contect_us"><button className="btn btns-primary me-4 w-100 rounded-pill mt-5">
+               <Link to="/contect_us"><button className="ad_connect btn btns-primary me-4 w-100 rounded-pill mt-5">
                   Contact Now
                 </button>
                 </Link> 
