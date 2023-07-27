@@ -193,3 +193,8 @@ line-height: 21px !important;
         margin-top: -16% !important;
     }
   }
+  @media only screen and (min-width: 588px) and (max-width: 991px){
+    .lawfind1{
+        display: none;
+    }
+  }
