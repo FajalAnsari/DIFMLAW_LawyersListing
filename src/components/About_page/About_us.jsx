@@ -64,7 +64,7 @@ const About_us = () => {
         {/* <div className='container'> */}
         {user ? (
             <>
-        <div className='container'>
+        <div className='container user_contact_sugg'>
          <Contect_Sugg />
          </div>
          <Testimonial />

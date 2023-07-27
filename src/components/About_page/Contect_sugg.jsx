@@ -7,7 +7,7 @@ const Contect_sugg = () => {
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content border border-prime border-3">
       <div className="modal-header">
-        <h4 className="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion </h4>
+        <h4 className="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion ldidfjasi </h4>
       </div>
       <div className='container'>
       <div className="mb-3 mt-4">

@@ -91,7 +91,7 @@ font-size: 93.2% !important;
 }
 @media only screen and (max-width: 540px) {
   .content{
-    width: 300px;
+    width: 288px;
   }
   .input-group {
     position: relative;
