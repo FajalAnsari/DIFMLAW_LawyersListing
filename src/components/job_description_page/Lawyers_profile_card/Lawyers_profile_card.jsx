@@ -101,12 +101,12 @@ const Lawyers_profile_card = () => {
         {/* lawyer profile card start */}
         <div className="col-lg-8 p-5 ">
           <div className="row law ab d-flex border border-prime rounded justify-content-around p-4" style={{backgroundColor: "var(--second-secondary)"}}>
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-md-6 col-sm-6 ">
               <div className="row ab">
-                <div className="col-lg-6 col-xs-12 d-flex justify-content-around">
+                <div className="col-lg-6  col-6 d-flex justify-content-around">
                   <img src={data.image} className="lprocls" alt="lawyer_profile"></img>
                 </div>
-                <div className="col-lg-6 col-xs-12">
+                <div className="col-lg-6 col-6">
                   <p className="fs-5 fw-bold mb-2">{data.username}</p>
                   <p className="fs-6 mb-2 laywer_city">{data.address}</p>
                   <p className="fs-6 laywer_exp fw-bold">
@@ -122,7 +122,7 @@ const Lawyers_profile_card = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 text-end d-flex justify-content-end gap-2">
+            <div className="col-lg-6 col-md-6 col-sm-6 text-end d-flex justify-content-end gap-2">
               <div className="me-4 w-50">
                <Link to="/contect_us"><button className="btn btns-primary me-4 w-100 rounded-pill mt-5">
                   Contact Now
@@ -171,10 +171,10 @@ const Lawyers_profile_card = () => {
     // If data.photos array is empty, display the default lawyer picture
     <>
       <div className="col-lg-6 col-6">
-        <img src={lawyer_pics} alt="default_lawyer_pic" />
+        <img src={lawyer_pics} className="lawyer_upload_images_second" alt="default_lawyer_pic" />
       </div>
       <div className="col-lg-6 col-6">
-        <img src={lawyer_pics} alt="default_lawyer_pic" />
+        <img src={lawyer_pics} className="lawyer_upload_images_second" alt="default_lawyer_pic" />
       </div>
     </>
   )}
@@ -184,7 +184,7 @@ const Lawyers_profile_card = () => {
           {/* our location */}
           <h4 className="mt-3 font-color">Our Location</h4>
 
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 lawyer_location_map">
             {/* Map */}
             <div className="mt-2">
               <iframe
@@ -248,7 +248,9 @@ const Lawyers_profile_card = () => {
          {/* all lawyers card */}
          <div className="row mt-4 law p-2 border border-prime rounded review">
           <h4 className="font-color">Top Lawyers</h4>
-           <All_lawyers_card />
+           {/* <div> */}
+            <All_lawyers_card />
+            {/* </div> */}
            </div>
          {/* all lawyers card */}
         </div>

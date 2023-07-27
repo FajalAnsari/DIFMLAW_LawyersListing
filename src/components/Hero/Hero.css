@@ -51,6 +51,64 @@ h1{
   }
 
   @media only screen and (min-width:280px) and (max-width:990px){
+    .main {
+      height: 312px !important;
+    }
+  }
+
+  @media (max-width: 480px){
+    h2{
+      font-size: 36px !important;
+    }
+    .s-3{
+      height: 40px !important;
+    }
+    .navbar .navbar-toggler[aria-expanded="true"] {
+      color: var(--primary)!important;
+      }
+      .navbar .navbar-toggler:focus{
+      color: var(--primary);
+      }
+      .viewbtn{
+        font-size: 70.2% !important;
+      }
+      .lawyers_profile{
+        margin-top: -4px;
+      }
+      .her0s{
+        margin-bottom: 50px;
+      }
+      .main {
+        height: 312px !important;
+      }
+  }
+  @media only screen and (min-width: 541px) and (max-width: 587px){
+    h2{
+      font-size: 36px !important;
+    }
+    .s-3{
+      height: 40px !important;
+    }
+    .navbar .navbar-toggler[aria-expanded="true"] {
+      color: var(--primary)!important;
+      }
+      .navbar .navbar-toggler:focus{
+      color: var(--primary);
+      }
+      .viewbtn{
+        font-size: 70.2% !important;
+      }
+      .lawyers_profile{
+        margin-top: -4px;
+      }
+      .her0s{
+        margin-bottom: 50px;
+      }
+      .main {
+        height: 312px !important;
+      }
+  }
+@media only screen and (min-width: 588px) and (max-width: 767px){
   h2{
     font-size: 36px !important;
   }
@@ -66,5 +124,52 @@ h1{
     .viewbtn{
       font-size: 70.2% !important;
     }
-    
+    .lawyers_profile{
+      margin-top: -4px;
+    }
+    .her0s{
+      margin-bottom: 50px;
+    }
+    .main {
+      height: 312px !important;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+  h2{
+    font-size: 36px !important;
   }
+  .s-3{
+    height: 40px !important;
+  }
+  .navbar .navbar-toggler[aria-expanded="true"] {
+    color: var(--primary)!important;
+    }
+    .navbar .navbar-toggler:focus{
+    color: var(--primary);
+    }
+    .viewbtn{
+      font-size: 70.2% !important;
+    }
+    .lawyers_profile{
+      margin-top: -4px;
+    }
+    .her0s{
+      margin-bottom: 50px;
+    }
+    .main {
+      height: 312px !important;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1200px){
+  .main {
+    height: 500px !important;
+  }
+  .lawfind1{
+    margin-top: 130px !important;
+  }
+  .her0s{
+    margin-top: 130px;
+  }
+}
+/*
+@media only screen and (min-width: 1201px) and (max-width: 1440px) */

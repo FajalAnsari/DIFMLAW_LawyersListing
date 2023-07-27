@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Expertise_and_services = (props) => {
   return (
-    <div className='row border law border border-prime rounded mt-5 p-4' style={{backgroundColor: "var(--second-secondary)"}}>
+    <div className='row border law border border-prime rounded mt-5 p-4 expertise_service' style={{backgroundColor: "var(--second-secondary)"}}>
         <h3 className='bt-primary p-2 fs-5'>Expertise and Services</h3>
         <p className='fs-6'>{props.Bio}</p>
         <h2>Requirements:</h2>
@@ -25,7 +25,7 @@ const Expertise_and_services = (props) => {
                 </div>
                 <div className='row'>
                     <div className='col-lg-6 col-6'>
-                        <Link to="/contect_us"><button className='btn btns-primary'>Connect Now</button></Link>
+                        <Link to="/contect_us"><button className='connect_now btn btns-primary w-75 h-100'>Connect Now</button></Link>
                     </div>
                     <div className='col-lg-6 col-6'>
                     <Link to="/"><button className='btn btn-secondary'>Back</button></Link>

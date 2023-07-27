@@ -110,16 +110,8 @@ option:focus {
    }
  .form-sectionss .inpu{
    width: 85% !important;
-   line-height: 23px;
+   line-height: 33px;
  }
-  .form-sectionss  .input-group>.form-select {
-   height: 28px;
-   font-size: 12px;
- }  
- .form-sectionss  input[type="password"]{
-   height: 28px;
-   font-size: 12px;
- } 
  .forms-bg{
    width: 100% !important;
    padding: 0% !important;
@@ -149,17 +141,9 @@ option:focus {
     width: 30% !important;
    }
  .form-sectionss .inpu{
-   width: 85% !important;
-   line-height: 23px;
+   width: 91% !important;
+   line-height: 33px;
  }
-  .form-sectionss  .input-group>.form-select {
-   height: 28px;
-   font-size: 12px;
- }  
- .form-sectionss  input[type="password"]{
-   height: 28px;
-   font-size: 12px;
- } 
  .forms-bg{
    width: 100% !important;
    padding: 0% !important;
@@ -210,7 +194,6 @@ option:focus {
    margin-left: 28%;
  }
  .form-sectionss{
-   height: 1170px !important;
    margin-top: 79px !important;
    height: auto !important;
    padding: 4%;
@@ -221,10 +204,18 @@ option:focus {
   .inpu {
     width: 85.99% !important;
 }
+.form-sectionss{
+  height: auto !important;
+  padding: 6%;
+}
 }
 @media only screen and (min-width: 1201px) and (max-width: 1440px){
   .inpu {
-    width: 88.99% !important;
+    width: 87.99% !important;
+}
+.form-sectionss{
+  height: auto !important;
+  padding: 6%;
 }
 }
 

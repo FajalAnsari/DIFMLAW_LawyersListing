@@ -4,10 +4,11 @@ const Contect_sugg = () => {
   return (
     <>
        <div className="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Hello</button>
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content border border-prime border-3">
       <div className="modal-header">
-        <h4 className="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion ldidfjasi </h4>
+        <h4 className="modal-title mx-5" id="exampleModalToggleLabel">Contact Now For Our Suggestion dfuihfsduoerg replace it</h4>
       </div>
       <div className='container'>
       <div className="mb-3 mt-4">

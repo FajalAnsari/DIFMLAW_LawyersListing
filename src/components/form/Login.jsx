@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import loginimg from "../images/Difm_Login_Image.svg";
+import { BiEnvelopeOpen, BiLockFill } from 'react-icons/bi';
 
 const Login = () => {
 
@@ -11,7 +12,13 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  
 
   const handleRememberMeChange = (event) => {
     setRememberMe(event.target.checked);
@@ -85,12 +92,23 @@ const Login = () => {
 
 
                 <div className="form-outline mb-3">
-                  <label className="form-label font-color" for="form3Example4">Password</label>
-                  <div className="input-group mbs">
-                    <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter your password" value={password} onChange={handlePasswordChange} required />
-                    <span className="input-group-text btns-primary border-prime" ><i className="bi bi-lock-fill"></i></span>
-                  </div>
-                </div>
+  <label className="form-label font-color" htmlFor="form3Example4">Password</label>
+  <div className="input-group mbs">
+    <input
+      className="form-control contect-bgColors"
+      id="inputSpecialization"
+      type={showPassword ? 'text' : 'password'} // Use showPassword state to toggle between 'text' and 'password'
+      placeholder="Enter your password"
+      value={password}
+      onChange={handlePasswordChange}
+      required
+    />
+    <span className="input-group-text btns-primary border-prime" onClick={togglePasswordVisibility}>
+      {showPassword ? <i className="bi bi-eye-slash"></i> : <i className="bi bi-eye"></i>}
+    </span>
+  </div>
+</div>
+
                 <p className='text-danger fs-6 mt-4'>{error}</p>
                 <div className="d-flex justify-content-between align-items-center">
 
