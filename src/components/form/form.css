@@ -110,16 +110,8 @@ option:focus {
    }
  .form-sectionss .inpu{
    width: 85% !important;
-   line-height: 23px;
+   line-height: 33px;
  }
-  .form-sectionss  .input-group>.form-select {
-   height: 28px;
-   font-size: 12px;
- }  
- .form-sectionss  input[type="password"]{
-   height: 28px;
-   font-size: 12px;
- } 
  .forms-bg{
    width: 100% !important;
    padding: 0% !important;
@@ -150,16 +142,8 @@ option:focus {
    }
  .form-sectionss .inpu{
    width: 85% !important;
-   line-height: 23px;
+   line-height: 33px;
  }
-  .form-sectionss  .input-group>.form-select {
-   height: 28px;
-   font-size: 12px;
- }  
- .form-sectionss  input[type="password"]{
-   height: 28px;
-   font-size: 12px;
- } 
  .forms-bg{
    width: 100% !important;
    padding: 0% !important;

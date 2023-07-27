@@ -195,6 +195,9 @@ line-height: 21px !important;
   }
   @media only screen and (min-width: 588px) and (max-width: 991px){
     .lawfind1{
-        display: none;
+        display: none !important;
+    }
+    .main {
+        margin-top: 79px !important;
     }
   }
