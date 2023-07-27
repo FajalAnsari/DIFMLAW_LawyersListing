@@ -116,7 +116,7 @@ const Add_review = (props) => {
              {/* write your review start */}
              <div className=''>
       {show && (
-          <div className="accordian-body">
+          <div className="accordian-body review_section_submit">
               <label className="fs-5 mt-3 text-white mb-1 " for="inputFirstName">Title</label>
               <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
               <label className="fs-5 mt-3 text-white mb-2 " for="inputMessage">Review</label>

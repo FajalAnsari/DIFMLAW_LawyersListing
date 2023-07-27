@@ -28,3 +28,66 @@
     width: 61px;
 }
 
+/* media query */
+
+
+@media (max-width: 480px){
+    .view_buttons .view_more{
+        margin-top: 20px !important;
+        height: 4vh !important;
+    }
+    .view_buttons{
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+    }
+    .expertise_service .connect_now{
+        width: 90% !important;
+        height: 4vh !important;
+        padding: 2% !important;
+    }
+    .review_section_submit button{ 
+        width: 60% !important ;
+    }
+}
+  /* tabscreen */
+  @media only screen and (min-width: 481px) and (max-width: 768px){
+    .view_buttons .view_more{
+        margin-top: 20px !important;
+        height: 5vh !important;
+        font-size: 0.8rem !important;
+        width: 80% !important;
+        margin-left: 10%;
+    }
+    .view_buttons{
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+    }
+    .expertise_service .connect_now{
+        width: 50%;
+    }
+    .review_section_submit button{ 
+        width: 60% !important ;
+    }
+  }
+/* tabs and laptops screen */
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    .view_buttons .view_more{
+        margin-top: 20px !important;
+        height: 4vh !important;
+        font-size: 1rem !important;
+        width: 65% !important;
+        margin-left: 20%;
+    }
+    .view_buttons{
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+    }
+    .lawyer_upload_images_second{
+        width:80%;
+    }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1440px){
+    .review_section_submit button{ 
+        width: 40% !important ;
+    }
+}

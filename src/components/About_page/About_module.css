@@ -6,6 +6,10 @@
     }
     .consugg{
         margin-top: 30px !important;
+        width: 95%;
+        height: 28vh;
+        padding: 5% !important;
+      
      }
      .about-img img{
         width: 100% !important;
@@ -14,6 +18,9 @@
     .contact_aboutas{
       margin-left: 12px !important;
       margin-top: 12px !important;
+    }
+    .user_contact_sugg{
+        margin-top: -120px !important;
     }
    .aboutsections p{
         width: 90% !important;
@@ -26,7 +33,7 @@
         margin-top: 0px;
     }
     .user_title{
-      font-size: 198% !important;
+      font-size: 175% !important;
       width: 90% !important;
      margin-left: 18px;
     }
@@ -55,6 +62,8 @@
     }
     .consugg{
         margin-top: 30px !important;
+        width: 100% !important;
+        height: 29vh;
      }
      .about-img img{
         width: 98% !important;
@@ -63,6 +72,9 @@
     .contact_aboutas{
       margin-left: 12px !important;
       margin-top: 25px !important; 
+    }
+    .user_contact_sugg{
+        margin-top: -120px !important;
     }
     .our_mission_first{
         width: 80% !important;
@@ -110,6 +122,8 @@
     }
     .consugg{
         margin-top: 30px !important;
+        width: 105%;
+        height: 28vh !important;
      }
      .about-img img{
         width: 98% !important;
@@ -118,6 +132,9 @@
     .contact_aboutas{
       margin-left: 12px !important;
       margin-top: 25px !important; 
+    }
+    .user_contact_sugg{
+        margin-top: -120px !important;
     }
     .our_mission_first{
         width: 70% !important;
@@ -166,6 +183,12 @@
       .user_reviews_opinion{
         margin-top: 254px !important;
     }
+    .consugg{
+        margin-top: -60px !important;
+        width: 96%;
+        height: 28vh !important;
+     }
+    
 }
 @media only screen and (min-width: 1242px) and (max-width: 1440px){
     .contact_aboutas{
