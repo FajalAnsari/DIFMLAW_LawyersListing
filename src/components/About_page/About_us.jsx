@@ -6,12 +6,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Join_Network from "../join_network/Join_Network";
 import { auth } from '../../firebase';
 import "./About_us.css";
+
 const About_us = () => {
     const [user] = useAuthState(auth);
   return (
   
    <>
-   {/* about page */}
+   {/* about page layout*/}
   
     
     <div className="aboutsections" style={{backgroundColor:"var(--third-primary)",marginTop:"80px"}}>
