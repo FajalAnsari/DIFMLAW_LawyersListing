@@ -3,7 +3,6 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import loginimg from "../images/Difm_Login_Image.svg";
-import { BiEnvelopeOpen, BiLockFill } from 'react-icons/bi';
 
 const Login = () => {
 
@@ -18,7 +17,7 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  
+
 
   const handleRememberMeChange = (event) => {
     setRememberMe(event.target.checked);
@@ -42,7 +41,7 @@ const Login = () => {
       setRememberMe(true);
     }
   }, []);
-  
+
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -75,7 +74,7 @@ const Login = () => {
         })
     }
   };
-  
+
 
   return (
     <>
@@ -84,9 +83,9 @@ const Login = () => {
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-md-9 col-lg-6 col-xl-5">
               <div className='login_page_image'>
-              <img src={loginimg}
-                className="img-fluid" alt="Sample image" />
-                </div>
+                <img src={loginimg}
+                  className="img-fluid" alt="Sample image" />
+              </div>
             </div>
             <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <form onSubmit={handleFormSubmit}>
@@ -101,22 +100,22 @@ const Login = () => {
 
 
                 <div className="form-outline mb-3">
-  <label className="form-label font-color" htmlFor="form3Example4">Password</label>
-  <div className="input-group mbs">
-    <input
-      className="form-control contect-bgColors"
-      id="inputSpecialization"
-      type={showPassword ? 'text' : 'password'} // Use showPassword state to toggle between 'text' and 'password'
-      placeholder="Enter your password"
-      value={password}
-      onChange={handlePasswordChange}
-      required
-    />
-    <span className="input-group-text btns-primary border-prime" onClick={togglePasswordVisibility}>
-      {showPassword ? <i className="bi bi-eye-slash"></i> : <i className="bi bi-eye"></i>}
-    </span>
-  </div>
-</div>
+                  <label className="form-label font-color" htmlFor="form3Example4">Password</label>
+                  <div className="input-group mbs">
+                    <input
+                      className="form-control contect-bgColors"
+                      id="inputSpecialization"
+                      type={showPassword ? 'text' : 'password'} // Use showPassword state to toggle between 'text' and 'password'
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={handlePasswordChange}
+                      required
+                    />
+                    <span className="input-group-text btns-primary border-prime" onClick={togglePasswordVisibility}>
+                      {showPassword ? <i className="bi bi-eye-slash"></i> : <i className="bi bi-eye"></i>}
+                    </span>
+                  </div>
+                </div>
 
                 <p className='text-danger fs-6 mt-4'>{error}</p>
                 <div className="d-flex justify-content-between align-items-center">

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import law from "../images/DIFMLAW-Findlaw.svg";
+import law from "../images/DIFMLAW-Findlaw.png";
 import Category from './Category';
 import "../../index.css";
 import "./Hero.css";
