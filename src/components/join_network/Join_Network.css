@@ -1,29 +1,28 @@
-.legal_network{
-    position: absolute;
-    margin-left: 6.30% !important;
-    width: 55%;
-    padding: 2.1%;
-    margin-top: -70px;
-    border-radius: 20px !important;
-    background-color: var( --fourth-primary);
+.legal_network {
+  position: absolute;
+  margin-left: 6.3% !important;
+  width: 55%;
+  padding: 2.1%;
+  margin-top: -70px;
+  border-radius: 20px !important;
+  background-color: var(--fourth-primary);
 }
-.lagal_part{
-font-weight: 400 !important;
-font-size: 14px !important;
-line-height: 20px !important;
-text-align: justify !;
+.lagal_part {
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  text-align: justify !;
 
-color: #585858;
-
+  color: #585858;
 }
-.reg_btn{
-width: 40% !important;
-margin-left: 19px !important;
-font-weight: 600;
-color: rgba(0, 0, 0, 0.747) !important;
-font-size: 93.2% !important;
-border-radius: 9px; 
-/* margin: auto !important; */
+.reg_btn {
+  width: 40% !important;
+  margin-left: 19px !important;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.747) !important;
+  font-size: 93.2% !important;
+  border-radius: 9px;
+  /* margin: auto !important; */
 }
 
 @media screen and (max-width: 587px) {
@@ -40,4 +39,65 @@ border-radius: 9px;
     .legalnet{
         display: none;
     }
+}
+/* tabs size */
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .legal_network {
+    width: 90%;
+
+    padding: 7%;
+
+    height: 30vh;
+
+    margin-left: 25px !important;
+
+    margin-top: -140px;
+  }
+}
+
+/* laptops screen */
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .legal_network {
+    width: 90%;
+
+    padding: 7%;
+
+    height: 32vh;
+
+    margin-left: 25px !important;
+
+    margin-top: -140px;
+  }
+}
+
+/* desktop screen */
+
+@media only screen and (min-width: 1026px) and (max-width: 1241px) {
+  .legal_network {
+    width: 90%;
+
+    padding: 7%;
+
+    height: 32vh;
+
+    margin-left: -120px !important;
+
+    margin-top: -140px;
+  }
+}
+
+@media only screen and (min-width: 1242px) and (max-width: 1440px) {
+  .legal_network {
+    width: 90%;
+
+    padding: 7%;
+
+    height: 32vh;
+
+    margin-left: -138px !important;
+
+    margin-top: -140px;
+  }
 }
