@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Contect_us/Contect_us.css";
+import "../Term_condition/Term.css";
 
 const Term_condition = () => {
   return (
