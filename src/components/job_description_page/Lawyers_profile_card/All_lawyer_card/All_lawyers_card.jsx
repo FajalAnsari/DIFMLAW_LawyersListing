@@ -36,7 +36,7 @@ const All_lawyers_card = () => {
        currentUsers?.map((data,i)=>(
         <div className='view_buttons load_more mt-2 border border-dark' style={{backgroundColor: "var(--second-primary)"}}>
       <div className="row"> 
-      <div className="col-lg-9">
+      <div className="col-lg-9 col-sm-6 col-9">
           <div className="row">
             <div className="col-lg-4 col-6 mt-2">
                 <img src={data.image} className='rounded-circle pics-pro' alt="image" />
@@ -56,15 +56,11 @@ const All_lawyers_card = () => {
           </div>
       </div>
 
-      <div className="col-lg-3">
+      <div className="col-lg-3 col-sm-6 col-3">
           <div className="row">
-           
             <button className="view_more btn btns-primary cont mt-4 w-75 fs-6" onClick={(e)=> navigate(`/job/${data.id}`)}>
               View Profile
-            </button>
-            
-
-            
+            </button>  
           </div>
       </div>
       </div>

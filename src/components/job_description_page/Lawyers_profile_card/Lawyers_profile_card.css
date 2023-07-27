@@ -41,3 +41,34 @@
     width: 130px;
     border: 1px solid var(--primary) !important;
 }
+
+/* media query */
+@media (max-width: 379px){
+    .advocate_main_profile .lprocls{
+        width: 108%;
+    } 
+    .advocate_main_profile .ad_name{
+        font-size: 95% !important;
+    } 
+    .advocate_main_profile .ad_exp{
+        font-size: 62% !important;
+    } 
+    .advocate_main_profile .ad_connect{
+        width: 150% !important;
+    }
+}
+
+@media (max-width: 480px){
+    .lawyer_upload_images_second{
+        width:100%;
+    }
+
+}
+@media only screen and (min-width: 481px) and (max-width: 768px){
+    .lawyer_upload_images_second{
+        width:100%;
+    }
+    .lawyer_location_map iframe{
+        height: 35vh;
+    }
+}
