@@ -77,6 +77,7 @@ if (confirmDelete) {
                                 <th scope="col">I.D</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Request Date</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>

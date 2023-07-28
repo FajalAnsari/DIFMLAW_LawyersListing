@@ -67,7 +67,7 @@ const Lawyer_Dashboard = ({ children }) => {
     {
       path: "/lawyer_dashboard/allusers",
       name: "All Users",
-      icon: <i class="bi bi-people-fill"></i>,
+      icon: <i class="bi bi-people"></i>,
       roles: ["Admin"] // Display for both lawyer and user
     },
     {
@@ -79,7 +79,7 @@ const Lawyer_Dashboard = ({ children }) => {
     {
       path: "/lawyer_dashboard/subscribers",
       name: "Subscribers",
-      icon: <i class="bi bi-people-fill"></i>,
+      icon: <i class="bi bi-bell-fill"></i>,
       roles: ["Admin"] // Only display for lawyer
     },
     {
