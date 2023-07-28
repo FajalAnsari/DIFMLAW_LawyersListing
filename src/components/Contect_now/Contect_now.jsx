@@ -39,7 +39,7 @@ const Contect_now = () => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content border border-prime border-3" >
             <div className="modal-header">
-              <h4 className="modal-title" id="exampleModalToggleLabel">Contact Now For Our Suggestion </h4>
+              <h4 className="modal-title" id="exampleModalToggleLabel">Contact Now For Our Suggestion khgk </h4>
               <span><button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></span>
             </div>
             <div className='container'>

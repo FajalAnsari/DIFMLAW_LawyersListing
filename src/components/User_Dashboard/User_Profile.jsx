@@ -61,9 +61,7 @@ const User_Profile = () => {
     }
   }
   loginUserORLawyer();
-
   
-    // const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const allusers = collection(db, "users");
     const a = query(allusers,
       and(or(where("uid", "==", user.uid), where("uid", "==", params.id)),
@@ -155,7 +153,7 @@ const handleUpdate = async (e) => {
       username: username,
       email: email,
       number: number,
-      image: url,
+      image: url || image,
       address: location,
     }).then(() => {
       alert("Document successfully updated!");
