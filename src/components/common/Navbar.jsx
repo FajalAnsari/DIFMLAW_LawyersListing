@@ -20,6 +20,9 @@ const Navbar = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [userimage, setUserImage] = useState("");
+  const [open, setOpen] = useState(false);
+
+
   const fetchUserName = async () => {
     if (user) {
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
@@ -94,6 +97,9 @@ const Navbar = () => {
     console.log(name);
   }, [user, loading]);
 
+  const handleLinkClick = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -104,19 +110,19 @@ const Navbar = () => {
             <img src={logo} width="240" alt="DIFM LAW LOGO" />
           </Link>
 
-          <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={() => setOpen(!open)}>
             <span className="navbar-toggler-icon icone"><i className="bi bi-list"></i></span>
           </button>
-          <div className="collapse navbar-collapse toggler-btn" id="navbarSupportedContent">
+          <div className={`collapse navbar-collapse ${open ? 'show toggler-btn' : ''}`} id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
               <li className="nav-item ms-3">
-                <Link className="nav-link text-white fs-5" to={"/alllawyer"}>All Lawyers</Link>
-              </li>
-              <li className="nav-item ms-2">
-                <Link className="nav-link text-white fs-5" to={"/about"}>About Us</Link>
+                <Link className="nav-link text-white fs-5" to={"/alllawyer"} onClick={handleLinkClick}>All Lawyers</Link>
               </li>
               <li className="nav-item ms-3">
-                <Link className="nav-link text-white fs-5" to={"/contect_us"}>Contact Us</Link>
+                <Link className="nav-link text-white fs-5" to={"/about"} onClick={handleLinkClick}>About Us</Link>
+              </li>
+              <li className="nav-item ms-3">
+                <Link className="nav-link text-white fs-5" to={"/contect_us"} onClick={handleLinkClick}>Contact Us</Link>
               </li>
             </ul>
             {user ? (
@@ -129,7 +135,7 @@ const Navbar = () => {
                 <ul className="dropdown-menu">
                {!activeAdmin ? '' :  (
 <>
-<li><Link className="dropdown-item" to={`/job/${id}`}><i className="fa-sharp fa-solid fa-pen"></i><span>Profile</span></Link></li>
+<li><Link className="dropdown-item" to={`/job/${id}`} onClick={handleLinkClick}><i className="fa-sharp fa-solid fa-pen"></i><span>Profile</span></Link></li>
      <li><hr className="dropdown-divider" /></li>  
 </>
                )
@@ -137,15 +143,15 @@ const Navbar = () => {
                 
                } 
                    
-                  <li><Link className="dropdown-item" to="/lawyer_dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
+                  <li><Link className="dropdown-item" to="/lawyer_dashboard" onClick={handleLinkClick}><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
                   <li><hr className="dropdown-divider" /></li>
                   <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
                 </ul>
               </div>
             ) : (
               <div className="d-flex">
-                <Link to={"/login"}><button className="btn btns-primary me-2 w-100" type="submit">Login</button></Link>
-                <Link to={"/signup"}><button className="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
+                <Link to={"/login"} onClick={handleLinkClick}><button className="btn btns-primary me-2 w-100" type="submit">Login</button></Link>
+                <Link to={"/signup"} onClick={handleLinkClick}><button className="btn btns-primary ms-2" type="submit">Sign Up</button></Link>
               </div>
             )}
           </div>
