@@ -69,6 +69,7 @@ option:focus {
   border-radius: 4px 0px 0px 4px;
   line-height: 34px;
   width: 89.99% !important;
+  background-color: var(--second-secondary);
 }
 
 

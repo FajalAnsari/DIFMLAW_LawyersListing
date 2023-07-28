@@ -494,7 +494,7 @@ const All_Lawyers = () => {
             <div className="col-lg-6 featured" >
               <div className="d-flex float-xl-end" style={{marginTop:"-15px"}}>
                 <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-white'>Show all lawyers</a></p>
-                <i className="bi bi-arrow-right ms-2 fs-2 font-color"></i>
+                <div className='arrow-icons'><i className="bi bi-arrow-right ms-2 fs-2 font-color"></i></div>
               </div>
             </div>
           </div>

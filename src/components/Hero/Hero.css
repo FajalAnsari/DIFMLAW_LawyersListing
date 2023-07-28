@@ -9,14 +9,28 @@
   background-size: cover;
   height: 590px;
   margin-top: -75px;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.466);
+  
+}
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48%;
+  height: 516px;
+  z-index: 0;
+ background: linear-gradient( 90deg , rgba(1,1,3,0.8155637254901961) 0%, rgba(9,9,17,0.7287289915966386) 52%, rgba(0,212,255,0) 100%);
 }
 h1{
    margin-top: 40px;
 
 }
+.her0s{
+  z-index: 1;
+ 
+}
 .lawfind1{
-  opacity: .70;
+  margin-top: 65px !important;
 }
 .row.no-pad {
     margin-right:0;
@@ -81,6 +95,16 @@ h1{
       .main {
         height: 312px !important;
       }
+      .main::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 92%;
+        height: 392px;
+        z-index: 0;
+       background: linear-gradient( 90deg , rgba(1,1,3,0.8155637254901961) 0%, rgba(9,9,17,0.7287289915966386) 52%, rgba(0,212,255,0) 100%);
+      }
   }
   @media only screen and (min-width: 541px) and (max-width: 587px){
     h2{
@@ -106,6 +130,10 @@ h1{
       }
       .main {
         height: 312px !important;
+      }
+      .main::before {
+        position: absolute;
+        height: 392px !important;
       }
   }
 @media only screen and (min-width: 588px) and (max-width: 767px){
@@ -133,6 +161,16 @@ h1{
     .main {
       height: 312px !important;
     }
+    .main::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 48%;
+      height: 392px !important;
+      z-index: 0;
+     background: linear-gradient( 90deg , rgba(1,1,3,0.8155637254901961) 0%, rgba(9,9,17,0.7287289915966386) 52%, rgba(0,212,255,0) 100%);
+    }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px){
   h2{
@@ -159,6 +197,16 @@ h1{
     .main {
       height: 312px !important;
     }
+    .main::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 48%;
+      height: 392px !important;
+      z-index: 0;
+     background: linear-gradient( 90deg , rgba(1,1,3,0.8155637254901961) 0%, rgba(9,9,17,0.7287289915966386) 52%, rgba(0,212,255,0) 100%);
+    }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1200px){
   .main {
@@ -172,6 +220,16 @@ h1{
   }
   .her0s{
     margin-top: 130px;
+  }
+  .main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48%;
+    height: 426px !important;
+    z-index: 0;
+   background: linear-gradient( 90deg , rgba(1,1,3,0.8155637254901961) 0%, rgba(9,9,17,0.7287289915966386) 52%, rgba(0,212,255,0) 100%);
   }
 }
 /*

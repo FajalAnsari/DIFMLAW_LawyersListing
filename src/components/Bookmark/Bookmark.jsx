@@ -80,9 +80,9 @@ const Bookmark = () => {
     <>
       {add_Lawyercarts.length > 0 && (
         <div className='p-1 rounded bookmark_lawyer' style={{marginTop:"-40%",height:"79.39vh",marginLeft:"300px",width:"84.29%",backgroundColor:"var(--fourth-primary)"}}>
-           <div className="row lawyers_profile ">
+           <div className="row lawyers_profile bok">
            {add_Lawyercarts.map((add_Lawyercart, i) => (
-      <div className="col-lg-3 rounded-3 lawyer ecard  card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
+      <div className="col-lg-3  rounded-3 lawyer ecard  card shadow p-3 mb-5 bg-body rounded lawyers-card" key={i}>
         <div className="row  mt-2" id="lawyer">
           <div className="col-lg-4 col-sm-4 col-4">
             <img src={add_Lawyercart.image} className="ms-2 lawpics" alt='lawyer_card'></img>

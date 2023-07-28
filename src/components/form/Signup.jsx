@@ -144,8 +144,11 @@ const Signup = () => {
                       }).catch((err) => { alert(err); })
                   });
                 });
-            }).catch((err) => {
-              alert(err);
+            }).catch((error) => {
+              if (error.code === 'auth/email-already-in-use') {
+                alert('You are already registered please login!.');
+                navigate("/login");
+              } 
             })
         }
       } else {
