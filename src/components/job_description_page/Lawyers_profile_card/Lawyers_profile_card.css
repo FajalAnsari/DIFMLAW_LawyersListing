@@ -45,7 +45,8 @@
 /* media query */
 @media (max-width: 379px){
     .advocate_main_profile .lprocls{
-        width: 108%;
+        width: 65%;
+        height: 11vh;
     } 
     .advocate_main_profile .ad_name{
         font-size: 95% !important;
@@ -55,6 +56,10 @@
     } 
     .advocate_main_profile .ad_connect{
         width: 150% !important;
+        margin-left: -20px;
+    }
+    .advocate_main_profile span .save_bkm{
+    margin-top: -80% !important;
     }
 }
 
@@ -62,6 +67,7 @@
     .lawyer_upload_images_second{
         width:100%;
     }
+  
 
 }
 @media only screen and (min-width: 481px) and (max-width: 768px){

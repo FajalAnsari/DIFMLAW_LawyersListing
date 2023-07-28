@@ -332,7 +332,7 @@ if (!searchLawyer && !lawyeradd) {
           <div className="row mt-5 ">
             <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div className="input-group mb-3 ser">
-                <input type="text" className="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
+                <input type="text" className="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter keyword, Defense Lawyer..." />
                 <datalist id="categoryOptions">
                     <option value="Injury Lawyers" />
                     <option value="Family Law Lawyers" />

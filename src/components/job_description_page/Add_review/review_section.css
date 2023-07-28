@@ -9,3 +9,12 @@
 .review .arrow{
    background-color: var(--primary);
 }
+
+@media (max-width: 480px){
+   .review .browser_image{
+      display: none;
+   }
+   .review .rated_star{
+      margin-right:65px !important;
+   }
+}

@@ -90,7 +90,7 @@ const Add_review = (props) => {
                 <p>Your Rating</p>
               </div>
               <div className='col-lg-6'>
-                <div className='d-flex justify-content-end mt-2'>
+                <div className='d-flex justify-content-end mt-2 rated_star'>
                 {[...Array(5)].map((star,index) => {
                   const currentRating = index + 1;
                    return (
@@ -105,7 +105,7 @@ const Add_review = (props) => {
               </div>
             </div>
           </div>
-          <div className='col-lg-6 '>
+          <div className='col-lg-6 browser_image'>
             <div className='d-flex justify-content-end '>
             <label for='file'><div className='bg-secondary p-2 text-white'>Browse Image</div></label>
             <input type='file' name='file' id='file' className='d-none'></input>
