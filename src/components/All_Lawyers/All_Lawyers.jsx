@@ -161,9 +161,6 @@ if (!searchLawyer && !lawyeradd) {
   }
 }
 
-
-
-
 // only check
 
 
@@ -517,7 +514,7 @@ if (!searchLawyer && !lawyeradd) {
           </div>
         </div>
       </div>
-      <div className="lawyrscard6">
+      <div className="lawyrscard6 all_lawyer_ad_section">
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">

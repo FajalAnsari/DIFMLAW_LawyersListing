@@ -103,7 +103,7 @@ const Lawyers_profile_card = () => {
           <div className="row law ab d-flex border border-prime rounded justify-content-around p-4" style={{backgroundColor: "var(--second-secondary)"}}>
             <div className="col-lg-6 col-md-6 col-sm-12 ">
               <div className="row ab">
-                <div className="col-lg-6 col-sm-6 col-6 d-flex justify-content-around">
+                <div className="col-lg-6 col-sm-6 col-12 d-flex justify-content-around">
                   <img src={data.image} className="lprocls" alt="lawyer_profile"></img>
                 </div>
                 <div className="col-lg-6 col-6 col-sm-6">
