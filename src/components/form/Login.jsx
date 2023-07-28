@@ -78,9 +78,9 @@ const Login = () => {
 
   return (
     <>
-      <section className="vh-50 form-control p-5 mb-5 w-50 mx-auto forms-bg fom-bg border-prime" style={{ marginTop: "140px" }}>
+      <section className="vh-50 form-control login_page_section p-5 mb-5 w-50 mx-auto forms-bg fom-bg border-prime" style={{ marginTop: "140px" }}>
         <div className="container-fluid h-custom">
-          <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100 ll">
             <div className="col-md-9 col-lg-6 col-xl-5">
               <div className='login_page_image'>
                 <img src={loginimg}
@@ -139,7 +139,7 @@ const Login = () => {
                 <div className="text-center text-lg-start mt-4 pt-2">
                   <button className="btn btns-primary btn-lg"
                     style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }} >Login</button>
-                  <p className="small fw-bold mt-2 pt-1 mb-0 text-white">Don't have an account? <Link to="/signup"
+                  <p className="small fw-bold mt-2 pt-1 mb-0 text-white dont_account">Don't have an account? <Link to="/signup"
                     className="font-color">Register</Link></p>
                 </div>
               </form>

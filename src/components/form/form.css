@@ -135,7 +135,17 @@ option:focus {
    height: auto !important;
    padding: 4%;
  }
- 
+ .login_page_image{
+  width: 80%;
+  margin: auto !important;
+ }
+ .login_page_section{
+  width: 95% !important;
+ }
+ .login_page_section .dont_account{
+  margin-bottom: 25px !important;
+  font-size: 0.8rem;
+ }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px){
   .btn-law{
@@ -167,7 +177,17 @@ option:focus {
    height: auto !important;
    padding: 4%;
  }
- 
+ .login_page_image{
+  width: 65%;
+  margin: auto !important;
+ }
+ .login_page_section{
+  width: 95% !important;
+ }
+ .login_page_section .dont_account{
+  margin-bottom: 25px !important;
+  font-size: 1rem;
+ }
 
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px){
@@ -175,6 +195,7 @@ option:focus {
     margin-top: 14% !important;
     width: 20% !important;
    }
+  
  .form-sectionss .inpu{
    width: 85% !important;
    line-height: 31px;
@@ -200,6 +221,20 @@ option:focus {
    height: auto !important;
    padding: 4%;
  }
+  .login_page_image{
+  width: 75%;
+margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ .login_page_section{
+  width: 80% !important;
+  /* padding: 2% !important; */
+ }
+ .login_page_section .dont_account{
+  margin-bottom: 30px !important;
+  font-size: 1.1rem;
+ }
  
 }
 @media only screen and (min-width: 1024px) and (max-width: 1200px){
@@ -210,6 +245,16 @@ option:focus {
   height: auto !important;
   padding: 6%;
 }
+.login_page_image{
+  width: 90%;
+margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ .login_page_section{
+  width: 85% !important;
+  padding: 3% !important;
+ }
 }
 @media only screen and (min-width: 1201px) and (max-width: 1440px){
   .inpu {
@@ -219,5 +264,31 @@ option:focus {
   height: auto !important;
   padding: 6%;
 }
+.login_page_image{
+  width: 90%;
+margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ .login_page_section{
+  width: 92% !important;
+  padding: 4% !important;
+ }
+}
+@media only screen and (min-width: 1441px) and (max-width: 1880px){
+  .login_page_image{
+    width: 85%;
+  margin-top: -20px;
+    margin-left: auto;
+    margin-right: auto;
+   }
+   .login_page_section{
+    width: 85% !important;
+    padding: 4% !important;
+   }
+   .login_page_section .dont_account{
+
+    font-size: 1.1rem;
+   }
 }
 
