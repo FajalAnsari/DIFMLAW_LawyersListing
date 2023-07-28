@@ -480,7 +480,7 @@
        width: 77.38%;
         margin-left: .78%;
         margin-top: -107.69%;
-        height: 100.40vh;
+        height: auto !important;
     }
     .card-body{
         margin-top: -20px;
@@ -560,7 +560,7 @@
     }
     .lawyer_profile .msg_1{
          margin-top: -130.69%;
-         height: 109.40vh;
+         height: auto !important;
      }
      .lawyer_profile .user_pro{
         margin-top: -153.69%;
@@ -582,8 +582,8 @@
     }
    
     .lawyer_profile .msg_1{
-         margin-top: -108.69%;
-         height: 113.40vh;
+         margin-top: -128.69%;
+         height: auto !important;
      }
      .lawyer_profile .user_pro .umn{  
         width: 25.70% !important;
@@ -602,17 +602,23 @@
     .ecard {
         padding: 0.2rem!important;
     }
+    .sidebar{
+       height: 75vh !important;
+   }
+   .lawyer_profile .user_pro{
+    margin-top: -154.69% !important;
+}
   }
   @media only screen and (width: 375px) {
     .lawyer_profile{
         height: 61.40vh;
     }
     .lawyer_profile .user_pro{
-        margin-top: -115.69% !important;
+        margin-top: -135.69% !important;
     }
     .lawyer_profile .msg_1{
-         margin-top: -93.69%;
-         height: 113.40vh;
+         margin-top: -113.69%;
+         height: auto !important;
      }
      .lawyer_profile .change {
         margin-left: -14px !important;
@@ -629,6 +635,9 @@
        .ecard {
         padding: 0.4rem!important;
     }
+    .sidebar{
+       height: 75vh !important;
+   }
   }
   @media only screen and (width: 360px) {
    

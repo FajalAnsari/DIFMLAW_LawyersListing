@@ -23,6 +23,9 @@
     padding: 0rem 0rem;
     border: 1px solid  var(--fourth-primary);
 }
+.admin_dashboard .nt{
+  z-index: 0 !important;
+}
 @media (max-width: 480px){
  
 

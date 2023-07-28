@@ -49,7 +49,7 @@ useEffect(()=>{
             <div className="col-md-2">
                <div className="input-group mt-3 px-4 ">
                   <div className="form-outline">
-                    <button type="button" className="btn btns-primary">
+                    <button type="button" className="btn nt btns-primary">
                      Filter 
                     </button>
                  </div>

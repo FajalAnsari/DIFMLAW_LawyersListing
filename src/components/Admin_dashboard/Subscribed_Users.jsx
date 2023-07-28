@@ -58,7 +58,7 @@ if (confirmDelete) {
             <div className="col-md-2">
                <div class="input-group mt-3 px-4 ">
                   <div class="form-outline">
-                    <button type="button" class="btn btns-primary">
+                    <button type="button" class="btn nt btns-primary">
                      Filter 
                     </button>
                  </div>
