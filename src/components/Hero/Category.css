@@ -152,52 +152,7 @@ line-height: 21px !important;
   }
 
 /* media query for lawyer profile card */
-@media screen and (max-width: 587px) {
 
-    /* .sugg  {
-      font-size: smaller;
-      margin-bottom: 10px !important;
-      
-    }
-    .suggestion{
-        height: 160px !important;
-        width: 305px !important;
-    }
-    .fs-1{      
-        font-size: x-large !important;
-    }
-    .cont{
-        margin-top: -40px !important;
-    }
-    .sal{
-        margin-top: -100px !important;
-        
-    }
-    .lawfind1{
-        display: none;
-    }
-    .main{
-        height: 390px !important;
-        box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.144) !important;
-      }
-      .cont{
-        height: 50px !important;
-      }
-      .ecard{
-        margin-top: -34px !important;
-        padding: 2rem!important;
-      }
-      .mss-4 {
-        margin-left: 2.9rem!important;
-    }
-    .devider_page {
-        margin-top: -16% !important;
-    }
-    .sel1{
-        margin-top: 6px !important;
-    margin-bottom: 16px !important;
-    } */
-  }
   @media only screen and (min-width: 588px) and (max-width: 991px){
     .lawfind1{
         display: none !important;
@@ -358,4 +313,12 @@ line-height: 21px !important;
         height: auto !important;
       }    
      
+}
+@media only screen and (min-width: 1281px) and (max-width: 1826px){
+    .suggestion{
+      margin-left: -20px !important;
+      width: 90% !important;
+      height: auto !important;
+    }    
+   
 }
