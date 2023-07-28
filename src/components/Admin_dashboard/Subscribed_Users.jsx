@@ -58,7 +58,7 @@ if (confirmDelete) {
             <div className="col-md-2">
                <div class="input-group mt-3 px-4 ">
                   <div class="form-outline">
-                    <button type="button" class="btn btns-primary">
+                    <button type="button" class="btn nt btns-primary">
                      Filter 
                     </button>
                  </div>
@@ -70,6 +70,7 @@ if (confirmDelete) {
              </div>
          </div>
       </div>
+      <div class="table-responsive" id="no-more-tables">
        <table class="table ">
                         <thead>
                             <tr className='text-white'>
@@ -86,8 +87,8 @@ if (confirmDelete) {
                                             <tr className='text-white'>
                                                 <th scope="row">{(id + 1).toString().padStart(2, '0')}</th>
                                              
-                                                <td>{element.email}</td>
-                                                <td>{element.createdAtDate}</td>                                             
+                                                <td data-title="Email">{element.email}</td>
+                                                <td data-title="Req. Date">{element.createdAtDate}</td>                                             
                                         
                                                 <td className="d-flex justify-content-between">
                                                  
@@ -101,7 +102,7 @@ if (confirmDelete) {
                      
                         </tbody>
                     </table>
-
+          </div>
     </div>
     </div>
     </>

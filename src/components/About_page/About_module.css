@@ -70,7 +70,6 @@
         opacity: 0.75; 
     }
     .contact_aboutas{
-      margin-left: 12px !important;
       margin-top: 25px !important; 
     }
     .user_contact_sugg{
@@ -130,8 +129,8 @@
         opacity: 0.75; 
     }
     .contact_aboutas{
-      margin-left: 12px !important;
-      margin-top: 25px !important; 
+      margin-left:  90px !important;
+      margin-top: 35px !important; 
     }
     .user_contact_sugg{
         margin-top: -120px !important;
