@@ -10,11 +10,42 @@
     border-radius: 2px;
   }
 
+  .deteles{
+    width: 40%;
+     margin-top
+     
+     : 15%;
+      margin-left: 12%;
+       position: absolute;
+        background-color: #161D27;
+  }
+
   @media (max-width: 480px){
   .delete_section{
     height: 560px;
     margin-top: 75px !important;
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.466);
+  }
+  .deteles {
+    width: 75%;
+    margin-top: 20%;
+    margin-left: 7%;
+  }
+  .form-style{
+    width: 90%;
+    margin-top: -20px;
+  }
+  .forgot-p{
+    width: 90%;
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 10px;
+  }
+  .regi-group {
+    justify-content: left !important;
+  }
+  .regi-text{
+    padding-left: 55% !important;
   }
   }
 @media only screen and (min-width: 481px) and (max-width: 768px){
