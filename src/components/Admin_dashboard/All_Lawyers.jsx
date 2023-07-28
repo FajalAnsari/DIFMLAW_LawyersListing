@@ -46,13 +46,13 @@ useEffect(()=>{
     <div className='admin_dashboard'>
     <div className='mt-5 mb-5 form-control admindash'>
         <div className="row">
-            <div className="col-md-10">
+            <div className="col-md-10 col-sm-8">
                 <p className='px-4 text-white mt-4'>All Lawyers</p>
             </div>
-            <div className="col-md-2">
+            <div className="col-md-2 col-sm-4">
                <div className="input-group mt-3 px-4 ">
                   <div className="form-outline">
-                    <button type="button" className="btn btns-primary">
+                    <button type="button" className="btn nt btns-primary">
                      Filter 
                     </button>
                  </div>
@@ -64,6 +64,7 @@ useEffect(()=>{
              </div>
          </div>
       </div>
+      <div class="table-responsive" id="no-more-tables">
        <table className="table ">
                         <thead>
                             <tr className='text-white'>
@@ -81,13 +82,13 @@ useEffect(()=>{
                                 lawyers.map((element, id) => {
                                     return (
                                         <>
-                                            <tr className='text-white'>
-                                                <th scope="row">{(id + 1).toString().padStart(2, '0')}</th>
-                                                <td>{element.username}</td>
-                                                <td>{element.email}</td>
-                                                <td>34/09/2023</td>                                             
-                                                <td>{element.address}</td>
-                                                <td className="d-flex justify-content-between">
+                                            <tr className='text-white rounded-3'>
+                                                <th scope="row" >{(id + 1).toString().padStart(2, '0')}</th>
+                                                <td data-title="Name">{element.username}</td>
+                                                <td data-title="Email">{element.email}</td>
+                                                <td data-title="Reg. Date">34/09/2023</td>                                             
+                                                <td data-title="Location">{element.address}</td>
+                                                <td className="d-flex justify-content-between" data-title="Action">
                                                   <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
@@ -99,6 +100,7 @@ useEffect(()=>{
                             }
                         </tbody>
                     </table>
+                    </div>
     </div>
     </div>
   )
