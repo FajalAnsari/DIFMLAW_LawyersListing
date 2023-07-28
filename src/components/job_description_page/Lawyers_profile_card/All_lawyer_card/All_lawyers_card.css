@@ -41,9 +41,10 @@
         padding-right: 1% !important;
     }
     .expertise_service .connect_now{
-        width: 90% !important;
+        width: 110% !important;
         height: 4vh !important;
         padding: 2% !important;
+        font-size: 80% !important;
     }
     .review_section_submit button{ 
         width: 60% !important ;

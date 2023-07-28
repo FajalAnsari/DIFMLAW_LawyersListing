@@ -112,29 +112,57 @@ const All_Lawyers = () => {
 
   const SubmitLawyer = async (e) => {
     e.preventDefault();
-    console.log(searchLawyer);
-    console.log(lawyeradd);
-    if (!searchLawyer === "" || !lawyeradd === "") {
-      const citiesRef = collection(db, "lawyers");
-
-      const q1 = query(citiesRef,
-        or(and(where("specialization", "==", searchLawyer), where("address", "==", lawyeradd))
-
-        )
-      )
+// only check
 
 
-      await getDocs(q1).then((qq) => {
-        const newData = qq.docs
-          .map((doc) => ({ ...doc.data(), id: doc.id }));
-        setLawyers(newData);
-        console.log(lawyers);
-      });
+if (!searchLawyer && !lawyeradd) {
+  alert("Please choose at least one value to search!");
+} else {
+  const citiesRef = collection(db, "lawyers");
 
-    }
-    else {
-      alert("choose value!")
-    }
+  let q1;
+  if (searchLawyer && lawyeradd) {
+    // If both searchLawyer and lawyeradd are provided, query with both conditions
+    var input2 = document.getElementById("ad_location");
+    var value2 = input2.value.toLowerCase();
+    var capitalizedValue2 = value2.charAt(0).toUpperCase() + value2.slice(1);
+    q1 = query(
+      citiesRef,
+      where("specialization", "==", searchLawyer),
+      where("address", "==", capitalizedValue2)
+    );
+  } else if (searchLawyer) {
+    // If only searchLawyer is provided, query with specialization condition
+    q1 = query(
+      citiesRef,
+      where("specialization", "==", searchLawyer)
+    );
+  } else if(lawyeradd) {
+    var input2 = document.getElementById("ad_location");
+    var value2 = input2.value.toLowerCase();
+    var capitalizedValue2 = value2.charAt(0).toUpperCase() + value2.slice(1);
+    // If only lawyeradd is provided, query with address condition
+    q1 = query(citiesRef, where("address", "==", capitalizedValue2));
+  }
+  else{
+    alert("not choose any value");
+  }
+
+  try {
+    const querySnapshot = await getDocs(q1);
+    const newData = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    setLawyers(newData);
+    console.log(newData);
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+  }
+}
+
+// only check
+
 
   }
   // reset search
@@ -166,8 +194,14 @@ const All_Lawyers = () => {
   // lawyer location search
 
   const ByLocationSearch = async () => {
+    var input = document.getElementById("ad_location");
+    var value = input.value.toLowerCase();
+    var capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+    input.value = capitalizedValue;
+
+    console.log(input.value);
     // console.log(lawyeradd);
-    const q = query(collection(db, "lawyers"), where("address", "==", lawyeradd))
+    const q = query(collection(db, "lawyers"), where("address", "==", capitalizedValue))
     await getDocs(q).then((qq) => {
       const newData = qq.docs
         .map((doc) => ({ ...doc.data(), id: doc.id }));
@@ -298,7 +332,7 @@ const All_Lawyers = () => {
           <div className="row mt-5 ">
             <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div className="input-group mb-3 ser">
-                <input type="text" className="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..." />
+                <input type="text" className="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter keyword, Defense Lawyer..." />
                 <datalist id="categoryOptions">
                     <option value="Injury Lawyers" />
                     <option value="Family Law Lawyers" />
@@ -312,7 +346,7 @@ const All_Lawyers = () => {
             </div>
             <div className="col-lg-4 col-md-6 col-sm-12 col-12 col-xl-4">
               <div className="input-group mb-3 ser">
-                <input type="text" className="form-control" onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
+                <input type="text" className="form-control" id='ad_location' onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
                 <span className="input-group-text btns-primary border-prime"><i className="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
               </div>
             </div>
@@ -480,7 +514,7 @@ const All_Lawyers = () => {
           </div>
         </div>
       </div>
-      <div className="lawyrscard6">
+      <div className="lawyrscard6 all_lawyer_ad_section">
         <div className="container  pb-5">
           <div className="row">
             <div className="col-lg-6 featured">
