@@ -171,6 +171,12 @@
   }
 
   @media only screen and (max-width: 360px) {
+    .admin_dashboard{
+        width: 80%;
+        margin-top: -142.89%;
+        margin-left: 18%;  
+        height: auto !important;
+      }
     .lawyer_message .msg_1{
          height: 76.40vh;
      }
@@ -216,6 +222,12 @@
   }
 
   @media only screen and (width: 375px) {
+    .admin_dashboard{
+        width: 80%;
+        margin-top: -125.89%;
+        margin-left: 16%;  
+        height: auto !important;
+      }
     .lawyer_message .msg_1 .text_msg1{
         height: 270px;
         margin-top: 20px;
@@ -262,7 +274,12 @@
     }
   }
   @media only screen and (width: 820px) {
-    
+    .admin_dashboard{
+        width: 90%;
+        margin-top: -79.89%;
+        margin-left: 8%;  
+        height: auto !important;
+      }
     .lawyer_message .user_pro{
         margin-top: -36.69%;
         width: 25.38%;
@@ -301,7 +318,12 @@
    }
   }
   @media only screen and (width: 768px) {
-    
+    .admin_dashboard{
+        width: 90%;
+        margin-top: -86.89%;
+        margin-left: 8%;  
+        height: auto !important;
+      }
     .lawyer_message .user_pro{
         margin-top: -40.99%;
         width: 25.38%;
@@ -325,7 +347,12 @@
   }
 
   @media only screen and (width: 912px) {
-    
+    .admin_dashboard{
+        width: 90%;
+        margin-top: -78.89%;
+        margin-left: 8%;  
+        height: auto !important;
+      }
     .lawyer_message .user_pro{
         margin-top: -33.69%;  
         width: 25.38%;
@@ -349,7 +376,12 @@
   }
 
   @media only screen and (width: 540px) {
-    
+    .admin_dashboard{
+        width:85%;
+        margin-top: -93.89%;
+        margin-left: 12%;  
+        height: auto !important;
+      }
     .lawyer_message .user_pro{
         margin-top: -79.40%;
     }
@@ -367,7 +399,12 @@
   }
 
   @media only screen and (width: 1024px) {
-    
+    .admin_dashboard{
+        width: 90%;
+        margin-top: -61.89%;
+        margin-left: 8%;  
+        height: auto !important;
+      }
     .lawyer_message .user_pro{
         margin-top: -17%;
         margin-left: -110px;
@@ -401,7 +438,12 @@
   }
 
   @media only screen and (width: 1280px) {
-    
+    .admin_dashboard{
+        width: 90%;
+        margin-top: -51.89%;
+        margin-left: 8%;  
+        height: auto !important;
+      }
     .lawyer_message .user_pro{
         margin-top: -9.69%;
         margin-left: -130px;

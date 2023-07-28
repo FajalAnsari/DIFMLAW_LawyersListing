@@ -61,6 +61,7 @@ useEffect(()=>{
              </div>
          </div>
       </div>
+      <div class="table-responsive" id="no-more-tables">
        <table className="table ">
                         <thead>
                             <tr className='text-white'>
@@ -80,11 +81,11 @@ useEffect(()=>{
                                         <>
                                             <tr className='text-white'>
                                                 <th scope="row">{(id + 1).toString().padStart(2, '0')}</th>
-                                                <td>{element.username}</td>
-                                                <td>{element.email}</td>
-                                                <td>34/09/2023</td>                                             
-                                                <td>{element.address || "N/A"}</td>
-                                                <td className="d-flex justify-content-between">
+                                                <td data-title="Name">{element.username}</td>
+                                                <td data-title="Email">{element.email}</td>
+                                                <td data-title="Date">34/09/2023</td>                                             
+                                                <td data-title="Address">{element.address || "N/A"}</td>
+                                                <td className="d-flex justify-content-between" data-title="Action">
                                                   <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
@@ -96,7 +97,7 @@ useEffect(()=>{
                             }
                         </tbody>
                     </table>
-
+            </div>
     </div>
     </div>
   )
