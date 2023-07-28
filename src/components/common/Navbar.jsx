@@ -97,8 +97,19 @@ const Navbar = () => {
     console.log(name);
   }, [user, loading]);
 
+  // Your two functions
+const function1 = () => {
+  setOpen(false);
+};
+
+const function2 = () => {
+  window.scrollTo(0, 0);
+};
+
+
   const handleLinkClick = () => {
-    setOpen(false);
+    function1();
+    function2();
   };
 
   return (
@@ -115,6 +126,9 @@ const Navbar = () => {
           </button>
           <div className={`collapse navbar-collapse ${open ? 'show toggler-btn' : ''}`} id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
+            <li className="nav-item ms-3">
+                <Link className="nav-link text-white fs-5" to={"/"} onClick={handleLinkClick}>Home</Link>
+              </li>
               <li className="nav-item ms-3">
                 <Link className="nav-link text-white fs-5" to={"/alllawyer"} onClick={handleLinkClick}>All Lawyers</Link>
               </li>
