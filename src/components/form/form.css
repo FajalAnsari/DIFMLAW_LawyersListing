@@ -138,6 +138,7 @@ option:focus {
  .login_page_image{
   width: 80%;
   margin: auto !important;
+  margin-top: 5% !important;
  }
  .login_page_section{
   width: 95% !important;
@@ -180,6 +181,7 @@ option:focus {
  .login_page_image{
   width: 65%;
   margin: auto !important;
+  margin-top: 3% !important;
  }
  .login_page_section{
   width: 95% !important;
