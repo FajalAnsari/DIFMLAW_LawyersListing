@@ -160,7 +160,7 @@ const Contect_us = () => {
               ></iframe>
         </div>
       </div>
-      <div className="sugg_contects4">
+      <div className="sugg_contects4" style={{marginTop:"170px"}}>
     <Contect_Sugg />
     </div>
     </div>  
