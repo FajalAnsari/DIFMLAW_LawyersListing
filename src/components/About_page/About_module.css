@@ -6,8 +6,8 @@
     }
     .consugg{
         margin-top: -115px !important;
-        width: 95%;
-        height: 28vh;
+        width: auto !important;
+        height: auto;
         padding: 5% !important;
       
      }
@@ -120,9 +120,15 @@
         flex-direction: column-reverse !important;
     }
     .consugg{
-        margin-top: 30px !important;
-        width: 105%;
-        height: 28vh !important;
+        margin-left: 19px !important;
+        margin-right: 20px;
+        height: auto !important;
+        width: 100% !important;
+        margin-top: -80px !important;
+        padding-bottom: 3%;
+     }
+     .conts{
+        margin-top: 10% !important;
      }
      .about-img img{
         width: 98% !important;

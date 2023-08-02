@@ -65,33 +65,33 @@ export const category = [
 export const alllawyercategory =[
     {
       id: 1,
-      title: 'Work Time',
+      title: 'Price',
       children: [
         {
           id: 11,
-          title: 'Full Day',
+          title: '$5 - $100',
         },
         {
           id: 12,
-          title: 'Half Day',
+          title: '$100 - $1000',
         },
         {
           id: 13,
-          title: 'Remote',
+          title: '$1000 - $2000',
         },
         {
           id: 14,
-          title: 'Internship',
+          title: '$3000 - $5000',
         },
         {
           id: 15,
-          title: 'Contract',
+          title: '$5000 and above',
         },
       ],
     },
     {
       id: 2,
-      title: 'Categories',
+      title: 'Legal Categories',
       children: [
         {
           id: 21,
@@ -157,28 +157,24 @@ export const alllawyercategory =[
     },
     {
         id: 4,
-        title: 'Location',
+        title: 'Legend',
         children: [
           {
             id: 41,
-            title: 'Uttar Pradesh',
+            title: '1 - 2 Year',
           },
           {
             id: 42,
-            title: 'Madhya Pradesh',
+            title: '3 - 5 Year',
           },
           {
             id: 43,
-            title: 'Andhra Pradesh',
+            title: '6 - 8 Year',
           },
           {
             id: 44,
-            title: ' Himachal Pradesh',
-          },
-          {
-            id: 45,
-            title: 'Delhi',
-          },
+            title: ' 8 - 12+ Year',
+          }
             
         ],
       },

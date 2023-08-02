@@ -294,7 +294,7 @@ const Signup = () => {
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={location} onChange={(e) => { setLocation(e.target.value) }} />
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." style={{ textTransform: 'capitalize' }} value={location} onChange={(e) => { setLocation(e.target.value) }} />
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
