@@ -146,7 +146,15 @@ const handleSubmit = async (e) => {
     }
   }
 }
-
+// refresh the form field
+const handleRefresh = (e) => {
+  e.preventDefault();
+  setUsername('');
+  setEmail('');
+  setUserAdd('');
+  setPreviewUrl('');
+ 
+}
 
   return (
     <>
@@ -169,7 +177,7 @@ const handleSubmit = async (e) => {
               <div className="px-5 py-3">
               <h2 className='text-white text-center'>{title}</h2>
                 <div className="card-body">
-                    <form onSubmit={handleSubmit}>
+                    <form>
                         {/* <!-- Form Row--> */}
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6 mbs1">
@@ -230,8 +238,9 @@ const handleSubmit = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
+                              <button className="btn btns-primary me-2" onClick={handleRefresh}>Refresh</button>
 					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
-					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Add</button>
+					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2" onClick={handleSubmit}>Add</button>
 				                     </div>
 			                     </div>
 		                     </div>
