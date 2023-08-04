@@ -332,7 +332,7 @@ if (!searchLawyer && !lawyeradd) {
           <div className="row mt-5 ">
             <div className="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
               <div className="input-group mb-3 ser">
-                <input type="text" className="form-control" id="lawyername" list="categoryOptions" onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter keyword, Defense Lawyer..." />
+                <input type="text" className="form-control" id="lawyername" list="categoryOptions" style={{ textTransform: 'capitalize' }} onChange={(e) => setLawyerSearch(e.target.value)} placeholder="Enter keyword, Defense Lawyer..." />
                 <datalist id="categoryOptions">
                     <option value="Injury Lawyers" />
                     <option value="Family Law Lawyers" />
@@ -346,7 +346,7 @@ if (!searchLawyer && !lawyeradd) {
             </div>
             <div className="col-lg-4 col-md-6 col-sm-12 col-12 col-xl-4">
               <div className="input-group mb-3 ser">
-                <input type="text" className="form-control" id='ad_location' onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
+                <input type="text" className="form-control" id='ad_location' style={{ textTransform: 'capitalize' }} onChange={(e) => setLawyeradd(e.target.value)} placeholder="Location, country, city, state..." />
                 <span className="input-group-text btns-primary border-prime"><i className="bi bi-geo-alt" onClick={ByLocationSearch}></i></span>
               </div>
             </div>
@@ -519,7 +519,7 @@ if (!searchLawyer && !lawyeradd) {
           <div className="row">
             <div className="col-lg-6 featured">
               <h1 className="text-white" style={{marginTop:"-20px"}}>
-                Recommended
+                Popular
                 <span id="cat" className="ms-2">
                   Lawyers
                 </span>

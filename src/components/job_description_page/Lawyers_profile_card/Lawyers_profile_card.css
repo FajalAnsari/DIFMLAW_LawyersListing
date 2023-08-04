@@ -45,8 +45,8 @@
 /* media query */
 @media (max-width: 379px){
     .advocate_main_profile .lprocls{
-        width: 65%;
-        height: 11vh;
+        width:80px;
+        height: 80px;
     } 
     .advocate_main_profile .ad_name{
         font-size: 95% !important;
@@ -58,8 +58,9 @@
         width: 150% !important;
         margin-left: -20px;
     }
-    .advocate_main_profile span .save_bkm{
-    margin-top: -80% !important;
+
+    .advocate_page_section{
+       text-align: center !important;
     }
 }
 
@@ -67,6 +68,9 @@
     .lawyer_upload_images_second{
         width:100%;
     }
+    .advocate_page_section{
+        text-align: center !important;
+     }
   
 
 }
@@ -77,4 +81,7 @@
     .lawyer_location_map iframe{
         height: 35vh;
     }
+    .advocate_page_section{
+        text-align: center !important;
+     }
 }

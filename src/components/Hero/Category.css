@@ -7,6 +7,12 @@ body{
 .section-2{
     background-color: var(--second-primary);
 }
+.contz0{
+    line-height: 19px;
+    font-size: 14px;
+    width: 90%;
+    margin-left: 15px;
+}
 .font-color{
     color: var(--primary) !important;
 }
@@ -38,6 +44,7 @@ line-height: 28px;
 }
 .ecard:hover{
  transform: scale(1.05);
+ transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
   .ecard .text-darks{
@@ -59,15 +66,17 @@ line-height: 75px;
     border-radius: 9px; 
     font-weight: 600 !important;
     font-size: larger !important;
+    height: auto !important;
+    margin-top: 10% !important;
 }
 .suggestion{
     position: absolute;
     margin-left: 6% !important;
     width: 55% !important;
-    padding: 1.6%;
+    padding: 0.7%;
     margin-top: -70px;
     border-radius: 20px !important;
-    height: 16% !important;
+    height: auto !important;
     background-color: var( --fourth-primary) !important;
 }
 
@@ -172,14 +181,16 @@ line-height: 21px !important;
       }
       .suggestion{
         margin-right: 5% !important;
-          height: 180px !important;
+          height: auto !important;
           width: auto !important;
+          padding-bottom: 3%;
+          margin-top: -100px;
       }
       .fs-1{      
           font-size: x-large !important;
       }
       .cont{
-          margin-top: -40px !important;
+          margin-top: auto !important;
       }
       .sal{
           margin-top: -100px !important;
@@ -266,15 +277,18 @@ line-height: 21px !important;
         
       }
       .suggestion{
-        margin-left: 15% !important;
-        height: 180px !important;
-        width: auto !important;
+        margin-left: 19px !important;
+        margin-right: 20px;
+        height: auto !important;
+        width: 80% !important;
+        margin-top: -80px !important;
+        padding-bottom: 3%;
       }
       .fs-1{      
           font-size: x-large !important;
       }
       .cont{
-          margin-top: -40px !important;
+          margin-top: auto !important;
       }
       .sal{
           margin-top: -100px !important;

@@ -4,14 +4,15 @@ import "../Hero/Category.css";
 const Contect_now = () => {
 
   const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const baseUrl = "http://localhost:8000";
 
   const sendEmail = async () => {
-    if (message.trim() === '' || email.trim() === '') {
-      alert('Please fill in all fields!');
+    if (message.trim() === '') {
+      alert('Please fill in maessage');
     } else {
       alert("form submit");
    
@@ -20,6 +21,7 @@ const Contect_now = () => {
      
       // let dataSend = {
       //   email: email,
+          //  number: number,
       //   message: message,
       // };
   
@@ -40,7 +42,11 @@ const Contect_now = () => {
       //     }
       //   });
     }
- 
+    if(!email === ''){
+      alert("fill email");
+     }else if(!number === ''){
+      alert("fill no.");
+     }
   };
 
 
@@ -60,9 +66,12 @@ const Contect_now = () => {
               <span><button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></span>
             </div>
             <div className='container'>
-              <div className="mb-3 mt-4">
+              <div className="mb-3 mt-3">
                 <label for="exampleFormControlInput1" className="form-label">Enter Email</label>
-                <input type="email" className="form-control" id="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" className="form-control mb-1" id="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
+                <span style={{marginLeft:"45%"}}>OR</span> <br></br>
+                <label for="exampleFormControlInput1" className="form-label">Enter  Number</label>
+                <input type="tel" className="form-control" id="mobile" placeholder="Enter your number" onChange={(e) => setNumber(e.target.value)} />
               </div>
               <div className="mb-3">
                 <label for="exampleFormControlTextarea1" className="form-label">Write your message</label>
@@ -101,7 +110,9 @@ const Contect_now = () => {
             <span id="ques" className="sugg">
               <b>?</b>
             </span>
+            <p className='font-weight-light font-color contz0'>Contact us and let our team of dedicated professionals guide you toward <span className='legalnet'>the right legal counsel, ensuring your rights and interests are protected every step of the way.</span> </p>
           </p>
+          
         </div>
         <div className="col-lg-6 text-center col-xs-6">
           <a className="btn btns-primary cont mt-3 w-75 h-50 p-2" data-bs-toggle="modal" href="#exampleModalToggle" role="button">

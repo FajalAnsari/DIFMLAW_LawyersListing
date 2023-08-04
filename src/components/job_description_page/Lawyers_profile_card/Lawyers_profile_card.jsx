@@ -107,7 +107,7 @@ const Lawyers_profile_card = () => {
                   <img src={data.image} className="lprocls" alt="lawyer_profile"></img>
                 </div>
                 <div className="col-lg-6 col-6 col-sm-6 col-12">
-                  <div className="text-center">
+                  <div className="advocate_page_section">
                   <p className="fs-5 fw-bold mb-2 ad_name">{data.username}</p>
                   <p className="fs-6 mb-2 laywer_city"><i className="bi bi-geo-alt"></i>{data.address}</p>
                   <p className="fs-6 laywer_exp fw-bold ad_exp">
@@ -132,7 +132,7 @@ const Lawyers_profile_card = () => {
                 </Link> 
               </div>
               <div>
-                <span className="fw-bold fs-3 save_bkm">
+                <span className="fw-bold fs-3">
                   <i class="bi bi-bookmark"></i>
                 </span>
                 <p className="fs-6 save text-center">save</p>
