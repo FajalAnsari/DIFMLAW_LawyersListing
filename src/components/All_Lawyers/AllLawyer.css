@@ -69,9 +69,7 @@
  .lawyrscard6{
     background-color: var(--third-primary);
  }
-input[type="text"]{
-    text-transform: capitalize;
-}
+
 .view_buttons .nameloc{
     margin-left: 139px !important;
     position: absolute;

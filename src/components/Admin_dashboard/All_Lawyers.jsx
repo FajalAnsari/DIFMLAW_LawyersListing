@@ -105,8 +105,7 @@ useEffect(()=>{
                  </div>
               <select id="inputState" className="form-select contect-bgColors selct" style={{width:"10%"}}>
                  <option selected>latest</option>
-                 <option value="Full Day">Full Day</option>
-                 <option value="Half Day">Half Day</option>
+                 <option value="Full Day">VIP</option>
               </select>
              </div>
          </div>

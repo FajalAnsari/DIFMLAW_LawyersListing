@@ -45,8 +45,8 @@
 /* media query */
 @media (max-width: 379px){
     .advocate_main_profile .lprocls{
-        width: 65%;
-        height: 11vh;
+        width:80px;
+        height: 80px;
     } 
     .advocate_main_profile .ad_name{
         font-size: 95% !important;

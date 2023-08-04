@@ -66,7 +66,7 @@ const Category = () => {
           <div className="row">
             <div className="col-lg-6 featured">
               <h1 className="mt-4 text-white">
-                Featured
+                Popular
                 <span id="cat" className="ms-2">
                   Lawyers
                 </span>

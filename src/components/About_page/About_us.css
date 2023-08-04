@@ -6,6 +6,7 @@
 }
 .consugg{
    margin-top: -95px !important;
+   width: 85% !important;
    background-color: var(--second-primary);
 }
 .dmis{

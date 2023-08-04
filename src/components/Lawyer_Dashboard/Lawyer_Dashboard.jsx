@@ -88,7 +88,7 @@ const Lawyer_Dashboard = ({ children }) => {
       icon: <FaUserEdit />,
       roles: ["Admin"] // Only display for lawyer
     },
-
+    
     {
       path: "/lawyer_dashboard/profile/id/",
       name: "Edit Profile",
@@ -117,7 +117,7 @@ const Lawyer_Dashboard = ({ children }) => {
             <div className="top_section">
               <h1 style={{ display: isOpen ? "block" : "none" }} className="logo text-white">
                 <div className="d-flex">
-                  <img src={logo} alt="logo" style={{ width: "60%", marginRight: "10px" }} />
+                  <img src={logo} alt="logo" style={{ width: "50%", marginRight: "10px" }} />
                   {userRole} Dashboard
                 </div>
               </h1>
