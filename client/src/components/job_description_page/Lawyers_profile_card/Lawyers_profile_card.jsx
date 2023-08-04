@@ -17,6 +17,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const Lawyers_profile_card = () => {
   const [userRole, setUserRole] = useState(null);
+  const [rating,setRating] = useState([]);
   const [user] = useAuthState(auth); 
    // check login as a user or lawyer
    const loginUserORLawyer = async () => {
@@ -86,6 +87,7 @@ const Lawyers_profile_card = () => {
 
   useEffect(() => {
     firebase.getUsersId(params.lawId).then((value) => setData(value.data()));
+    ratings();
   }, []);
 
   const handleCopyPath = () => {
@@ -93,6 +95,46 @@ const Lawyers_profile_card = () => {
     navigator.clipboard.writeText(path);
     alert('URL path copied to clipboard!');
   }
+  
+
+
+const ratings = async() => {
+// Fetch all lawyer documents
+const lawyersCollectionRef = collection(db, "lawyers");
+const querySnapshot = await getDocs(lawyersCollectionRef);
+
+// Calculate average user rating for each lawyer
+const lawyerRatings = [];
+querySnapshot.forEach((doc) => {
+  const lawyerData = doc.data();
+  const ratings = lawyerData.ratings;
+
+  if (ratings) { // Check if ratings is not undefined or null
+    const sumRatings = Object.keys(ratings).reduce((sum, rating) => {
+      return sum + rating * ratings[rating];
+    }, 0);
+
+    const totalRatings = Object.values(ratings).reduce((total, count) => {
+      return total + count;
+    }, 0);
+
+    const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
+
+    lawyerRatings.push({
+      lawyerId: doc.id,
+      averageRating: averageRating.toFixed(2),
+    });
+  }
+});
+
+setRating(lawyerRatings[0].averageRating);
+console.log("Average User Ratings for Lawyers:", lawyerRatings[0].averageRating);
+
+}
+
+
+
+
   
   return (
    
@@ -110,15 +152,18 @@ const Lawyers_profile_card = () => {
                   <p className="fs-5 fw-bold mb-2">{data.username}</p>
                   <p className="fs-6 mb-2 laywer_city">{data.address}</p>
                   <p className="fs-6 laywer_exp fw-bold">
-                  {data.experience} in practice
+                  {data.experience} 
                   </p>
                   <div style={{marginTop:"-20px"}}>
+                    <p>{rating}</p>
                   {[...Array(5)].map((star, index) => (
         <p key={index} className="fw-bold fs-6" style={{display:'inline'}}>
           <i className="bi bi-star-fill" style={{ color: '#ffc107'}}></i>
         </p>
       ))}
       </div>
+
+      
                 </div>
               </div>
             </div>
@@ -148,7 +193,7 @@ const Lawyers_profile_card = () => {
           {/* expertise and services end */}
 
         {/* review start */}
-        < Add_review id={data.uid}/>
+        < Add_review id={data.uid} nid={data.id}/>
         <Add_Comment />
         {/* review end */}
 

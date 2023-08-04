@@ -2,17 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../../firebase';
 import { auth } from '../../../firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { doc, updateDoc, serverTimestamp, query, collection, getDocs, where , setDoc } from "firebase/firestore";
+import { doc, updateDoc, serverTimestamp, query, collection,getDoc, getDocs, where , setDoc } from "firebase/firestore";
+
 import "./review_section.css";
 
 const Add_review = (props) => {
   const [user, loading] = useAuthState(auth);
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState(0);
   const [title , setTitle] = useState("");
   const [message ,setMessage] = useState("");
   const [data , setData] = useState([]);
   const [userImage, setUserImage] = useState("");
   const [userName, setUserName] = useState("");
+  const [userRating, setUserRating] = useState("");
+
   // const [setUserId, getUserId] = useState("");
 
 
@@ -22,7 +25,7 @@ const Add_review = (props) => {
      setShow(!show); // Toggle accordion
    };
 
-
+   
     // get username
     if(user){
      
@@ -68,10 +71,36 @@ const Add_review = (props) => {
            console.log(err);
         })
    }
+  console.log(props.nid);
   
-  
+  const taskDocRef = doc(db, "lawyers", "0QtRdYv1ebC9WOeoT9Im");
 
+  try {
+    const ratingValue = parseInt(rating); // Convert the selected rating to a number
+  
+    // Get the current document data
+    const docSnapshot = await getDoc(taskDocRef);
+    const currentData = docSnapshot.data();
+  
+    // Update the ratings object
+    const updatedRatings = { ...currentData.ratings };
+  
+    // Increment the count for the corresponding rating value
+    updatedRatings[ratingValue] = (updatedRatings[ratingValue] || 0) + 1;
+  
+    // Update the document with the new ratings object
+    await updateDoc(taskDocRef, {
+      ratings: updatedRatings,
+    });
+  
+    alert("Your Rating is " + ratingValue);
+  
+    // ... (other code)
+  } catch (err) {
+    alert(err);
   }
+  
+}
    
   return (
     <>
