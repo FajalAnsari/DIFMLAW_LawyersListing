@@ -17,6 +17,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const Lawyers_profile_card = () => {
   const [userRole, setUserRole] = useState(null);
+  const [rating,setRating] = useState([]);
   const [user] = useAuthState(auth); 
    // check login as a user or lawyer
    const loginUserORLawyer = async () => {
@@ -86,6 +87,7 @@ const Lawyers_profile_card = () => {
 
   useEffect(() => {
     firebase.getUsersId(params.lawId).then((value) => setData(value.data()));
+    ratings();
   }, []);
 
   const handleCopyPath = () => {
@@ -94,39 +96,80 @@ const Lawyers_profile_card = () => {
     alert('URL path copied to clipboard!');
   }
   
+
+
+const ratings = async() => {
+// Fetch all lawyer documents
+const lawyersCollectionRef = collection(db, "lawyers");
+const querySnapshot = await getDocs(lawyersCollectionRef);
+
+// Calculate average user rating for each lawyer
+const lawyerRatings = [];
+querySnapshot.forEach((doc) => {
+  const lawyerData = doc.data();
+  const ratings = lawyerData.ratings;
+
+  if (ratings) { // Check if ratings is not undefined or null
+    const sumRatings = Object.keys(ratings).reduce((sum, rating) => {
+      return sum + rating * ratings[rating];
+    }, 0);
+
+    const totalRatings = Object.values(ratings).reduce((total, count) => {
+      return total + count;
+    }, 0);
+
+    const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
+
+    lawyerRatings.push({
+      lawyerId: doc.id,
+      averageRating: averageRating.toFixed(2),
+    });
+  }
+});
+
+setRating(lawyerRatings[0].averageRating);
+console.log("Average User Ratings for Lawyers:", lawyerRatings[0].averageRating);
+
+}
+
+
+
+
+  
   return (
    
     <div className="container" style={{marginTop:"80px"}}>
       <div className="row">
         {/* lawyer profile card start */}
-        <div className="col-lg-8 p-5 advocate_main_profile">
+        <div className="col-lg-8 p-5 ">
           <div className="row law ab d-flex border border-prime rounded justify-content-around p-4" style={{backgroundColor: "var(--second-secondary)"}}>
-            <div className="col-lg-6 col-md-6 col-sm-12 ">
+            <div className="col-lg-6">
               <div className="row ab">
-                <div className="col-lg-6 col-sm-6 col-12 d-flex justify-content-around">
+                <div className="col-lg-6 col-xs-12 d-flex justify-content-around">
                   <img src={data.image} className="lprocls" alt="lawyer_profile"></img>
                 </div>
-                <div className="col-lg-6 col-6 col-sm-6 col-12">
-                  <div className="advocate_page_section">
-                  <p className="fs-5 fw-bold mb-2 ad_name">{data.username}</p>
-                  <p className="fs-6 mb-2 laywer_city"><i className="bi bi-geo-alt"></i>{data.address}</p>
-                  <p className="fs-6 laywer_exp fw-bold ad_exp">
-                  {data.experience} in practice
+                <div className="col-lg-6 col-xs-12">
+                  <p className="fs-5 fw-bold mb-2">{data.username}</p>
+                  <p className="fs-6 mb-2 laywer_city">{data.address}</p>
+                  <p className="fs-6 laywer_exp fw-bold">
+                  {data.experience} 
                   </p>
                   <div style={{marginTop:"-20px"}}>
+                    <p>{rating}</p>
                   {[...Array(5)].map((star, index) => (
         <p key={index} className="fw-bold fs-6" style={{display:'inline'}}>
           <i className="bi bi-star-fill" style={{ color: '#ffc107'}}></i>
         </p>
       ))}
       </div>
-      </div>
+
+      
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 text-end d-flex justify-content-end gap-2">
+            <div className="col-lg-6 text-end d-flex justify-content-end gap-2">
               <div className="me-4 w-50">
-               <Link to="/contect_us"><button className="ad_connect btn btns-primary me-4 w-100 rounded-pill mt-5">
+               <Link to="/contect_us"><button className="btn btns-primary me-4 w-100 rounded-pill mt-5">
                   Contact Now
                 </button>
                 </Link> 
@@ -150,7 +193,7 @@ const Lawyers_profile_card = () => {
           {/* expertise and services end */}
 
         {/* review start */}
-        < Add_review id={data.uid}/>
+        < Add_review id={data.uid} nid={data.id}/>
         <Add_Comment />
         {/* review end */}
 
@@ -173,10 +216,10 @@ const Lawyers_profile_card = () => {
     // If data.photos array is empty, display the default lawyer picture
     <>
       <div className="col-lg-6 col-6">
-        <img src={lawyer_pics} className="lawyer_upload_images_second" alt="default_lawyer_pic" />
+        <img src={lawyer_pics} alt="default_lawyer_pic" />
       </div>
       <div className="col-lg-6 col-6">
-        <img src={lawyer_pics} className="lawyer_upload_images_second" alt="default_lawyer_pic" />
+        <img src={lawyer_pics} alt="default_lawyer_pic" />
       </div>
     </>
   )}
@@ -186,7 +229,7 @@ const Lawyers_profile_card = () => {
           {/* our location */}
           <h4 className="mt-3 font-color">Our Location</h4>
 
-          <div className="md:w-1/2 lawyer_location_map">
+          <div className="md:w-1/2">
             {/* Map */}
             <div className="mt-2">
               <iframe
@@ -250,9 +293,7 @@ const Lawyers_profile_card = () => {
          {/* all lawyers card */}
          <div className="row mt-4 law p-2 border border-prime rounded review">
           <h4 className="font-color">Top Lawyers</h4>
-           {/* <div> */}
-            <All_lawyers_card />
-            {/* </div> */}
+           <All_lawyers_card />
            </div>
          {/* all lawyers card */}
         </div>

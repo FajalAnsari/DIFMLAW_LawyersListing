@@ -2,17 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../../firebase';
 import { auth } from '../../../firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { doc, updateDoc, serverTimestamp, query, collection, getDocs, where , setDoc } from "firebase/firestore";
+import { doc, updateDoc, serverTimestamp, query, collection,getDoc, getDocs, where , setDoc } from "firebase/firestore";
+
 import "./review_section.css";
 
 const Add_review = (props) => {
   const [user, loading] = useAuthState(auth);
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState(0);
   const [title , setTitle] = useState("");
   const [message ,setMessage] = useState("");
   const [data , setData] = useState([]);
   const [userImage, setUserImage] = useState("");
   const [userName, setUserName] = useState("");
+  const [userRating, setUserRating] = useState("");
+
   // const [setUserId, getUserId] = useState("");
 
 
@@ -22,7 +25,7 @@ const Add_review = (props) => {
      setShow(!show); // Toggle accordion
    };
 
-
+   
     // get username
     if(user){
      
@@ -68,10 +71,36 @@ const Add_review = (props) => {
            console.log(err);
         })
    }
+  console.log(props.nid);
   
-  
+  const taskDocRef = doc(db, "lawyers", "0QtRdYv1ebC9WOeoT9Im");
 
+  try {
+    const ratingValue = parseInt(rating); // Convert the selected rating to a number
+  
+    // Get the current document data
+    const docSnapshot = await getDoc(taskDocRef);
+    const currentData = docSnapshot.data();
+  
+    // Update the ratings object
+    const updatedRatings = { ...currentData.ratings };
+  
+    // Increment the count for the corresponding rating value
+    updatedRatings[ratingValue] = (updatedRatings[ratingValue] || 0) + 1;
+  
+    // Update the document with the new ratings object
+    await updateDoc(taskDocRef, {
+      ratings: updatedRatings,
+    });
+  
+    alert("Your Rating is " + ratingValue);
+  
+    // ... (other code)
+  } catch (err) {
+    alert(err);
   }
+  
+}
    
   return (
     <>
@@ -90,7 +119,7 @@ const Add_review = (props) => {
                 <p>Your Rating</p>
               </div>
               <div className='col-lg-6'>
-                <div className='d-flex justify-content-end mt-2 rated_star'>
+                <div className='d-flex justify-content-end mt-2'>
                 {[...Array(5)].map((star,index) => {
                   const currentRating = index + 1;
                    return (
@@ -105,7 +134,7 @@ const Add_review = (props) => {
               </div>
             </div>
           </div>
-          <div className='col-lg-6 browser_image'>
+          <div className='col-lg-6 '>
             <div className='d-flex justify-content-end '>
             <label for='file'><div className='bg-secondary p-2 text-white'>Browse Image</div></label>
             <input type='file' name='file' id='file' className='d-none'></input>
@@ -116,7 +145,7 @@ const Add_review = (props) => {
              {/* write your review start */}
              <div className=''>
       {show && (
-          <div className="accordian-body review_section_submit">
+          <div className="accordian-body">
               <label className="fs-5 mt-3 text-white mb-1 " for="inputFirstName">Title</label>
               <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder="Enter your Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
               <label className="fs-5 mt-3 text-white mb-2 " for="inputMessage">Review</label>

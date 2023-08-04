@@ -88,7 +88,7 @@ const Lawyer_Dashboard = ({ children }) => {
       icon: <FaUserEdit />,
       roles: ["Admin"] // Only display for lawyer
     },
-
+    
     {
       path: "/lawyer_dashboard/profile/id/",
       name: "Edit Profile",
