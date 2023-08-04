@@ -73,7 +73,7 @@ const Add_review = (props) => {
    }
   console.log(props.nid);
   
-  const taskDocRef = doc(db, "lawyers", "0QtRdYv1ebC9WOeoT9Im");
+  const taskDocRef = doc(db, "lawyers", props.nid);
 
   try {
     const ratingValue = parseInt(rating); // Convert the selected rating to a number

@@ -100,16 +100,18 @@ const Lawyers_profile_card = () => {
 
 const ratings = async() => {
 // Fetch all lawyer documents
+const specificLawyerId = params.lawId; // Replace this with the lawyerId you want to fetch data for
+
 const lawyersCollectionRef = collection(db, "lawyers");
 const querySnapshot = await getDocs(lawyersCollectionRef);
 
-// Calculate average user rating for each lawyer
-const lawyerRatings = [];
+// Calculate average user rating for the specific lawyer
+let specificLawyerRating = 0; // Default value if lawyer not found
 querySnapshot.forEach((doc) => {
   const lawyerData = doc.data();
   const ratings = lawyerData.ratings;
 
-  if (ratings) { // Check if ratings is not undefined or null
+  if (doc.id === specificLawyerId && ratings) { // Check if lawyerId matches and ratings is not undefined or null
     const sumRatings = Object.keys(ratings).reduce((sum, rating) => {
       return sum + rating * ratings[rating];
     }, 0);
@@ -118,23 +120,15 @@ querySnapshot.forEach((doc) => {
       return total + count;
     }, 0);
 
-    const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
-
-    lawyerRatings.push({
-      lawyerId: doc.id,
-      averageRating: averageRating.toFixed(2),
-    });
+    specificLawyerRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
   }
 });
 
-setRating(lawyerRatings[0].averageRating);
-console.log("Average User Ratings for Lawyers:", lawyerRatings[0].averageRating);
+setRating(specificLawyerRating.toFixed(2));
+console.log("Average User Rating for Specific Lawyer:", specificLawyerRating.toFixed(2));
+
 
 }
-
-
-
-
   
   return (
    
@@ -155,10 +149,9 @@ console.log("Average User Ratings for Lawyers:", lawyerRatings[0].averageRating)
                   {data.experience} 
                   </p>
                   <div style={{marginTop:"-20px"}}>
-                    <p>{rating}</p>
                   {[...Array(5)].map((star, index) => (
         <p key={index} className="fw-bold fs-6" style={{display:'inline'}}>
-          <i className="bi bi-star-fill" style={{ color: '#ffc107'}}></i>
+          <i className={rating > index + 1 ? 'bi bi-star-fill' : rating > index + 0.5 ? 'bi bi-star-half' : 'bi bi-star'} style={{ color: '#ffc107'}}></i>
         </p>
       ))}
       </div>
@@ -193,7 +186,7 @@ console.log("Average User Ratings for Lawyers:", lawyerRatings[0].averageRating)
           {/* expertise and services end */}
 
         {/* review start */}
-        < Add_review id={data.uid} nid={data.id}/>
+        < Add_review id={data.uid} nid={params.lawId}/>
         <Add_Comment />
         {/* review end */}
 
