@@ -113,14 +113,14 @@ const handleUpdate = async (e) => {
                                 <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
                                 <div className="input-group mb-3 mbs">
                                  <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
-                                 <span className="input-group-text btns-primary border-prime bolder dm"><i className="bi bi-person"></i></span>
+                                 <span className="input-group-text btns-primary border-prime bolder"><i className="bi bi-person"></i></span>
                                </div>
                             </div>
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEmail">Email</label>
                                 <div className="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors dm" id="inputEmail" type="email"  placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
-                                 <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-envelope-open"></i></span>
+                                <input className="form-control contect-bgColors" id="inputEmail" type="email"  placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
+                                 <span className="input-group-text btns-primary border-prime" ><i className="bi bi-envelope-open"></i></span>
                                </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@ const handleUpdate = async (e) => {
                                 <label className="small mb-1 text-white" for="inputSpecialization">Old Password</label>
                                 <div className="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputSpecialization" type="text" placeholder="Enter your old password" />
-                                <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-lock-fill"></i></span>
+                                <span className="input-group-text btns-primary border-prime" ><i className="bi bi-lock-fill"></i></span>
                               </div>
                             
                             </div>
@@ -139,7 +139,7 @@ const handleUpdate = async (e) => {
                                 <label className="small mb-1 text-white" for="inputEducation">New Password</label>   
                                 <div className="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Enter new password"/>
-                                  <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-lock-fill"></i></span>
+                                  <span className="input-group-text btns-primary border-prime" ><i className="bi bi-lock-fill"></i></span>
                                 </div>
                             </div>
                         </div>
