@@ -127,7 +127,6 @@ querySnapshot.forEach((doc) => {
 setRating(specificLawyerRating.toFixed(2));
 console.log("Average User Rating for Specific Lawyer:", specificLawyerRating.toFixed(2));
 
-
 }
   
   return (
