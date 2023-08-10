@@ -9,9 +9,9 @@ const Lawyerscards = () => {
   const navigate = useNavigate();
   const [limit] = useState(8);
   const [rate, setrate] = useState("");
+  const [allLawyersRatings, setAllLawyersRatings] = useState({}); 
   const [lawyers, setLawyers] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add isLoading state
-
   const fetchPost = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'lawyers'));
@@ -30,8 +30,6 @@ const Lawyerscards = () => {
           }, 0);
   
           const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
-          setrate(averageRating);
-          console.log(averageRating);
   
           return {
             ...lawyer,
@@ -42,15 +40,22 @@ const Lawyerscards = () => {
         return lawyer;
       });
   
+      // Calculate and store ratings for all lawyers in an object
+      const allLawyersRatings = lawyersWithRatings.reduce((ratingsObj, lawyer) => {
+        ratingsObj[lawyer.id] = lawyer.averageRating;
+        return ratingsObj;
+      }, {});
+  
+      // Set the state with lawyers and ratings
       setLawyers(lawyersWithRatings);
+      setAllLawyersRatings(allLawyersRatings); // Store all lawyers ratings in state
       setIsLoading(false);
-   
-      console.log("Lawyers Data with Ratings:", lawyersWithRatings);
     } catch (error) {
       console.error("Error fetching lawyers:", error);
       setIsLoading(false);
     }
   };
+  
   
   // Call the function to fetch lawyers' data and ratings
   // fetchLawyersAndRatings();
@@ -151,8 +156,14 @@ const Lawyerscards = () => {
                 </div>
                 <div className="col-lg-8 col-sm-8 col-8">
                   <p className="fs-6 mb-0 pb-1 h6">{data.username}</p>
-                  <p className="city"><i class="bi bi-geo-alt"></i> {data.address}</p>
-                  
+                  <p className="city mb-0 pb-1"><i class="bi bi-geo-alt"></i> {data.address}</p>
+                  <p className='fs-6 city'>
+                  {[...Array(5)].map((star, index) => (
+        <p key={index} className="fw-bold fs-6" style={{display:'inline'}}>
+          <i className={allLawyersRatings[data.id] > index + 1 ? 'bi bi-star-fill' : allLawyersRatings[data.id] > index + 0.5 ? 'bi bi-star-half' : 'bi bi-star'} style={{ color: '#ffc107'}}></i>
+        </p>
+      ))}
+        </p>
                 </div>
               </div>
               <span className="fs-5 fw-normal ms-3">{data.specialization}</span>
