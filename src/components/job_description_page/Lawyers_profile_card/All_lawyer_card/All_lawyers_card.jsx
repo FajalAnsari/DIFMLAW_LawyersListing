@@ -7,6 +7,52 @@ import "./All_lawyers_card.css";
 import { Link } from 'react-router-dom';
 
 const All_lawyers_card = () => {
+  const [allLawyersRatings, setAllLawyersRatings] = useState({}); 
+  // const [lawyers, setLawyers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Add isLoading state
+  const UserRating = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'lawyers'));
+      const lawyersData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  
+      const lawyersWithRatings = lawyersData.map((lawyer) => {
+        const ratings = lawyer.ratings;
+  
+        if (ratings) {
+          const sumRatings = Object.keys(ratings).reduce((sum, rating) => {
+            return sum + parseFloat(rating) * ratings[rating];
+          }, 0);
+  
+          const totalRatings = Object.values(ratings).reduce((total, count) => {
+            return total + count;
+          }, 0);
+  
+          const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
+  
+          return {
+            ...lawyer,
+            averageRating: averageRating.toFixed(2),
+          };
+        }
+  
+        return lawyer;
+      });
+  
+      // Calculate and store ratings for all lawyers in an object
+      const allLawyersRatings = lawyersWithRatings.reduce((ratingsObj, lawyer) => {
+        ratingsObj[lawyer.id] = lawyer.averageRating;
+        return ratingsObj;
+      }, {});
+  
+      // Set the state with lawyers and ratings
+      setLawyers(lawyersWithRatings);
+      setAllLawyersRatings(allLawyersRatings); // Store all lawyers ratings in state
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching lawyers:", error);
+      setIsLoading(false);
+    }
+  };
 
     const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
@@ -23,6 +69,7 @@ const All_lawyers_card = () => {
   
   useEffect(()=>{
       fetchPost();
+      UserRating();
   }, [])
   
   const [currentPage] = useState(0);
@@ -47,7 +94,7 @@ const All_lawyers_card = () => {
             <h5 className='mt-2 fs-6 lawyer_name fw-bold font-color'>{data.username}</h5>
             <span className='fs-6 lawyer_work_type fw-bold text-white'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6 text-white">{[...Array(5)].map((star, index) => (
         <p key={index} className="fw-bold  star fs-6" style={{display:'inline'}}>
-          <i className="bi bi-star-fill" style={{ color: '#ffc107', fontSize:'10px'}}></i>
+          <i className={allLawyersRatings[data.id] > index + 1 ? 'bi bi-star-fill' : allLawyersRatings[data.id] > index + 0.5 ? 'bi bi-star-half' : 'bi bi-star'} style={{ color: '#ffc107', fontSize:'10px'}}></i>
         </p>
       ))}</span><br></br>
             <span className='lawyer_work_experience fw-bold text-white'>{data.experience}  in practice</span>

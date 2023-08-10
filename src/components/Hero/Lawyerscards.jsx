@@ -8,7 +8,7 @@ import "./Lawyerscards.css";
 const Lawyerscards = () => {
   const navigate = useNavigate();
   const [limit] = useState(8);
-  const [rate, setrate] = useState("");
+ 
   const [allLawyersRatings, setAllLawyersRatings] = useState({}); 
   const [lawyers, setLawyers] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add isLoading state
