@@ -352,11 +352,15 @@ const Signup = () => {
                     <textarea class="form-control ed text-primary contect-bgColors" maxLength="250" id="form6Example7" rows="4" placeholder="Write about yourself..." value={bio} onChange={biohaldle}></textarea>
                   </div>
 
-                  <div class="form-check mb-0 mx-2">
-                    <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3" required checked />
+                  <div class="form-check mb-0 mx-2 sgn_form">
+                    <div className="row">
+                  <div className="col-lg-6 col-md-6 col-sm-12 col-12"> <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3" required checked />
                     <label class="form-check-label  text-white" for="form2Example3">
                       I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
-                    </label>
+                    </label></div> 
+                    <div className="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-end do_have_ac"><p className="small fw-bold  pt-1 mb-0 text-white dont_account">Do you have account? <Link to="/login"
+                    className="font-color">Login</Link></p></div>
+                    </div>
                   </div>
                   <p className="text-danger fs-5">{error}</p>
                   <div class="col-md-12">
@@ -454,11 +458,15 @@ const Signup = () => {
                       <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
                     </div>
                   </div>
-                  <div class="form-check mb-0 mx-2">
-                    <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3" required checked />
+                  <div class="form-check mb-0 mx-2 sgn_form">
+                    <div className="row">
+                  <div className="col-lg-6 col-md-6 col-sm-12 col-12"> <input class="form-check-input me-2 contect-bgColors" type="checkbox" value="" id="form2Example3" required checked />
                     <label class="form-check-label  text-white" for="form2Example3">
                       I agree to the <Link to="/terms_condition" className='text-decoration-none font-color'>Terms & conditions</Link>
-                    </label>
+                    </label></div> 
+                    <div className="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-end do_have_ac"><p className="small fw-bold  pt-1 mb-0 text-white dont_account">Do you have account? <Link to="/login"
+                    className="font-color">Login</Link></p></div>
+                    </div>
                   </div>
                   <p className="text-danger fs-5">{errors}</p>
                   <div class="col-md-12 mt-5 ">

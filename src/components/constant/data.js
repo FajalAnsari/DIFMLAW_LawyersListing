@@ -1,60 +1,60 @@
-import {DIFMLAWCorporatelawyers, DIFMLAWEmployeementlawyers, DIFMLAWRealestatelawyers, DIFMLAWImmigirationlawyers, DIFMLAWPropertylawyers, DIFMLAWinjurylawyer, DIFMLAWDefencelawyers,DIFMLAWFamilylawyers } from "../images/index";
+import {DIFMLAWCorporatelawyers, DIFMLAWEmployeementlawyers, DIFMLAWRealestatelawyers, DIFMLAWImmigirationlawyers, DIFMLAWPropertylawyers, DIFMLAWinjurylawyer, DIFMLAWDefencelawyers,DIFMLAWFamilylawyers, corporate_law, immigration_law, defense_law, family_law, injury_law, employment_law, real_estate_law, property_law  } from "../images/index";
 
 
 
 export const category = [
     {
         id:1,
-        logo:DIFMLAWinjurylawyer,
+        logo:injury_law,
         type:'Injury Lawyers',
         avalilabe:'+ Lawyers available'
 
     },
     {
         id:2,
-        logo:DIFMLAWFamilylawyers,
+        logo:family_law,
         type:'Family Law Lawyers',
         avalilabe:'+ Lawyers available'
 
     },
     {
         id:3,
-        logo:DIFMLAWDefencelawyers,
+        logo:defense_law,
         type:'Defense Lawyers',
         avalilabe:'+ Lawyers available'
 
     },
     {
         id:4,
-        logo:DIFMLAWCorporatelawyers,
+        logo:corporate_law,
         type:'Corporate Lawyers',
         avalilabe:'+ Lawyers available'
 
     },
     {
         id:5,
-        logo:DIFMLAWImmigirationlawyers,
+        logo:immigration_law,
         type:'Immigration Lawyers',
         avalilabe:'+ Lawyers available'
 
     },
     {
         id:6,
-        logo:DIFMLAWPropertylawyers,
+        logo:property_law,
         type:'Property Lawyers',
         avalilabe:'+ Lawyers available'
 
     },
     {
         id:7,
-        logo:DIFMLAWRealestatelawyers,
+        logo:real_estate_law,
         type:'Real Estate Lawyers',
         avalilabe:'+ Lawyers available'
 
     },
     {
         id:8,
-        logo:DIFMLAWEmployeementlawyers,
+        logo:employment_law,
         type:'Employment Lawyers',
         avalilabe:'+ Lawyers available'
 
