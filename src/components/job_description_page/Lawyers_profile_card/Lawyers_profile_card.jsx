@@ -181,7 +181,7 @@ console.log("Average User Rating for Specific Lawyer:", specificLawyerRating.toF
 
           {/* expertise and services start */}
 
-          <Expertise_and_services experience={data.experience} Bio={data.summary}/>
+          <Expertise_and_services experience={data.experience} Bio={data.summary} rating={rating} cat={data.specialization}/>
           {/* expertise and services end */}
 
         {/* review start */}
