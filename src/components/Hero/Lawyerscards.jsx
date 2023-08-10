@@ -4,6 +4,7 @@ import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import "./Lawyerscards.css";
+import "../images/DIFM_LAW_bgcolor_mobile.jpg"
 
 const Lawyerscards = () => {
   const navigate = useNavigate();
@@ -71,42 +72,8 @@ const Lawyerscards = () => {
   function scrollToTop() {
     window.scrollTo(0, 0);
   }
-  // // show lawyers rating
-  // const ratings = async() => {
-  //   // Fetch all lawyer documents
-  //   const lawyersCollectionRef = collection(db, "lawyers");
-  //   const querySnapshot = await getDocs(lawyersCollectionRef);
 
-  //   const lawyersRatings = [];
-
-  //   querySnapshot.forEach((doc) => {
-  //       const lawyerData = doc.data();
-  //       console.log(lawyerData);
-  //       const ratings = lawyerData.ratings;
-
-  //       if (ratings) { // Check if ratings field exists
-  //           const sumRatings = Object.keys(ratings).reduce((sum, rating) => {
-  //               return sum + parseFloat(rating) * ratings[rating];
-  //           }, 0);
-
-  //           const totalRatings = Object.values(ratings).reduce((total, count) => {
-  //               return total + count;
-  //           }, 0);
-
-  //           const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
-
-  //           lawyersRatings.push({
-  //               lawyerId: doc.id,
-  //               averageRating: averageRating.toFixed(2)
-  //           });
-  //       }
-  //   });
-
-  //   console.log("Lawyers Ratings:", lawyersRatings);
-  //   return lawyersRatings;
-
-  //   }
-
+  
   return (
     <>
       {/* Lawyers featured */}

@@ -21,7 +21,7 @@ const Lawyers_personal_information = (props) => {
                     <p className='info'>{props.Email}</p>
                     <p className='info'>{props.Address}</p>
                     <p className='info'>{props.Work}</p>
-                    <p className='info'>www.Difmlaw.com/john</p>
+                    <p className='info'>{window.location.href}</p>
                 </div>
             </div>
         </div>
