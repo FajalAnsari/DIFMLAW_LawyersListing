@@ -14,9 +14,16 @@ const Contect_now = () => {
     if (message.trim() === '') {
       alert('Please fill in maessage');
     } else {
-      alert("form submit");
+      if(number == '' && email == ''){
+        alert("Must be filled email or number!");
+      }
+      else{
+        alert("form submit");
    
         setSubmitted(true);
+      }
+
+    
      
      
       // let dataSend = {
@@ -42,11 +49,11 @@ const Contect_now = () => {
       //     }
       //   });
     }
-    if(!email === ''){
-      alert("fill email");
-     }else if(!number === ''){
-      alert("fill no.");
-     }
+    // if(!email === ''){
+    //   alert("fill email");
+    //  }else if(!number === ''){
+    //   alert("fill no.");
+    //  }
   };
 
 
@@ -68,8 +75,8 @@ const Contect_now = () => {
             <div className='container'>
               <div className="mb-3 mt-3">
                 <label for="exampleFormControlInput1" className="form-label">Enter Email</label>
-                <input type="email" className="form-control mb-1" id="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
-                <span style={{marginLeft:"45%"}}>OR</span> <br></br>
+                <input type="email" className="form-control mb-2" id="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
+           
                 <label for="exampleFormControlInput1" className="form-label">Enter  Number</label>
                 <input type="tel" className="form-control" id="mobile" placeholder="Enter your number" onChange={(e) => setNumber(e.target.value)} />
               </div>
@@ -120,37 +127,7 @@ const Contect_now = () => {
           </a>
         </div>
       </div>
-       {/* <div>
-      {submitted ? (
-        <div>
-          <h2>Thank You!</h2>
-          <p>Form submitted successfully.</p>
-          <button onClick={handleReset}>Submit Another Form</button>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      )}
-    </div> */}
+     
     </>
   )
 }

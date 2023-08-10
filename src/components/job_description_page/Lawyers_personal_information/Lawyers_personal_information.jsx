@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Lawyer_personal_info.css";
+import { Link } from 'react-router-dom';
 const Lawyers_personal_information = (props) => {
   return (
     <div className='row mt-5 law p-4 border border-prime rounded' style={{backgroundColor: "var(--second-secondary)"}}>
@@ -21,7 +22,7 @@ const Lawyers_personal_information = (props) => {
                     <p className='info'>{props.Email}</p>
                     <p className='info'>{props.Address}</p>
                     <p className='info'>{props.Work}</p>
-                    <p className='info'>www.Difmlaw.com/john</p>
+                    <Link to={window.location.href}><p className='info'>{window.location.href}</p></Link>
                 </div>
             </div>
         </div>

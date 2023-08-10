@@ -190,14 +190,14 @@ const handleUpdate = async (e) => {
                                 <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
                                 <div class="input-group mb-3 mbs">
                                  <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
-                                 <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
+                                 <span class="input-group-text btns-primary border-prime bolder"><i class="bi bi-person"></i></span>
                                </div>
                             </div>
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEmail">Email</label>
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors dm" id="inputEmail" type="email"  placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
-                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-envelope-open"></i></span>
+                                <input className="form-control contect-bgColors" id="inputEmail" type="email"  placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}  disabled/>
+                                 <span class="input-group-text btns-primary border-prime" ><i class="bi bi-envelope-open"></i></span>
                                </div>
                             </div>
                         </div>
@@ -205,8 +205,8 @@ const handleUpdate = async (e) => {
                         <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputMobile">Phone Number</label> 
                                 <div class="input-group mb-3 mbs">
-                                  <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder={number} value={number} onChange={(e) => {setNumber(e.target.value)}}/>
-                                  <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
+                                  <input className="form-control contect-bgColors " id="inputMobile" type="tel" placeholder={number} value={number} onChange={(e) => {setNumber(e.target.value)}}/>
+                                  <span class="input-group-text btns-primary border-prime" ><i class="bi bi-telephone"></i></span>
                                 </div>    
                             </div>
                             
@@ -214,7 +214,7 @@ const handleUpdate = async (e) => {
                             <label className="small mb-1 text-white" for="inputWork">Location</label>
                             <div class="input-group mb-3 mbs">
                              <input type="text" class="form-control contect-bgColors" id="inputZip" placeholder="Location, country, city, state..."  value={location} onChange={(e) => {setLocation(e.target.value)}}/>
-                             <span class="input-group-text btns-primary dm" ><i class="bi bi-geo-alt"></i></span>
+                             <span class="input-group-text btns-primary" ><i class="bi bi-geo-alt"></i></span>
                            </div>
                             </div>
                         </div>
@@ -224,7 +224,7 @@ const handleUpdate = async (e) => {
                                 <label className="small mb-1 text-white" for="inputSpecialization">Old Password</label>
                                 <div class="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputSpecialization" value={oldPassword} type="password" placeholder="Enter your old password" onChange={(e) => setOldPassword(e.target.value)} />
-                                <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                                <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
                               </div>
                             
                             </div>
@@ -233,7 +233,7 @@ const handleUpdate = async (e) => {
                                 <label className="small mb-1 text-white" for="inputEducation">New Password</label>   
                                 <div class="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputEducation" value={newPassword} type="password" name="education" placeholder="Enter new password" onChange={(e) => setNewPassword(e.target.value)}/>
-                                  <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-lock-fill"></i></span>
+                                  <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
                                 </div>
                             </div>
                         </div>

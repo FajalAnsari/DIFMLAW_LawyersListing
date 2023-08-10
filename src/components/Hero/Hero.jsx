@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import law from "../images/DIFMLAW-Findlaw.png";
 import Category from './Category';
 import "../../index.css";
 import "./Hero.css";
@@ -40,10 +39,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="200">
-
-              <img src={law} class="w-75 mt-4 mx-5 lawfind1" alt="lawfind" />
-            </div>
+            
           </div>
         </div>
 

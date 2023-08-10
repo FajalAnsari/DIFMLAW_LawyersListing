@@ -252,9 +252,9 @@ const handleUpdate = async (e) => {
                         {/* <!-- Form Row--> */}
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6 mbs1">
-                                <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
+                                <label className="small mb-1 text-white" for="inputFirstName">Full Name</label>
                                 <div class="input-group mb-3 mbs">
-                                 <input className="form-control contect-bgColors" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                                 <input className="form-control contect-bgColors dm py-0" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
                                  <span class="input-group-text btns-primary border-prime bolder dm"><i class="bi bi-person"></i></span>
                                </div>
                             </div>
@@ -270,15 +270,16 @@ const handleUpdate = async (e) => {
                         <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputMobile">Mobile</label> 
                                 <div class="input-group mb-3 mbs">
-                                  <input className="form-control contect-bgColors dm" id="inputMobile" type="tel" placeholder={number} value={number} onChange={(e) => {setNumber(e.target.value)}}/>
+                                  <input className="form-control contect-bgColors dm py-0" id="inputMobile" type="tel" placeholder={number} value={number} onChange={(e) => {setNumber(e.target.value)}} />
                                   <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-telephone"></i></span>
-                                </div>    
+                                </div> 
+                                   
                             </div>
                             
                             <div className="col-md-6 mbs1">
-                                <label className="small mb-1 text-white" for="inputExperience">Experience</label>    
+                                <label className="small mb-1 text-white dm" for="inputExperience">Experience</label>    
                                 <div class="input-group mb-3 mbs">
-                                <select id="inputState" value={experience} onChange={(e) => setExperience(e.target.value)} class="form-select contect-bgColors selct">
+                                <select id="inputState" value={experience} onChange={(e) => setExperience(e.target.value)} class="form-select contect-bgColors selct py-0">
                                  <option selected>Choose...</option>
                                  <option value="1 Year">1 Year</option>
                                  <option value="2 Year">2 Years</option>
@@ -300,7 +301,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputSpecialization">Specialization</label>
                                 <div class="input-group mb-3 mbs">
-                                <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct">
+                                <select id="inputState" value={specialization} onChange={(e) => setSpecialization(e.target.value)} class="form-select contect-bgColors selct py-0">
                                    <option selected>Select your expertise</option>
                                    <option value="Injury Lawyers">Injury Lawyers</option>
                                    <option value="Family Law Lawyers">Family Law Lawyers</option>
@@ -319,7 +320,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEducation">Qualification</label>   
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} required/>
+                                <input className="form-control contect-bgColors dm py-0" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} required/>
                                   <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-person-fill"></i></span>
                                 </div>
                             </div>
@@ -328,7 +329,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputWork">Location</label>
                                 <div class="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder={location} value={location} onChange={(e) => {setLocation(e.target.value)}}/>
+                                <input className="form-control contect-bgColors dm py-0" id="inputWor" type="text" placeholder={location} value={location} onChange={(e) => {setLocation(e.target.value)}}/>
                                 <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-geo-alt-fill"></i></span>
                               </div>
                             </div>
@@ -336,7 +337,7 @@ const handleUpdate = async (e) => {
                             <div className="col-md-6 mbs1">
                             <label className="small mb-1 text-white" for="inputWork">Pictures</label>
                             <div class="input-group mb-3 mbs">
-                             <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu" multiple onChange={handleMultiImages} />
+                             <input type="file" name="file-input" id="file-input" className="contect-bgColors inpu dm" multiple onChange={handleMultiImages} />
                              <span class="input-group-text btns-primary border-prime dm" ><i class="bi bi-card-image"></i></span>
                            </div>
                             </div>

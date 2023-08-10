@@ -146,7 +146,15 @@ const handleSubmit = async (e) => {
     }
   }
 }
-
+// refresh the form field
+const handleRefresh = (e) => {
+  e.preventDefault();
+  setUsername('');
+  setEmail('');
+  setUserAdd('');
+  setPreviewUrl('');
+ 
+}
 
   return (
     <>
@@ -166,24 +174,24 @@ const handleSubmit = async (e) => {
           <div className="col-md-8">
               <div className='msg_1'>
                 
-              <div className="px-5 py-3">
+              <div className="px-5 py-4">
               <h2 className='text-white text-center'>{title}</h2>
                 <div className="card-body">
-                    <form onSubmit={handleSubmit}>
+                    <form>
                         {/* <!-- Form Row--> */}
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white " for="inputFirstName">Full Name</label>
                                 <div className="input-group mb-3 mbs">
                                  <input className="form-control contect-bgColors"  placeholder="Enter Your Full Name" id="inputFirstName" type="text"  value={username} onChange={(e) => {setUsername(e.target.value)}}/>
-                                 <span className="input-group-text btns-primary border-prime bolder dm"><i className="bi bi-person-circle"></i></span>
+                                 <span className="input-group-text btns-primary border-prime bolder"><i className="bi bi-person-circle"></i></span>
                                </div>
                             </div>
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputEmail">Email</label>
                                 <div className="input-group mb-3 mbs">
-                                <input className="form-control contect-bgColors dm" id="inputEmail" type="email"  placeholder="Enter Your Email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
-                                 <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-envelope-open"></i></span>
+                                <input className="form-control contect-bgColors" id="inputEmail" type="email"  placeholder="Enter Your Email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                                 <span className="input-group-text btns-primary border-prime" ><i className="bi bi-envelope-open"></i></span>
                                </div>
                             </div>
                         </div>
@@ -193,7 +201,7 @@ const handleSubmit = async (e) => {
                                 <label className="small mb-1 text-white" for="inputSpecialization">Password</label>
                                 <div className="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputSpecialization" type="password" placeholder="Enter new password"  onChange={(e) => setPassword(e.target.value)}/>
-                                <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-lock-fill"></i></span>
+                                <span className="input-group-text btns-primary border-prime" ><i className="bi bi-lock-fill"></i></span>
                               </div>
                             
                             </div>
@@ -202,7 +210,7 @@ const handleSubmit = async (e) => {
                                 <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
                                 <div className="input-group mb-3 mbs">
                                 <input className="form-control contect-bgColors" id="inputEducation" type="password" name="password" placeholder="Enter confirm password"  onChange={(e) => setConfirmPassword(e.target.value)}/>
-                                  <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-lock-fill"></i></span>
+                                  <span className="input-group-text btns-primary border-prime" ><i className="bi bi-lock-fill"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +229,7 @@ const handleSubmit = async (e) => {
                       <option value="lawyer">Lawyer</option>
                       <option value="user">User</option>
                     </select>
-                    <span className="input-group-text btns-primary border-prime dm" ><i className="bi bi-person-fill"></i></span>
+                    <span className="input-group-text btns-primary border-prime" ><i className="bi bi-person-fill"></i></span>
                     </div>
                   </div>
                   </div>
@@ -230,8 +238,9 @@ const handleSubmit = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
+                              <button className="btn btns-primary me-2" onClick={handleRefresh}>Refresh</button>
 					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
-					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2">Add</button>
+					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2" onClick={handleSubmit}>Add</button>
 				                     </div>
 			                     </div>
 		                     </div>
