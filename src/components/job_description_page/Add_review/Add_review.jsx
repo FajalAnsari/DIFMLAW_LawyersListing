@@ -14,9 +14,9 @@ const Add_review = (props) => {
   const [data , setData] = useState([]);
   const [userImage, setUserImage] = useState("");
   const [userName, setUserName] = useState("");
-  const [userRating, setUserRating] = useState("");
 
-  // const [setUserId, getUserId] = useState("");
+
+
 
 
    // State to show/hide accordion
@@ -53,7 +53,14 @@ const Add_review = (props) => {
   //  give rating 
   const giveRating = async (e) =>{
     e.preventDefault()
-    const parentCollection = collection(db, 'User_Messages');
+     // Check if the user has already rated this lawyer
+  const userRatedQuery = query(collection(db, "User_Messages", props.id, "Ratings_review"), where("username", "==", userName));
+  const userRatedSnapshot = await getDocs(userRatedQuery);
+  console.log(userRatedSnapshot);
+
+  if (userRatedSnapshot.size === 0) {
+    // User hasn't rated this lawyer, so allow them to submit the rating
+       const parentCollection = collection(db, 'User_Messages');
       data.push({
        image:userImage,
        username:userName,
@@ -71,34 +78,42 @@ const Add_review = (props) => {
            console.log(err);
         })
    }
+   const taskDocRef = doc(db, "lawyers", props.nid);
+
+   try {
+     const ratingValue = parseInt(rating); // Convert the selected rating to a number
+   
+     // Get the current document data
+     const docSnapshot = await getDoc(taskDocRef);
+     const currentData = docSnapshot.data();
+   
+     // Update the ratings object
+     const updatedRatings = { ...currentData.ratings };
+   
+     // Increment the count for the corresponding rating value
+     updatedRatings[ratingValue] = (updatedRatings[ratingValue] || 0) + 1;
+   
+     // Update the document with the new ratings object
+     await updateDoc(taskDocRef, {
+       ratings: updatedRatings,
+     });
+   
+     alert("Your Rating is " + ratingValue);
+   
+     // ... (other code)
+   } catch (err) {
+     alert(err);
+   }
+ 
+
+  } else {
+    // User has already rated this lawyer
+    alert("You have already rated this lawyer.");
+  }
+
   console.log(props.nid);
   
-  const taskDocRef = doc(db, "lawyers", props.nid);
 
-  try {
-    const ratingValue = parseInt(rating); // Convert the selected rating to a number
-  
-    // Get the current document data
-    const docSnapshot = await getDoc(taskDocRef);
-    const currentData = docSnapshot.data();
-  
-    // Update the ratings object
-    const updatedRatings = { ...currentData.ratings };
-  
-    // Increment the count for the corresponding rating value
-    updatedRatings[ratingValue] = (updatedRatings[ratingValue] || 0) + 1;
-  
-    // Update the document with the new ratings object
-    await updateDoc(taskDocRef, {
-      ratings: updatedRatings,
-    });
-  
-    alert("Your Rating is " + ratingValue);
-  
-    // ... (other code)
-  } catch (err) {
-    alert(err);
-  }
   
 }
    
@@ -129,7 +144,7 @@ const Add_review = (props) => {
                     </label>
                    ) 
                 })}
-                {rating}
+               
             </div>
               </div>
             </div>
