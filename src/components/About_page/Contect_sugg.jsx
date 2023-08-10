@@ -14,9 +14,15 @@ const Contect_sugg = () => {
     if (message.trim() === '') {
       alert('Please fill in maessage');
     } else {
-      alert("form submit");
+      if(number == '' && email == ''){
+        alert("Must be filled email or number!");
+      }
+      else{
+        alert("form submit");
    
         setSubmitted(true);
+      }
+
      
      
       // let dataSend = {
@@ -42,11 +48,7 @@ const Contect_sugg = () => {
       //     }
       //   });
     }
-    if(!email === ''){
-      alert("fill email");
-     }else if(!number === ''){
-      alert("fill no.");
-     }
+ 
   };
 
 
@@ -63,8 +65,8 @@ const Contect_sugg = () => {
             <div className='container'>
               <div className="mb-3 mt-3">
                 <label for="exampleFormControlInput1" className="form-label">Enter Email</label>
-                <input type="email" className="form-control mb-1" id="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
-                <span style={{marginLeft:"45%"}}>OR</span> <br></br>
+                <input type="email" className="form-control mb-2" id="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
+               
                 <label for="exampleFormControlInput1" className="form-label">Enter  Number</label>
                 <input type="tel" className="form-control" id="mobile" placeholder="Enter your number" onChange={(e) => setNumber(e.target.value)} />
               </div>
