@@ -22,8 +22,14 @@ import Image_testimonial4 from "./Image_testimonial4.png";
 import icon_devider from "./icon_devider.svg";
 import profile from "./profile.jpg";
 import dummy from "./dummy.png";
-
-
+import immigration_law from "./immigration_law.svg";
+import defense_law from "./defense_law.svg";
+import family_law from "./family_law.svg";
+import injury_law from "./injury_law.svg";
+import corporate_law from "./corporate_law.svg";
+import employment_law from "./employment_law.svg";
+import real_estate_law from "./real_estate_law.svg";
+import property_law from "./property_law.svg";
 
 export {
     DIFMLAWCorporatelawyers,
@@ -50,4 +56,12 @@ export {
          icon_devider,
          profile,
          dummy,
+         immigration_law,
+         defense_law,
+         corporate_law,
+         injury_law,
+         family_law,
+         employment_law,
+         real_estate_law,
+         property_law,
 }

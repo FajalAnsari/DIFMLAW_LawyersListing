@@ -8,19 +8,57 @@ import "./Lawyerscards.css";
 const Lawyerscards = () => {
   const navigate = useNavigate();
   const [limit] = useState(8);
+  const [rate, setrate] = useState("");
   const [lawyers, setLawyers] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
   const fetchPost = async () => {
-    await getDocs(collection(db, 'lawyers')).then((querySnapshot) => {
-      const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      setLawyers(newData);
-      setIsLoading(false); // Set isLoading to false once the data has been fetched
-    });
+    try {
+      const querySnapshot = await getDocs(collection(db, 'lawyers'));
+      const lawyersData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  
+      const lawyersWithRatings = lawyersData.map((lawyer) => {
+        const ratings = lawyer.ratings;
+  
+        if (ratings) {
+          const sumRatings = Object.keys(ratings).reduce((sum, rating) => {
+            return sum + parseFloat(rating) * ratings[rating];
+          }, 0);
+  
+          const totalRatings = Object.values(ratings).reduce((total, count) => {
+            return total + count;
+          }, 0);
+  
+          const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
+          setrate(averageRating);
+          console.log(averageRating);
+  
+          return {
+            ...lawyer,
+            averageRating: averageRating.toFixed(2),
+          };
+        }
+  
+        return lawyer;
+      });
+  
+      setLawyers(lawyersWithRatings);
+      setIsLoading(false);
+   
+      console.log("Lawyers Data with Ratings:", lawyersWithRatings);
+    } catch (error) {
+      console.error("Error fetching lawyers:", error);
+      setIsLoading(false);
+    }
   };
+  
+  // Call the function to fetch lawyers' data and ratings
+  // fetchLawyersAndRatings();
+  
 
   useEffect(() => {
     fetchPost();
+    // ratings();
   }, []);
 
   const slice = lawyers.slice(0, limit);
@@ -28,6 +66,41 @@ const Lawyerscards = () => {
   function scrollToTop() {
     window.scrollTo(0, 0);
   }
+  // // show lawyers rating
+  // const ratings = async() => {
+  //   // Fetch all lawyer documents
+  //   const lawyersCollectionRef = collection(db, "lawyers");
+  //   const querySnapshot = await getDocs(lawyersCollectionRef);
+
+  //   const lawyersRatings = [];
+
+  //   querySnapshot.forEach((doc) => {
+  //       const lawyerData = doc.data();
+  //       console.log(lawyerData);
+  //       const ratings = lawyerData.ratings;
+
+  //       if (ratings) { // Check if ratings field exists
+  //           const sumRatings = Object.keys(ratings).reduce((sum, rating) => {
+  //               return sum + parseFloat(rating) * ratings[rating];
+  //           }, 0);
+
+  //           const totalRatings = Object.values(ratings).reduce((total, count) => {
+  //               return total + count;
+  //           }, 0);
+
+  //           const averageRating = totalRatings === 0 ? 0 : sumRatings / totalRatings;
+            
+  //           lawyersRatings.push({
+  //               lawyerId: doc.id,
+  //               averageRating: averageRating.toFixed(2)
+  //           });
+  //       }
+  //   });
+
+  //   console.log("Lawyers Ratings:", lawyersRatings);
+  //   return lawyersRatings;
+    
+  //   }
   
   return (
     <>
@@ -79,6 +152,7 @@ const Lawyerscards = () => {
                 <div className="col-lg-8 col-sm-8 col-8">
                   <p className="fs-6 mb-0 pb-1 h6">{data.username}</p>
                   <p className="city"><i class="bi bi-geo-alt"></i> {data.address}</p>
+                  
                 </div>
               </div>
               <span className="fs-5 fw-normal ms-3">{data.specialization}</span>
