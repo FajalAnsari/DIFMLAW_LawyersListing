@@ -25,28 +25,28 @@ const Contect_sugg = () => {
 
      
      
-      // let dataSend = {
-      //   email: email,
-          //  number: number,
-      //   message: message,
-      // };
+      let dataSend = {
+        email: email,
+           number: number,
+        message: message,
+      };
   
-      // const res = await fetch(`${baseUrl}/email/sendEmail`, {
-      //   method: "POST",
-      //   body: JSON.stringify(dataSend),
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-Type": "application/json",
-      //   },
-      // })
-      //   // HANDLING ERRORS
-      //   .then((res) => {
-      //     console.log(res);
-      //     if (res.status > 199 && res.status < 300) {
-      //       setSubmitted(true);
-      //       alert("Send Successfully !");
-      //     }
-      //   });
+      const res = await fetch(`${baseUrl}/email/sendEmail`, {
+        method: "POST",
+        body: JSON.stringify(dataSend),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+        // HANDLING ERRORS
+        .then((res) => {
+          console.log(res);
+          if (res.status > 199 && res.status < 300) {
+            setSubmitted(true);
+            alert("Send Successfully !");
+          }
+        });
     }
  
   };
