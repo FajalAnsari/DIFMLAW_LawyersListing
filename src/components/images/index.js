@@ -31,6 +31,7 @@ import employment_law from "./employment_law.svg";
 import real_estate_law from "./real_estate_law.svg";
 import property_law from "./property_law.svg";
 
+
 export {
     DIFMLAWCorporatelawyers,
      DIFMLAWEmployeementlawyers,
@@ -64,4 +65,5 @@ export {
          employment_law,
          real_estate_law,
          property_law,
+        
 }
