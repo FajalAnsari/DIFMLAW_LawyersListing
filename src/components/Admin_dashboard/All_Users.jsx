@@ -3,8 +3,13 @@ import { collection, deleteDoc, doc, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
 import "./admin.css";
 import { useNavigate } from 'react-router-dom';
-
+import { getAuth, deleteUser } from "firebase/auth";
 const All_Users = () => {
+  // const auth = useAuth(); // Custom hook for authentication
+  // const auth = getAuth();
+  const auth = getAuth();
+  const user = auth.currentUser;
+
     const navigate = useNavigate();
     const [checked, setChecked] = useState([]);
     const [lawyers, setLawyers] = useState([]);
@@ -20,14 +25,20 @@ const All_Users = () => {
     }
 
     // delete the user
-    const handleDelete = async (id) => {
+    const handleDelete = async (id, uid) => {
   
    const confirmDelete = window.confirm('Are you sure you want to delete this User?');
 
    if (confirmDelete) {
-  
-     await deleteDoc(doc(db, "users", id));
-     alert(`Deleting the user ID: ${id}`);
+    deleteUser(uid).then(() => {
+      alert("delete the user");
+    }).catch((error) => {
+      alert(error);
+    
+    });
+    
+    //  await deleteDoc(doc(db, "users", id));
+    //  alert(`Deleting the user ID: ${id}`);
    } else {
      // User canceled the deletion
      alert('Deletion canceled.');
@@ -66,8 +77,9 @@ const All_Users = () => {
       for (const username of checked) {
           const userToDelete = lawyers.find((u) => u.username === username);
           if (userToDelete) {
-            await deleteDoc(doc(db, "users", userToDelete.id));
-            alert(`Deleted user with username: ${username}`);
+          
+            // await deleteDoc(doc(db, "users", userToDelete.id));
+            // alert(`Deleted user with username: ${username}`);
           }
         }
 
@@ -154,7 +166,7 @@ useEffect(()=>{
                                                 <td className="d-flex justify-content-between" data-title="Action">
                                                   <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
+                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id, element.uid)}}></i></p>
                                                 </td>
                                             </tr>
                                         </>
