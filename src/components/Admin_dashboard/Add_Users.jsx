@@ -23,6 +23,8 @@ const  Add_Users = () => {
   const [title, settitle] =useState("");
   const [previewUrl, setPreviewUrl] = useState("");
 
+  const baseUrl = "http://localhost:8000";
+
   useEffect(() => {
     if (loading) return;
     // fetchUserName();
@@ -128,6 +130,28 @@ const handleSubmit = async (e) => {
                     email,
                     image: url
                   })
+
+                  let dataSend = {
+                    email: email,
+                    username: username,
+                    password: password,
+                  };
+                
+                  const res = fetch(`${baseUrl}/emailsp/sendEmailsps`, {
+                    method: "POST",
+                    body: JSON.stringify(dataSend),
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                    },
+                  })
+                    // HANDLING ERRORS
+                    .then((res) => {
+                      console.log(res);
+                      if (res.status > 199 && res.status < 300) {
+                        alert("Send Successfully !");
+                      }
+                    })
                     .then(() => {
                       alert('Succesfully Register '+ collectionName);
                     })
@@ -153,9 +177,7 @@ const handleRefresh = (e) => {
   setEmail('');
   setUserAdd('');
   setPreviewUrl('');
- 
 }
-
   return (
     <>
 <div className="lawyer_profile" id='message'>
@@ -244,7 +266,6 @@ const handleRefresh = (e) => {
 				                     </div>
 			                     </div>
 		                     </div>
-      
                     </form>
                 </div>
             </div>

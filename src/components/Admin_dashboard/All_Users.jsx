@@ -4,6 +4,8 @@ import { db } from '../../firebase';
 import "./admin.css";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, deleteUser } from "firebase/auth";
+
+
 const All_Users = () => {
   // const auth = useAuth(); // Custom hook for authentication
   // const auth = getAuth();
@@ -23,28 +25,34 @@ const All_Users = () => {
             console.log(lawyers);
         }) 
     }
-
+ // await deleteDoc(doc(db, "users", id));
+      // alert(`Deleting the user ID: ${id}`);
     // delete the user
-    const handleDelete = async (id, uid) => {
-  
-   const confirmDelete = window.confirm('Are you sure you want to delete this User?');
 
-   if (confirmDelete) {
-    deleteUser(uid).then(() => {
-      alert("delete the user");
-    }).catch((error) => {
-      alert(error);
+    const handleDelete = async (id, uid) => {
+      if (user && user.email === 'boby@difm.tech') {
+        const confirmDelete = window.confirm('Are you sure you want to delete this User?');
     
-    });
+        if (confirmDelete) {
+          const auth = getAuth();
+          try {
+            await deleteUser(auth, uid);
+            // Delete other user data as needed, e.g., in Firestore
+            // await deleteDoc(doc(db, "users", id));
+            alert("User deleted successfully.");
+          } catch (error) {
+            alert("An error occurred while deleting the user: " + error.message);
+          }
+        } else {
+          // User canceled the deletion
+          alert('Deletion canceled.');
+        }
+        console.log('User is an admin.');
+      } else {
+        alert('You are not authorized to perform this action.');
+      }
+    };
     
-    //  await deleteDoc(doc(db, "users", id));
-    //  alert(`Deleting the user ID: ${id}`);
-   } else {
-     // User canceled the deletion
-     alert('Deletion canceled.');
-   }
-    
-    }
     // checkbox click delete all user
     const handleCountryChange = (e, element) => {
         const isChecked = e.target.checked;
@@ -174,6 +182,10 @@ useEffect(()=>{
                                 })
                             }
                         </tbody>
+
+
+
+                        
                     </table>
             </div>
     </div>

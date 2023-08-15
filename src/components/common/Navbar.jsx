@@ -7,7 +7,6 @@ import logo from "../images/Difm_law_logo.svg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from '../../firebase';
-
 import { auth } from '../../firebase';
 
 
@@ -112,6 +111,7 @@ const function2 = () => {
     function2();
   };
 
+
   return (
     <>
       <nav className="navbar navbar-expand-lg fixed-top" id="headrs">
@@ -153,8 +153,6 @@ const function2 = () => {
      <li><hr className="dropdown-divider" /></li>  
 </>
                )
-            
-                
                } 
                    
                   <li><Link className="dropdown-item" to="/lawyer_dashboard" onClick={handleLinkClick}><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
