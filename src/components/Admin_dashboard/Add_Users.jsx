@@ -23,6 +23,9 @@ const  Add_Users = () => {
   const [title, settitle] =useState("");
   const [previewUrl, setPreviewUrl] = useState("");
 
+  const baseUrl = "http://localhost:8000";
+
+
   useEffect(() => {
     if (loading) return;
     // fetchUserName();
@@ -128,6 +131,31 @@ const handleSubmit = async (e) => {
                     email,
                     image: url
                   })
+
+                  let dataSend = {
+                    email: email,
+                    name: username,
+                    password: password,
+                    lawyer_id:user.uid,
+                  };
+              
+                  const res = fetch(`${baseUrl}/emailsssa/sendEmailAdd`, {
+                    method: "POST",
+                    body: JSON.stringify(dataSend),
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                    },
+                  })
+                  const resa = fetch(`${baseUrl}/emailsssadmin/sendEmailAdmin`, {
+                    method: "POST",
+                    body: JSON.stringify(dataSend),
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                    },
+                  })
+
                     .then(() => {
                       alert('Succesfully Register '+ collectionName);
                     })
