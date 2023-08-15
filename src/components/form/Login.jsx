@@ -5,14 +5,14 @@ import { auth } from '../../firebase';
 import loginimg from "../images/Difm_Login_Image.svg";
 
 const Login = () => {
-
+ 
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -33,6 +33,7 @@ const Login = () => {
   };
 
   useEffect(() => {
+ 
     const rememberedEmail = localStorage.getItem("rememberedEmail");
     const rememberedPassword = localStorage.getItem("rememberedPassword");
     if (rememberedEmail && rememberedPassword) {
@@ -42,12 +43,17 @@ const Login = () => {
     }
   }, []);
 
-
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // Write logic to submit the form data to the server
+  
+    // Check if a user is already authenticated
+    if (auth.currentUser) {
+      setError("Another user is already logged in. Please log out the current user first.");
+      return;
+    }
+  
     if (!email || !password) {
-      setError("Please Fill the all field!");
+      setError("Please fill in all fields!");
     } else {
       signInWithEmailAndPassword(auth, email, password)
         .then((value) => {
@@ -56,22 +62,21 @@ const Login = () => {
             localStorage.setItem("rememberedEmail", email);
             localStorage.setItem("rememberedPassword", password);
           } else {
-            // Clear credentials from local storage if "Remember Me" is not checked
             localStorage.removeItem("rememberedEmail");
             localStorage.removeItem("rememberedPassword");
           }
+          setLoggedInUser(email); // Set the logged-in user
           navigate("/");
         })
         .catch((error) => {
-         // Handle Firebase error and set custom error message
-      if (error.code === 'auth/user-not-found') {
-        setError('Invalid email address. Please enter a valid email.');
-      } else if (error.code === 'auth/wrong-password') {
-        setError('Invalid password. Please enter the correct password.');
-      } else {
-        setError('An error occurred. Please try again later.');
-      }
-        })
+          if (error.code === 'auth/user-not-found') {
+            setError('Invalid email address. Please enter a valid email.');
+          } else if (error.code === 'auth/wrong-password') {
+            setError('Invalid password. Please enter the correct password.');
+          } else {
+            setError('An error occurred. Please try again later.');
+          }
+        });
     }
   };
 
