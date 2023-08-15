@@ -50,6 +50,7 @@ const Signup = () => {
   const [errors, setErrors] = useState(null);
   const [fileError, setFileError] = useState("");
 
+  const baseUrl = "http://localhost:8000";
 
   //this for user form
   const [name, setName] = useState("");
@@ -139,7 +140,20 @@ const Signup = () => {
                       image: url,
                       date: serverTimestamp()
                     })
-                      .then(() => {
+                   .then(() => {
+                    let dataSend = {
+                      email: email,
+                      name: username,
+                    };
+                
+                    const res = fetch(`${baseUrl}/emailslawsign/sendEmailLawyersign`, {
+                      method: "POST",
+                      body: JSON.stringify(dataSend),
+                      headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                      },
+                    })
                         navigate("/");
                       }).catch((err) => { alert(err); })
                   });
@@ -187,6 +201,19 @@ const Signup = () => {
               image: 'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png',
               date: serverTimestamp()
             });
+            let dataSend = {
+              email: email,
+              name: username,
+            };
+        
+            const rese = fetch(`${baseUrl}/emailsusersign/sendEmailUsersign`, {
+              method: "POST",
+              body: JSON.stringify(dataSend),
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+            })
             navigate("/");
           }
         ).catch((err) => {
