@@ -129,31 +129,24 @@ const handleSubmit = async (e) => {
                     authProvider: "local",
                     email,
                     image: url
-                  })
-
-                  let dataSend = {
-                    email: email,
-                    username: username,
-                    password: password,
-                  };
-                
-                  const res = fetch(`${baseUrl}/emailsp/sendEmailsps`, {
-                    method: "POST",
-                    body: JSON.stringify(dataSend),
-                    headers: {
-                      Accept: "application/json",
-                      "Content-Type": "application/json",
-                    },
-                  })
-                    // HANDLING ERRORS
-                    .then((res) => {
-                      console.log(res);
-                      if (res.status > 199 && res.status < 300) {
-                        alert("Send Successfully !");
-                      }
-                    })
-                    .then(() => {
+                  }).then(() => {
                       alert('Succesfully Register '+ collectionName);
+                      let dataSend = {
+                        email: email,
+                        username: username,
+                        password: password,
+                        lawyer_id:user.uid
+                      };
+                    
+                      const res = fetch(`${baseUrl}/emailsp/sendEmailsps`, {
+                        method: "POST",
+                        body: JSON.stringify(dataSend),
+                        headers: {
+                          Accept: "application/json",
+                          "Content-Type": "application/json",
+                        },
+                      })
+                      
                     })
                     .catch((err) => {
                       alert(err);
