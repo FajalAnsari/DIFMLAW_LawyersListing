@@ -8,7 +8,6 @@ import "firebase/storage";
 import {getAuth, onAuthStateChanged } from "firebase/auth";
 
 
-
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
@@ -52,5 +51,5 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-
-
+// export const Admin = admin(firebaseConfig);
+// export { admin };

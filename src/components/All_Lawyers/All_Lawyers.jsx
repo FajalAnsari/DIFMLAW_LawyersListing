@@ -19,6 +19,7 @@ import Skeleton from 'react-loading-skeleton';
 const All_Lawyers = () => {
 
   const params = useParams();
+  const [loading, setLoading] = useState(true);
   // alllawyer section code start
   const [isBookmarked, setBookmarked] = useState(false);
   const navigate = useNavigate();
@@ -26,15 +27,17 @@ const All_Lawyers = () => {
   const [lawyers, setLawyers] = useState([]);
   const [userRole, setUserRole] = useState(null);
   const fetchPost = async () => {
-  
-    await getDocs(collection(db, "lawyers"))
-      .then((querySnapshot) => {
-        const newData = querySnapshot.docs
-          .map((doc) => ({ ...doc.data(), id: doc.id }));
-        setLawyers(newData);
-
-      })
-  }
+    try {
+      setLoading(true); // Set loading to true before fetching
+      const querySnapshot = await getDocs(collection(db, "lawyers"));
+      const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      setLawyers(newData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setLoading(false); // Set loading to false when fetching is complete (or if an error occurs)
+    }
+  };
   // check login as a user or lawyer
   const loginUserORLawyer = async () => {
     if(user){
@@ -166,6 +169,15 @@ if (!searchLawyer && !lawyeradd) {
 
   }
   // reset search
+
+
+
+
+
+
+
+
+
   const handleReset = () => {
 
     fetchPost();
@@ -402,9 +414,11 @@ if (!searchLawyer && !lawyeradd) {
                 </div>
 
                 {/* all lawyer section cards start */}
+                 
 
-                {currentUsers.length === 0 ? (
-                  <div>
+             
+                {loading ? (
+   <div>
                     {[...Array(10)].map((_, i) => (
                       <div className='view_buttons mt-4 alllawyersection border border-dark' key={i}>
                         <div className="row mx-auto">
@@ -445,47 +459,62 @@ if (!searchLawyer && !lawyeradd) {
                       </div>
                     ))}
                   </div>
-                ) : (
-                  currentUsers.map((data, i) => (
-                    <div className='view_buttons mt-4 alllawyersection border border-dark'>
-                      <div className="row mx-auto">
-                        <div className="col-md-6">
-                          <div className="row">
-                            <div className="col-md-3 mt-3 col-3 ">
-                              <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
-                            </div>
-                            <div className="col-md-9 col-9">
-                              <p className='mt-2 fs-4 tb1 font-color'>{data.specialization}</p>
-                              <div className='d-flex mt-3 tb11'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
-                                <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i className="bi bi-geo-alt"></i> {data.address}</h5></div></div>
-                              <div className='d-flex tb12'>
-                                <p className='fs-6 text-white'>{data.work}</p>
-                                <p className='fs-6 mx-4 text-white lawexp'>{data.experience} in practice</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
 
-                        <div className="col-md-6">
-                          <div className="row">
-                            <div className="col-md-10 d-flex justify-content-end">
-                              <button className="btn btns-primary cont profi w-75" onClick={(e) => { navigate(`/job/${data.id}`); scrollToTop();}}>
-                                View Profile
-                              </button>
+
+                ) :
+                
+                
+                
+                currentUsers.length === 0 ?  <h1 className='text-white'>Data not found</h1>
+                
+                : (
+                currentUsers.map((data, i) => (
+                  <div className='view_buttons mt-4 alllawyersection border border-dark'>
+                    <div className="row mx-auto">
+                      <div className="col-md-6">
+                        <div className="row">
+                          <div className="col-md-3 mt-3 col-3 ">
+                            <img src={data.image} className='rounded-full lawpicd' alt="lawyer_profile" />
+                          </div>
+                          <div className="col-md-9 col-9">
+                            <p className='mt-2 fs-4 tb1 font-color'>{data.specialization || "N/A"}</p>
+                            <div className='d-flex mt-3 tb11'><h5 className='nam fs-6 text-white text-capitalize'>{data.username}</h5>
+                              <div className='mx-auto nameloc'><h5 className='fs-6 ms-2 text-white text-capitalize' style={{ marginTop: "-7px" }}> <i className="bi bi-geo-alt"></i> {data.address || "N/A"}</h5></div></div>
+                            <div className='d-flex tb12'>
+                              <p className='fs-6 text-white'>{data.work || "N/A"}</p>
+                              <p className='fs-6 mx-4 text-white lawexp'>{data.experience || "N/A"} in practice</p>
                             </div>
-                            {userRole === "user" && (
-      <div key ={data.uid} className="col-md-1 mx-3 res4" >
-        <i class={`bi ${isBookmarked[data.uid] ? 'bi-bookmark-star-fill' : 'bi-bookmark'} fw-bold fs-3`}  onClick={() => { addToLawyer(data.uid); toggleBookmark(data.uid); }}></i>
-        <p className="fs-6 savelist">save</p>
-      </div>
-     )}
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                  ))
-                )}
+                      <div className="col-md-6">
+                        <div className="row">
+                          <div className="col-md-10 d-flex justify-content-end">
+                            <button className="btn btns-primary cont profi w-75" onClick={(e) => { navigate(`/job/${data.id}`); scrollToTop();}}>
+                              View Profile
+                            </button>
+                          </div>
+                          {userRole === "user" && (
+    <div key ={data.uid} className="col-md-1 mx-3 res4" >
+      <i class={`bi ${isBookmarked[data.uid] ? 'bi-bookmark-star-fill' : 'bi-bookmark'} fw-bold fs-3`}  onClick={() => { addToLawyer(data.uid); toggleBookmark(data.uid); }}></i>
+      <p className="fs-6 savelist">save</p>
+    </div>
+   )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                ))
+                )
+                
+                
+            //     (
+          
+            //     )
+                
+                }
 
                     {/* All lawyer Section Cards End */}
 

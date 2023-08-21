@@ -18,10 +18,10 @@ const Lawyers_personal_information = (props) => {
                     <p className='info fw-bold'>Website</p>
                 </div>
                 <div className='col-lg-6 col-6'>
-                    <p className='info'>{props.Phone}</p>
-                    <p className='info'>{props.Email}</p>
-                    <p className='info'>{props.Address}</p>
-                    <p className='info'>{props.Work}</p>
+                    <p className='info'>{props.Phone || "N/A"}</p>
+                    <p className='info'>{props.Email || "N/A"}</p>
+                    <p className='info'>{props.Address || "N/A"}</p>
+                    <p className='info'>{props.Work || "N/A"}</p>
                     <Link to={window.location.href}><p className='info'>{window.location.href}</p></Link>
                 </div>
             </div>

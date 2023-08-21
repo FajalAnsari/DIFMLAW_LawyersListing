@@ -24,6 +24,8 @@ const User_Profile = () => {
   const [image, setUserimage] = useState("");
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [NEWPassword, setNEWPassword] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
   const fetchUserName = async () => {
       // check login as a user or lawyer
   const loginUserORLawyer = async () => {
@@ -218,7 +220,7 @@ const handleUpdate = async (e) => {
                            </div>
                             </div>
                         </div>
-                       
+                        {userRole == 'user' && 
                         <div className="row gx-3 mb-1">
                             <div className="col-md-6 mbs1">
                                 <label className="small mb-1 text-white" for="inputSpecialization">Old Password</label>
@@ -237,7 +239,28 @@ const handleUpdate = async (e) => {
                                 </div>
                             </div>
                         </div>
-                      
+                        }
+                          {userRole == 'admin' && 
+                        <div className="row gx-3 mb-1">
+                            <div className="col-md-6 mbs1">
+                                <label className="small mb-1 text-white" for="inputSpecialization">New Password</label>
+                                <div class="input-group mb-3 mbs">
+                                <input className="form-control contect-bgColors" id="inputSpecialization" value={NEWPassword} type="password" placeholder="Enter your New password" onChange={(e) => setNEWPassword(e.target.value)} />
+                                <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
+                              </div>
+                            
+                            </div>
+                           
+                            <div className="col-md-6 mbs1">
+                                <label className="small mb-1 text-white" for="inputEducation">Confirm Password</label>   
+                                <div class="input-group mb-3 mbs">
+                                <input className="form-control contect-bgColors" id="inputEducation" value={ConfirmPassword} type="password" name="education" placeholder="Enter Confirm password" onChange={(e) => setConfirmPassword(e.target.value)}/>
+                                  <span class="input-group-text btns-primary border-prime" ><i class="bi bi-lock-fill"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        }
+
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
