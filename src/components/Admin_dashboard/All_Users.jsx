@@ -3,8 +3,15 @@ import { collection, deleteDoc, doc, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
 import "./admin.css";
 import { useNavigate } from 'react-router-dom';
+import { getAuth, deleteUser } from "firebase/auth";
+
 
 const All_Users = () => {
+  // const auth = useAuth(); // Custom hook for authentication
+  // const auth = getAuth();
+  const auth = getAuth();
+  const user = auth.currentUser;
+
     const navigate = useNavigate();
     const [checked, setChecked] = useState([]);
     const [lawyers, setLawyers] = useState([]);
@@ -18,56 +25,69 @@ const All_Users = () => {
             console.log(lawyers);
         }) 
     }
-
+ // await deleteDoc(doc(db, "users", id));
+      // alert(`Deleting the user ID: ${id}`);
     // delete the user
-    const handleDelete = async (id) => {
-  
-   const confirmDelete = window.confirm('Are you sure you want to delete this User?');
 
-   if (confirmDelete) {
-  
-     await deleteDoc(doc(db, "users", id));
-     alert(`Deleting the user ID: ${id}`);
-   } else {
-     // User canceled the deletion
-     alert('Deletion canceled.');
-   }
+    const handleDelete = async (id, uid) => {
+      if (user && user.email === 'boby@difm.tech') {
+        const confirmDelete = window.confirm('Are you sure you want to delete this User?');
     
-    }
+        if (confirmDelete) {
+          const auth = getAuth();
+          try {
+            // await admin.auth().deleteUser(uid); 
+            // Delete other user data as needed, e.g., in Firestore
+            // await deleteDoc(doc(db, "users", id));
+            alert("User deleted successfully.");
+          } catch (error) {
+            alert("An error occurred while deleting the user: " + error.message);
+          }
+        } else {
+          // User canceled the deletion
+          alert('Deletion canceled.');
+        }
+        console.log('User is an admin.');
+      } else {
+        alert('You are not authorized to perform this action.');
+      }
+    };
+    
     // checkbox click delete all user
     const handleCountryChange = (e, element) => {
         const isChecked = e.target.checked;
 
         if (isChecked) {
           // If the checkbox is checked, add the element's username to the checked array
-          setChecked((prevChecked) => [...prevChecked, element.username]);
+          setChecked((prevChecked) => [...prevChecked, element.id]);
         } else {
           // If the checkbox is unchecked, remove the element's username from the checked array
           setChecked((prevChecked) =>
-            prevChecked.filter((item) => item !== element.username)
+            prevChecked.filter((item) => item !== element.id)
           );
         }
       };
 
     const handleCheckAllChange = (e) => {
       const isChecked = e.target.checked;
-      setChecked(isChecked ? lawyers.map((c) => c.username) : []);
+      setChecked(isChecked ? lawyers.map((c) => c.id) : []);
     };
     const handleDeleteSelected = async () => {
         const confirmDelete = window.confirm('Are you sure you want to delete this User?');
         if(confirmDelete){
                 // Filter out the selected countries from the countries list
         const filteredusers = lawyers.filter(
-            (c) => !checked.includes(c.username)
+            (c) => !checked.includes(c.id)
           );
           setChecked([]);
           setLawyers(filteredusers); // Update the countries array without the selected countries
            // Loop through the selected usernames and delete each user
-      for (const username of checked) {
-          const userToDelete = lawyers.find((u) => u.username === username);
+      for (const id of checked) {
+          const userToDelete = lawyers.find((u) => u.id === id);
           if (userToDelete) {
+          
             await deleteDoc(doc(db, "users", userToDelete.id));
-            alert(`Deleted user with username: ${username}`);
+            alert(`Deleted user with username: ${id}`);
           }
         }
 
@@ -141,7 +161,7 @@ useEffect(()=>{
             className="form-check-input"
             type="checkbox"
             id={element.id}
-            checked={checked.includes(element.username)}
+            checked={checked.includes(element.id)}
             onChange={(e) => handleCountryChange(e, element)}
           />
                   
@@ -154,7 +174,7 @@ useEffect(()=>{
                                                 <td className="d-flex justify-content-between" data-title="Action">
                                                   <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
+                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id, element.uid)}}></i></p>
                                                 </td>
                                             </tr>
                                         </>
@@ -162,6 +182,10 @@ useEffect(()=>{
                                 })
                             }
                         </tbody>
+
+
+
+                        
                     </table>
             </div>
     </div>

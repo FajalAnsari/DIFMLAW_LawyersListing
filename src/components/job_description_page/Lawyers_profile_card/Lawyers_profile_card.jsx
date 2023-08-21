@@ -143,14 +143,14 @@ console.log("Average User Rating for Specific Lawyer:", specificLawyerRating.toF
                 </div>
                 <div className="col-lg-6 col-xs-12">
                   <p className="fs-5 fw-bold mb-2">{data.username}</p>
-                  <p className="fs-6 mb-2 laywer_city">{data.address}</p>
+                  <p className="fs-6 mb-2 laywer_city">{data.address || "N/A"}</p>
                   <p className="fs-6 laywer_exp fw-bold">
-                  {data.experience} 
+                  {data.experience || "N/A"} 
                   </p>
                   <div style={{marginTop:"-20px"}}>
                   {[...Array(5)].map((star, index) => (
         <p key={index} className="fw-bold fs-6" style={{display:'inline'}}>
-          <i className={rating > index + 1 ? 'bi bi-star-fill' : rating > index + 0.5 ? 'bi bi-star-half' : 'bi bi-star'} style={{ color: '#ffc107'}}></i>
+          <i className={rating > index + 1 ? 'bi bi-star-fill' : rating > index + 0.5 ? 'bi bi-star-half' : 'bi bi-star'} style={{ color: '#D1B06B'}}></i>
         </p>
       ))}
       </div>

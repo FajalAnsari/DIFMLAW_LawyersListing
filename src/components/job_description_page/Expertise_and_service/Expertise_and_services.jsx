@@ -17,9 +17,9 @@ const Expertise_and_services = (props) => {
                         <p className='fw-bold fs-6'>Fees</p>
                     </div>
                     <div className='col-lg-6 col-6'>
-                        <p className='fs-6'>{props.cat}</p>
-                        <p className='fs-6'>{props.experience}</p>
-                        <p className='fs-6'>{props.rating}</p>
+                        <p className='fs-6'>{props.cat || "N/A"}</p>
+                        <p className='fs-6'>{props.experience || "N/A"}</p>
+                        <p className='fs-6'>{props.rating || "N/A"}</p>
                         <p className='fs-6'>00.00</p>
                     </div>
                 </div>
