@@ -34,6 +34,8 @@ import our_Mission from "./Our Mission.png";
 import our_Promises from "./Our Promise.png";
 import User_friendly_platform from "./User-Friendly Platform.png";
 import Commited_to_your_work from "./Committed to Your Needs.png";
+
+
 export {
     DIFMLAWCorporatelawyers,
      DIFMLAWEmployeementlawyers,
@@ -72,4 +74,5 @@ export {
          User_friendly_platform,
          Commited_to_your_work
 
+        
 }

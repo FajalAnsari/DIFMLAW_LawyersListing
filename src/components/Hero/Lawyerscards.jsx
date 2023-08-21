@@ -127,7 +127,7 @@ const Lawyerscards = () => {
                   <p className='fs-6 city'>
                     {[...Array(5)].map((star, index) => (
                       <p key={index} className="fw-bold fs-6" style={{ display: 'inline' }}>
-                        <i className={allLawyersRatings[data.id] > index + 1 ? 'bi bi-star-fill' : allLawyersRatings[data.id] > index + 0.5 ? 'bi bi-star-half' : 'bi bi-star'} style={{ color: '#ffc107' }}></i>
+                        <i className={allLawyersRatings[data.id] > index + 1 ? 'bi bi-star-fill' : allLawyersRatings[data.id] > index + 0.5 ? 'bi bi-star-half' : 'bi bi-star'} style={{ color: '#D1B06B' }}></i>
                       </p>
                     ))}
                   </p>

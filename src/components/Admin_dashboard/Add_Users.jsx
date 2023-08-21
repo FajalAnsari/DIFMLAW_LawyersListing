@@ -129,7 +129,36 @@ const handleSubmit = async (e) => {
                     authProvider: "local",
                     email,
                     image: url
-                  }).then(() => {
+                  })
+                  setUsername('');
+                  setEmail('');
+                  setUserAdd('');
+                  setPreviewUrl('');
+                  let dataSend = {
+                    email: email,
+                    name: username,
+                    password: password,
+                    lawyer_id:user.uid,
+                  };
+              
+                  const res = fetch(`${baseUrl}/emailsssa/sendEmailAdd`, {
+                    method: "POST",
+                    body: JSON.stringify(dataSend),
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                    },
+                  })
+                  const resa = fetch(`${baseUrl}/emailsssadmin/sendEmailAdmin`, {
+                    method: "POST",
+                    body: JSON.stringify(dataSend),
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/json",
+                    },
+                  })
+
+                    .then(() => {
                       alert('Succesfully Register '+ collectionName);
                       let dataSend = {
                         email: email,
@@ -163,14 +192,7 @@ const handleSubmit = async (e) => {
     }
   }
 }
-// refresh the form field
-const handleRefresh = (e) => {
-  e.preventDefault();
-  setUsername('');
-  setEmail('');
-  setUserAdd('');
-  setPreviewUrl('');
-}
+
   return (
     <>
 <div className="lawyer_profile" id='message'>
@@ -253,7 +275,7 @@ const handleRefresh = (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-                              <button className="btn btns-primary me-2" onClick={handleRefresh}>Refresh</button>
+                            
 					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
 					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2" onClick={handleSubmit}>Add</button>
 				                     </div>

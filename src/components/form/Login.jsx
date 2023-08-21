@@ -3,9 +3,10 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import loginimg from "../images/Difm_Login_Image.svg";
+import { useFirebase } from '../../firebase';
 
 const Login = () => {
- 
+  const firebase = useFirebase();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [email, setEmail] = useState('');
@@ -79,6 +80,16 @@ const Login = () => {
         });
     }
   };
+
+
+  useEffect(() => {
+    if (firebase.isLoggedIn) {
+      // navigate to home
+      navigate("/");
+    }
+    
+  }, [firebase, navigate]);
+
 
 
   return (

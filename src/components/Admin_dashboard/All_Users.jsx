@@ -4,7 +4,7 @@ import { db } from '../../firebase';
 import "./admin.css";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, deleteUser } from "firebase/auth";
-import { Admin } from '../../firebase';
+
 
 const All_Users = () => {
   // const auth = useAuth(); // Custom hook for authentication
@@ -36,7 +36,7 @@ const All_Users = () => {
         if (confirmDelete) {
           const auth = getAuth();
           try {
-            // await Admin.auth().deleteUser(uid); 
+            // await admin.auth().deleteUser(uid); 
             // Delete other user data as needed, e.g., in Firestore
             // await deleteDoc(doc(db, "users", id));
             alert("User deleted successfully.");
