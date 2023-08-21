@@ -1,7 +1,7 @@
 {
   "name": "difmlaw",
   "version": "0.1.0",
-  "homepage": "https://DIFM.difmlaw.com",
+  "homepage": "https://test.difmlaw.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -9,9 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "firebase": "^9.22.2",
-    "firebase-admin": "^11.10.1",
     "react": "^18.2.0",
-    "react-admin-firebase": "^4.1.2",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-geocode": "^0.2.3",
