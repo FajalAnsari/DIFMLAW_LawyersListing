@@ -5,47 +5,45 @@ import { auth, db } from '../../../firebase';
 import { collection, doc, getDocs } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
-const Add_Comment = () => {
+const Add_Comment = (props) => {
  
   const [add_Lawyercarts, setAdd_Lawyercarts] = useState([]);
-
-
  
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        try {
-          const cartRef = collection(db, 'User_Messages');
-          const userCartRef = doc(cartRef, user.uid);
-          const itemsCollectionRef = collection(userCartRef, 'Ratings_review');
-          const querySnapshot = await getDocs(itemsCollectionRef);
-  
-          const newCartProduct = querySnapshot.docs.map((doc) => {
-            const data = doc.data();
-            const createdAtDate = data.date?.toDate ? data.date.toDate() : null;
-  
-            return {
-              id: doc.id,
-              image: data.image || '',
-              ...data,
-              createdAtDate: createdAtDate ? createdAtDate.toLocaleDateString() : null,
-            };
-          });
-  
-          setAdd_Lawyercarts(newCartProduct);
-        } catch (error) {
-          console.error('Error fetching cart:', error);
+    // const unsubscribe = auth.onAuthStateChanged(async (props) => {
+      const fetchReview = async () =>{
+        if (props) {
+          try {
+            const cartRef = collection(db, 'User_Messages');
+            const userCartRef = doc(cartRef, props.uid);
+            const itemsCollectionRef = collection(userCartRef, 'Ratings_review');
+            const querySnapshot = await getDocs(itemsCollectionRef);
+    
+            const newCartProduct = querySnapshot.docs.map((doc) => {
+              const data = doc.data();
+              const createdAtDate = data.date?.toDate ? data.date.toDate() : null;
+    
+              return {
+                id: doc.id,
+                image: data.image || '',
+                ...data,
+                createdAtDate: createdAtDate ? createdAtDate.toLocaleDateString() : null,
+              };
+            });
+    
+            setAdd_Lawyercarts(newCartProduct);
+          } catch (error) {
+            console.error('Error fetching cart:', error);
+          }
+        } else {
+          console.log('User is not signed in to retrieve cart');
         }
-      } else {
-        console.log('User is not signed in to retrieve cart');
+
       }
-    });
+    
   
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+  fetchReview();
+    
+
 
   
 

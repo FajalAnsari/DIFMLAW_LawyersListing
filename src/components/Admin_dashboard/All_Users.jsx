@@ -25,6 +25,7 @@ const All_Users = () => {
             console.log(lawyers);
         }) 
     }
+    
  // await deleteDoc(doc(db, "users", id));
       // alert(`Deleting the user ID: ${id}`);
     // delete the user

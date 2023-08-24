@@ -170,14 +170,6 @@ if (!searchLawyer && !lawyeradd) {
   }
   // reset search
 
-
-
-
-
-
-
-
-
   const handleReset = () => {
 
     fetchPost();
@@ -407,8 +399,8 @@ if (!searchLawyer && !lawyeradd) {
                     <span className="input-group-text border-prime btns-primary" >Sort by : </span>
                     <select id="inputState" className="form-select" onChange={handleSelectValue}>
                       <option selected> Most relevant</option>
-                      <option value="Full Day">Full Day</option>
-                      <option value="Half Day">Half Day</option>
+                      {/* <option value="Full Day">Full Day</option>
+                      <option value="Half Day">Half Day</option> */}
                     </select>
                   </div>
                 </div>
