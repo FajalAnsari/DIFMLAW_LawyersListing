@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { collection, deleteDoc, doc, getDocs} from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, getDoc} from "firebase/firestore";
 import { db } from '../../firebase';
+import { auth } from '../../firebase';
 import "./admin.css";
 import { useNavigate } from 'react-router-dom';
 
@@ -8,6 +9,8 @@ const All_Users = () => {
     const navigate = useNavigate();
     const [checked, setChecked] = useState([]);
     const [lawyers, setLawyers] = useState([]);
+
+    const baseUrl = "http://localhost:8000";
   const fetchPost = async () => {
        
     await getDocs(collection(db, "users"))
@@ -19,21 +22,40 @@ const All_Users = () => {
         }) 
     }
 
-    // delete the user
-    const handleDelete = async (id) => {
-  
-   const confirmDelete = window.confirm('Are you sure you want to delete this User?');
-
-   if (confirmDelete) {
-  
-     await deleteDoc(doc(db, "users", id));
-     alert(`Deleting the user ID: ${id}`);
-   } else {
-     // User canceled the deletion
-     alert('Deletion canceled.');
-   }
+    const handleDelete = async (uid, id) => {
+      try {
+        const response = await fetch(`${baseUrl}/delete-user`, {
+          method: 'POST', // Specify the HTTP method
+          headers: {
+            'Content-Type': 'application/json', // Specify JSON content type
+          },
+          body: JSON.stringify({ uid: uid }), // Send UID in the request body
+        });
     
-    }
+        const data = await response.json(); // Parse the response data
+    
+        if (response.ok) {
+          // Successful response
+          console.log(data.message); // Log the success message
+          await deleteDoc(doc(db, "users", id));
+          alert(`Deleting the user ID: ${id}`);
+        } else {
+          // Error response
+          console.error('Error:', data.message); // Log the error message
+          alert('Deletion failed.');
+        }
+      } catch (error) {
+        console.error('Error:', error); // Log any fetch errors
+        alert('Deletion failed.');
+      }
+    };
+    
+
+
+    
+
+  
+  
     // checkbox click delete all user
     const handleCountryChange = (e, element) => {
         const isChecked = e.target.checked;
@@ -154,7 +176,7 @@ useEffect(()=>{
                                                 <td className="d-flex justify-content-between" data-title="Action">
                                                   <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/user_profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
+                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.uid,element.id)}}></i></p>
                                                 </td>
                                             </tr>
                                         </>
@@ -170,3 +192,40 @@ useEffect(()=>{
 }
 
 export default All_Users
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// rules_version = '2';
+
+// service cloud.firestore {
+//    match /databases/{database}/documents {     
+//     // This rule allows anyone with your Firestore database reference to view, edit,
+//     // and delete all data in your Firestore database. It is useful for getting
+//     // started, but it is configured to expire after 30 days because it
+//     // leaves your app open to attackers. At that time, all client
+//     // requests to your Firestore database will be denied.
+//     //
+//     // Make sure to write security rules for your app before that time, or else
+//     // all client requests to your Firestore database will be denied until you Update
+//     // your rules
+//     match /{document=**} {
+//      allow read, write: if request.time < timestamp.date(2023, 8, 28);
+//     }
+//     // Admin users can delete users from authentication
+//     match /users/{userId} {
+//    allow delete: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+//    } 
+//   }
+// }

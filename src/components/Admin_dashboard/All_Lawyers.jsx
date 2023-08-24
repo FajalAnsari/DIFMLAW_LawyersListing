@@ -9,6 +9,8 @@ const All_Lawyers = () => {
 
     const [lawyers, setLawyers] = useState([]);
     const [checked, setChecked] = useState([]);
+    const baseUrl = "http://localhost:8000";
+
     const navigate = useNavigate();
   const fetchPost = async () => {
        
@@ -21,21 +23,49 @@ const All_Lawyers = () => {
         }) 
     }
       // delete the lawyer
-      const handleDelete = async (id) => {
+      const handleDelete = async (uid,id) => {
   
         const confirmDelete = window.confirm('Are you sure you want to delete this Lawyer?');
      
         if (confirmDelete) {
-          // User confirmed, proceed with deletion
-          // Your deletion logic here...
-          await deleteDoc(doc(db, "lawyers", id));
-          alert(`Deleting the lawyer ID: ${id}`);
+          try {
+            const response = await fetch(`${baseUrl}/delete-user`, {
+              method: 'POST', // Specify the HTTP method
+              headers: {
+                'Content-Type': 'application/json', // Specify JSON content type
+              },
+              body: JSON.stringify({ uid: uid }), // Send UID in the request body
+            });
+        
+            const data = await response.json(); // Parse the response data
+        
+            if (response.ok) {
+              // Successful response
+              console.log(data.message); // Log the success message
+              await deleteDoc(doc(db, "lawyers", id));
+              alert(`Deleting the user ID: ${id}`);
+            } else {
+              // Error response
+              console.error('Error:', data.message); // Log the error message
+              alert('Deletion failed.');
+            }
+          } catch (error) {
+            console.error('Error:', error); // Log any fetch errors
+            alert('Deletion failed.');
+          }
         } else {
           // User canceled the deletion
           alert('Deletion canceled.');
         }
          
          }
+
+
+       
+        
+
+
+         
          const handleCheckAllChange = (e) => {
             const isChecked = e.target.checked;
             setChecked(isChecked ? lawyers.map((c) => c.username) : []);
@@ -157,7 +187,7 @@ useEffect(()=>{
                                                 <td className="d-flex justify-content-between" data-title="Action">
                                                   <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
-                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.id)}}></i></p>
+                                                  <p style={{color:"red"}}><i className="bi bi-trash3" onClick={() =>{handleDelete(element.uid,element.id)}}></i></p>
                                                 </td>
                                             </tr>
                                         </>

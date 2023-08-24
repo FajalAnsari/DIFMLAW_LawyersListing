@@ -22,15 +22,29 @@ const  Add_Users = () => {
   const [picture, setPicture] = useState([]);
   const [title, settitle] =useState("");
   const [previewUrl, setPreviewUrl] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const baseUrl = "http://localhost:8000";
 
 
   useEffect(() => {
-    if (loading) return;
-    // fetchUserName();
-    if(!user) navigate("/login");
+    if (!loading) {
+      if (!user) {
+        navigate("/login");
+      } else {
+        // Fetch the user's role from Firebase Authentication and update state
+        user.getIdTokenResult().then((idTokenResult) => {
+          setIsAdmin(idTokenResult.claims.admin);
+        });
+      }
+    }
   }, [user, loading]);
+
+  // Allow access to admin users
+  // if (isAdmin) {
+  //   return <div>You are not authorized to access this page.</div>;
+  // }
+
  
 // add user
 const handleUserChange = (e) => {
