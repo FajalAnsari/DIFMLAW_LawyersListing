@@ -185,7 +185,6 @@ const Signup = () => {
                       authProvider: "local",
                       email: email,
                       number: phone,
-
                       experience: experience,
                       specialization: specialization,
                       address: address || location,
