@@ -1,3 +1,4 @@
+
 // Your web app's Firebase configuration
 import { createContext, useContext, useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
@@ -5,8 +6,6 @@ import { getFirestore, doc, getDoc } from "@firebase/firestore";
 import { getStorage } from "firebase/storage";
 import "firebase/storage";
 import {getAuth, onAuthStateChanged } from "firebase/auth";
-
-
 
 
 const FirebaseContext = createContext(null);
@@ -52,5 +51,5 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-
-
+// export const Admin = admin(firebaseConfig);
+// export { admin };

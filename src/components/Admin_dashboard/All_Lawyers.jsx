@@ -68,7 +68,7 @@ const All_Lawyers = () => {
          
          const handleCheckAllChange = (e) => {
             const isChecked = e.target.checked;
-            setChecked(isChecked ? lawyers.map((c) => c.username) : []);
+            setChecked(isChecked ? lawyers.map((c) => c.id) : []);
           };
              // checkbox click delete all user
     const handleCountryChange = (e, element) => {
@@ -76,11 +76,11 @@ const All_Lawyers = () => {
 
         if (isChecked) {
           // If the checkbox is checked, add the element's username to the checked array
-          setChecked((prevChecked) => [...prevChecked, element.username]);
+          setChecked((prevChecked) => [...prevChecked, element.id]);
         } else {
           // If the checkbox is unchecked, remove the element's username from the checked array
           setChecked((prevChecked) =>
-            prevChecked.filter((item) => item !== element.username)
+            prevChecked.filter((item) => item !== element.id)
           );
         }
       };
@@ -89,16 +89,16 @@ const All_Lawyers = () => {
         if(confirmDelete){
                 // Filter out the selected countries from the countries list
         const filteredusers = lawyers.filter(
-            (c) => !checked.includes(c.username)
+            (c) => !checked.includes(c.id)
           );
           setChecked([]);
           setLawyers(filteredusers); // Update the countries array without the selected countries
            // Loop through the selected usernames and delete each user
-      for (const username of checked) {
-          const userToDelete = lawyers.find((u) => u.username === username);
+      for (const id of checked) {
+          const userToDelete = lawyers.find((u) => u.id === id);
           if (userToDelete) {
             await deleteDoc(doc(db, "lawyers", userToDelete.id));
-            alert(`Deleted user with username: ${username}`);
+            alert(`Deleted user with username: ${id}`);
           }
         }
 
@@ -174,7 +174,10 @@ useEffect(()=>{
             className="form-check-input"
             type="checkbox"
             id={element.id}
-            checked={checked.includes(element.username)}
+
+
+            
+            checked={checked.includes(element.id)}
             onChange={(e) => handleCountryChange(e, element)}
           />
                   
@@ -183,7 +186,7 @@ useEffect(()=>{
                                                 <td data-title="Name">{element.username}</td>
                                                 <td data-title="Email">{element.email}</td>
                                                 <td data-title="Reg. Date">34/09/2023</td>                                             
-                                                <td data-title="Location">{element.address}</td>
+                                                <td data-title="Location">{element.address || "N/A"}</td>
                                                 <td className="d-flex justify-content-between" data-title="Action">
                                                   <p style={{color:"green"}}><i className="bi bi-eye" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>
                                                   <p style={{color:"skyblue"}}><i className="bi bi-pencil" onClick={() => navigate(`/lawyer_dashboard/profile/${element.uid}`)}></i></p>

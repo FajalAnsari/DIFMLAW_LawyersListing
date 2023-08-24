@@ -16,7 +16,6 @@ const Default_page = () => {
               </p>
               <p className='text-center text-white'>Sorry, the page you are looking for does not exist.</p>
         </div> 
-
         <div className="col-md-6 col">
         <a className="btn btns-primary ms-5 cont mt-5 w-75 " href="/">
           Back to Home

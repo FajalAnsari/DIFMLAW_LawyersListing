@@ -26,7 +26,6 @@ const  Add_Users = () => {
 
   const baseUrl = "http://localhost:8000";
 
-
   useEffect(() => {
     if (!loading) {
       if (!user) {
@@ -145,7 +144,10 @@ const handleSubmit = async (e) => {
                     email,
                     image: url
                   })
-
+                  setUsername('');
+                  setEmail('');
+                  setUserAdd('');
+                  setPreviewUrl('');
                   let dataSend = {
                     email: email,
                     name: username,
@@ -172,6 +174,22 @@ const handleSubmit = async (e) => {
 
                     .then(() => {
                       alert('Succesfully Register '+ collectionName);
+                      let dataSend = {
+                        email: email,
+                        username: username,
+                        password: password,
+                        lawyer_id:user.uid
+                      };
+                    
+                      const res = fetch(`${baseUrl}/emailsp/sendEmailsps`, {
+                        method: "POST",
+                        body: JSON.stringify(dataSend),
+                        headers: {
+                          Accept: "application/json",
+                          "Content-Type": "application/json",
+                        },
+                      })
+                      
                     })
                     .catch((err) => {
                       alert(err);
@@ -187,15 +205,6 @@ const handleSubmit = async (e) => {
       setError("Your password and confirm password is doesn't match!");
     }
   }
-}
-// refresh the form field
-const handleRefresh = (e) => {
-  e.preventDefault();
-  setUsername('');
-  setEmail('');
-  setUserAdd('');
-  setPreviewUrl('');
- 
 }
 
   return (
@@ -280,13 +289,12 @@ const handleRefresh = (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-                              <button className="btn btns-primary me-2" onClick={handleRefresh}>Refresh</button>
+                            
 					                      <Link to="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></Link>
 					                      <button type="submit" id="submit" name="submit" className="btn btns-primary ms-2" onClick={handleSubmit}>Add</button>
 				                     </div>
 			                     </div>
 		                     </div>
-      
                     </form>
                 </div>
             </div>

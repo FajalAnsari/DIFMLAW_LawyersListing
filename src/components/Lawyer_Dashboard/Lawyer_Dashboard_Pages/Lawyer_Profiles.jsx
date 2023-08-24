@@ -202,8 +202,6 @@ const handleUpdate = async (e) => {
    
 ); 
 
-
-
   })
 
   const taskDocRef = doc(db,"lawyers", setUserId);
@@ -220,8 +218,7 @@ const handleUpdate = async (e) => {
       image: url,
       address: location,
       summary: bio,
-      photos:multiImages
-      
+      photos:multiImages,
     }).then(() => {
       alert("Document successfully updated!");
     })

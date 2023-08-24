@@ -30,6 +30,10 @@ import corporate_law from "./corporate_law.svg";
 import employment_law from "./employment_law.svg";
 import real_estate_law from "./real_estate_law.svg";
 import property_law from "./property_law.svg";
+import our_Mission from "./Our Mission.png";
+import our_Promises from "./Our Promise.png";
+import User_friendly_platform from "./User-Friendly Platform.png";
+import Commited_to_your_work from "./Committed to Your Needs.png";
 
 
 export {
@@ -65,5 +69,10 @@ export {
          employment_law,
          real_estate_law,
          property_law,
+         our_Mission,
+         our_Promises,
+         User_friendly_platform,
+         Commited_to_your_work
+
         
 }

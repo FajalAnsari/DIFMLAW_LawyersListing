@@ -7,11 +7,38 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase";
 import { auth } from "../../firebase";
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import "../form/form.css";
 
 
 const Signup = () => {
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [address, setAddress] = useState("");
+
+  // to get current location
+  const searchLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      setLatitude(lat);
+      setLongitude(lng);
+
+      const geocoder = new window.google.maps.Geocoder();
+      const latLng = new window.google.maps.LatLng(lat, lng);
+      geocoder.geocode({ location: latLng }, (results, status) => {
+        if (status === 'OK') {
+          if (results[0]) {
+            setAddress(results[0].formatted_address);
+          }
+        } else {
+          console.error('Geocoder failed due to: ' + status);
+        }
+      });
+    });
+  }
+    
   const [setUserErr] = useState("");
   const navigate = useNavigate();
   const [isLawyer, setIsLawyer] = useState(true);
@@ -132,6 +159,7 @@ const Signup = () => {
                       authProvider: "local",
                       email: email,
                       number: phone,
+
                       experience: experience,
                       specialization: specialization,
                       address: location,
@@ -197,7 +225,7 @@ const Signup = () => {
               authProvider: "local",
               email: emails,
               number: number,
-              address: state,
+              address: address || state,
               image: 'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png',
               date: serverTimestamp()
             });
@@ -322,7 +350,7 @@ const Signup = () => {
                     <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
                       <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." style={{ textTransform: 'capitalize' }} value={location} onChange={(e) => { setLocation(e.target.value) }} />
-                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-geo-alt-fill"></i></span>
+                      <span class="input-group-text btns-primary border-prime" onClick={searchLocation} ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
                   <div class="col-md-6 mt-3">
@@ -453,8 +481,8 @@ const Signup = () => {
                   <div class="col-md-6 mt-4">
                     <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={state} onChange={(e) => setState(e.target.value)} />
-                      <span class="input-group-text btns-primary border-prime" ><i class="bi bi-geo-alt-fill"></i></span>
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={address || state} onChange={(e) => setState(e.target.value)} />
+                      <span class="input-group-text btns-primary border-prime" onClick={searchLocation} ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
 
@@ -509,6 +537,16 @@ const Signup = () => {
             </>
           )}
         </div>
+        {/* for get current location */}
+        <LoadScript googleMapsApiKey="AIzaSyAsS5A6zN5BFeOd6x-aTeIB88pxczDv2vI">
+          <GoogleMap
+            zoom={13}
+            center={{ lat: latitude, lng: longitude }}
+          >
+            <Marker position={{ lat: latitude, lng: longitude }} />
+          </GoogleMap>
+        </LoadScript>
+        {/* for get current location */}
       </div>
     </>
   );
