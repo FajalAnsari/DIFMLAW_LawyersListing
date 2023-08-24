@@ -132,7 +132,7 @@ const Signup = () => {
       !phone ||
       !experience ||
       !specialization ||
-      !location ||
+      (!location && !address) || 
       !work ||
       !picture ||
       !bio ||
@@ -233,7 +233,7 @@ const Signup = () => {
       !name ||
       !emails ||
       !number ||
-      !state ||
+      (!state && !addres ) ||
       !pass ||
       !confirmPass
     ) {
