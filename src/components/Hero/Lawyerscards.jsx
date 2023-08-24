@@ -7,6 +7,8 @@ import "./Lawyerscards.css";
 import "../images/DIFM_LAW_bgcolor_mobile.jpg"
 
 const Lawyerscards = () => {
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
   const navigate = useNavigate();
   const [limit] = useState(8);
   // const [rate, setrate] = useState("");
@@ -64,16 +66,50 @@ const Lawyerscards = () => {
 
   useEffect(() => {
     fetchPost();
+    allADD();
     // ratings();
   }, []);
 
   const slice = lawyers.slice(0, limit);
+  
 
   function scrollToTop() {
     window.scrollTo(0, 0);
   }
+// fetch the lawyer only state and city
+const fetchCityAndStateFromAddress = (address) => {
+  const geocoder = new window.google.maps.Geocoder();
+  geocoder.geocode({ address }, (results, status) => {
+    if (status === 'OK') {
+      if (results[0]) {
+        const components = results[0].address_components;
+        const cityComponent = components.find(comp => comp.types.includes('locality'));
+        const stateComponent = components.find(comp => comp.types.includes('administrative_area_level_1'));
+        
+        setCity(cityComponent ? cityComponent.long_name : '');
+        setState(stateComponent ? stateComponent.long_name : '');
+      }
+    } else {
+      console.error('Geocoder failed due to: ' + status);
+    }
+  });
+};
+
+// Assuming slice is an array with data objects containing 'address' property
+const allADD = () => {
+  slice.forEach(item => {
+    console.log(item.address);
+    // if (item.address) {
+      fetchCityAndStateFromAddress(item.address);
+      // console.log(item.data.address);
+      console.log(city);
+    // }
+  });
 
   
+}
+
+
   return (
     <>
       {/* Lawyers featured */}
@@ -123,7 +159,7 @@ const Lawyerscards = () => {
                 </div>
                 <div className="col-lg-8 col-sm-8 col-8">
                   <p className="fs-6 mb-0 pb-1 h6">{data.username}</p>
-                  <p className="city mb-0 pb-1"><i class="bi bi-geo-alt"></i> {data.address}</p>
+                  <p className="city mb-0 pb-1"><i class="bi bi-geo-alt"></i> {data.address }</p>
                   <p className='fs-6 city'>
                     {[...Array(5)].map((star, index) => (
                       <p key={index} className="fw-bold fs-6" style={{ display: 'inline' }}>

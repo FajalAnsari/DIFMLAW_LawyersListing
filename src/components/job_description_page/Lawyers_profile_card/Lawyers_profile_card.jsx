@@ -17,6 +17,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Lawyer_location_map from "./Lawyer_location_map";
 
 const Lawyers_profile_card = () => {
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
   const [userRole, setUserRole] = useState(null);
   const [rating,setRating] = useState([]);
   const [user] = useAuthState(auth); 
@@ -60,7 +62,6 @@ const Lawyers_profile_card = () => {
     //   Navigate('/');
     // }
   }
-
 
   // getting current user uid
   function GetLawyerUid() {
@@ -129,7 +130,32 @@ setRating(specificLawyerRating.toFixed(2));
 console.log("Average User Rating for Specific Lawyer:", specificLawyerRating.toFixed(2));
 
 }
+
+// fetch the lawyer only state and city
+const fetchCityAndStateFromAddress = (address) => {
+  if (window.google && window.google.maps) {
+    // Your code that uses the Google Maps API
+    const geocoder = new window.google.maps.Geocoder();
+    geocoder.geocode({ address }, (results, status) => {
+      if (status === 'OK') {
+        if (results[0]) {
+          const components = results[0].address_components;
+          const cityComponent = components.find(comp => comp.types.includes('locality'));
+          const stateComponent = components.find(comp => comp.types.includes('administrative_area_level_1'));
+          
+          setCity(cityComponent ? cityComponent.long_name : '');
+          setState(stateComponent ? stateComponent.long_name : '');
+        }
+      } else {
+        console.error('Geocoder failed due to: ' + status);
+      }
+    });
+  } else {
+    console.error('Google Maps API is not loaded.');
+  }
   
+};
+fetchCityAndStateFromAddress (data.address);
   return (
    
     <div className="container" style={{marginTop:"80px"}}>
@@ -144,7 +170,7 @@ console.log("Average User Rating for Specific Lawyer:", specificLawyerRating.toF
                 </div>
                 <div className="col-lg-6 col-xs-12">
                   <p className="fs-5 fw-bold mb-2">{data.username}</p>
-                  <p className="fs-6 mb-2 laywer_city">{data.address || "N/A"}</p>
+                  <p className="fs-6 mb-2 laywer_city">{(city && state) ? `${city}, ${state}` : "N/A"}</p>
                   <p className="fs-6 laywer_exp fw-bold">
                   {data.experience || "N/A"} 
                   </p>
@@ -177,7 +203,7 @@ console.log("Average User Rating for Specific Lawyer:", specificLawyerRating.toF
           </div>
 
           {/* lawyer personal information card start */}
-          <Lawyers_personal_information Phone={data.number} Email={data.email} Work={data.work} Address={data.address}/>
+          <Lawyers_personal_information Phone={data.number} Email={data.email} Work={data.work} Address={`${city}, ${state}`} />
           {/* lawyer personal information card end */}
 
           {/* expertise and services start */}
