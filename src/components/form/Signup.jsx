@@ -16,8 +16,10 @@ const Signup = () => {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [address, setAddress] = useState("");
+  const [addres, setAddres] = useState("");
 
-  // to get current location
+
+  // to get current location for lawyer
   const searchLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const lat = position.coords.latitude;
@@ -31,6 +33,7 @@ const Signup = () => {
         if (status === 'OK') {
           if (results[0]) {
             setAddress(results[0].formatted_address);
+        
           }
         } else {
           console.error('Geocoder failed due to: ' + status);
@@ -38,8 +41,31 @@ const Signup = () => {
       });
     });
   }
-    
-  const [setUserErr] = useState("");
+    // to get current location for user
+  const searchLocations = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      setLatitude(lat);
+      setLongitude(lng);
+
+      const geocoder = new window.google.maps.Geocoder();
+      const latLng = new window.google.maps.LatLng(lat, lng);
+      geocoder.geocode({ location: latLng }, (results, status) => {
+        if (status === 'OK') {
+          if (results[0]) {
+           
+            setAddres(results[0].formatted_address);
+
+          }
+        } else {
+          console.error('Geocoder failed due to: ' + status);
+        }
+      });
+    });
+  }
+  
+
   const navigate = useNavigate();
   const [isLawyer, setIsLawyer] = useState(true);
   const [isUser, setIsUser] = useState(false);
@@ -162,7 +188,7 @@ const Signup = () => {
 
                       experience: experience,
                       specialization: specialization,
-                      address: location,
+                      address: address || location,
                       work: work,
                       summary: bio,
                       image: url,
@@ -225,7 +251,7 @@ const Signup = () => {
               authProvider: "local",
               email: emails,
               number: number,
-              address: address || state,
+              address: addres || state,
               image: 'https://www.dlf.pt/dfpng/middlepng/569-5693658_dummy-user-image-png-transparent-png.png',
               date: serverTimestamp()
             });
@@ -318,6 +344,7 @@ const Signup = () => {
                         <option value="2 Year">2 Years</option>
                         <option value="3 Year">3 Years</option>
                         <option value="4 Year">4 Years</option>
+
                         <option value="5 Year">5 Years</option>
                         <option value="6 Year">6 Years</option>
                         <option value="7 Year">7 Years</option>
@@ -349,7 +376,7 @@ const Signup = () => {
                   <div class="col-md-6 mt-3">
                     <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." style={{ textTransform: 'capitalize' }} value={location} onChange={(e) => { setLocation(e.target.value) }} />
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." style={{ textTransform: 'capitalize' }} value={ address || location} onChange={(e) => { setLocation(e.target.value) }} />
                       <span class="input-group-text btns-primary border-prime" onClick={searchLocation} ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
@@ -481,8 +508,8 @@ const Signup = () => {
                   <div class="col-md-6 mt-4">
                     <label className="small mb-1 text-white" for="inputWork">Location</label>
                     <div class="input-group mbs">
-                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={address || state} onChange={(e) => setState(e.target.value)} />
-                      <span class="input-group-text btns-primary border-prime" onClick={searchLocation} ><i class="bi bi-geo-alt-fill"></i></span>
+                      <input className="form-control contect-bgColors" id="inputWor" type="text" placeholder="Location, country, city, state..." value={addres || state} onChange={(e) => setState(e.target.value)} />
+                      <span class="input-group-text btns-primary border-prime" onClick={searchLocations} ><i class="bi bi-geo-alt-fill"></i></span>
                     </div>
                   </div>
 
