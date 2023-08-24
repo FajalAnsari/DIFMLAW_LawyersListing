@@ -132,7 +132,7 @@ const Signup = () => {
       !phone ||
       !experience ||
       !specialization ||
-      !location ||
+      (!location && !address) || 
       !work ||
       !picture ||
       !bio ||
@@ -185,7 +185,6 @@ const Signup = () => {
                       authProvider: "local",
                       email: email,
                       number: phone,
-
                       experience: experience,
                       specialization: specialization,
                       address: address || location,
@@ -234,7 +233,7 @@ const Signup = () => {
       !name ||
       !emails ||
       !number ||
-      !state ||
+      (!state && !addres ) ||
       !pass ||
       !confirmPass
     ) {
